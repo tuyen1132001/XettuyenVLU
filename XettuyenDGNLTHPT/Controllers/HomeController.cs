@@ -8,7 +8,7 @@ namespace XettuyenDGNLTHPT.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index() //Form Dang ky THTP QG
         {
             return View();
         }

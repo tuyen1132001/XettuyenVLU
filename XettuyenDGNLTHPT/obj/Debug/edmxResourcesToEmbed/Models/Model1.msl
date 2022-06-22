@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="XettuyenVLUModelStoreContainer" CdmEntityContainer="XettuyenVLUEntities">
+    <EntitySetMapping Name="tblChungChiNNs">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblChungChiNN">
+        <MappingFragment StoreEntitySet="tblChungChiNN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaNN" ColumnName="MaNN" />
+          <ScalarProperty Name="ChungChi" ColumnName="ChungChi" />
+          <ScalarProperty Name="DiemQuiDoi" ColumnName="DiemQuiDoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDanTocs">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblDanToc">
+        <MappingFragment StoreEntitySet="tblDanToc">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MA_DANTOC" ColumnName="MA_DANTOC" />
+          <ScalarProperty Name="TEN_DANTOC" ColumnName="TEN_DANTOC" />
+          <ScalarProperty Name="DIEN_GIAI" ColumnName="DIEN_GIAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHoSoDGNLs">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblHoSoDGNL">
+        <MappingFragment StoreEntitySet="tblHoSoDGNL">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="MaNoiSinh" ColumnName="MaNoiSinh" />
+          <ScalarProperty Name="TenNoiSinh" ColumnName="TenNoiSinh" />
+          <ScalarProperty Name="MaDanToc" ColumnName="MaDanToc" />
+          <ScalarProperty Name="TenDanToc" ColumnName="TenDanToc" />
+          <ScalarProperty Name="MaTonGiao" ColumnName="MaTonGiao" />
+          <ScalarProperty Name="TenTonGiao" ColumnName="TenTonGiao" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="QuocTich" ColumnName="QuocTich" />
+          <ScalarProperty Name="HoKhau" ColumnName="HoKhau" />
+          <ScalarProperty Name="HoKhau_MaPhuong" ColumnName="HoKhau_MaPhuong" />
+          <ScalarProperty Name="HoKhau_TenPhuong" ColumnName="HoKhau_TenPhuong" />
+          <ScalarProperty Name="HoKhau_MaTinhTP" ColumnName="HoKhau_MaTinhTP" />
+          <ScalarProperty Name="HoKhau_TenTinhTP" ColumnName="HoKhau_TenTinhTP" />
+          <ScalarProperty Name="HoKhau_MaQH" ColumnName="HoKhau_MaQH" />
+          <ScalarProperty Name="HoKhau_TenQH" ColumnName="HoKhau_TenQH" />
+          <ScalarProperty Name="NamTotNghiep" ColumnName="NamTotNghiep" />
+          <ScalarProperty Name="SoBaoDanh" ColumnName="SoBaoDanh" />
+          <ScalarProperty Name="HocLucLop12" ColumnName="HocLucLop12" />
+          <ScalarProperty Name="HanhKiemLop12" ColumnName="HanhKiemLop12" />
+          <ScalarProperty Name="LoaiHinhTN" ColumnName="LoaiHinhTN" />
+          <ScalarProperty Name="TruongTHPT_MaTinhTP" ColumnName="TruongTHPT_MaTinhTP" />
+          <ScalarProperty Name="TruongTHPT_TenTinhTP" ColumnName="TruongTHPT_TenTinhTP" />
+          <ScalarProperty Name="TruongTHPT_MaQH" ColumnName="TruongTHPT_MaQH" />
+          <ScalarProperty Name="TruongTHPT_TenQH" ColumnName="TruongTHPT_TenQH" />
+          <ScalarProperty Name="TenTruongTHPT" ColumnName="TenTruongTHPT" />
+          <ScalarProperty Name="MaTruongTHPT" ColumnName="MaTruongTHPT" />
+          <ScalarProperty Name="TenLop12" ColumnName="TenLop12" />
+          <ScalarProperty Name="KhuVuc" ColumnName="KhuVuc" />
+          <ScalarProperty Name="DiemDGNL" ColumnName="DiemDGNL" />
+          <ScalarProperty Name="TGThiDGNL" ColumnName="TGThiDGNL" />
+          <ScalarProperty Name="DoiTuongUuTien" ColumnName="DoiTuongUuTien" />
+          <ScalarProperty Name="CCNN" ColumnName="CCNN" />
+          <ScalarProperty Name="MaNganh_ToHop1" ColumnName="MaNganh_ToHop1" />
+          <ScalarProperty Name="TenNganh_TenToHop1" ColumnName="TenNganh_TenToHop1" />
+          <ScalarProperty Name="MaNganh_ToHop2" ColumnName="MaNganh_ToHop2" />
+          <ScalarProperty Name="TenNganh_TenToHop2" ColumnName="TenNganh_TenToHop2" />
+          <ScalarProperty Name="MaNganh_ToHop3" ColumnName="MaNganh_ToHop3" />
+          <ScalarProperty Name="TenNganh_TenToHop3" ColumnName="TenNganh_TenToHop3" />
+          <ScalarProperty Name="CTCT" ColumnName="CTCT" />
+          <ScalarProperty Name="CTDB" ColumnName="CTDB" />
+          <ScalarProperty Name="LienLac_DiaChi" ColumnName="LienLac_DiaChi" />
+          <ScalarProperty Name="LienLac_MaPhuongXa" ColumnName="LienLac_MaPhuongXa" />
+          <ScalarProperty Name="LienLac_TenPhuongXa" ColumnName="LienLac_TenPhuongXa" />
+          <ScalarProperty Name="LienLac_MaTP" ColumnName="LienLac_MaTP" />
+          <ScalarProperty Name="LienLac_TenTP" ColumnName="LienLac_TenTP" />
+          <ScalarProperty Name="LienLac_MaQH" ColumnName="LienLac_MaQH" />
+          <ScalarProperty Name="LienLac_TenQH" ColumnName="LienLac_TenQH" />
+          <ScalarProperty Name="DienThoaiDD" ColumnName="DienThoaiDD" />
+          <ScalarProperty Name="DienThoaiPhuHuynh" ColumnName="DienThoaiPhuHuynh" />
+          <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+          <ScalarProperty Name="DateEdited" ColumnName="DateEdited" />
+          <ScalarProperty Name="DaNhanHoSo" ColumnName="DaNhanHoSo" />
+          <ScalarProperty Name="DiemVeMyThuat" ColumnName="DiemVeMyThuat" />
+          <ScalarProperty Name="DiemVeNangKhieu" ColumnName="DiemVeNangKhieu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHoSoTHPTs">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblHoSoTHPT">
+        <MappingFragment StoreEntitySet="tblHoSoTHPT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="MaNoiSinh" ColumnName="MaNoiSinh" />
+          <ScalarProperty Name="TenNoiSinh" ColumnName="TenNoiSinh" />
+          <ScalarProperty Name="MaDanToc" ColumnName="MaDanToc" />
+          <ScalarProperty Name="TenDanToc" ColumnName="TenDanToc" />
+          <ScalarProperty Name="MaTonGiao" ColumnName="MaTonGiao" />
+          <ScalarProperty Name="TenTonGiao" ColumnName="TenTonGiao" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="QuocTich" ColumnName="QuocTich" />
+          <ScalarProperty Name="HoKhau" ColumnName="HoKhau" />
+          <ScalarProperty Name="HoKhau_MaPhuong" ColumnName="HoKhau_MaPhuong" />
+          <ScalarProperty Name="HoKhau_TenPhuong" ColumnName="HoKhau_TenPhuong" />
+          <ScalarProperty Name="HoKhau_MaTinhTP" ColumnName="HoKhau_MaTinhTP" />
+          <ScalarProperty Name="HoKhau_TenTinhTP" ColumnName="HoKhau_TenTinhTP" />
+          <ScalarProperty Name="HoKhau_MaQH" ColumnName="HoKhau_MaQH" />
+          <ScalarProperty Name="HoKhau_TenQH" ColumnName="HoKhau_TenQH" />
+          <ScalarProperty Name="NamTotNghiep" ColumnName="NamTotNghiep" />
+          <ScalarProperty Name="SoBaoDanh" ColumnName="SoBaoDanh" />
+          <ScalarProperty Name="HocLucLop12" ColumnName="HocLucLop12" />
+          <ScalarProperty Name="HanhKiemLop12" ColumnName="HanhKiemLop12" />
+          <ScalarProperty Name="LoaiHinhTN" ColumnName="LoaiHinhTN" />
+          <ScalarProperty Name="TruongTHPT_MaTinhTP" ColumnName="TruongTHPT_MaTinhTP" />
+          <ScalarProperty Name="TruongTHPT_TenTinhTP" ColumnName="TruongTHPT_TenTinhTP" />
+          <ScalarProperty Name="TruongTHPT_MaQH" ColumnName="TruongTHPT_MaQH" />
+          <ScalarProperty Name="TruongTHPT_TenQH" ColumnName="TruongTHPT_TenQH" />
+          <ScalarProperty Name="TenTruongTHPT" ColumnName="TenTruongTHPT" />
+          <ScalarProperty Name="MaTruongTHPT" ColumnName="MaTruongTHPT" />
+          <ScalarProperty Name="TenLop12" ColumnName="TenLop12" />
+          <ScalarProperty Name="KhuVuc" ColumnName="KhuVuc" />
+          <ScalarProperty Name="DoiTuongUuTien" ColumnName="DoiTuongUuTien" />
+          <ScalarProperty Name="Toan" ColumnName="Toan" />
+          <ScalarProperty Name="Van" ColumnName="Van" />
+          <ScalarProperty Name="Anh" ColumnName="Anh" />
+          <ScalarProperty Name="Phap" ColumnName="Phap" />
+          <ScalarProperty Name="Ly" ColumnName="Ly" />
+          <ScalarProperty Name="Hoa" ColumnName="Hoa" />
+          <ScalarProperty Name="Sinh" ColumnName="Sinh" />
+          <ScalarProperty Name="Su" ColumnName="Su" />
+          <ScalarProperty Name="Dia" ColumnName="Dia" />
+          <ScalarProperty Name="GDCD" ColumnName="GDCD" />
+          <ScalarProperty Name="CCNN" ColumnName="CCNN" />
+          <ScalarProperty Name="MaNganh_ToHop1" ColumnName="MaNganh_ToHop1" />
+          <ScalarProperty Name="TenNganh_TenToHop1" ColumnName="TenNganh_TenToHop1" />
+          <ScalarProperty Name="MaNganh_ToHop2" ColumnName="MaNganh_ToHop2" />
+          <ScalarProperty Name="TenNganh_TenToHop2" ColumnName="TenNganh_TenToHop2" />
+          <ScalarProperty Name="MaNganh_ToHop3" ColumnName="MaNganh_ToHop3" />
+          <ScalarProperty Name="TenNganh_TenToHop3" ColumnName="TenNganh_TenToHop3" />
+          <ScalarProperty Name="LienLac_DiaChi" ColumnName="LienLac_DiaChi" />
+          <ScalarProperty Name="LienLac_MaPhuongXa" ColumnName="LienLac_MaPhuongXa" />
+          <ScalarProperty Name="LienLac_TenPhuongXa" ColumnName="LienLac_TenPhuongXa" />
+          <ScalarProperty Name="LienLac_MaTP" ColumnName="LienLac_MaTP" />
+          <ScalarProperty Name="LienLac_TenTP" ColumnName="LienLac_TenTP" />
+          <ScalarProperty Name="LienLac_MaQH" ColumnName="LienLac_MaQH" />
+          <ScalarProperty Name="LienLac_TenQH" ColumnName="LienLac_TenQH" />
+          <ScalarProperty Name="DienThoaiDD" ColumnName="DienThoaiDD" />
+          <ScalarProperty Name="DienThoaiPhuHuynh" ColumnName="DienThoaiPhuHuynh" />
+          <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+          <ScalarProperty Name="DateEdited" ColumnName="DateEdited" />
+          <ScalarProperty Name="DaNhanHoSo" ColumnName="DaNhanHoSo" />
+          <ScalarProperty Name="DiemVeMyThuat" ColumnName="DiemVeMyThuat" />
+          <ScalarProperty Name="DiemVeNangKhieu" ColumnName="DiemVeNangKhieu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNganhs">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblNganh">
+        <MappingFragment StoreEntitySet="tblNganh">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MANGANH_TOHOP" ColumnName="MANGANH_TOHOP" />
+          <ScalarProperty Name="MA_NGANH" ColumnName="MA_NGANH" />
+          <ScalarProperty Name="TEN_NGANH" ColumnName="TEN_NGANH" />
+          <ScalarProperty Name="MA_TOHOP" ColumnName="MA_TOHOP" />
+          <ScalarProperty Name="TEN_TOHOP" ColumnName="TEN_TOHOP" />
+          <ScalarProperty Name="CTTC" ColumnName="CTTC" />
+          <ScalarProperty Name="CTDB" ColumnName="CTDB" />
+          <ScalarProperty Name="CTTT" ColumnName="CTTT" />
+          <ScalarProperty Name="FLAG" ColumnName="FLAG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblQuocTiches">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblQuocTich">
+        <MappingFragment StoreEntitySet="tblQuocTich">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaQT" ColumnName="MaQT" />
+          <ScalarProperty Name="TenQT" ColumnName="TenQT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTinhTPs">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTinhTP">
+        <MappingFragment StoreEntitySet="tblTinhTP">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MA_TINHTP" ColumnName="MA_TINHTP" />
+          <ScalarProperty Name="TEN_TINHTP" ColumnName="TEN_TINHTP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTonGiaos">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTonGiao">
+        <MappingFragment StoreEntitySet="tblTonGiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MA_TONGIAO" ColumnName="MA_TONGIAO" />
+          <ScalarProperty Name="TEN_TONGIAO" ColumnName="TEN_TONGIAO" />
+          <ScalarProperty Name="DIENGIAI" ColumnName="DIENGIAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTP_QH_PX">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTP_QH_PX">
+        <MappingFragment StoreEntitySet="tblTP_QH_PX">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenTinhTP" ColumnName="TenTinhTP" />
+          <ScalarProperty Name="MaTinhTP" ColumnName="MaTinhTP" />
+          <ScalarProperty Name="TenQH" ColumnName="TenQH" />
+          <ScalarProperty Name="MaQH" ColumnName="MaQH" />
+          <ScalarProperty Name="TenPX" ColumnName="TenPX" />
+          <ScalarProperty Name="MaPX" ColumnName="MaPX" />
+          <ScalarProperty Name="Cap" ColumnName="Cap" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTruongTHPTs">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTruongTHPT">
+        <MappingFragment StoreEntitySet="tblTruongTHPT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MA_TPTRUONG" ColumnName="MA_TPTRUONG" />
+          <ScalarProperty Name="MA_TINHTP" ColumnName="MA_TINHTP" />
+          <ScalarProperty Name="TEN_TINHTP" ColumnName="TEN_TINHTP" />
+          <ScalarProperty Name="MA_QH" ColumnName="MA_QH" />
+          <ScalarProperty Name="TEN_QH" ColumnName="TEN_QH" />
+          <ScalarProperty Name="MA_TRUONG" ColumnName="MA_TRUONG" />
+          <ScalarProperty Name="TEN_TRUONG" ColumnName="TEN_TRUONG" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="KHU_VUC" ColumnName="KHU_VUC" />
+          <ScalarProperty Name="LOAI_TRUONG" ColumnName="LOAI_TRUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="XettuyenVLUModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
