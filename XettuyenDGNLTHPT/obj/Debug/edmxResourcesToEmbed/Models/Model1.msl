@@ -14,7 +14,6 @@
     <EntitySetMapping Name="tblDanTocs">
       <EntityTypeMapping TypeName="XettuyenVLUModel.tblDanToc">
         <MappingFragment StoreEntitySet="tblDanToc">
-          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MA_DANTOC" ColumnName="MA_DANTOC" />
           <ScalarProperty Name="TEN_DANTOC" ColumnName="TEN_DANTOC" />
           <ScalarProperty Name="DIEN_GIAI" ColumnName="DIEN_GIAI" />
@@ -185,7 +184,6 @@
     <EntitySetMapping Name="tblTinhTPs">
       <EntityTypeMapping TypeName="XettuyenVLUModel.tblTinhTP">
         <MappingFragment StoreEntitySet="tblTinhTP">
-          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MA_TINHTP" ColumnName="MA_TINHTP" />
           <ScalarProperty Name="TEN_TINHTP" ColumnName="TEN_TINHTP" />
         </MappingFragment>
@@ -194,25 +192,9 @@
     <EntitySetMapping Name="tblTonGiaos">
       <EntityTypeMapping TypeName="XettuyenVLUModel.tblTonGiao">
         <MappingFragment StoreEntitySet="tblTonGiao">
-          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MA_TONGIAO" ColumnName="MA_TONGIAO" />
           <ScalarProperty Name="TEN_TONGIAO" ColumnName="TEN_TONGIAO" />
           <ScalarProperty Name="DIENGIAI" ColumnName="DIENGIAI" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tblTP_QH_PX">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTP_QH_PX">
-        <MappingFragment StoreEntitySet="tblTP_QH_PX">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="TenTinhTP" ColumnName="TenTinhTP" />
-          <ScalarProperty Name="MaTinhTP" ColumnName="MaTinhTP" />
-          <ScalarProperty Name="TenQH" ColumnName="TenQH" />
-          <ScalarProperty Name="MaQH" ColumnName="MaQH" />
-          <ScalarProperty Name="TenPX" ColumnName="TenPX" />
-          <ScalarProperty Name="MaPX" ColumnName="MaPX" />
-          <ScalarProperty Name="Cap" ColumnName="Cap" />
-          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -230,6 +212,20 @@
           <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
           <ScalarProperty Name="KHU_VUC" ColumnName="KHU_VUC" />
           <ScalarProperty Name="LOAI_TRUONG" ColumnName="LOAI_TRUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTP_QH_PX">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTP_QH_PX">
+        <MappingFragment StoreEntitySet="tblTP_QH_PX">
+          <ScalarProperty Name="TenTinhTP" ColumnName="TenTinhTP" />
+          <ScalarProperty Name="MaTinhTP" ColumnName="MaTinhTP" />
+          <ScalarProperty Name="TenQH" ColumnName="TenQH" />
+          <ScalarProperty Name="MaQH" ColumnName="MaQH" />
+          <ScalarProperty Name="TenPX" ColumnName="TenPX" />
+          <ScalarProperty Name="MaPX" ColumnName="MaPX" />
+          <ScalarProperty Name="Cap" ColumnName="Cap" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

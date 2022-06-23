@@ -33,8 +33,8 @@ namespace XettuyenDGNLTHPT.Models
         public virtual DbSet<tblQuocTich> tblQuocTiches { get; set; }
         public virtual DbSet<tblTinhTP> tblTinhTPs { get; set; }
         public virtual DbSet<tblTonGiao> tblTonGiaos { get; set; }
-        public virtual DbSet<tblTP_QH_PX> tblTP_QH_PX { get; set; }
         public virtual DbSet<tblTruongTHPT> tblTruongTHPTs { get; set; }
+        public virtual DbSet<tblTP_QH_PX> tblTP_QH_PX { get; set; }
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }

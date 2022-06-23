@@ -12,7 +12,13 @@ namespace XettuyenDGNLTHPT.Controllers
         XettuyenVLUEntities model = new XettuyenVLUEntities();
         public ActionResult Index() //Form Dang ky THTP QG
         {
-            return View();
+            var HoSoTHPT = new tblHoSoTHPT();
+            ViewBag.QuocTich = new SelectList(model.tblQuocTiches, "ID", "TenQT");
+            ViewBag.DanToc = new SelectList(model.tblDanTocs, "MA_DANTOC", "TEN_DANTOC");
+            ViewBag.TonGiao = new SelectList(model.tblTonGiaos, "MA_TONGIAO", "TEN_TONGIAO");
+            ViewBag.TinhTP = new SelectList(model.tblTinhTPs, "MA_TINHTP", "TEN_TINHTP");
+            
+            return View(HoSoTHPT);
         }
         [HttpPost]
         public ActionResult Index(tblHoSoTHPT tblHoSoTHPT) //Form Dang ky THTP QG

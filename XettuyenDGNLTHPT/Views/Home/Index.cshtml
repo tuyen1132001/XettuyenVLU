@@ -1,6 +1,551 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model XettuyenDGNLTHPT.Models.tblHoSoTHPT
+
+@{
+    ViewBag.Title = "xettuyenthpt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h2>xettuyenthpt</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>tblHoSoTHPT</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoVaTen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HoVaTen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoVaTen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GioiTinh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.GioiTinh)
+                    @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NgaySinh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaNoiSinh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaNoiSinh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaNoiSinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenNoiSinh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TinhTP", (IEnumerable<SelectListItem>)ViewBag.TinhTP, null, new { @class = "form-control" })
+                @*@Html.EditorFor(model => model.TenNoiSinh, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.TenNoiSinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaDanToc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaDanToc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaDanToc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenDanToc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DanToc", (IEnumerable<SelectListItem>)ViewBag.DanToc, null, new { @class = "form-control" })
+                @*@Html.EditorFor(model => model.TenDanToc, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.TenDanToc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaTonGiao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaTonGiao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaTonGiao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenTonGiao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenTonGiao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenTonGiao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CMND, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuocTich, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("QuocTich", (IEnumerable<SelectListItem>)ViewBag.QuocTich, null, new { @class = "form-control" })
+
+                @* @Html.DropDownList("Quoc Tich", new SelectList(ViewBag.QuocTich, "ID", "TenQT"))*@
+                @*@Html.DropDownList(model => model.QuocTich, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.QuocTich, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoKhau, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HoKhau, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoKhau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoKhau_MaPhuong, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HoKhau_MaPhuong, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoKhau_MaPhuong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoKhau_TenPhuong, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HoKhau_TenPhuong, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoKhau_TenPhuong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoKhau_MaTinhTP, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HoKhau_MaTinhTP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoKhau_MaTinhTP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoKhau_TenTinhTP, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HoKhau_TenTinhTP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoKhau_TenTinhTP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoKhau_MaQH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HoKhau_MaQH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoKhau_MaQH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoKhau_TenQH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HoKhau_TenQH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoKhau_TenQH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NamTotNghiep, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NamTotNghiep, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NamTotNghiep, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoBaoDanh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoBaoDanh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoBaoDanh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HocLucLop12, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HocLucLop12, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HocLucLop12, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HanhKiemLop12, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HanhKiemLop12, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HanhKiemLop12, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LoaiHinhTN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LoaiHinhTN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LoaiHinhTN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TruongTHPT_MaTinhTP, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TruongTHPT_MaTinhTP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TruongTHPT_MaTinhTP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TruongTHPT_TenTinhTP, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TruongTHPT_TenTinhTP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TruongTHPT_TenTinhTP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TruongTHPT_MaQH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TruongTHPT_MaQH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TruongTHPT_MaQH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TruongTHPT_TenQH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TruongTHPT_TenQH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TruongTHPT_TenQH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenTruongTHPT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenTruongTHPT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenTruongTHPT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaTruongTHPT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaTruongTHPT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaTruongTHPT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenLop12, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenLop12, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenLop12, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KhuVuc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KhuVuc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KhuVuc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DoiTuongUuTien, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DoiTuongUuTien, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DoiTuongUuTien, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Toan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Toan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Toan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Van, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Van, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Van, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Anh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Anh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Anh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phap, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phap, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ly, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ly, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ly, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Hoa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Hoa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Hoa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sinh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Sinh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Sinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Su, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Su, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Su, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Dia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GDCD, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GDCD, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GDCD, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CCNN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CCNN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaNganh_ToHop1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaNganh_ToHop1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaNganh_ToHop1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenNganh_TenToHop1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenNganh_TenToHop1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaNganh_ToHop2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaNganh_ToHop2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaNganh_ToHop2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenNganh_TenToHop2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenNganh_TenToHop2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaNganh_ToHop3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaNganh_ToHop3, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaNganh_ToHop3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenNganh_TenToHop3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenNganh_TenToHop3, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LienLac_DiaChi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LienLac_DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LienLac_DiaChi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LienLac_MaPhuongXa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LienLac_MaPhuongXa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LienLac_MaPhuongXa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LienLac_TenPhuongXa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LienLac_TenPhuongXa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LienLac_TenPhuongXa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LienLac_MaTP, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LienLac_MaTP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LienLac_MaTP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LienLac_TenTP, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LienLac_TenTP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LienLac_TenTP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LienLac_MaQH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LienLac_MaQH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LienLac_MaQH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LienLac_TenQH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LienLac_TenQH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LienLac_TenQH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DienThoaiDD, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DienThoaiDD, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DienThoaiDD, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DienThoaiPhuHuynh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DienThoaiPhuHuynh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DienThoaiPhuHuynh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateInserted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateInserted, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateInserted, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateEdited, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateEdited, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateEdited, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DaNhanHoSo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DaNhanHoSo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DaNhanHoSo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DiemVeMyThuat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiemVeMyThuat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiemVeMyThuat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DiemVeNangKhieu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiemVeNangKhieu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiemVeNangKhieu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
 <script>
     function checkMark() {
         let pa1 = document.getElementById('rdPhuongAn1');
@@ -140,6 +685,8 @@
         return true;
     }
 </script>
+
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139455606-1"></script>
 <script>
@@ -264,7 +811,8 @@
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-4">Họ và tên<span class="required"> * </span></label>
                                                                 <div class="col-md-5 col-validate">
-                                                                    <input name="txtTenThiSinh" type="text" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />
+                                                                    @Html.EditorFor(model => model.HoVaTen, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @*<input name="txtTenThiSinh" type="text" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />*@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
@@ -272,8 +820,10 @@
                                                                 <div class="col-md-4 col-validate">
                                                                     <div class="radio-list">
                                                                         <label>
-                                                                            <label class="radio-inline"><input id="rdNam" type="radio" name="gGioiTinh" value="rdNam" /><label for="rdNam">Nam</label></label>
-                                                                            <label class="radio-inline"><input id="rdNu" type="radio" name="gGioiTinh" value="rdNu" /><label for="rdNu">Nữ</label></label>
+                                                                            @Html.EditorFor(model => model.GioiTinh)
+                                                                            @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+                                                                            @*<label class="radio-inline"><input id="rdNam" type="radio" name="gGioiTinh" value="rdNam" /><label for="rdNam">Nam</label></label>
+                                                                            <label class="radio-inline"><input id="rdNu" type="radio" name="gGioiTinh" value="rdNu" /><label for="rdNu">Nữ</label></label>*@
                                                                         </label>
                                                                     </div>
                                                                 </div>
@@ -284,10 +834,17 @@
                                                                     <table>
                                                                         <tr>
                                                                             <td>
-                                                                                <input name="txtNgaySinh" type="text" id="txtNgaySinh" class="form-control" required="true" placeholder="21/08/2000" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" style="width:130px;" />
+                                                                                @*<input name="txtNgaySinh" type="text" id="txtNgaySinh" class="form-control" required="true" placeholder="21/08/2000" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" style="width:130px;" />*@
+                                                                                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
                                                                             </td>
                                                                             <td>Nơi sinh<span style="color:red"> * </span></td>
                                                                             <td>
+                                                                                @Html.DropDownList("TinhTP", (IEnumerable<SelectListItem>)ViewBag.TinhTP, null, new { @class = "form-control" })
+                                                                                @*@Html.EditorFor(model => model.TenNoiSinh, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                                @Html.ValidationMessageFor(model => model.TenNoiSinh, "", new { @class = "text-danger" })
+                                                                            </td>
+                                                                            @*<td>
                                                                                 <select name="ddlNoiSinh" id="ddlNoiSinh" class="form-control" required="true">
                                                                                     <option value="">-- Chọn nơi sinh --</option>
                                                                                     <option value="92">Th&#224;nh phố Cần Thơ</option>
@@ -356,110 +913,124 @@
                                                                                     <option value="65">Kh&#225;c (kh&#244;ng thuộc c&#225;c Tỉnh th&#224;nh tr&#234;n)</option>
 
                                                                                 </select>
-                                                                            </td>
+                                                                            </td>*@
                                                                         </tr>
                                                                     </table>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label class="control-label col-md-4">Dân tộc<span class="required"> * </span></label>
-                                                                <div class="col-md-8">
-                                                                    <table>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <select name="ddlDanToc" id="ddlDanToc" class="form-control" required="true">
-                                                                                    <option value="">-- Chọn D&#226;n tộc --</option>
-                                                                                    <option value="01">Kinh</option>
-                                                                                    <option value="02">T&#224;y</option>
-                                                                                    <option value="03">Th&#225;i</option>
-                                                                                    <option value="04">Hoa</option>
-                                                                                    <option value="05">Khơ me</option>
-                                                                                    <option value="06">Mường</option>
-                                                                                    <option value="07">N&#249;ng</option>
-                                                                                    <option value="08">Hm&#244;ng</option>
-                                                                                    <option value="09">Dao</option>
-                                                                                    <option value="10">Ng&#225;i</option>
-                                                                                    <option value="11">S&#225;n Chay</option>
-                                                                                    <option value="12">Chăm</option>
-                                                                                    <option value="13">S&#225;n D&#236;u</option>
-                                                                                    <option value="14">Bru V&#226;n Kiều</option>
-                                                                                    <option value="15">Thổ</option>
-                                                                                    <option value="16">Gi&#225;y</option>
-                                                                                    <option value="17">Cơ Tu</option>
-                                                                                    <option value="18">Khơ M&#250;</option>
-                                                                                    <option value="19">Ta &#244;i</option>
-                                                                                    <option value="20">Kh&#225;ng</option>
-                                                                                    <option value="21">L&#224;o</option>
-                                                                                    <option value="22">La Chi</option>
-                                                                                    <option value="23">Ph&#249; L&#225;</option>
-                                                                                    <option value="24">L&#244; L&#244;</option>
-                                                                                    <option value="25">P&#224; Thẻn</option>
-                                                                                    <option value="26">Cơ Lao</option>
-                                                                                    <option value="27">Bố Y</option>
-                                                                                    <option value="28">Si La</option>
-                                                                                    <option value="29">Pu P&#233;o</option>
-                                                                                    <option value="30">Kh&#225;c</option>
-                                                                                    <option value="31">&#202; Đ&#234;</option>
-                                                                                    <option value="32">Gia Rai</option>
-                                                                                    <option value="33">Ba Na</option>
-                                                                                    <option value="34">Cơ Ho</option>
-                                                                                    <option value="35">Xơ Đăng</option>
-                                                                                    <option value="36">Hr&#234;</option>
-                                                                                    <option value="37">RaGlai</option>
-                                                                                    <option value="38">Mn&#244;ng</option>
-                                                                                    <option value="39">Xti&#234;ng</option>
-                                                                                    <option value="40">Mạ</option>
-                                                                                    <option value="41">Gi&#233;-Tri&#234;ng</option>
-                                                                                    <option value="42">Co</option>
-                                                                                    <option value="43">Chơ Ro</option>
-                                                                                    <option value="44">Xinh Mun</option>
-                                                                                    <option value="45">H&#224; Nh&#236;</option>
-                                                                                    <option value="46">La Hủ</option>
-                                                                                    <option value="47">La ha</option>
-                                                                                    <option value="48">Lự</option>
-                                                                                    <option value="49">Chứt</option>
-                                                                                    <option value="50">Mảng</option>
-                                                                                    <option value="51">Cống</option>
-                                                                                    <option value="52">Rơ Năm</option>
-                                                                                    <option value="53">Br&#226;u</option>
-                                                                                    <option value="54">Ơ Đu</option>
-                                                                                    <option value="55">Chu Ru</option>
+                                                                <label class="control-label col-md-4">
+                                                                    Dân tộc<span class="required"> * </span>
+                                                                    @Html.DropDownList("DanToc", (IEnumerable<SelectListItem>)ViewBag.DanToc, null, new { @class = "form-control" })
+                                                                    @*@Html.EditorFor(model => model.TenDanToc, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                    @Html.ValidationMessageFor(model => model.TenDanToc, "", new { @class = "text-danger" })
+                                                                </label>
+                                                                <label class="control-label col-md-4">
+                                                                    Tôn giáo<span class="required"> * </span>
+                                                                    @Html.DropDownList("TonGiao", (IEnumerable<SelectListItem>)ViewBag.TonGiao, null, new { @class = "form-control" })
+                                                                    @*@Html.EditorFor(model => model.TenDanToc, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                    @Html.ValidationMessageFor(model => model.TenDanToc, "", new { @class = "text-danger" })
+                                                                </label>
+                                                                <!--<div class="col-md-8">-->
+                                                                @*<table>
+            <tr>
+                <td>
+                    <select name="ddlDanToc" id="ddlDanToc" class="form-control" required="true">
+                        <option value="">-- Chọn D&#226;n tộc --</option>
+                        <option value="01">Kinh</option>
+                        <option value="02">T&#224;y</option>
+                        <option value="03">Th&#225;i</option>
+                        <option value="04">Hoa</option>
+                        <option value="05">Khơ me</option>
+                        <option value="06">Mường</option>
+                        <option value="07">N&#249;ng</option>
+                        <option value="08">Hm&#244;ng</option>
+                        <option value="09">Dao</option>
+                        <option value="10">Ng&#225;i</option>
+                        <option value="11">S&#225;n Chay</option>
+                        <option value="12">Chăm</option>
+                        <option value="13">S&#225;n D&#236;u</option>
+                        <option value="14">Bru V&#226;n Kiều</option>
+                        <option value="15">Thổ</option>
+                        <option value="16">Gi&#225;y</option>
+                        <option value="17">Cơ Tu</option>
+                        <option value="18">Khơ M&#250;</option>
+                        <option value="19">Ta &#244;i</option>
+                        <option value="20">Kh&#225;ng</option>
+                        <option value="21">L&#224;o</option>
+                        <option value="22">La Chi</option>
+                        <option value="23">Ph&#249; L&#225;</option>
+                        <option value="24">L&#244; L&#244;</option>
+                        <option value="25">P&#224; Thẻn</option>
+                        <option value="26">Cơ Lao</option>
+                        <option value="27">Bố Y</option>
+                        <option value="28">Si La</option>
+                        <option value="29">Pu P&#233;o</option>
+                        <option value="30">Kh&#225;c</option>
+                        <option value="31">&#202; Đ&#234;</option>
+                        <option value="32">Gia Rai</option>
+                        <option value="33">Ba Na</option>
+                        <option value="34">Cơ Ho</option>
+                        <option value="35">Xơ Đăng</option>
+                        <option value="36">Hr&#234;</option>
+                        <option value="37">RaGlai</option>
+                        <option value="38">Mn&#244;ng</option>
+                        <option value="39">Xti&#234;ng</option>
+                        <option value="40">Mạ</option>
+                        <option value="41">Gi&#233;-Tri&#234;ng</option>
+                        <option value="42">Co</option>
+                        <option value="43">Chơ Ro</option>
+                        <option value="44">Xinh Mun</option>
+                        <option value="45">H&#224; Nh&#236;</option>
+                        <option value="46">La Hủ</option>
+                        <option value="47">La ha</option>
+                        <option value="48">Lự</option>
+                        <option value="49">Chứt</option>
+                        <option value="50">Mảng</option>
+                        <option value="51">Cống</option>
+                        <option value="52">Rơ Năm</option>
+                        <option value="53">Br&#226;u</option>
+                        <option value="54">Ơ Đu</option>
+                        <option value="55">Chu Ru</option>
 
-                                                                                </select>
-                                                                            </td>
-                                                                            <td>Tôn giáo<span style="color:red"> * </span></td>
-                                                                            <td>
-                                                                                <select name="ddlTonGiao" id="ddlTonGiao" class="form-control" required="true">
-                                                                                    <option value="">-- Chọn t&#244;n gi&#225;o --</option>
-                                                                                    <option value="01">Phật Gi&#225;o</option>
-                                                                                    <option value="02">Thi&#234;n Ch&#250;a</option>
-                                                                                    <option value="03">Tin L&#224;nh</option>
-                                                                                    <option value="04">Cao Đ&#224;i</option>
-                                                                                    <option value="05">H&#242;a Hảo</option>
-                                                                                    <option value="06">C&#244;ng Gi&#225;o</option>
-                                                                                    <option value="07">B&#224; La M&#244;n</option>
-                                                                                    <option value="08">Thiền L&#226;m</option>
-                                                                                    <option value="09">Kit&#244; gi&#225;o</option>
-                                                                                    <option value="10">Hồi Gi&#225;o</option>
-                                                                                    <option value="11">Minh sư đạo</option>
-                                                                                    <option value="12">Tịnh độ cư sĩ Phật hội Việt Nam</option>
-                                                                                    <option value="13">Đạo Tứ ấn hiếu nghĩa</option>
-                                                                                    <option value="14">Bửu sơn Kỳ hương</option>
-                                                                                    <option value="15">Ba Ha&#39;i</option>
-                                                                                    <option value="Khong">Kh&#244;ng</option>
+                    </select>
+                </td>
+                <td>Tôn giáo<span style="color:red"> * </span></td>
+                <td>
+                    <select name="ddlTonGiao" id="ddlTonGiao" class="form-control" required="true">
+                        <option value="">-- Chọn t&#244;n gi&#225;o --</option>
+                        <option value="01">Phật Gi&#225;o</option>
+                        <option value="02">Thi&#234;n Ch&#250;a</option>
+                        <option value="03">Tin L&#224;nh</option>
+                        <option value="04">Cao Đ&#224;i</option>
+                        <option value="05">H&#242;a Hảo</option>
+                        <option value="06">C&#244;ng Gi&#225;o</option>
+                        <option value="07">B&#224; La M&#244;n</option>
+                        <option value="08">Thiền L&#226;m</option>
+                        <option value="09">Kit&#244; gi&#225;o</option>
+                        <option value="10">Hồi Gi&#225;o</option>
+                        <option value="11">Minh sư đạo</option>
+                        <option value="12">Tịnh độ cư sĩ Phật hội Việt Nam</option>
+                        <option value="13">Đạo Tứ ấn hiếu nghĩa</option>
+                        <option value="14">Bửu sơn Kỳ hương</option>
+                        <option value="15">Ba Ha&#39;i</option>
+                        <option value="Khong">Kh&#244;ng</option>
 
-                                                                                </select>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </div>
+                    </select>
+                </td>
+            </tr>
+        </table>*@
+                                                                <!--</div>-->
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-4">Số CMND/CCCD<span class="required"> * </span></label>
                                                                 <div class="col-md-8">
                                                                     <table>
                                                                         <tr>
-                                                                            <td><input name="txtCMND" maxlength="12" id="txtCMND" required="true" placeholder="9 số hoặc 12 số" type="text" class="form-control" /></td>
+                                                                            <td>
+                                                                                <!--<input name="txtCMND"--> @*maxlength="12" id="txtCMND" required="true" placeholder="9 số hoặc 12 số" type="text" class="form-control*@<!--" />--> @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
+                                                                            </td>
                                                                             <td>Quốc tịch<span style="color:red"> * </span></td>
                                                                             <td>
                                                                                 <select name="ddlQuocTich" id="ddlQuocTich" class="form-control">
@@ -1037,7 +1608,8 @@
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-4">Email <span class="required"> * </span></label>
                                                                 <div class="col-md-5 col-validate">
-                                                                    <input name="txtEmail" id="txtEmail" class="form-control" required="true" type="Email" placeholder="Email liên lạc" />
+                                                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @*<input name="txtEmail" id="txtEmail" class="form-control" required="true" type="Email" placeholder="Email liên lạc" />*@
                                                                     <span class="text-muted">(Nhà trường sẽ gửi Mã hồ sơ qua email này)</span>
                                                                 </div>
                                                             </div>
@@ -1418,7 +1990,6 @@
                                                     </div>
 
                                                 </DIV>
-
                                             </div>
                                         </DIV>
                                     </DIV>
@@ -1501,3 +2072,9 @@
     });
 </script>
 <!-- END JAVASCRIPTS -->
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
