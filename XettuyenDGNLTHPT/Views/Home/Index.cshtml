@@ -12,7 +12,7 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <!--<div class="form-horizontal">
         <h4>tblHoSoTHPT</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -61,9 +61,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TenNoiSinh, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("TinhTP", (IEnumerable<SelectListItem>)ViewBag.TinhTP, null, new { @class = "form-control" })
+                @Html.DropDownList("TinhTP", (IEnumerable<SelectListItem>)ViewBag.TinhTP, null, new { @class = "form-control" })-->
                 @*@Html.EditorFor(model => model.TenNoiSinh, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.ValidationMessageFor(model => model.TenNoiSinh, "", new { @class = "text-danger" })
+                <!--@Html.ValidationMessageFor(model => model.TenNoiSinh, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -78,9 +78,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TenDanToc, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("DanToc", (IEnumerable<SelectListItem>)ViewBag.DanToc, null, new { @class = "form-control" })
+                @Html.DropDownList("DanToc", (IEnumerable<SelectListItem>)ViewBag.DanToc, null, new { @class = "form-control" })-->
                 @*@Html.EditorFor(model => model.TenDanToc, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.ValidationMessageFor(model => model.TenDanToc, "", new { @class = "text-danger" })
+                <!--@Html.ValidationMessageFor(model => model.TenDanToc, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -111,11 +111,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.QuocTich, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("QuocTich", (IEnumerable<SelectListItem>)ViewBag.QuocTich, null, new { @class = "form-control" })
+                @Html.DropDownList("QuocTich", (IEnumerable<SelectListItem>)ViewBag.QuocTich, null, new { @class = "form-control" })-->
 
                 @* @Html.DropDownList("Quoc Tich", new SelectList(ViewBag.QuocTich, "ID", "TenQT"))*@
                 @*@Html.DropDownList(model => model.QuocTich, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.ValidationMessageFor(model => model.QuocTich, "", new { @class = "text-danger" })
+                <!--@Html.ValidationMessageFor(model => model.QuocTich, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -369,8 +369,9 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.CCNN, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-10">-->
+                @*@Html.DropDownList("CCNN", (IEnumerable<SelectListItem>)ViewBag.CCNN, null, new { @class = "form-control" })*@
+                <!--@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CCNN, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -541,7 +542,7 @@
             </div>
         </div>
     </div>
-}
+}-->
 
 
 
@@ -820,10 +821,13 @@
                                                                 <div class="col-md-4 col-validate">
                                                                     <div class="radio-list">
                                                                         <label>
-                                                                            @Html.EditorFor(model => model.GioiTinh)
-                                                                            @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+                                                                            Nam
+                                                                            @Html.RadioButtonFor(model => model.GioiTinh, "Nam")
+                                                                            Nữ
+                                                                            @Html.RadioButtonFor(model => model.GioiTinh, "Nữ")
+                                                                            @*@Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })*@
                                                                             @*<label class="radio-inline"><input id="rdNam" type="radio" name="gGioiTinh" value="rdNam" /><label for="rdNam">Nam</label></label>
-                                                                            <label class="radio-inline"><input id="rdNu" type="radio" name="gGioiTinh" value="rdNu" /><label for="rdNu">Nữ</label></label>*@
+        <label class="radio-inline"><input id="rdNu" type="radio" name="gGioiTinh" value="rdNu" /><label for="rdNu">Nữ</label></label>*@
                                                                         </label>
                                                                     </div>
                                                                 </div>
@@ -1028,182 +1032,188 @@
                                                                     <table>
                                                                         <tr>
                                                                             <td>
-                                                                                <!--<input name="txtCMND"--> @*maxlength="12" id="txtCMND" required="true" placeholder="9 số hoặc 12 số" type="text" class="form-control*@<!--" />--> @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control" } })
+                                                                                <!--<input name="txtCMND"--> @*maxlength="12" id="txtCMND" required="true" placeholder="9 số hoặc 12 số" type="text" class="form-control*@<!--" />--> 
+                                                                                @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control" } })
                                                                                 @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
                                                                             </td>
                                                                             <td>Quốc tịch<span style="color:red"> * </span></td>
                                                                             <td>
-                                                                                <select name="ddlQuocTich" id="ddlQuocTich" class="form-control">
-                                                                                    <option value="682|Ả rập Xê út">Ả rập X&#234; &#250;t</option>
-                                                                                    <option value="32|Ac-hen-ti-na">Ac-hen-ti-na</option>
-                                                                                    <option value="31|A-déc-bai-gian">A-d&#233;c-bai-gian</option>
-                                                                                    <option value="818|Ai cập">Ai cập</option>
-                                                                                    <option value="352|Ai-xlen">Ai-xlen</option>
-                                                                                    <option value="8|An ba ni">An ba ni</option>
-                                                                                    <option value="356|Ấn Độ">Ấn Độ</option>
-                                                                                    <option value="12|An giê ri">An gi&#234; ri</option>
-                                                                                    <option value="24|Ăng-gô-la">Ăng-g&#244;-la</option>
-                                                                                    <option value="40|Áo">&#193;o</option>
-                                                                                    <option value="4|Áp-ga-ni-xtan">&#193;p-ga-ni-xtan</option>
-                                                                                    <option value="51|Ar-mê-nia">Ar-m&#234;-nia</option>
-                                                                                    <option value="372|A-rơ-len">A-rơ-len</option>
-                                                                                    <option value="616|Ba Lan">Ba Lan</option>
-                                                                                    <option value="50|Băng-la-đét">Băng-la-đ&#233;t</option>
-                                                                                    <option value="48|Ba-ranh">Ba-ranh</option>
-                                                                                    <option value="112|Be-lo-rut-xia">Be-lo-rut-xia</option>
-                                                                                    <option value="56|Bỉ">Bỉ</option>
-                                                                                    <option value="620|Bồ Đào Nha">Bồ Đ&#224;o Nha</option>
-                                                                                    <option value="68|Bô-li-via">B&#244;-li-via</option>
-                                                                                    <option value="72|Bốt-xoa-na">Bốt-xoa-na</option>
-                                                                                    <option value="70|Bôxna He-rơ-xe-gô-vin-na">B&#244;xna He-rơ-xe-g&#244;-vin-na</option>
-                                                                                    <option value="76|B-ra-xin">B-ra-xin</option>
-                                                                                    <option value="96|B-ru-nây">B-ru-n&#226;y</option>
-                                                                                    <option value="100|Bun-ga-ri">Bun-ga-ri</option>
-                                                                                    <option value="854|Buốc-ki-na-pha-xô">Buốc-ki-na-pha-x&#244;</option>
-                                                                                    <option value="108|Bu-run-đi">Bu-run-đi</option>
-                                                                                    <option value="64|BuTan">BuTan</option>
-                                                                                    <option value="784|Các Tiểu vương quốc Ả Rập Thống nhất">C&#225;c Tiểu vương quốc Ả Rập Thống nhất</option>
-                                                                                    <option value="120|Ca-mơ-run">Ca-mơ-run</option>
-                                                                                    <option value="116|Căm-Pu-Chia">Căm-Pu-Chia</option>
-                                                                                    <option value="124|Ca-na-đa">Ca-na-đa</option>
-                                                                                    <option value="140|CH Trung Phi">CH Trung Phi</option>
-                                                                                    <option value="418|CHDCND Lào">CHDCND L&#224;o</option>
-                                                                                    <option value="152|Chi lê">Chi l&#234;</option>
-                                                                                    <option value="156|CHND Trung hoa">CHND Trung hoa</option>
-                                                                                    <option value="170|Cô-lôm-bi-a">C&#244;-l&#244;m-bi-a</option>
-                                                                                    <option value="203|Cộng hòa Séc">Cộng h&#242;a S&#233;c</option>
-                                                                                    <option value="180|Congo-Kinshasa">Congo-Kinshasa</option>
-                                                                                    <option value="414|Cô-oét">C&#244;-o&#233;t</option>
-                                                                                    <option value="188|Côxta Rica">C&#244;xta Rica</option>
-                                                                                    <option value="191|Croát-chi-a">Cro&#225;t-chi-a</option>
-                                                                                    <option value="192|Cuba">Cuba</option>
-                                                                                    <option value="417|Cư-rơ-gư-dơ-xtan">Cư-rơ-gư-dơ-xtan</option>
-                                                                                    <option value="158|Đài loan">Đ&#224;i loan</option>
-                                                                                    <option value="270|Dăm-bia">Dăm-bia</option>
-                                                                                    <option value="208|Đan Mạch">Đan Mạch</option>
-                                                                                    <option value="716|Dim-ba-buê">Dim-ba-bu&#234;</option>
-                                                                                    <option value="212|Dominica">Dominica</option>
-                                                                                    <option value="626|Ðông-ti-mo">&#208;&#244;ng-ti-mo</option>
-                                                                                    <option value="276|Đức">Đức</option>
-                                                                                    <option value="218|Ê-cu-a-đo">&#202;-cu-a-đo</option>
-                                                                                    <option value="222|En Xan-va-đo">En Xan-va-đo</option>
-                                                                                    <option value="231|Ê-ti-ô-pi-a">&#202;-ti-&#244;-pi-a</option>
-                                                                                    <option value="233|Et-tô-ni">Et-t&#244;-ni</option>
-                                                                                    <option value="894|Gam-bi-a">Gam-bi-a</option>
-                                                                                    <option value="288|Gha-na">Gha-na</option>
-                                                                                    <option value="324|Ghi nê">Ghi n&#234;</option>
-                                                                                    <option value="388|Gia-mai-ca">Gia-mai-ca</option>
-                                                                                    <option value="400|Gioóc-đa-ni">Gio&#243;c-đa-ni</option>
-                                                                                    <option value="320|Goa-tê-ma-la ">Goa-t&#234;-ma-la </option>
-                                                                                    <option value="268|Gru-dia">Gru-dia</option>
-                                                                                    <option value="328|Guy-a-na">Guy-a-na</option>
-                                                                                    <option value="528|Hà lan">H&#224; lan</option>
-                                                                                    <option value="332|Ha-i-ti">Ha-i-ti</option>
-                                                                                    <option value="410|Hàn Quốc">H&#224;n Quốc</option>
-                                                                                    <option value="344|Hồng Công">Hồng C&#244;ng</option>
-                                                                                    <option value="348|Hung-ga-ri">Hung-ga-ri</option>
-                                                                                    <option value="300|Hy Lạp">Hy Lạp</option>
-                                                                                    <option value="360|In-đô-nê-xi-a">In-đ&#244;-n&#234;-xi-a</option>
-                                                                                    <option value="368|I-rắc">I-rắc</option>
-                                                                                    <option value="364|I-ran">I-ran</option>
-                                                                                    <option value="380|I-ta-li-a">I-ta-li-a</option>
-                                                                                    <option value="376|I-xra-en">I-xra-en</option>
-                                                                                    <option value="398|Ka-dắc-xtan">Ka-dắc-xtan</option>
-                                                                                    <option value="404|Kê-nia">K&#234;-nia</option>
-                                                                                    <option value="296|Ki-ri-ba-ti">Ki-ri-ba-ti</option>
-                                                                                    <option value="428|Latvia">Latvia</option>
-                                                                                    <option value="426|Lê-xô-thô">L&#234;-x&#244;-th&#244;</option>
-                                                                                    <option value="422|Libăng">Libăng</option>
-                                                                                    <option value="430|Li-bê-ri-a">Li-b&#234;-ri-a</option>
-                                                                                    <option value="434|Libi">Libi</option>
-                                                                                    <option value="643|Liên bang Nga">Li&#234;n bang Nga</option>
-                                                                                    <option value="438|Lit-ten-xten">Lit-ten-xten</option>
-                                                                                    <option value="440|Lit-va">Lit-va</option>
-                                                                                    <option value="442|Luc-xem-bua">Luc-xem-bua</option>
-                                                                                    <option value="446|Ma cao">Ma cao</option>
-                                                                                    <option value="504|Ma Rốc">Ma Rốc</option>
-                                                                                    <option value="450|Ma-đa-gát-xka">Ma-đa-g&#225;t-xka</option>
-                                                                                    <option value="458|Ma-lai-xi-a">Ma-lai-xi-a</option>
-                                                                                    <option value="454|Ma-la-uy">Ma-la-uy</option>
-                                                                                    <option value="466|Ma-li">Ma-li</option>
-                                                                                    <option value="462|Man-đi-vơ">Man-đi-vơ</option>
-                                                                                    <option value="470|Man-ta">Man-ta</option>
-                                                                                    <option value="480|Mau-ri-ti-út">Mau-ri-ti-&#250;t</option>
-                                                                                    <option value="807|Ma-xê-đô-ni-a">Ma-x&#234;-đ&#244;-ni-a</option>
-                                                                                    <option value="484|Mê hi cô">M&#234; hi c&#244;</option>
-                                                                                    <option value="583|Mi-cờ-rô-nê-xi-a">Mi-cờ-r&#244;-n&#234;-xi-a</option>
-                                                                                    <option value="508|Mô-dăm-bích">M&#244;-dăm-b&#237;ch</option>
-                                                                                    <option value="492|Mô-na-cô">M&#244;-na-c&#244;</option>
-                                                                                    <option value="498|Môn-đô-va">M&#244;n-đ&#244;-va</option>
-                                                                                    <option value="496|Mông cổ">M&#244;ng cổ</option>
-                                                                                    <option value="499|Mông-tê-nê-grô">M&#244;ng-t&#234;-n&#234;-gr&#244;</option>
-                                                                                    <option value="840|Mỹ">Mỹ</option>
-                                                                                    <option value="104|My-an-ma">My-an-ma</option>
-                                                                                    <option value="578|Na Uy">Na Uy</option>
-                                                                                    <option value="710|Nam phi">Nam phi</option>
-                                                                                    <option value="728|Nam Xu-đăng">Nam Xu-đăng</option>
-                                                                                    <option value="516|Nam-mi-bia">Nam-mi-bia</option>
-                                                                                    <option value="524|Nê-Pan">N&#234;-Pan</option>
-                                                                                    <option value="392|Nhật bản">Nhật bản</option>
-                                                                                    <option value="558|Ni-ca-ra-goa">Ni-ca-ra-goa</option>
-                                                                                    <option value="562|Ni-giê">Ni-gi&#234;</option>
-                                                                                    <option value="566|Ni-giê-ri-a">Ni-gi&#234;-ri-a</option>
-                                                                                    <option value="554|Niu Di Lân">Niu Di L&#226;n</option>
-                                                                                    <option value="512|Ôman">&#212;man</option>
-                                                                                    <option value="340|Ôn-đu-rát">&#212;n-đu-r&#225;t</option>
-                                                                                    <option value="586|Pa-Ki-xtan">Pa-Ki-xtan</option>
-                                                                                    <option value="275|Palestine">Palestine</option>
-                                                                                    <option value="591|Pa-na-ma">Pa-na-ma</option>
-                                                                                    <option value="598|Pa-pua Niu Ghi - nê">Pa-pua Niu Ghi - n&#234;</option>
-                                                                                    <option value="600|Pa-ra-goay">Pa-ra-goay</option>
-                                                                                    <option value="604|Pê-ru">P&#234;-ru</option>
-                                                                                    <option value="246|Phần Lan">Phần Lan</option>
-                                                                                    <option value="250|Pháp">Ph&#225;p</option>
-                                                                                    <option value="242|Phi-Ghi">Phi-Ghi</option>
-                                                                                    <option value="608|Phi-li-pin">Phi-li-pin</option>
-                                                                                    <option value="630|Pu-éc-tô Ri-cô">Pu-&#233;c-t&#244; Ri-c&#244;</option>
-                                                                                    <option value="584|Quần đảo Ma-rơ-san">Quần đảo Ma-rơ-san</option>
-                                                                                    <option value="90|Quần đảo Sô-lô-môn">Quần đảo S&#244;-l&#244;-m&#244;n</option>
-                                                                                    <option value="634|Qua-ta/Qatar">Qua-ta/Qatar</option>
-                                                                                    <option value="646|Ruanđa">Ruanđa</option>
-                                                                                    <option value="642|Ru-ma-ni">Ru-ma-ni</option>
-                                                                                    <option value="148|Sat">Sat</option>
-                                                                                    <option value="688|Sec-bi-a">Sec-bi-a</option>
-                                                                                    <option value="760|Si-ri-a">Si-ri-a</option>
-                                                                                    <option value="703|Slô-vac-ki-a">Sl&#244;-vac-ki-a</option>
-                                                                                    <option value="705|Slô-ven-ni-a">Sl&#244;-ven-ni-a</option>
-                                                                                    <option value="706|Sô-ma-li">S&#244;-ma-li</option>
-                                                                                    <option value="144|Sri-lan-ka">Sri-lan-ka</option>
-                                                                                    <option value="834|Tan-da-nia">Tan-da-nia</option>
-                                                                                    <option value="762|Tat-gi-ki-xtan">Tat-gi-ki-xtan</option>
-                                                                                    <option value="724|Tây Ban Nha">T&#226;y Ban Nha</option>
-                                                                                    <option value="882|Tây Sa-moa">T&#226;y Sa-moa</option>
-                                                                                    <option value="764|Thái lan">Th&#225;i lan</option>
-                                                                                    <option value="792|Thổ Nhĩ Kì">Thổ Nhĩ K&#236;</option>
-                                                                                    <option value="752|Thụy Điển">Thụy Điển</option>
-                                                                                    <option value="756|Thụy sỹ">Thụy sỹ</option>
-                                                                                    <option value="768|To-go">To-go</option>
-                                                                                    <option value="776|Tôn-ga">T&#244;n-ga</option>
-                                                                                    <option value="408|Triều Tiên">Triều Ti&#234;n</option>
-                                                                                    <option value="795|Turkmênistan">Turkm&#234;nistan</option>
-                                                                                    <option value="798|Tu-va-lu">Tu-va-lu</option>
-                                                                                    <option value="788|Tuy-ni-di">Tuy-ni-di</option>
-                                                                                    <option value="36|Úc">&#218;c</option>
-                                                                                    <option value="860|U-dơ-bê-ki-xtan">U-dơ-b&#234;-ki-xtan</option>
-                                                                                    <option value="800|U-gan-da">U-gan-da</option>
-                                                                                    <option value="804|U-krai-na">U-krai-na</option>
-                                                                                    <option value="858|U-ru-goay">U-ru-goay</option>
-                                                                                    <option value="548|Va-nu-a-tu">Va-nu-a-tu</option>
-                                                                                    <option value="862|Vê-nê-xu-ê-la">V&#234;-n&#234;-xu-&#234;-la</option>
-                                                                                    <option selected="selected" value="704|Việt Nam">Việt Nam</option>
-                                                                                    <option value="826|Vương quốc Anh">Vương quốc Anh</option>
-                                                                                    <option value="686|Xê nê gan">X&#234; n&#234; gan</option>
-                                                                                    <option value="694|Xi-ê-ra Lê-ôn">Xi-&#234;-ra L&#234;-&#244;n</option>
-                                                                                    <option value="702|Xin-ga-po">Xin-ga-po</option>
-                                                                                    <option value="736|Xu-đăng">Xu-đăng</option>
-                                                                                    <option value="887|Y-ê-men">Y-&#234;-men</option>
+                                                                                @Html.DropDownList("QuocTich", (IEnumerable<SelectListItem>)ViewBag.QuocTich, null, new { @class = "form-control" })
 
-                                                                                </select>
+                                                                                @* @Html.DropDownList("Quoc Tich", new SelectList(ViewBag.QuocTich, "ID", "TenQT"))*@
+                                                                                @*@Html.DropDownList(model => model.QuocTich, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                                @Html.ValidationMessageFor(model => model.QuocTich, "", new { @class = "text-danger" })
+                                                                                @*<select name="ddlQuocTich" id="ddlQuocTich" class="form-control">
+            <option value="682|Ả rập Xê út">Ả rập X&#234; &#250;t</option>
+            <option value="32|Ac-hen-ti-na">Ac-hen-ti-na</option>
+            <option value="31|A-déc-bai-gian">A-d&#233;c-bai-gian</option>
+            <option value="818|Ai cập">Ai cập</option>
+            <option value="352|Ai-xlen">Ai-xlen</option>
+            <option value="8|An ba ni">An ba ni</option>
+            <option value="356|Ấn Độ">Ấn Độ</option>
+            <option value="12|An giê ri">An gi&#234; ri</option>
+            <option value="24|Ăng-gô-la">Ăng-g&#244;-la</option>
+            <option value="40|Áo">&#193;o</option>
+            <option value="4|Áp-ga-ni-xtan">&#193;p-ga-ni-xtan</option>
+            <option value="51|Ar-mê-nia">Ar-m&#234;-nia</option>
+            <option value="372|A-rơ-len">A-rơ-len</option>
+            <option value="616|Ba Lan">Ba Lan</option>
+            <option value="50|Băng-la-đét">Băng-la-đ&#233;t</option>
+            <option value="48|Ba-ranh">Ba-ranh</option>
+            <option value="112|Be-lo-rut-xia">Be-lo-rut-xia</option>
+            <option value="56|Bỉ">Bỉ</option>
+            <option value="620|Bồ Đào Nha">Bồ Đ&#224;o Nha</option>
+            <option value="68|Bô-li-via">B&#244;-li-via</option>
+            <option value="72|Bốt-xoa-na">Bốt-xoa-na</option>
+            <option value="70|Bôxna He-rơ-xe-gô-vin-na">B&#244;xna He-rơ-xe-g&#244;-vin-na</option>
+            <option value="76|B-ra-xin">B-ra-xin</option>
+            <option value="96|B-ru-nây">B-ru-n&#226;y</option>
+            <option value="100|Bun-ga-ri">Bun-ga-ri</option>
+            <option value="854|Buốc-ki-na-pha-xô">Buốc-ki-na-pha-x&#244;</option>
+            <option value="108|Bu-run-đi">Bu-run-đi</option>
+            <option value="64|BuTan">BuTan</option>
+            <option value="784|Các Tiểu vương quốc Ả Rập Thống nhất">C&#225;c Tiểu vương quốc Ả Rập Thống nhất</option>
+            <option value="120|Ca-mơ-run">Ca-mơ-run</option>
+            <option value="116|Căm-Pu-Chia">Căm-Pu-Chia</option>
+            <option value="124|Ca-na-đa">Ca-na-đa</option>
+            <option value="140|CH Trung Phi">CH Trung Phi</option>
+            <option value="418|CHDCND Lào">CHDCND L&#224;o</option>
+            <option value="152|Chi lê">Chi l&#234;</option>
+            <option value="156|CHND Trung hoa">CHND Trung hoa</option>
+            <option value="170|Cô-lôm-bi-a">C&#244;-l&#244;m-bi-a</option>
+            <option value="203|Cộng hòa Séc">Cộng h&#242;a S&#233;c</option>
+            <option value="180|Congo-Kinshasa">Congo-Kinshasa</option>
+            <option value="414|Cô-oét">C&#244;-o&#233;t</option>
+            <option value="188|Côxta Rica">C&#244;xta Rica</option>
+            <option value="191|Croát-chi-a">Cro&#225;t-chi-a</option>
+            <option value="192|Cuba">Cuba</option>
+            <option value="417|Cư-rơ-gư-dơ-xtan">Cư-rơ-gư-dơ-xtan</option>
+            <option value="158|Đài loan">Đ&#224;i loan</option>
+            <option value="270|Dăm-bia">Dăm-bia</option>
+            <option value="208|Đan Mạch">Đan Mạch</option>
+            <option value="716|Dim-ba-buê">Dim-ba-bu&#234;</option>
+            <option value="212|Dominica">Dominica</option>
+            <option value="626|Ðông-ti-mo">&#208;&#244;ng-ti-mo</option>
+            <option value="276|Đức">Đức</option>
+            <option value="218|Ê-cu-a-đo">&#202;-cu-a-đo</option>
+            <option value="222|En Xan-va-đo">En Xan-va-đo</option>
+            <option value="231|Ê-ti-ô-pi-a">&#202;-ti-&#244;-pi-a</option>
+            <option value="233|Et-tô-ni">Et-t&#244;-ni</option>
+            <option value="894|Gam-bi-a">Gam-bi-a</option>
+            <option value="288|Gha-na">Gha-na</option>
+            <option value="324|Ghi nê">Ghi n&#234;</option>
+            <option value="388|Gia-mai-ca">Gia-mai-ca</option>
+            <option value="400|Gioóc-đa-ni">Gio&#243;c-đa-ni</option>
+            <option value="320|Goa-tê-ma-la ">Goa-t&#234;-ma-la </option>
+            <option value="268|Gru-dia">Gru-dia</option>
+            <option value="328|Guy-a-na">Guy-a-na</option>
+            <option value="528|Hà lan">H&#224; lan</option>
+            <option value="332|Ha-i-ti">Ha-i-ti</option>
+            <option value="410|Hàn Quốc">H&#224;n Quốc</option>
+            <option value="344|Hồng Công">Hồng C&#244;ng</option>
+            <option value="348|Hung-ga-ri">Hung-ga-ri</option>
+            <option value="300|Hy Lạp">Hy Lạp</option>
+            <option value="360|In-đô-nê-xi-a">In-đ&#244;-n&#234;-xi-a</option>
+            <option value="368|I-rắc">I-rắc</option>
+            <option value="364|I-ran">I-ran</option>
+            <option value="380|I-ta-li-a">I-ta-li-a</option>
+            <option value="376|I-xra-en">I-xra-en</option>
+            <option value="398|Ka-dắc-xtan">Ka-dắc-xtan</option>
+            <option value="404|Kê-nia">K&#234;-nia</option>
+            <option value="296|Ki-ri-ba-ti">Ki-ri-ba-ti</option>
+            <option value="428|Latvia">Latvia</option>
+            <option value="426|Lê-xô-thô">L&#234;-x&#244;-th&#244;</option>
+            <option value="422|Libăng">Libăng</option>
+            <option value="430|Li-bê-ri-a">Li-b&#234;-ri-a</option>
+            <option value="434|Libi">Libi</option>
+            <option value="643|Liên bang Nga">Li&#234;n bang Nga</option>
+            <option value="438|Lit-ten-xten">Lit-ten-xten</option>
+            <option value="440|Lit-va">Lit-va</option>
+            <option value="442|Luc-xem-bua">Luc-xem-bua</option>
+            <option value="446|Ma cao">Ma cao</option>
+            <option value="504|Ma Rốc">Ma Rốc</option>
+            <option value="450|Ma-đa-gát-xka">Ma-đa-g&#225;t-xka</option>
+            <option value="458|Ma-lai-xi-a">Ma-lai-xi-a</option>
+            <option value="454|Ma-la-uy">Ma-la-uy</option>
+            <option value="466|Ma-li">Ma-li</option>
+            <option value="462|Man-đi-vơ">Man-đi-vơ</option>
+            <option value="470|Man-ta">Man-ta</option>
+            <option value="480|Mau-ri-ti-út">Mau-ri-ti-&#250;t</option>
+            <option value="807|Ma-xê-đô-ni-a">Ma-x&#234;-đ&#244;-ni-a</option>
+            <option value="484|Mê hi cô">M&#234; hi c&#244;</option>
+            <option value="583|Mi-cờ-rô-nê-xi-a">Mi-cờ-r&#244;-n&#234;-xi-a</option>
+            <option value="508|Mô-dăm-bích">M&#244;-dăm-b&#237;ch</option>
+            <option value="492|Mô-na-cô">M&#244;-na-c&#244;</option>
+            <option value="498|Môn-đô-va">M&#244;n-đ&#244;-va</option>
+            <option value="496|Mông cổ">M&#244;ng cổ</option>
+            <option value="499|Mông-tê-nê-grô">M&#244;ng-t&#234;-n&#234;-gr&#244;</option>
+            <option value="840|Mỹ">Mỹ</option>
+            <option value="104|My-an-ma">My-an-ma</option>
+            <option value="578|Na Uy">Na Uy</option>
+            <option value="710|Nam phi">Nam phi</option>
+            <option value="728|Nam Xu-đăng">Nam Xu-đăng</option>
+            <option value="516|Nam-mi-bia">Nam-mi-bia</option>
+            <option value="524|Nê-Pan">N&#234;-Pan</option>
+            <option value="392|Nhật bản">Nhật bản</option>
+            <option value="558|Ni-ca-ra-goa">Ni-ca-ra-goa</option>
+            <option value="562|Ni-giê">Ni-gi&#234;</option>
+            <option value="566|Ni-giê-ri-a">Ni-gi&#234;-ri-a</option>
+            <option value="554|Niu Di Lân">Niu Di L&#226;n</option>
+            <option value="512|Ôman">&#212;man</option>
+            <option value="340|Ôn-đu-rát">&#212;n-đu-r&#225;t</option>
+            <option value="586|Pa-Ki-xtan">Pa-Ki-xtan</option>
+            <option value="275|Palestine">Palestine</option>
+            <option value="591|Pa-na-ma">Pa-na-ma</option>
+            <option value="598|Pa-pua Niu Ghi - nê">Pa-pua Niu Ghi - n&#234;</option>
+            <option value="600|Pa-ra-goay">Pa-ra-goay</option>
+            <option value="604|Pê-ru">P&#234;-ru</option>
+            <option value="246|Phần Lan">Phần Lan</option>
+            <option value="250|Pháp">Ph&#225;p</option>
+            <option value="242|Phi-Ghi">Phi-Ghi</option>
+            <option value="608|Phi-li-pin">Phi-li-pin</option>
+            <option value="630|Pu-éc-tô Ri-cô">Pu-&#233;c-t&#244; Ri-c&#244;</option>
+            <option value="584|Quần đảo Ma-rơ-san">Quần đảo Ma-rơ-san</option>
+            <option value="90|Quần đảo Sô-lô-môn">Quần đảo S&#244;-l&#244;-m&#244;n</option>
+            <option value="634|Qua-ta/Qatar">Qua-ta/Qatar</option>
+            <option value="646|Ruanđa">Ruanđa</option>
+            <option value="642|Ru-ma-ni">Ru-ma-ni</option>
+            <option value="148|Sat">Sat</option>
+            <option value="688|Sec-bi-a">Sec-bi-a</option>
+            <option value="760|Si-ri-a">Si-ri-a</option>
+            <option value="703|Slô-vac-ki-a">Sl&#244;-vac-ki-a</option>
+            <option value="705|Slô-ven-ni-a">Sl&#244;-ven-ni-a</option>
+            <option value="706|Sô-ma-li">S&#244;-ma-li</option>
+            <option value="144|Sri-lan-ka">Sri-lan-ka</option>
+            <option value="834|Tan-da-nia">Tan-da-nia</option>
+            <option value="762|Tat-gi-ki-xtan">Tat-gi-ki-xtan</option>
+            <option value="724|Tây Ban Nha">T&#226;y Ban Nha</option>
+            <option value="882|Tây Sa-moa">T&#226;y Sa-moa</option>
+            <option value="764|Thái lan">Th&#225;i lan</option>
+            <option value="792|Thổ Nhĩ Kì">Thổ Nhĩ K&#236;</option>
+            <option value="752|Thụy Điển">Thụy Điển</option>
+            <option value="756|Thụy sỹ">Thụy sỹ</option>
+            <option value="768|To-go">To-go</option>
+            <option value="776|Tôn-ga">T&#244;n-ga</option>
+            <option value="408|Triều Tiên">Triều Ti&#234;n</option>
+            <option value="795|Turkmênistan">Turkm&#234;nistan</option>
+            <option value="798|Tu-va-lu">Tu-va-lu</option>
+            <option value="788|Tuy-ni-di">Tuy-ni-di</option>
+            <option value="36|Úc">&#218;c</option>
+            <option value="860|U-dơ-bê-ki-xtan">U-dơ-b&#234;-ki-xtan</option>
+            <option value="800|U-gan-da">U-gan-da</option>
+            <option value="804|U-krai-na">U-krai-na</option>
+            <option value="858|U-ru-goay">U-ru-goay</option>
+            <option value="548|Va-nu-a-tu">Va-nu-a-tu</option>
+            <option value="862|Vê-nê-xu-ê-la">V&#234;-n&#234;-xu-&#234;-la</option>
+            <option selected="selected" value="704|Việt Nam">Việt Nam</option>
+            <option value="826|Vương quốc Anh">Vương quốc Anh</option>
+            <option value="686|Xê nê gan">X&#234; n&#234; gan</option>
+            <option value="694|Xi-ê-ra Lê-ôn">Xi-&#234;-ra L&#234;-&#244;n</option>
+            <option value="702|Xin-ga-po">Xin-ga-po</option>
+            <option value="736|Xu-đăng">Xu-đăng</option>
+            <option value="887|Y-ê-men">Y-&#234;-men</option>
+
+        </select>*@
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -1309,7 +1319,9 @@
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-4">Năm tốt nghiệp<span class="required"> * </span></label>
                                                                 <div class="col-md-2">
-                                                                    <input name="txtNamTotNghiep" id="txtNamTotNghiep" required="true" placeholder="Nhập năm tốt nghiệp" type="number" min="0" max="2022" class="form-control" />
+                                                                    @Html.EditorFor(model => model.NamTotNghiep, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @Html.ValidationMessageFor(model => model.NamTotNghiep, "", new { @class = "text-danger" })
+                                                                    @*<input name="txtNamTotNghiep" id="txtNamTotNghiep" required="true" placeholder="Nhập năm tốt nghiệp" type="number" min="0" max="2022" class="form-control" />*@
                                                                 </div>
                                                             </div>
 
@@ -1318,11 +1330,21 @@
                                                                 <div class="col-md-8">
                                                                     <div class="radio-list">
                                                                         <label>
-                                                                            <label class="radio-inline"><input id="rdHocLuc1" type="radio" name="gHocLuc" value="rdHocLuc1" /><label for="rdHocLuc1">Giỏi</label></label>
-                                                                            <label class="radio-inline"><input id="rdHocLuc2" type="radio" name="gHocLuc" value="rdHocLuc2" /><label for="rdHocLuc2">Khá</label></label>
-                                                                            <label class="radio-inline"><input id="rdHocLuc3" type="radio" name="gHocLuc" value="rdHocLuc3" /><label for="rdHocLuc3">Trung bình</label></label>
-                                                                            <label class="radio-inline"><input id="rdHocLuc4" type="radio" name="gHocLuc" value="rdHocLuc4" /><label for="rdHocLuc4">Yếu</label></label>
-                                                                            <label class="radio-inline"><input id="rdHocLuc5" type="radio" name="gHocLuc" value="rdHocLuc5" /><label for="rdHocLuc5">Khác</label></label>
+                                                                            @Html.RadioButtonFor(model => model.HocLucLop12, "Giỏi")
+                                                                            Giỏi
+                                                                            @Html.RadioButtonFor(model => model.HocLucLop12, "Khá")
+                                                                            Khá
+                                                                            @Html.RadioButtonFor(model => model.HocLucLop12, "Trung bình")
+                                                                            Trung bình
+                                                                            @Html.RadioButtonFor(model => model.HocLucLop12, "Yếu")
+                                                                            Yếu
+                                                                            @Html.RadioButtonFor(model => model.HocLucLop12, "Khác")
+                                                                            Khác
+                                                                            @*<label class="radio-inline"><input id="rdHocLuc1" type="radio" name="gHocLuc" value="rdHocLuc1" /><label for="rdHocLuc1">Giỏi</label></label>
+        <label class="radio-inline"><input id="rdHocLuc2" type="radio" name="gHocLuc" value="rdHocLuc2" /><label for="rdHocLuc2">Khá</label></label>
+        <label class="radio-inline"><input id="rdHocLuc3" type="radio" name="gHocLuc" value="rdHocLuc3" /><label for="rdHocLuc3">Trung bình</label></label>
+        <label class="radio-inline"><input id="rdHocLuc4" type="radio" name="gHocLuc" value="rdHocLuc4" /><label for="rdHocLuc4">Yếu</label></label>
+        <label class="radio-inline"><input id="rdHocLuc5" type="radio" name="gHocLuc" value="rdHocLuc5" /><label for="rdHocLuc5">Khác</label></label>*@
                                                                         </label>
                                                                     </div>
                                                                 </div>
@@ -1333,11 +1355,22 @@
                                                                 <div class="col-md-8">
                                                                     <div class="radio-list">
                                                                         <label>
-                                                                            <label class="radio-inline"><input id="rdHanhKiem1" type="radio" name="gHanhKiem" value="rdHanhKiem1" /><label for="rdHanhKiem1">Tốt</label></label>
+                                                                            @Html.RadioButtonFor(model => model.HanhKiemLop12, "Tốt")
+                                                                            Tốt
+                                                                            @Html.RadioButtonFor(model => model.HanhKiemLop12, "Khá")
+                                                                            Khá
+                                                                            @Html.RadioButtonFor(model => model.HanhKiemLop12, "Trung bình")
+                                                                            Trung bình
+                                                                            @Html.RadioButtonFor(model => model.HanhKiemLop12, "Yếu")
+                                                                            Yếu
+                                                                            @Html.RadioButtonFor(model => model.HanhKiemLop12, "Khác")
+                                                                            Khác
+
+                                                                            @*<label class="radio-inline"><input id="rdHanhKiem1" type="radio" name="gHanhKiem" value="rdHanhKiem1" /><label for="rdHanhKiem1">Tốt</label></label>
                                                                             <label class="radio-inline"><input id="rdHanhKiem2" type="radio" name="gHanhKiem" value="rdHanhKiem2" /><label for="rdHanhKiem2">Khá</label></label>
                                                                             <label class="radio-inline"><input id="rdHanhKiem3" type="radio" name="gHanhKiem" value="rdHanhKiem3" /><label for="rdHanhKiem3">Trung bình</label></label>
                                                                             <label class="radio-inline"><input id="rdHanhKiem4" type="radio" name="gHanhKiem" value="rdHanhKiem4" /><label for="rdHanhKiem4">Yếu</label></label>
-                                                                            <label class="radio-inline"><input id="rdHanhKiem5" type="radio" name="gHanhKiem" value="rdHanhKiem5" /><label for="rdHanhKiem5">Khác</label></label>
+                                                                            <label class="radio-inline"><input id="rdHanhKiem5" type="radio" name="gHanhKiem" value="rdHanhKiem5" /><label for="rdHanhKiem5">Khác</label></label>*@
                                                                         </label>
                                                                     </div>
                                                                 </div>
@@ -1348,8 +1381,12 @@
                                                                     <div class="radio-list">
                                                                         <div class="radio-list">
                                                                             <label>
-                                                                                <label class="radio-inline"><input id="rdTHPT" type="radio" name="gChuongTrinh" value="rdTHPT" checked="checked" /><label for="rdTHPT">THPT</label></label>
-                                                                                <label class="radio-inline"><input id="rdGDTX" type="radio" name="gChuongTrinh" value="rdGDTX" /><label for="rdGDTX">GDTX</label></label>
+                                                                                @Html.RadioButtonFor(model => model.LoaiHinhTN, "THPT")
+                                                                                THPT
+                                                                                @Html.RadioButtonFor(model => model.LoaiHinhTN, "GDTX")
+                                                                                GDTX
+                                                                                @*<label class="radio-inline"><input id="rdTHPT" type="radio" name="gChuongTrinh" value="rdTHPT" checked="checked" /><label for="rdTHPT">THPT</label></label>
+                                                                                <label class="radio-inline"><input id="rdGDTX" type="radio" name="gChuongTrinh" value="rdGDTX" /><label for="rdGDTX">GDTX</label></label>*@
                                                                             </label>
                                                                         </div>
                                                                     </div>
@@ -1453,7 +1490,9 @@
                                                                     <div class="row">
                                                                         <div class="col-md-4 control-label">Tên lớp 12 <span class="required"> * </span></div>
                                                                         <div class="col-md-8">
-                                                                            <input name="txtTenLop12" id="txtTenLop12" required="true" placeholder="Tên lớp 12" type="text" class="form-control" />
+                                                                            @Html.EditorFor(model => model.TenLop12, new { htmlAttributes = new { @class = "form-control" } })
+                                                                            @Html.ValidationMessageFor(model => model.TenLop12, "", new { @class = "text-danger" })
+                                                                            @*<input name="txtTenLop12" id="txtTenLop12" required="true" placeholder="Tên lớp 12" type="text" class="form-control" />*@
                                                                             <span class="text-muted">(Ví dụ: lớp 12A1)</span>
                                                                         </div>
                                                                     </div>
@@ -1505,7 +1544,9 @@
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-4">Địa chỉ gửi thư báo kết quả<span class="required"> * </span></label>
                                                                 <div class="col-md-5 col-validate">
-                                                                    <input name="txtDiaChi" type="text" id="txtDiaChi" class="form-control" required="true" placeholder="Số nhà, Tên đường" />
+                                                                    @Html.EditorFor(model => model.HoKhau, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @Html.ValidationMessageFor(model => model.HoKhau, "", new { @class = "text-danger" })
+                                                                    @*<input name="txtDiaChi" type="text" id="txtDiaChi" class="form-control" required="true" placeholder="Số nhà, Tên đường" />*@
 
                                                                     <div class="vertical_space"></div>
                                                                     <div class="row">
@@ -1602,13 +1643,16 @@
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-4">Điện thoại di động<span class="required"> * </span></label>
                                                                 <div class="col-md-5 col-validate">
-                                                                    <input name="txtDienThoaiDiDong" type="text" id="txtDienThoaiDiDong" class="form-control" required="true" placeholder="Điện thoại di động" />
+                                                                    @Html.EditorFor(model => model.DienThoaiDD, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @Html.ValidationMessageFor(model => model.DienThoaiDD, "", new { @class = "text-danger" })
+                                                                    @*<input name="txtDienThoaiDiDong" type="text" id="txtDienThoaiDiDong" class="form-control" required="true" placeholder="Điện thoại di động" />*@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-4">Email <span class="required"> * </span></label>
                                                                 <div class="col-md-5 col-validate">
                                                                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                                                     @*<input name="txtEmail" id="txtEmail" class="form-control" required="true" type="Email" placeholder="Email liên lạc" />*@
                                                                     <span class="text-muted">(Nhà trường sẽ gửi Mã hồ sơ qua email này)</span>
                                                                 </div>
@@ -1616,7 +1660,9 @@
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-4">Điện thoại phụ huynh <span class="required"> * </span></label>
                                                                 <div class="col-md-5 col-validate">
-                                                                    <input name="txtDienThoaiPhuHuynh" type="text" id="txtDienThoaiPhuHuynh" class="form-control" required="true" placeholder="Điện thoại phụ huynh" />
+                                                                    @Html.EditorFor(model => model.DienThoaiPhuHuynh, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @Html.ValidationMessageFor(model => model.DienThoaiPhuHuynh, "", new { @class = "text-danger" })
+                                                                    @*<input name="txtDienThoaiPhuHuynh" type="text" id="txtDienThoaiPhuHuynh" class="form-control" required="true" placeholder="Điện thoại phụ huynh" />*@
                                                                     <span class="text-muted">(Trường hợp không liên lạc được với thí sinh, nhà Trường sẽ liên lạc qua số này)</span>
                                                                 </div>
                                                             </div>
@@ -1646,46 +1692,76 @@
                                                                     <table>
                                                                         <tr>
                                                                             <td>
-                                                                                <span class="bold">TOÁN</span> <input name="txtToan12" type="text" maxlength="5" id="txtToan12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+                                                                                Toán
+                                                                                @Html.EditorFor(model => model.Toan, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.Toan, "", new { @class = "text-danger" })
+                                                                                @*<span class="bold">TOÁN</span> <input name="txtToan12" type="text" maxlength="5" id="txtToan12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                             </td>
                                                                             <td>
-                                                                                <span class="bold">VĂN</span> <input name="txtVan12" type="text" maxlength="5" id="txtVan12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+                                                                                Văn
+                                                                                @Html.EditorFor(model => model.Van, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.Van, "", new { @class = "text-danger" })
+                                                                                @*<span class="bold">VĂN</span> <input name="txtVan12" type="text" maxlength="5" id="txtVan12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
 
                                                                             </td>
                                                                             <td>
-                                                                                <span class="bold">ANH</span><input name="txtAnh12" type="text" maxlength="5" id="txtAnh12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+                                                                                Anh
+                                                                                @Html.EditorFor(model => model.Anh, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.Anh, "", new { @class = "text-danger" })
+                                                                                @*<span class="bold">ANH</span><input name="txtAnh12" type="text" maxlength="5" id="txtAnh12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                             </td>
                                                                             <td>
-                                                                                <span class="bold">PHÁP</span><input name="txtPhap12" type="text" maxlength="5" id="txtPhap12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+                                                                                Pháp
+                                                                                @Html.EditorFor(model => model.Phap, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.Phap, "", new { @class = "text-danger" })
+                                                                                @*<span class="bold">PHÁP</span><input name="txtPhap12" type="text" maxlength="5" id="txtPhap12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                             </td>
                                                                             <td>
-                                                                                <span class="bold">LÝ</span><input name="txtLy12" type="text" maxlength="5" id="txtLy12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+                                                                                Lý
+                                                                                @Html.EditorFor(model => model.Ly, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.Ly, "", new { @class = "text-danger" })
+                                                                                @*<span class="bold">LÝ</span><input name="txtLy12" type="text" maxlength="5" id="txtLy12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <span class="bold">HÓA</span><input name="txtHoa12" type="text" maxlength="5" id="txtHoa12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+                                                                                Hóa
+                                                                                @Html.EditorFor(model => model.Hoa, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.Hoa, "", new { @class = "text-danger" })
+                                                                                @*<span class="bold">HÓA</span><input name="txtHoa12" type="text" maxlength="5" id="txtHoa12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                             </td>
                                                                             <td>
-                                                                                <span class="bold">SINH</span><input name="txtSinh12" type="text" maxlength="5" id="txtSinh12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+                                                                                Sinh
+                                                                                @Html.EditorFor(model => model.Sinh, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.Sinh, "", new { @class = "text-danger" })
+                                                                                @*<span class="bold">SINH</span><input name="txtSinh12" type="text" maxlength="5" id="txtSinh12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                             </td>
                                                                             <td>
-                                                                                <span class="bold">SỬ</span><input name="txtSu12" type="text" maxlength="5" id="txtSu12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+                                                                                Sử
+                                                                                @Html.EditorFor(model => model.Su, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.Su, "", new { @class = "text-danger" })
+                                                                                @*<span class="bold">SỬ</span><input name="txtSu12" type="text" maxlength="5" id="txtSu12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                             </td>
                                                                             <td>
-                                                                                <span class="bold">ĐỊA</span><input name="txtDia12" type="text" maxlength="5" id="txtDia12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+                                                                                Địa
+                                                                                @Html.EditorFor(model => model.Dia, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.Dia, "", new { @class = "text-danger" })
+                                                                                @*<span class="bold">ĐỊA</span><input name="txtDia12" type="text" maxlength="5" id="txtDia12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                             </td>
                                                                             <td>
-                                                                                <span class="bold">GDCD</span><input name="txtGDCD12" type="text" maxlength="5" id="txtGDCD12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+                                                                                GDCD
+                                                                                @Html.EditorFor(model => model.GDCD, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control" } })
+                                                                                @Html.ValidationMessageFor(model => model.GDCD, "", new { @class = "text-danger" })
+                                                                                @*<span class="bold">GDCD</span><input name="txtGDCD12" type="text" maxlength="5" id="txtGDCD12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                             </td>
                                                                         </tr>

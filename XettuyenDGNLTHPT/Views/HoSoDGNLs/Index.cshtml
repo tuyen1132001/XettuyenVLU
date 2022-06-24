@@ -1,0 +1,376 @@
+﻿@model IEnumerable<XettuyenDGNLTHPT.Models.tblHoSoDGNL>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HoVaTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNoiSinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenNoiSinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaDanToc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDanToc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaTonGiao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenTonGiao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CMND)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuocTich)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoKhau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoKhau_MaPhuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoKhau_TenPhuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoKhau_MaTinhTP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoKhau_TenTinhTP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoKhau_MaQH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoKhau_TenQH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NamTotNghiep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoBaoDanh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HocLucLop12)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HanhKiemLop12)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiHinhTN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TruongTHPT_MaTinhTP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TruongTHPT_TenTinhTP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TruongTHPT_MaQH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TruongTHPT_TenQH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenTruongTHPT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaTruongTHPT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenLop12)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KhuVuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiemDGNL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TGThiDGNL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoiTuongUuTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCNN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNganh_ToHop1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenNganh_TenToHop1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNganh_ToHop2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenNganh_TenToHop2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNganh_ToHop3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenNganh_TenToHop3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CTCT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CTDB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LienLac_DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LienLac_MaPhuongXa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LienLac_TenPhuongXa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LienLac_MaTP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LienLac_TenTP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LienLac_MaQH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LienLac_TenQH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DienThoaiDD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DienThoaiPhuHuynh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateEdited)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DaNhanHoSo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiemVeMyThuat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiemVeNangKhieu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoVaTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioiTinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgaySinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNoiSinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNoiSinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaDanToc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDanToc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTonGiao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenTonGiao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CMND)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuocTich)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoKhau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoKhau_MaPhuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoKhau_TenPhuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoKhau_MaTinhTP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoKhau_TenTinhTP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoKhau_MaQH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoKhau_TenQH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NamTotNghiep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoBaoDanh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HocLucLop12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HanhKiemLop12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiHinhTN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TruongTHPT_MaTinhTP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TruongTHPT_TenTinhTP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TruongTHPT_MaQH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TruongTHPT_TenQH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenTruongTHPT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTruongTHPT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenLop12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KhuVuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiemDGNL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TGThiDGNL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoiTuongUuTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CCNN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNganh_ToHop1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNganh_TenToHop1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNganh_ToHop2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNganh_TenToHop2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNganh_ToHop3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNganh_TenToHop3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CTCT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CTDB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LienLac_DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LienLac_MaPhuongXa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LienLac_TenPhuongXa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LienLac_MaTP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LienLac_TenTP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LienLac_MaQH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LienLac_TenQH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DienThoaiDD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DienThoaiPhuHuynh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInserted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateEdited)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DaNhanHoSo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiemVeMyThuat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiemVeNangKhieu)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
