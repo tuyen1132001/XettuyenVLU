@@ -12,12 +12,13 @@ namespace XettuyenDGNLTHPT.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetUserLogin
+    public partial class Account
     {
-        public string LoginProvider { get; set; }
-        public string ProviderKey { get; set; }
-        public string UserId { get; set; }
-    
-        public virtual AspNetUser AspNetUser { get; set; }
+        public int ID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Full_Name { get; set; }
+        public string Role { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     }
 }
