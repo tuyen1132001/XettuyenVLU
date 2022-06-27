@@ -1,65 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="XettuyenVLUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="__MigrationHistory">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Account">
     <Key>
-      <PropertyRef Name="MigrationId" />
-      <PropertyRef Name="ContextKey" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="Full_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Role" Type="nvarchar" MaxLength="30" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
-  <EntityType Name="AspNetRoles">
+  <EntityType Name="sysdiagrams">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
-  </EntityType>
-  <EntityType Name="AspNetUserClaims">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="ClaimType" Type="nvarchar(max)" />
-    <Property Name="ClaimValue" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityType Name="AspNetUserLogins">
-    <Key>
-      <PropertyRef Name="LoginProvider" />
-      <PropertyRef Name="ProviderKey" />
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-  </EntityType>
-  <EntityType Name="AspNetUserRoles">
-    <Key>
-      <PropertyRef Name="UserId" />
-      <PropertyRef Name="RoleId" />
-    </Key>
-    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
-  </EntityType>
-  <EntityType Name="AspNetUsers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="256" />
-    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
-    <Property Name="PasswordHash" Type="nvarchar(max)" />
-    <Property Name="SecurityStamp" Type="nvarchar(max)" />
-    <Property Name="PhoneNumber" Type="nvarchar(max)" />
-    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
-    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
-    <Property Name="LockoutEndDateUtc" Type="datetime" />
-    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
-    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="tblChungChiNN">
     <Key>
@@ -72,10 +34,9 @@
   </EntityType>
   <EntityType Name="tblDanToc">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="MA_DANTOC" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="MA_DANTOC" Type="varchar" MaxLength="5" />
+    <Property Name="MA_DANTOC" Type="varchar" MaxLength="5" Nullable="false" />
     <Property Name="TEN_DANTOC" Type="nvarchar" MaxLength="255" />
     <Property Name="DIEN_GIAI" Type="nvarchar" MaxLength="255" />
   </EntityType>
@@ -238,28 +199,27 @@
   </EntityType>
   <EntityType Name="tblTinhTP">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="MA_TINHTP" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="MA_TINHTP" Type="varchar" MaxLength="5" />
+    <Property Name="MA_TINHTP" Type="varchar" MaxLength="5" Nullable="false" />
     <Property Name="TEN_TINHTP" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="tblTonGiao">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="MA_TONGIAO" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="MA_TONGIAO" Type="varchar" MaxLength="5" />
+    <Property Name="MA_TONGIAO" Type="varchar" MaxLength="5" Nullable="false" />
     <Property Name="TEN_TONGIAO" Type="nvarchar" MaxLength="255" />
     <Property Name="DIENGIAI" Type="nvarchar(max)" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="tblTP_QH_PX">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="MaTinhTP" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="TenTinhTP" Type="nvarchar" MaxLength="255" />
-    <Property Name="MaTinhTP" Type="nvarchar" MaxLength="255" />
+    <Property Name="MaTinhTP" Type="varchar" MaxLength="5" Nullable="false" />
     <Property Name="TenQH" Type="nvarchar" MaxLength="255" />
     <Property Name="MaQH" Type="nvarchar" MaxLength="255" />
     <Property Name="TenPX" Type="nvarchar" MaxLength="255" />
@@ -283,69 +243,20 @@
     <Property Name="KHU_VUC" Type="nvarchar" MaxLength="255" />
     <Property Name="LOAI_TRUONG" Type="nvarchar" MaxLength="255" />
   </EntityType>
-  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+  <Association Name="fk_TPQHPX_MaTinhTP">
+    <End Role="tblTinhTP" Type="Self.tblTinhTP" Multiplicity="1" />
+    <End Role="tblTP_QH_PX" Type="Self.tblTP_QH_PX" Multiplicity="0..1" />
     <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
+      <Principal Role="tblTinhTP">
+        <PropertyRef Name="MA_TINHTP" />
       </Principal>
-      <Dependent Role="AspNetUserClaims">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserLogins">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetRoles">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles">
-        <PropertyRef Name="RoleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles">
-        <PropertyRef Name="UserId" />
+      <Dependent Role="tblTP_QH_PX">
+        <PropertyRef Name="MaTinhTP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="XettuyenVLUModelStoreContainer">
-    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblHoSoDGNL" EntityType="Self.tblHoSoDGNL" Schema="dbo" store:Type="Tables" />
@@ -354,23 +265,32 @@
     <EntitySet Name="tblQuocTich" EntityType="Self.tblQuocTich" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTinhTP" EntityType="Self.tblTinhTP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTonGiao" EntityType="Self.tblTonGiao" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTruongTHPT" EntityType="Self.tblTruongTHPT" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    <EntitySet Name="Account" EntityType="Self.Account" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Account].[ID] AS [ID], 
+    [Account].[Username] AS [Username], 
+    [Account].[Password] AS [Password], 
+    [Account].[Full_Name] AS [Full_Name], 
+    [Account].[Role] AS [Role], 
+    [Account].[IsActive] AS [IsActive]
+    FROM [dbo].[Account] AS [Account]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblTP_QH_PX].[TenTinhTP] AS [TenTinhTP], 
+    [tblTP_QH_PX].[MaTinhTP] AS [MaTinhTP], 
+    [tblTP_QH_PX].[TenQH] AS [TenQH], 
+    [tblTP_QH_PX].[MaQH] AS [MaQH], 
+    [tblTP_QH_PX].[TenPX] AS [TenPX], 
+    [tblTP_QH_PX].[MaPX] AS [MaPX], 
+    [tblTP_QH_PX].[Cap] AS [Cap], 
+    [tblTP_QH_PX].[EnglishName] AS [EnglishName]
+    FROM [dbo].[tblTP_QH_PX] AS [tblTP_QH_PX]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_TPQHPX_MaTinhTP" Association="Self.fk_TPQHPX_MaTinhTP">
+      <End Role="tblTinhTP" EntitySet="tblTinhTP" />
+      <End Role="tblTP_QH_PX" EntitySet="tblTP_QH_PX" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

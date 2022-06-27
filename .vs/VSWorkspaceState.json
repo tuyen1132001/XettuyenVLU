@@ -2,7 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\XettuyenDGNLTHPT",
-    "\\XettuyenDGNLTHPT\\Controllers"
+    "\\XettuyenDGNLTHPT\\Controllers",
+    "\\XettuyenDGNLTHPT\\Views",
+    "\\XettuyenDGNLTHPT\\Views\\ManageHoSo"
   ],
+  "SelectedNode": "\\XettuyenDGNLTHPT\\XettuyenDGNLTHPT.csproj.user",
   "PreviewInSolutionExplorer": false
 }

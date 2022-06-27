@@ -14,7 +14,6 @@ namespace XettuyenDGNLTHPT.Models
     
     public partial class tblDanToc
     {
-        public int ID { get; set; }
         public string MA_DANTOC { get; set; }
         public string TEN_DANTOC { get; set; }
         public string DIEN_GIAI { get; set; }

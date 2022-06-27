@@ -14,8 +14,9 @@ namespace XettuyenDGNLTHPT.Models
     
     public partial class tblTinhTP
     {
-        public int ID { get; set; }
         public string MA_TINHTP { get; set; }
         public string TEN_TINHTP { get; set; }
+    
+        public virtual tblTP_QH_PX tblTP_QH_PX { get; set; }
     }
 }

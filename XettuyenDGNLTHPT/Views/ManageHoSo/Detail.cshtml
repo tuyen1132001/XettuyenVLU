@@ -1,0 +1,301 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form method="post" action="./hosocuatoi" id="frmHoSo" class="form-horizontal">
+    <div class="aspNetHidden">
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
+    </div>
+
+    <div class="aspNetHidden">
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9D10CFA7" />
+        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="ACPVZjx4teabP4d658ST999oEjDO/a6aGtJJC4dkGPvG5OFVSemQywijrq2b56pYqVJYVd0aHufGxdAX5A6sri5+zQhUS+fcDiEzX/YxJI9DLd/PJFA+KbvgjgEg2twwreoIkFkqpiWSojykIistPKZvq35Msxitl7ve4ciMan7Ypu+NV5oZWppH1ba6+VNtqh3/oD/z6NDnLM28Db4gWiT9J/dx/Y3KJ2bV8HEKQ8A=" />
+    </div>
+    <div class="page-container">
+        <!-- BEGIN CONTENT -->
+
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <!-- BEGIN PAGE CONTENT BODY -->
+            <div class="page-content" style="background-color: white">
+                <p></p>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <select name="DropDownList1" id="DropDownList1" class="form-control">
+                            <option value="dot1">Đợt 1</option>
+                            <option value="dot2">Đợt 2</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="ddlLoaiXetTuyen" id="ddlLoaiXetTuyen" class="form-control">
+                            <option value="HB">THPT QG</option>
+                            <option value="DGNL">Đ&#225;nh gi&#225; năng lực</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-4"><input name="txtCMND" id="txtCMND" required="true" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
+                    <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" id="btnTim" class="btn green button-submit" /></div>
+                    <div class="col-md-2"></div>
+                </div>
+
+
+            </div>
+
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
+        </div>
+        <table style="width:95%;margin:auto">
+            <tbody>
+                <tr>
+                    <td style="width:10%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:30%;"></td>
+                </tr>
+                <tr>
+                    <td><img src="~/files/logo.png" /></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="width:10%"></td>
+                    <td colspan="2" style="width:10%;text-align:center;font-weight:bold;font-size:1.1em" ">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM<br />Độc lập - Tự do - Hạnh phúc</td>
+                    <td style="width:30%"></td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="text-center">
+                        <span style="font-weight:bold;color:red;font-size:1.5em">ĐĂNG KÝ XÉT TUYỂN 2022 - ĐỢT 1</span>
+                        <br />
+                        <span style="font-size:1.2em">(Dành cho thí sinh xét kết quả học bạ THPT)</span>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="color:Highlight;font-weight:bold;font-size:1.3em">THÔNG TIN THÍ SINH</td>
+                    <td colspan="3"></td>
+                    <td>MÃ HỒ SƠ: <span style="color:red;font-weight:bold;font-size:1.2em">DVL_131387</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="1"><b>1. Họ tên thí sinh</b>:</td>
+                    <td colspan="3">NGUYỄN VĂN THOẠI</td>
+                    <td><b>Giới tính:</b> Nam</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><b>2. Ngày tháng năm sinh</b>:</td>
+                    <td colspan="6">2/02/2004</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><b>3. Nơi sinh</b>: Tỉnh Long An</td>
+                    <td colspan="2"><b>4. Dân tộc</b>: Kinh </td>
+                    <td colspan="2"><b>5. Tôn giáo</b>: Không </td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><b>6. Số chứng minh dân dân/ Căn cước công dân</b>: </td>
+                    <td colspan="6">301881708 - <b>Quốc tịch</b>: </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><b>7. Hộ khẩu thường trú</b>: </td>
+                    <td colspan="6">Ấp Phước Thới, xã Phước Lại, huyện Cần Giuộc, tỉnh Long An</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="2"><b>Phường xã</b>: Xã Phước Lại</td>
+                    <td colspan="2"><b>Quận/Huyện</b>: Huyện Cần Giuộc</td>
+                    <td><b>Tỉnh/Thành phố</b>: Tỉnh Long An</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><b>8. Nămm tốt nghiệp THPT</b>:</td>
+                    <td colspan="6">2022</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><b>9. Học lực lớp 12</b>:</td>
+                    <td>Khác</td>
+                    <td></td>
+                    <td colspan="2"><b>10. Hạnh kiểm lớp 12</b>:</td>
+                    <td colspan="2">Khác</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><b>11. Thí sinh học chương trình</b>:</td>
+                    <td colspan="6">THPT</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><b>12. Nơi học THPT lớp 12</b>:</td>
+                    <td colspan="4">010 - THPT Cần Giuộc - <b>Lớp</b>: 12a3</td>
+                    <td colspan="2"><b>Mã tỉnh: </b>Long An</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><b>13. Khu vực</b>: </td>
+                    <td colspan="6">2NT</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><b>14. Đối tượng ưu tiên</b>: </td>
+                    <td colspan="6">0</td>
+                </tr>
+                <tr>
+                    <td colspan="8"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="color:Highlight;font-weight:bold;font-size:1.3em">THÔNG TIN XÉT TUYỂN</td>
+                    <td colspan="6"><b>Phương Thức Xét Tuyển</b>: THPT Quốc Gia</td>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        <table class="table-bordered text-center" style="width:80%">
+                            <tr>
+                                <th style="text-align:center;width:20%">MÔN HỌC</th>
+                                <th class="text-center">TOÁN</th>
+                                <th class="text-center">VĂN</th>
+                                <th class="text-center">ANH</th>
+                                <th class="text-center">PHÁP</th>
+                                <th class="text-center">LÝ</th>
+                                <th class="text-center">HÓA</th>
+                                <th class="text-center">SINH</th>
+                                <th class="text-center">SỬ</th>
+                                <th class="text-center">ĐỊA</th>
+                                <th class="text-center">GDCD</th>
+                            </tr>
+
+                            <tr>
+                                <td class="text-left bold">Điểm thi THPT Quốc Gia</td>
+                                <td>5.1</td>
+                                <td>7.1</td>
+                                <td>7.9</td>
+                                <td>0 </td>
+                                <td>6.5</td>
+                                <td>6.3</td>
+                                <td>8.1</td>
+                                <td>9.3</td>
+                                <td>8.6</td>
+                                <td>9.2</td>
+                            </tr>
+
+
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><b>Chứng chỉ ngoại ngữ</b>:<i>(nếu có)</i></td>
+                    <td colspan="6"></td>
+                </tr>
+
+                <tr><td><b>Ngành đăng ký xét tuyển 1</b>: </td><td colspan="2">Marketing</td><td></td><td><b>Mã ngành</b>: 7340115</td><td></td><td><b>Mã tổ hợp</b>: A01</td><td></td></tr>
+                <tr><td></td><td colspan="3">Chương trình học: Tiêu chuẩn</td></tr>
+                <tr><td><b>Ngành đăng ký xét tuyển 2</b>: </td><td colspan="2">Quan hệ Công chúng</td><td></td><td><b>Mã ngành</b>: 7320108</td><td></td><td><b>Mã tổ hợp</b>: C00</td><td></td></tr>
+                <tr><td></td><td colspan="3">Chương trình học: Tiêu chuẩn</td></tr>
+                <tr><td><b>Ngành đăng ký xét tuyển 3</b>: </td><td colspan="2">Tài chính – Ngân hàng</td><td></td><td><b>Mã ngành</b>: 7340201</td><td></td><td><b>Mã tổ hợp</b>: C04</td><td></td></tr>
+                <tr><td></td><td colspan="3">Chương trình học: Tiêu chuẩn</td></tr>
+
+                <tr>
+                    <td colspan="8"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="color:Highlight;font-weight:bold;font-size:1.3em">THÔNG TIN LIÊN HỆ</td>
+                    <td colspan="6"></td>
+                </tr>
+
+                <tr>
+                    <td><b>Địa chỉ liên hệ</b>:</td>
+                    <td colspan="6">Ấp Phước Thới, xã Phước Lại, huyện Cần Giuộc, tỉnh Long An, Xã Phước Lại, Huyện Cần Giuộc, Tỉnh Long An</td>
+                </tr>
+                <tr>
+                    <td><b>Điện thoại</b>:</td>
+                    <td>0797486707 - <b>Điện thoại phụ huynh</b>: 0903965579</td>
+                    <td></td>
+                    <td><b>Email</b>:</td>
+                    <td>vanthoai590@gmail.com</td>
+                </tr>
+                <tr>
+                    <td colspan="8"></td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <table style="border-style:dashed;border-width:1px">
+                            <tr>
+                                <td><b>Hồ sơ gồm có</b>:</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <ul style="list-style-type:none;">
+                                        <li><span style="font-size:1.5em">&#9633;</span> Học bạ THPT (bản photocopy công chứng);</li>
+                                        <li><span style="font-size:1.5em">&#9633;</span> Bằng tốt nghiệp THPT/Giấy chứng nhận TN tạm thời (bản photocopy công chứng);</li>
+                                        <li><span style="font-size:1.5em">&#9633;</span> Điểm thi năng khiếu;</li>
+                                        <li><span style="font-size:1.5em">&#9633;</span> Chứng chỉ ngoại ngữ (bản photocopy công chứng);</li>
+                                        <li><span style="font-size:1.5em">&#9633;</span> CMND/CCCD (bản photocopy công chứng);</li>
+                                        <li><span style="font-size:1.5em">&#9633;</span> Giấy chứng nhận ưu tiên.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td colspan="2" style="vertical-align:top;text-align:center">
+                        Ngày ....... tháng ....... năm 2022<br />
+                        <b>Chữ ký của thí sinh</b><br />
+                        <i>(Ký và ghi rõ họ tên)</i>
+                        <p></p>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        NGUYỄN VĂN THOẠI
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="vertical_space"></div>
+    </div>
+    <div class="vertical_space"></div>
+    <div class="vertical_space"></div>
+    <div class="vertical_space"></div>
+
+    <div id="panelNutLenh">
+
+        <div class="vertical_space"></div>
+        <hr>
+        <div class="vertical_space"></div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <input type="button" id="btnTrangIn" name="btnTrangIn" class="btn btn-success" value="IN PHIẾU">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" id="btnUploadHocBa" class="btn btn-warning" value="UPLOAD HỌC BẠ" onclick="parent.open('/myupload');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" name="btnDieuChinhNguyenVong" value="ĐIỀU CHỈNH THÔNG TIN" id="btnDieuChinhNguyenVong" disabled="true" class="btn btn-primary">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="vertical_space"></div>
+    <div class="vertical_space"></div>
+
+    </div>
+    </div>
+    </form>
+
