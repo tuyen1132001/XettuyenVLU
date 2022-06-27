@@ -14,6 +14,7 @@ namespace XettuyenDGNLTHPT.Models
     
     public partial class tblTP_QH_PX
     {
+        public int ID { get; set; }
         public string TenTinhTP { get; set; }
         public string MaTinhTP { get; set; }
         public string TenQH { get; set; }
@@ -22,7 +23,5 @@ namespace XettuyenDGNLTHPT.Models
         public string MaPX { get; set; }
         public string Cap { get; set; }
         public string EnglishName { get; set; }
-    
-        public virtual tblTinhTP tblTinhTP { get; set; }
     }
 }

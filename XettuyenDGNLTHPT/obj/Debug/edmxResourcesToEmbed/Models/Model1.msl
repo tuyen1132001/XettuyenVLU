@@ -156,22 +156,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tblNganhs">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblNganh">
-        <MappingFragment StoreEntitySet="tblNganh">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="MANGANH_TOHOP" ColumnName="MANGANH_TOHOP" />
-          <ScalarProperty Name="MA_NGANH" ColumnName="MA_NGANH" />
-          <ScalarProperty Name="TEN_NGANH" ColumnName="TEN_NGANH" />
-          <ScalarProperty Name="MA_TOHOP" ColumnName="MA_TOHOP" />
-          <ScalarProperty Name="TEN_TOHOP" ColumnName="TEN_TOHOP" />
-          <ScalarProperty Name="CTTC" ColumnName="CTTC" />
-          <ScalarProperty Name="CTDB" ColumnName="CTDB" />
-          <ScalarProperty Name="CTTT" ColumnName="CTTT" />
-          <ScalarProperty Name="FLAG" ColumnName="FLAG" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tblQuocTiches">
       <EntityTypeMapping TypeName="XettuyenVLUModel.tblQuocTich">
         <MappingFragment StoreEntitySet="tblQuocTich">
@@ -198,26 +182,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tblTruongTHPTs">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTruongTHPT">
-        <MappingFragment StoreEntitySet="tblTruongTHPT">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="MA_TPTRUONG" ColumnName="MA_TPTRUONG" />
-          <ScalarProperty Name="MA_TINHTP" ColumnName="MA_TINHTP" />
-          <ScalarProperty Name="TEN_TINHTP" ColumnName="TEN_TINHTP" />
-          <ScalarProperty Name="MA_QH" ColumnName="MA_QH" />
-          <ScalarProperty Name="TEN_QH" ColumnName="TEN_QH" />
-          <ScalarProperty Name="MA_TRUONG" ColumnName="MA_TRUONG" />
-          <ScalarProperty Name="TEN_TRUONG" ColumnName="TEN_TRUONG" />
-          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
-          <ScalarProperty Name="KHU_VUC" ColumnName="KHU_VUC" />
-          <ScalarProperty Name="LOAI_TRUONG" ColumnName="LOAI_TRUONG" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tblTP_QH_PX">
       <EntityTypeMapping TypeName="XettuyenVLUModel.tblTP_QH_PX">
         <MappingFragment StoreEntitySet="tblTP_QH_PX">
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="TenTinhTP" ColumnName="TenTinhTP" />
           <ScalarProperty Name="MaTinhTP" ColumnName="MaTinhTP" />
           <ScalarProperty Name="TenQH" ColumnName="TenQH" />
@@ -229,68 +197,50 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="C__MigrationHistory">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.C__MigrationHistory">
-        <MappingFragment StoreEntitySet="__MigrationHistory">
-          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AspNetRoles">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetRole">
-        <MappingFragment StoreEntitySet="AspNetRoles">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
+    <EntitySetMapping Name="tblNganhs">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblNganh">
+        <MappingFragment StoreEntitySet="tblNganh">
+          <ScalarProperty Name="FLAG" ColumnName="FLAG" />
+          <ScalarProperty Name="CTTT" ColumnName="CTTT" />
+          <ScalarProperty Name="CTDB" ColumnName="CTDB" />
+          <ScalarProperty Name="CTTC" ColumnName="CTTC" />
+          <ScalarProperty Name="TEN_TOHOP" ColumnName="TEN_TOHOP" />
+          <ScalarProperty Name="MA_TOHOP" ColumnName="MA_TOHOP" />
+          <ScalarProperty Name="TEN_NGANH" ColumnName="TEN_NGANH" />
+          <ScalarProperty Name="MA_NGANH" ColumnName="MA_NGANH" />
+          <ScalarProperty Name="MANGANH_TOHOP" ColumnName="MANGANH_TOHOP" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUserClaims">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetUserClaim">
-        <MappingFragment StoreEntitySet="AspNetUserClaims">
-          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
+    <EntitySetMapping Name="tblTruongTHPTs">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTruongTHPT">
+        <MappingFragment StoreEntitySet="tblTruongTHPT">
+          <ScalarProperty Name="LOAI_TRUONG" ColumnName="LOAI_TRUONG" />
+          <ScalarProperty Name="KHU_VUC" ColumnName="KHU_VUC" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="TEN_TRUONG" ColumnName="TEN_TRUONG" />
+          <ScalarProperty Name="MA_TRUONG" ColumnName="MA_TRUONG" />
+          <ScalarProperty Name="TEN_QH" ColumnName="TEN_QH" />
+          <ScalarProperty Name="MA_QH" ColumnName="MA_QH" />
+          <ScalarProperty Name="TEN_TINHTP" ColumnName="TEN_TINHTP" />
+          <ScalarProperty Name="MA_TINHTP" ColumnName="MA_TINHTP" />
+          <ScalarProperty Name="MA_TPTRUONG" ColumnName="MA_TPTRUONG" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUserLogins">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetUserLogin">
-        <MappingFragment StoreEntitySet="AspNetUserLogins">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetUser">
-        <MappingFragment StoreEntitySet="AspNetUsers">
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="AspNetUserRoles" TypeName="XettuyenVLUModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-      <EndProperty Name="AspNetUser">
-        <ScalarProperty Name="Id" ColumnName="UserId" />
-      </EndProperty>
-      <EndProperty Name="AspNetRole">
-        <ScalarProperty Name="Id" ColumnName="RoleId" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

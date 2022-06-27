@@ -12,11 +12,13 @@ namespace XettuyenDGNLTHPT.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class C__MigrationHistory
+    public partial class Account
     {
-        public string MigrationId { get; set; }
-        public string ContextKey { get; set; }
-        public byte[] Model { get; set; }
-        public string ProductVersion { get; set; }
+        public int ID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Full_Name { get; set; }
+        public string Role { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     }
 }

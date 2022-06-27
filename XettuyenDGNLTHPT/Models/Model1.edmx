@@ -5,66 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="XettuyenVLUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="__MigrationHistory">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Account">
           <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetRoles">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUserClaims">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ClaimType" Type="nvarchar(max)" />
-          <Property Name="ClaimValue" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="AspNetUserLogins">
-          <Key>
-            <PropertyRef Name="LoginProvider" />
-            <PropertyRef Name="ProviderKey" />
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUserRoles">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="AspNetUsers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="256" />
-          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
-          <Property Name="PasswordHash" Type="nvarchar(max)" />
-          <Property Name="SecurityStamp" Type="nvarchar(max)" />
-          <Property Name="PhoneNumber" Type="nvarchar(max)" />
-          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="datetime" />
-          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="Full_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="nvarchar" MaxLength="30" />
+          <Property Name="IsActive" Type="bit" />
         </EntityType>
         <EntityType Name="tblChungChiNN">
           <Key>
@@ -255,14 +207,13 @@
           <Property Name="TEN_TONGIAO" Type="nvarchar" MaxLength="255" />
           <Property Name="DIENGIAI" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="tblTP_QH_PX">
           <Key>
-            <PropertyRef Name="MaTinhTP" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenTinhTP" Type="nvarchar" MaxLength="255" />
-          <Property Name="MaTinhTP" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="MaTinhTP" Type="nvarchar" MaxLength="255" />
           <Property Name="TenQH" Type="nvarchar" MaxLength="255" />
           <Property Name="MaQH" Type="nvarchar" MaxLength="255" />
           <Property Name="TenPX" Type="nvarchar" MaxLength="255" />
@@ -286,81 +237,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
           <Property Name="KHU_VUC" Type="nvarchar" MaxLength="255" />
           <Property Name="LOAI_TRUONG" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaims">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogins">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetRoles">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserRoles">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserRoles">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_TPQHPX_MaTinhTP">
-          <End Role="tblTinhTP" Type="Self.tblTinhTP" Multiplicity="1" />
-          <End Role="tblTP_QH_PX" Type="Self.tblTP_QH_PX" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="tblTinhTP">
-              <PropertyRef Name="MA_TINHTP" />
-            </Principal>
-            <Dependent Role="tblTP_QH_PX">
-              <PropertyRef Name="MaTinhTP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="XettuyenVLUModelStoreContainer">
-          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHoSoDGNL" EntityType="Self.tblHoSoDGNL" Schema="dbo" store:Type="Tables" />
@@ -369,39 +246,18 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
           <EntitySet Name="tblQuocTich" EntityType="Self.tblQuocTich" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTinhTP" EntityType="Self.tblTinhTP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTonGiao" EntityType="Self.tblTonGiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTruongTHPT" EntityType="Self.tblTruongTHPT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="Account" EntityType="Self.Account" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [tblTP_QH_PX].[TenTinhTP] AS [TenTinhTP], 
-    [tblTP_QH_PX].[MaTinhTP] AS [MaTinhTP], 
-    [tblTP_QH_PX].[TenQH] AS [TenQH], 
-    [tblTP_QH_PX].[MaQH] AS [MaQH], 
-    [tblTP_QH_PX].[TenPX] AS [TenPX], 
-    [tblTP_QH_PX].[MaPX] AS [MaPX], 
-    [tblTP_QH_PX].[Cap] AS [Cap], 
-    [tblTP_QH_PX].[EnglishName] AS [EnglishName]
-    FROM [dbo].[tblTP_QH_PX] AS [tblTP_QH_PX]</DefiningQuery>
+    [Account].[ID] AS [ID], 
+    [Account].[Username] AS [Username], 
+    [Account].[Password] AS [Password], 
+    [Account].[Full_Name] AS [Full_Name], 
+    [Account].[Role] AS [Role], 
+    [Account].[IsActive] AS [IsActive]
+    FROM [dbo].[Account] AS [Account]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-          </AssociationSet>
-          <AssociationSet Name="fk_TPQHPX_MaTinhTP" Association="Self.fk_TPQHPX_MaTinhTP">
-            <End Role="tblTinhTP" EntitySet="tblTinhTP" />
-            <End Role="tblTP_QH_PX" EntitySet="tblTP_QH_PX" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -558,21 +414,6 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
           <Property Name="DiemVeMyThuat" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DiemVeNangKhieu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="tblNganh">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="MANGANH_TOHOP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="MA_NGANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="TEN_NGANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="MA_TOHOP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="TEN_TOHOP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CTTC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CTDB" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CTTT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="FLAG" Type="Boolean" />
-        </EntityType>
         <EntityType Name="tblQuocTich">
           <Key>
             <PropertyRef Name="ID" />
@@ -587,7 +428,6 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
           </Key>
           <Property Name="MA_TINHTP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TEN_TINHTP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblTP_QH_PX" Relationship="Self.fk_TPQHPX_MaTinhTP" FromRole="tblTinhTP" ToRole="tblTP_QH_PX" />
         </EntityType>
         <EntityType Name="tblTonGiao">
           <Key>
@@ -596,6 +436,59 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
           <Property Name="MA_TONGIAO" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TEN_TONGIAO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="DIENGIAI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblTP_QH_PX">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTinhTP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MaTinhTP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TenQH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MaQH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TenPX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MaPX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cap" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Full_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="XettuyenVLUEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblChungChiNNs" EntityType="Self.tblChungChiNN" />
+          <EntitySet Name="tblDanTocs" EntityType="Self.tblDanToc" />
+          <EntitySet Name="tblHoSoDGNLs" EntityType="Self.tblHoSoDGNL" />
+          <EntitySet Name="tblHoSoTHPTs" EntityType="Self.tblHoSoTHPT" />
+          <EntitySet Name="tblQuocTiches" EntityType="Self.tblQuocTich" />
+          <EntitySet Name="tblTinhTPs" EntityType="Self.tblTinhTP" />
+          <EntitySet Name="tblTonGiaos" EntityType="Self.tblTonGiao" />
+          <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" />
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="tblNganhs" EntityType="XettuyenVLUModel.tblNganh" />
+          <EntitySet Name="tblTruongTHPTs" EntityType="XettuyenVLUModel.tblTruongTHPT" />
+        </EntityContainer>
+        <EntityType Name="tblNganh">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="MANGANH_TOHOP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MA_NGANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TEN_NGANH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MA_TOHOP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TEN_TOHOP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CTTC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CTDB" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CTTT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FLAG" Type="Boolean" />
         </EntityType>
         <EntityType Name="tblTruongTHPT">
           <Key>
@@ -613,156 +506,6 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
           <Property Name="KHU_VUC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="LOAI_TRUONG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="tblTP_QH_PX">
-          <Key>
-            <PropertyRef Name="MaTinhTP" />
-          </Key>
-          <Property Name="TenTinhTP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="MaTinhTP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TenQH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="MaQH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="TenPX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="MaPX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Cap" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="EnglishName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblTinhTP" Relationship="Self.fk_TPQHPX_MaTinhTP" FromRole="tblTP_QH_PX" ToRole="tblTinhTP" />
-        </EntityType>
-        <Association Name="fk_TPQHPX_MaTinhTP">
-          <End Role="tblTinhTP" Type="Self.tblTinhTP" Multiplicity="1" />
-          <End Role="tblTP_QH_PX" Type="Self.tblTP_QH_PX" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="tblTinhTP">
-              <PropertyRef Name="MA_TINHTP" />
-            </Principal>
-            <Dependent Role="tblTP_QH_PX">
-              <PropertyRef Name="MaTinhTP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="XettuyenVLUEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tblChungChiNNs" EntityType="Self.tblChungChiNN" />
-          <EntitySet Name="tblDanTocs" EntityType="Self.tblDanToc" />
-          <EntitySet Name="tblHoSoDGNLs" EntityType="Self.tblHoSoDGNL" />
-          <EntitySet Name="tblHoSoTHPTs" EntityType="Self.tblHoSoTHPT" />
-          <EntitySet Name="tblNganhs" EntityType="Self.tblNganh" />
-          <EntitySet Name="tblQuocTiches" EntityType="Self.tblQuocTich" />
-          <EntitySet Name="tblTinhTPs" EntityType="Self.tblTinhTP" />
-          <EntitySet Name="tblTonGiaos" EntityType="Self.tblTonGiao" />
-          <EntitySet Name="tblTruongTHPTs" EntityType="Self.tblTruongTHPT" />
-          <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" />
-          <AssociationSet Name="fk_TPQHPX_MaTinhTP" Association="Self.fk_TPQHPX_MaTinhTP">
-            <End Role="tblTinhTP" EntitySet="tblTinhTPs" />
-            <End Role="tblTP_QH_PX" EntitySet="tblTP_QH_PX" />
-          </AssociationSet>
-          <EntitySet Name="C__MigrationHistory" EntityType="XettuyenVLUModel.C__MigrationHistory" />
-          <EntitySet Name="AspNetRoles" EntityType="XettuyenVLUModel.AspNetRole" />
-          <EntitySet Name="AspNetUserClaims" EntityType="XettuyenVLUModel.AspNetUserClaim" />
-          <EntitySet Name="AspNetUserLogins" EntityType="XettuyenVLUModel.AspNetUserLogin" />
-          <EntitySet Name="AspNetUsers" EntityType="XettuyenVLUModel.AspNetUser" />
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="XettuyenVLUModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="XettuyenVLUModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="XettuyenVLUModel.AspNetUserRoles">
-            <End Role="AspNetRole" EntitySet="AspNetRoles" />
-            <End Role="AspNetUser" EntitySet="AspNetUsers" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="C__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="AspNetRole">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="XettuyenVLUModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
-        </EntityType>
-        <EntityType Name="AspNetUserClaim">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="XettuyenVLUModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
-        </EntityType>
-        <EntityType Name="AspNetUserLogin">
-          <Key>
-            <PropertyRef Name="LoginProvider" />
-            <PropertyRef Name="ProviderKey" />
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="XettuyenVLUModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
-        </EntityType>
-        <EntityType Name="AspNetUser">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
-          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUserClaims" Relationship="XettuyenVLUModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
-          <NavigationProperty Name="AspNetUserLogins" Relationship="XettuyenVLUModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
-          <NavigationProperty Name="AspNetRoles" Relationship="XettuyenVLUModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
-        </EntityType>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Type="XettuyenVLUModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="XettuyenVLUModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaim">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Type="XettuyenVLUModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="XettuyenVLUModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogin">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="AspNetUserRoles">
-          <End Type="XettuyenVLUModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
-          <End Type="XettuyenVLUModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -924,22 +667,6 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblNganhs">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblNganh">
-              <MappingFragment StoreEntitySet="tblNganh">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MANGANH_TOHOP" ColumnName="MANGANH_TOHOP" />
-                <ScalarProperty Name="MA_NGANH" ColumnName="MA_NGANH" />
-                <ScalarProperty Name="TEN_NGANH" ColumnName="TEN_NGANH" />
-                <ScalarProperty Name="MA_TOHOP" ColumnName="MA_TOHOP" />
-                <ScalarProperty Name="TEN_TOHOP" ColumnName="TEN_TOHOP" />
-                <ScalarProperty Name="CTTC" ColumnName="CTTC" />
-                <ScalarProperty Name="CTDB" ColumnName="CTDB" />
-                <ScalarProperty Name="CTTT" ColumnName="CTTT" />
-                <ScalarProperty Name="FLAG" ColumnName="FLAG" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblQuocTiches">
             <EntityTypeMapping TypeName="XettuyenVLUModel.tblQuocTich">
               <MappingFragment StoreEntitySet="tblQuocTich">
@@ -966,26 +693,10 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblTruongTHPTs">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblTruongTHPT">
-              <MappingFragment StoreEntitySet="tblTruongTHPT">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MA_TPTRUONG" ColumnName="MA_TPTRUONG" />
-                <ScalarProperty Name="MA_TINHTP" ColumnName="MA_TINHTP" />
-                <ScalarProperty Name="TEN_TINHTP" ColumnName="TEN_TINHTP" />
-                <ScalarProperty Name="MA_QH" ColumnName="MA_QH" />
-                <ScalarProperty Name="TEN_QH" ColumnName="TEN_QH" />
-                <ScalarProperty Name="MA_TRUONG" ColumnName="MA_TRUONG" />
-                <ScalarProperty Name="TEN_TRUONG" ColumnName="TEN_TRUONG" />
-                <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
-                <ScalarProperty Name="KHU_VUC" ColumnName="KHU_VUC" />
-                <ScalarProperty Name="LOAI_TRUONG" ColumnName="LOAI_TRUONG" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblTP_QH_PX">
             <EntityTypeMapping TypeName="XettuyenVLUModel.tblTP_QH_PX">
               <MappingFragment StoreEntitySet="tblTP_QH_PX">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TenTinhTP" ColumnName="TenTinhTP" />
                 <ScalarProperty Name="MaTinhTP" ColumnName="MaTinhTP" />
                 <ScalarProperty Name="TenQH" ColumnName="TenQH" />
@@ -997,69 +708,51 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.C__MigrationHistory">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="XettuyenVLUModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetRole">
-              <MappingFragment StoreEntitySet="AspNetRoles">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+          <EntitySetMapping Name="tblNganhs">
+            <EntityTypeMapping TypeName="XettuyenVLUModel.tblNganh">
+              <MappingFragment StoreEntitySet="tblNganh">
+                <ScalarProperty Name="FLAG" ColumnName="FLAG" />
+                <ScalarProperty Name="CTTT" ColumnName="CTTT" />
+                <ScalarProperty Name="CTDB" ColumnName="CTDB" />
+                <ScalarProperty Name="CTTC" ColumnName="CTTC" />
+                <ScalarProperty Name="TEN_TOHOP" ColumnName="TEN_TOHOP" />
+                <ScalarProperty Name="MA_TOHOP" ColumnName="MA_TOHOP" />
+                <ScalarProperty Name="TEN_NGANH" ColumnName="TEN_NGANH" />
+                <ScalarProperty Name="MA_NGANH" ColumnName="MA_NGANH" />
+                <ScalarProperty Name="MANGANH_TOHOP" ColumnName="MANGANH_TOHOP" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetUserClaim">
-              <MappingFragment StoreEntitySet="AspNetUserClaims">
-                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+          <EntitySetMapping Name="tblTruongTHPTs">
+            <EntityTypeMapping TypeName="XettuyenVLUModel.tblTruongTHPT">
+              <MappingFragment StoreEntitySet="tblTruongTHPT">
+                <ScalarProperty Name="LOAI_TRUONG" ColumnName="LOAI_TRUONG" />
+                <ScalarProperty Name="KHU_VUC" ColumnName="KHU_VUC" />
+                <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+                <ScalarProperty Name="TEN_TRUONG" ColumnName="TEN_TRUONG" />
+                <ScalarProperty Name="MA_TRUONG" ColumnName="MA_TRUONG" />
+                <ScalarProperty Name="TEN_QH" ColumnName="TEN_QH" />
+                <ScalarProperty Name="MA_QH" ColumnName="MA_QH" />
+                <ScalarProperty Name="TEN_TINHTP" ColumnName="TEN_TINHTP" />
+                <ScalarProperty Name="MA_TINHTP" ColumnName="MA_TINHTP" />
+                <ScalarProperty Name="MA_TPTRUONG" ColumnName="MA_TPTRUONG" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetUserLogin">
-              <MappingFragment StoreEntitySet="AspNetUserLogins">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.AspNetUser">
-              <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="XettuyenVLUModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetUser">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="AspNetRole">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
