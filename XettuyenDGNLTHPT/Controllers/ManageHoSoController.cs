@@ -17,22 +17,19 @@ namespace XettuyenDGNLTHPT.Controllers
             
             return View();
         }
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult InHoSo(string CMND)
+      
+
+       
+        public ActionResult Detail(string cmnd)
         {
-            
-            var Hoso = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND == CMND);
-            if (Hoso !=null)
+            cmnd = 4668839 + "";
+            var Hoso = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND == cmnd);
+            if (Hoso != null)
             {
-                return RedirectToAction("Detail");
+
+                return View(Hoso);
             }
-            return View("Detail");
-        }
-     
-        public ActionResult Detail()
-        {
-            return View();
+            return View("InHoSo");
         }
     }
 }
