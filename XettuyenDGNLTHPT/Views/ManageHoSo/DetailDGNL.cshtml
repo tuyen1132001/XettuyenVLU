@@ -1,9 +1,10 @@
-﻿@model XettuyenDGNLTHPT.Models.tblHoSoTHPT
+﻿@model XettuyenDGNLTHPT.Models.tblHoSoDGNL
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<form method="post" action="./hosocuatoi" id="frmHoSo" class="form-horizontal">
+
+<form method="post" action="@Url.Action("DetailDGNL","ManageHoSo")">
     <div class="aspNetHidden">
         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
     </div>
@@ -16,6 +17,8 @@
     <div class="page-container">
         <!-- BEGIN CONTENT -->
 
+        @if (Convert.ToBoolean(Session["notfound"]) == true)
+        {<div style="font-size:1.3em" class="text-center font-blue bold"><br>Không tìm thấy hồ sơ của bạn trên hệ thống!<br>Bạn cần nhập đúng SỐ CMND/CCCD hoặc SỐ ĐIỆN THOẠI đã đăng ký hồ sơ.<br><br>Nếu cần hỗ trợ, bạn có thể liên hệ hotline: (028) 7105 9999</div>}
         <div class="page-content-wrapper">
             <!-- BEGIN CONTENT BODY -->
             <!-- BEGIN PAGE CONTENT BODY -->
@@ -37,8 +40,8 @@
 
                         </select>
                     </div>
-                    <div class="col-md-4"><input name="txtCMND" id="txtCMND" required="true" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
-                    <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" id="btnTim" class="btn green button-submit" /></div>
+                    <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
+                    <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
                     <div class="col-md-2"></div>
                 </div>
 
@@ -76,7 +79,7 @@
                     <td colspan="6" class="text-center">
                         <span style="font-weight:bold;color:red;font-size:1.5em">ĐĂNG KÝ XÉT TUYỂN 2022 </span>
                         <br />
-                        <span style="font-size:1.2em">(Dành cho thí sinh xét kết quả THPT)</span>
+                        <span style="font-size:1.2em">(Dành cho thí sinh xét kết quả DGNL)</span>
                     </td>
                     <td></td>
                     <td></td>
@@ -114,166 +117,150 @@
                 </tr>
 
 
-<tr>
+                <tr>
 
-  <td colspan="2"><b>2. Ngày tháng năm sinh</b>:</td>
+                    <td colspan="2"><b>2. Ngày tháng năm sinh</b>:</td>
 
-  <td colspan="6">@Model.NgaySinh</td>
+                    <td colspan="6">@Model.NgaySinh</td>
 
-</tr>
+                </tr>
 
 
-<tr>
+                <tr>
 
-  <td colspan="2"><b>3. Nơi sinh</b>: @Model.TenNoiSinh</td>
+                    <td colspan="2"><b>3. Nơi sinh</b>: @Model.TenNoiSinh</td>
 
-  <td colspan="2"><b>4. Dân tộc</b>: @Model.TenDanToc </td>
+                    <td colspan="2"><b>4. Dân tộc</b>: @Model.TenDanToc </td>
 
-  <td colspan="2"><b>5. Tôn giáo</b>: @Model.TenTonGiao </td>
+                    <td colspan="2"><b>5. Tôn giáo</b>: @Model.TenTonGiao </td>
 
-  <td colspan="2"></td>
+                    <td colspan="2"></td>
 
-</tr>
+                </tr>
 
 
-<tr>
+                <tr>
 
-    <td colspan="2"><b>6. Số chứng minh dân dân/ Căn cước công dân</b>:@Model.CMND </td>
+                    <td colspan="2"><b>6. Số chứng minh dân dân/ Căn cước công dân</b>:@Model.CMND </td>
 
-  <td colspan="6"> - <b>Quốc tịch</b>:@Model.QuocTich </td>
+                    <td colspan="6"> - <b>Quốc tịch</b>:@Model.QuocTich </td>
 
-</tr>
+                </tr>
 
 
-<tr>
+                <tr>
 
-  <td colspan="2"><b>7. Hộ khẩu thường trú</b>: </td>
+                    <td colspan="2"><b>7. Hộ khẩu thường trú</b>: </td>
 
-  <td colspan="6">@Model.HoKhau</td>
+                    <td colspan="6">@Model.HoKhau</td>
 
-</tr>
+                </tr>
 
 
-<tr>
+                <tr>
 
-  <td colspan="2"></td>
+                    <td colspan="2"></td>
 
-  <td colspan="2"><b>Phường xã</b>: @Model.LienLac_TenPhuongXa</td>
+                    <td colspan="2"><b>Phường xã</b>: @Model.LienLac_TenPhuongXa</td>
 
-  <td colspan="2"><b>Quận/Huyện</b>: @Model.HoKhau_TenQH</td>
+                    <td colspan="2"><b>Quận/Huyện</b>: @Model.HoKhau_TenQH</td>
 
-  <td><b>Tỉnh/Thành phố</b>: @Model.HoKhau_TenTinhTP</td>
+                    <td><b>Tỉnh/Thành phố</b>: @Model.HoKhau_TenTinhTP</td>
 
-</tr>
+                </tr>
 
 
-<tr>
+                <tr>
 
-  <td colspan="2"><b>8. Nămm tốt nghiệp THPT</b>:</td>
+                    <td colspan="2"><b>8. Nămm tốt nghiệp THPT</b>:</td>
 
-  <td colspan="6">@Model.NamTotNghiep</td>
+                    <td colspan="6">@Model.NamTotNghiep</td>
 
-</tr>
+                </tr>
 
 
-<tr>
+                <tr>
 
-  <td colspan="2"><b>9. Học lực lớp 12</b>:</td>
+                    <td colspan="2"><b>9. Học lực lớp 12</b>:</td>
 
-  <td>@Model.HocLucLop12</td>
+                    <td>@Model.HocLucLop12</td>
 
-  <td></td>
+                    <td></td>
 
-  <td colspan="2"><b>10. Hạnh kiểm lớp 12</b>:</td>
+                    <td colspan="2"><b>10. Hạnh kiểm lớp 12</b>:</td>
 
-  <td colspan="2">@Model.HanhKiemLop12</td>
+                    <td colspan="2">@Model.HanhKiemLop12</td>
 
-</tr>
+                </tr>
 
 
-<tr>
+                <tr>
 
-  <td colspan="2"><b>11. Thí sinh học chương trình</b>:</td>
+                    <td colspan="2"><b>11. Thí sinh học chương trình</b>:</td>
 
-  <td colspan="6">@Model.LoaiHinhTN</td>
+                    <td colspan="6">@Model.LoaiHinhTN</td>
 
-</tr>
+                </tr>
 
 
-<tr>
+                <tr>
 
-  <td colspan="2"><b>12. Nơi học THPT lớp 12</b>:</td>
+                    <td colspan="2"><b>12. Nơi học THPT lớp 12</b>:</td>
 
-  <td colspan="4">@Model.TenTruongTHPT - <b>Lớp</b>: @Model.TenLop12</td>
+                    <td colspan="4">@Model.TenTruongTHPT - <b>Lớp</b>: @Model.TenLop12</td>
 
-  <td colspan="2"><b>Mã tỉnh: </b>@Model.TruongTHPT_MaTinhTP</td>
+                    <td colspan="2"><b>Mã tỉnh: </b>@Model.TruongTHPT_MaTinhTP</td>
 
-</tr>
+                </tr>
 
 
-<tr>
+                <tr>
 
-  <td colspan="2"><b>13. Khu vực</b>: </td>
+                    <td colspan="2"><b>13. Khu vực</b>: </td>
 
-  <td colspan="6">@Model.KhuVuc</td>
+                    <td colspan="6">@Model.KhuVuc</td>
 
-</tr>
+                </tr>
 
 
-<tr>
+                <tr>
 
-  <td colspan="2"><b>14. Đối tượng ưu tiên</b>: </td>
+                    <td colspan="2"><b>14. Đối tượng ưu tiên</b>: </td>
 
-  <td colspan="6">@Model.DoiTuongUuTien</td>
+                    <td colspan="6">@Model.DoiTuongUuTien</td>
 
-</tr>
+                </tr>
 
-<tr>
+                <tr>
 
-  <td colspan="8"></td>
+                    <td colspan="8"></td>
 
-</tr>
+                </tr>
 
-<tr>
+                <tr>
 
-  <td colspan="2" style="color:Highlight;font-weight:bold;font-size:1.3em">THÔNG TIN XÉT TUYỂN</td>
+                    <td colspan="2" style="color:Highlight;font-weight:bold;font-size:1.3em">THÔNG TIN XÉT TUYỂN</td>
 
-  <td colspan="6"><b>Phương Thức Xét Tuyển</b>: THPT Quốc Gia</td>
+                    <td colspan="6"><b>Phương Thức Xét Tuyển</b>: DGNL</td>
 
-</tr>
+                </tr>
 
-<tr>
+                <tr>
 
-  <td colspan="8">
+                    <td colspan="8">
 
-      <table class="table-bordered text-center" style="width:80%">
+                        <table class="table-bordered text-center" style="width:80%">
                             <tr>
-                                <th style="text-align:center;width:20%">MÔN HỌC</th>
-                                <th class="text-center">TOÁN</th>
-                                <th class="text-center">VĂN</th>
-                                <th class="text-center">ANH</th>
-                                <th class="text-center">PHÁP</th>
-                                <th class="text-center">LÝ</th>
-                                <th class="text-center">HÓA</th>
-                                <th class="text-center">SINH</th>
-                                <th class="text-center">SỬ</th>
-                                <th class="text-center">ĐỊA</th>
-                                <th class="text-center">GDCD</th>
+                                <th style="text-align:center;width:20%">Ngày Thi DGNL</th>
+                                <th class="text-center">@Model.TGThiDGNL</th>
+  
+                            </tr>
+                            <tr>
+                                <th style="text-align:center;width:20%">Điểm thi DGNL</th>
+                                <th>@Model.DiemDGNL</th>
+
                             </tr>
 
-                            <tr>
-                                <td class="text-left bold">Điểm thi THPT Quốc Gia</td>
-                                <td>@Model.Toan</td>
-                                <td>@Model.Van</td>
-                                <td>@Model.Anh</td>
-                                <td>@Model.Phap</td>
-                                <td>@Model.Ly</td>
-                                <td>@Model.Hoa</td>
-                                <td>@Model.Sinh</td>
-                                <td>@Model.Su</td>
-                                <td>@Model.Dia</td>
-                                <td>@Model.GDCD</td>
-                            </tr>
 
 
                         </table>
@@ -331,7 +318,7 @@
         <div class="vertical_space"></div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <input type ="button" id="btnTrangIn" name="btnTrangIn" class="btn btn-success" value="IN PHIẾU">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" id="btnTrangIn" name="btnTrangIn" class="btn btn-success" value="IN PHIẾU">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="button" id="btnUploadHocBa" class="btn btn-warning" value="UPLOAD HỌC BẠ" onclick="parent.open('/myupload');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" name="btnDieuChinhNguyenVong" value="ĐIỀU CHỈNH THÔNG TIN" id="btnDieuChinhNguyenVong" disabled="true" class="btn btn-primary">
             </div>
@@ -344,5 +331,6 @@
 
     </div>
     </div>
- </form>
+</form>
+
 

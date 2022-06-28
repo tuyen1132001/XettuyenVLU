@@ -335,8 +335,8 @@ C:\Users\Tuyen\Source\Repos\VLU\XettuyenDGNLTHPT\bin\Microsoft.Owin.Security.Twi
 C:\Users\Tuyen\Source\Repos\VLU\XettuyenDGNLTHPT\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Tuyen\Source\Repos\VLU\XettuyenDGNLTHPT\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Tuyen\Source\Repos\VLU\XettuyenDGNLTHPT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Tuyen\Source\Repos\VLU\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.csproj.AssemblyReference.cache
 C:\Users\Tuyen\Source\Repos\VLU\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.csproj.CoreCompileInputs.cache
 C:\Users\Tuyen\Source\Repos\VLU\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.csproj.CopyComplete
 C:\Users\Tuyen\Source\Repos\VLU\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.dll
 C:\Users\Tuyen\Source\Repos\VLU\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.pdb
+C:\Users\Tuyen\Source\Repos\VLU\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.csproj.AssemblyReference.cache

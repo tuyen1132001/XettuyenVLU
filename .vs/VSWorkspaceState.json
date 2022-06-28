@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\XettuyenDGNLTHPT",
+    "\\XettuyenDGNLTHPT\\Views",
+    "\\XettuyenDGNLTHPT\\Views\\ManageHoSo"
   ],
-  "SelectedNode": "\\XettuyenDGNLTHPT.sln",
+  "SelectedNode": "\\XettuyenDGNLTHPT\\Views\\Shared",
   "PreviewInSolutionExplorer": false
 }

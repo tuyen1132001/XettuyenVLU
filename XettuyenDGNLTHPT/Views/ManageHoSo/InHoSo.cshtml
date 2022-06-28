@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<form method="post" action="@Url.Action("Detail","ManageHoSo")">
+<form method="post" action="@Url.Action("DetailDGNL","ManageHoSo")">
  
 <div class="aspNetHidden">
     <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
@@ -15,42 +15,44 @@
 <div class="page-container">
     <!-- BEGIN CONTENT -->
 
-    <div class="page-content-wrapper">
-        <!-- BEGIN CONTENT BODY -->
-        <!-- BEGIN PAGE CONTENT BODY -->
-        <div class="page-content" style="background-color: white">
-            <p></p>
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-2">
-                    <select name="DropDownList1" id="DropDownList1" class="form-control">
-                        <option value="dot1">Đợt 1</option>
-                        <option value="dot2">Đợt 2</option>
+    @if (Convert.ToBoolean(Session["notfound"]) == true )
+    { <div style="font-size:1.3em" class="text-center font-blue bold"><br>Không tìm thấy hồ sơ của bạn trên hệ thống!<br>Bạn cần nhập đúng SỐ CMND/CCCD hoặc SỐ ĐIỆN THOẠI đã đăng ký hồ sơ.<br><br>Nếu cần hỗ trợ, bạn có thể liên hệ hotline: (028) 7105 9999</div>}
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <!-- BEGIN PAGE CONTENT BODY -->
+            <div class="page-content" style="background-color: white">
+                <p></p>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <select name="DropDownList1" id="DropDownList1" class="form-control">
+                            <option value="dot1">Đợt 1</option>
+                            <option value="dot2">Đợt 2</option>
 
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select name="ddlLoaiXetTuyen" id="ddlLoaiXetTuyen" class="form-control">
-                        <option value="HB">THPT QG</option>
-                        <option value="DGNL">Đ&#225;nh gi&#225; năng lực</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="ddlLoaiXetTuyen" id="ddlLoaiXetTuyen" class="form-control">
+                            <option value="HB">THPT QG</option>
+                            <option value="DGNL">Đ&#225;nh gi&#225; năng lực</option>
 
-                    </select>
+                        </select>
+                    </div>
+                    <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
+                    <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
+                    <div class="col-md-2"></div>
                 </div>
-                <div class="col-md-4"><input name="CMND" id="CMND"  placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
-                <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ"  class="btn green button-submit" /></div>
-                <div class="col-md-2"></div>
+
+
             </div>
 
-
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
         </div>
-
-        <div class="vertical_space"></div>
-        <div class="vertical_space"></div>
-        <div class="vertical_space"></div>
-        <div class="vertical_space"></div>
-        <div class="vertical_space"></div>
-    </div>
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
     </div>
 </form>
 
