@@ -32,9 +32,9 @@ namespace XettuyenDGNLTHPT.Controllers
             TP_QH_PX.Insert(0, new { MaTinhTP = "-1", TenTinhTP = "-- Chọn tỉnh thành phố --" });
             ViewBag.TP_QH_PX = new SelectList(TP_QH_PX, "MaTinhTP", "TenTinhTP");
 
-            //var THPT = model.tblTruongTHPTs.Select(e => new { e.MA_TPTRUONG, e.TEN_TRUONG }).Distinct().ToList();
-            //THPT.Insert(0, new { MA_TPTRUONG = "", TEN_TRUONG = "-- Chọn trường --" });
-            //ViewBag.THPT = new SelectList(THPT, "MA_TPTRUONG", "TEN_TRUONG");
+            var THPT = model.tblTruongTHPTs.Select(e => new { e.MA_TINHTP, e.TEN_TINHTP }).Distinct().ToList();
+            THPT.Insert(0, new  { MA_TINHTP = "", TEN_TINHTP = "-- Chọn tỉnh thành phố --" });
+            ViewBag.THPT = new SelectList(THPT, "MA_TINHTP", "TEN_TINHTP");
             
             return View(HoSoTHPT);
         }
@@ -79,6 +79,16 @@ namespace XettuyenDGNLTHPT.Controllers
             var data = model.tblTP_QH_PX
                                 .Where(e => e.MaQH == id)
                                 .Select(e => new { Id = e.MaPX, Name = e.TenPX })
+                                .Distinct()
+                                .ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+        
+        public JsonResult GetDistrictSchool(string id)
+        {
+            var data = model.tblTruongTHPTs
+                                .Where(e => e.MA_TINHTP == id)
+                                .Select(e => new { Id = e.MA_QH, Name = e.TEN_QH })
                                 .Distinct()
                                 .ToList();
             return Json(data, JsonRequestBehavior.AllowGet);
