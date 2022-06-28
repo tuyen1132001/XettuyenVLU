@@ -3,6 +3,46 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style type="text/css">
+    td {
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 5px;
+    }
+
+    .vertical_space {
+        height: 10px;
+    }
+
+    #pnGiayBao {
+        padding-left: 20px;
+    }
+
+    .newline {
+        text-indent: 25px;
+        margin-top: 10px;
+    }
+</style>
+
+<style type="text/css">
+
+        @Page { size: A4; margin: 0}
+
+        @Page :left {
+            margin-left: 80mm;
+
+        }
+
+        @Page :first{
+            margin-top:20px;
+        }
+    }
+</style>
+<script>
+    function myFunction() {
+        window.print();
+    }
+</script>
 <form method="post" action="@Url.Action("DetailDGNL","ManageHoSo")">
     <div class="aspNetHidden">
         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
@@ -333,7 +373,7 @@
         <div class="vertical_space"></div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <input type ="button" id="btnTrangIn" name="btnTrangIn" class="btn btn-success" value="IN PHIẾU">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" id="btnPrint" name="btnPrint" class="btn btn-warning" value="Print" onclick="myFunction()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="button" id="btnUploadHocBa" class="btn btn-warning" value="UPLOAD HỌC BẠ" onclick="parent.open('/myupload');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" name="btnDieuChinhNguyenVong" value="ĐIỀU CHỈNH THÔNG TIN" id="btnDieuChinhNguyenVong" disabled="true" class="btn btn-primary">
             </div>
@@ -346,5 +386,5 @@
 
     </div>
     </div>
- </form>
+</form>
 
