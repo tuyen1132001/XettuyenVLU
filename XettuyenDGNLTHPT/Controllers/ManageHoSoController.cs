@@ -11,19 +11,19 @@ namespace XettuyenDGNLTHPT.Controllers
     {
         XettuyenVLUEntities model = new XettuyenVLUEntities();
         // GET: ManageHoSo
+        
         public ActionResult InHoSo()
         {
             
             return View();
         }
-
-
         [HttpPost]
-       
-        public ActionResult InHoSo(string txtCMND)
+        [AllowAnonymous]
+        public ActionResult InHoSo(string CMND)
         {
-            var Hoso = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND == txtCMND);
-            if (ModelState.IsValid)
+            
+            var Hoso = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND == CMND);
+            if (Hoso !=null)
             {
                 return RedirectToAction("Detail");
             }
@@ -32,7 +32,7 @@ namespace XettuyenDGNLTHPT.Controllers
      
         public ActionResult Detail()
         {
-            return View("Detail");
+            return View();
         }
     }
 }

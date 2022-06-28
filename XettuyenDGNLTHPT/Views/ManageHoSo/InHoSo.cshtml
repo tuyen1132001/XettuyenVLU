@@ -1,62 +1,64 @@
-﻿
-@{
-    ViewBag.Title = "InHoSo";
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+    <form action="@Url.Action("InHoSo", "ManageHoSo")" method="post">
+        <div class="page-container">
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content" style="background-color: white">
+                    <p></p>
+                    <div class="row">
 
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2">
+                            <select name="DropDownList1" class="form-control">
+                                <option value="dot1">Đợt 1</option>
+                                <option value="dot2">Đợt 2</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select name="ddlLoaiXetTuyen" class="form-control">
+                                <option value="HB">THPT QG</option>
+                                <option value="DGNL">Đ&#225;nh gi&#225; năng lực</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <input name="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" formmethod="post"" />
+                        </div>
+                        <div class="col-md-2">
+                            @*<a href="@Url.Action("InHoSo","ManageHoSo")" class="btn green button-submit">TÌM HỒ SƠ</a>*@
+                            <<button id="Button" type="submit" name="submit" formmethod="post" class="btn green button-submit">">TÌM HỒ SƠ</button>
 
-<form action="@Url.Action("InHoSo","ManageHoSo")" method="post">
-    <!-- BEGIN CONTAINER -->
-
-    <div class="page-container">
-        <!-- BEGIN CONTENT -->
-
-        <div class="page-content-wrapper">
-            <!-- BEGIN CONTENT BODY -->
-            <!-- BEGIN PAGE CONTENT BODY -->
-            <div class="page-content" style="background-color: white">
-                <p></p>
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-2">
-                        <select name="Dot1" id="Dot1" class="form-control">
-                            <option value="dot1">Đợt 1</option>
-                            <option value="dot2">Đợt 2</option>
-                        </select>
+                        </div>
+                  
                     </div>
-                    <div class="col-md-2">
-                        <select name="ddlLoaiXetTuyen" id="ddlLoaiXetTuyen" class="form-control">
-                            <option value="HB">THPT QG</option>
-                            <option value="DGNL">Đ&#225;nh gi&#225; năng lực</option>
-
-                        </select>
-                    </div>
-
-                    <div class="col-md-4">
-                        <input name="txtCMND" type="text" class="form-control" />
-
-
-                    </div>
-                    <div class="col-md-2">
-                        <button type="submit">Tìm</button>
-                    </div>
-                    <div class="col-md-2"></div>
-
+                    <div class="vertical_space"></div>
+                    <div class="vertical_space"></div>
+                    <div class="vertical_space"></div>
+                    <div class="vertical_space"></div>
+                    <div class="vertical_space"></div>
                 </div>
-
-
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br> <br><br><br>
             </div>
-
-            <div class="vertical_space"></div>
-            <div class="vertical_space"></div>
-            <div class="vertical_space"></div>
-            <div class="vertical_space"></div>
-            <div class="vertical_space"></div>
         </div>
-        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-    </div>
-</form>
-
-
-
-
+    </form>
