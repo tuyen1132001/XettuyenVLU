@@ -13,10 +13,10 @@ namespace XettuyenDGNLTHPT.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class XettuyenVLUEntities : DbContext
+    public partial class demo2Entities : DbContext
     {
-        public XettuyenVLUEntities()
-            : base("name=XettuyenVLUEntities")
+        public demo2Entities()
+            : base("name=demo2Entities")
         {
         }
     
@@ -29,12 +29,12 @@ namespace XettuyenDGNLTHPT.Models
         public virtual DbSet<tblDanToc> tblDanTocs { get; set; }
         public virtual DbSet<tblHoSoDGNL> tblHoSoDGNLs { get; set; }
         public virtual DbSet<tblHoSoTHPT> tblHoSoTHPTs { get; set; }
+        public virtual DbSet<tblNganh> tblNganhs { get; set; }
         public virtual DbSet<tblQuocTich> tblQuocTiches { get; set; }
         public virtual DbSet<tblTinhTP> tblTinhTPs { get; set; }
         public virtual DbSet<tblTonGiao> tblTonGiaos { get; set; }
         public virtual DbSet<tblTP_QH_PX> tblTP_QH_PX { get; set; }
-        public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<tblNganh> tblNganhs { get; set; }
         public virtual DbSet<tblTruongTHPT> tblTruongTHPTs { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
     }
 }

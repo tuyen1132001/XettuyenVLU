@@ -1167,7 +1167,7 @@
                                                                     <div class="form-group">
                                                                         <label class="control-label col-md-4">Trường THPT lớp 12 thuộc Tỉnh/TP <span class="required"> * </span></label>
                                                                         <div class="col-md-5">
-                                                                            @Html.DropDownList("THPT", (IEnumerable<SelectListItem>)ViewBag.THPT, null, new { @class = "form-control city-select", target = "#ddlQuanHuyenTHPT"  })
+                                                                            @Html.DropDownList("THPT", (IEnumerable<SelectListItem>)ViewBag.THPT, null, new { @class = "form-control districtschool-select", target = "#ddlQuanHuyenTHPT" })
                                                                             @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
                                                                             @Html.ValidationMessageFor(model => model.TruongTHPT_TenTinhTP, "", new { @class = "text-danger" })
                                                                             @*<select name="ddlTinhTPTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTinhTPTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTinhTPTruongTHPT" class="form-control" required="true">*@
@@ -1176,7 +1176,7 @@
                                                                             <div class="row">
                                                                                 <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
                                                                                 <div class="col-md-8">
-                                                                                    <select name="ddlQuanHuyenTHPT" id="ddlQuanHuyenTHPT" class="form-control district-select" required="true" target="#ddlTenTruongTHPT">
+                                                                                    <select name="ddlQuanHuyenTHPT" id="ddlQuanHuyenTHPT" class="form-control school-select" required="true" target="#ddlTenTruongTHPT">
                                                                                     </select>
                                                                                     @*<select name="ddlQuanHuyenTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlQuanHuyenTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlQuanHuyenTHPT" class="form-control " required="true">
                                                                                     </select>*@
@@ -1186,8 +1186,9 @@
                                                                             <div class="row">
                                                                                 <div class="col-md-4 control-label">Tên trường THPT<span class="required"> * </span></div>
                                                                                 <div class="col-md-8">
-                                                                                    <select name="ddlTenTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTenTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTenTruongTHPT" class="form-control school-select" required="true">
-                                                                                    </select>
+                                                                                    <select name="ddlTenTruongTHPT" id="ddlTenTruongTHPT" class="form-control area-select" required="true" target="#ddlKhuVuc"></select>
+                                                                                        @*<select name="ddlTenTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTenTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTenTruongTHPT" class="form-control " required="true">
+                                                                                        </select>*@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="vertical_space"></div>
@@ -1208,11 +1209,7 @@
                                                                             <table>
                                                                                 <tr>
                                                                                     <td>
-                                                                                        <select name="ddlKhuVuc" id="ddlKhuVuc" class="form-control">
-                                                                                            <option value="1">1</option>
-                                                                                            <option value="2">2</option>
-                                                                                            <option value="2NT">2NT</option>
-                                                                                            <option selected="selected" value="3">3</option>
+                                                                                        <select name="ddlKhuVuc" id="ddlKhuVuc" class="form-control" required="true">
 
                                                                                         </select>
                                                                                     </td>
@@ -1242,7 +1239,7 @@
                                                                     <div class="form-group">
                                                                         <div class="col-md-4 text-right">Sử dụng thông tin của Hộ khẩu</div>
                                                                         <div class="col-md-6">
-                                                                            <input id="chkLayDCHoKhau" type="checkbox" name="chkLayDCHoKhau" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;chkLayDCHoKhau\&#39;,\&#39;\&#39;)&#39;, 0)" />
+                                                                            <input id="chkLayDCHoKhau" type="checkbox" name="chkLayDCHoKhau" />
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group">
@@ -1876,36 +1873,157 @@
         $('select.city-select').change(function () {
             let maTp = $(this).val();
             let target = $(this).attr('target');
+
+            if ($("#chkLayDCHoKhau").is(':checked')) {
+                $('#TP_QH_PX option').each(function () {
+                    if ($(this).val() == maTp) {
+                        $(this).prop("selected", true);
+                        if (maTp != '-1') {
+                            $.get(`/home/GetDistrict/${maTp}`, data => {
+                                attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
+                                $('#ddlPhuongXa').html('');
+                            });
+                        } else {
+                            attachDistrictOrWard($('#ddlQuanHuyen'), [], '-- Chọn quận/huyện --');
+                            $('#ddlPhuongXa').html('');
+                        }
+                        return;
+                    }
+                });
+            }
+
             if (maTp != '-1') {
                 $.get(`/home/GetDistrict/${maTp}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
+                    $('#ddlHoKhau_PhuongXa').html('');
                 });
+            } else {
+                attachDistrictOrWard($('#ddlHoKhauQuanHuyen'), [], '-- Chọn quận/huyện --');
+                $('#ddlHoKhau_PhuongXa').html('');
             }
         });
 
         $('select.district-select').change(function () {
             let maPx = $(this).val();
             let target = $(this).attr('target');
+
+            if ($("#chkLayDCHoKhau").is(':checked')) {
+                $('#ddlQuanHuyen option').each(function () {
+                    if ($(this).val() == maPx) {
+                        $(this).prop("selected", true);
+                        if (maPx != '-1') {
+                            $.get(`/home/GetWard/${maPx}`, data => {
+                                attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
+                            });
+                        } else {
+                            attachDistrictOrWard($('#ddlPhuongXa'), [], '-- Chọn phường/xã --');
+                        }
+                        return;
+                    }
+                });
+            }
+
             if (maPx != '-1') {
                 $.get(`/home/GetWard/${maPx}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn phường/xã --');
                 });
+            } else {
+                attachDistrictOrWard($('#ddlHoKhau_PhuongXa'), [], '-- Chọn phường/xã --');
             }
         });
 
-        $('select.school-select').change(function () {
-            let maQH = $(this).val();
+        $('select.districtschool-select').change(function () {
+            let maQHTH = $(this).val();
             let target = $(this).attr('target');
-            if (maQH != '-1') {
-                $.get(`/home/GetWard/${maQH}`, data => {
+            if (maQHTH != '-1') {
+                
+                $.get(`/home/GetDistrictSchool/${maQHTH}`, data => {
+                    attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
+                });
+            }
+        });
+        $('select.school-select').change(function () {
+            let maQHTH = $('select.districtschool-select').val();
+            let maTH = $(this).val();
+            let target = $(this).attr('target');
+            if (maTH != '-1') {
+                let id = maTH + '-' + maQHTH;
+                $.get(`/home/GetSchool/${id}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn trường --');
                 });
             }
         });
+        $('select.area-select').change(function () {
+            let maKV = $(this).val();
+            let target = $(this).attr('target');
+            if (maKV != '-1') {
+                $.get(`/home/GetArea/${maKV}`, data => {
+                    attachDistrictOrWard($(target), data, "", false);
+                });
+            }
+        });
+        $('#chkLayDCHoKhau').change(function () {
+            if ($("#chkLayDCHoKhau").is(':checked')) {
+                let txtHoKhau = $('#txtHoKhau').val();
+                $('#HoKhau').val(txtHoKhau);
+
+                $('#TP_QH_PX option').each(function () {
+                    if ($(this).val() == $('select.city-select').val()) {
+                        $(this).prop("selected", true);
+                        let maTp = $(this).val();
+                        if (maTp != -1) {
+                            $.get(`/home/GetDistrict/${maTp}`, data => {
+                                attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
+                                $('#ddlPhuongXa').html('');
+
+                                $('#ddlQuanHuyen option').each(function () {
+                                    if ($(this).val() == $('#ddlHoKhauQuanHuyen').val()) {
+                                        $(this).prop("selected", true);
+                                        let maPx = $(this).val();
+                                        if (maPx != -1) {
+                                            $.get(`/home/GetWard/${maPx}`, data => {
+                                                attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
+
+                                                $('#ddlPhuongXa option').each(function () {
+                                                    if ($(this).val() == $('#ddlHoKhau_PhuongXa').val()) {
+                                                        $(this).prop("selected", true);
+                                                        return;
+                                                    }
+                                                });
+                                            });
+                                        } else {
+                                            attachDistrictOrWard($('#ddlPhuongXa'), [], '-- Chọn phường/xã --');
+                                        }
+                                        return;
+                                    }
+                                });
+                            });
+                        } else {
+                            attachDistrictOrWard($('#ddlQuanHuyen'), [], '-- Chọn quận/huyện --');
+                            $('#ddlPhuongXa').html('');
+                        }
+                        return;
+                    }
+                });
+            }
+        });
+
+        $('#ddlHoKhau_PhuongXa').change(function () {
+            $('#ddlPhuongXa option').each(function () {
+                if ($(this).val() == $('#ddlHoKhau_PhuongXa').val()) {
+                    $(this).prop("selected", true);
+                    return;
+                }
+            });
+        });
 
 
-        function attachDistrictOrWard(element, data, defaultItem) {
-            let itemsHtml = `<option value="-1">${defaultItem}</option>`;
+
+        function attachDistrictOrWard(element, data, defaultItem, needFirstItem = true) {
+            let itemsHtml = '';
+            if (needFirstItem) {
+                itemsHtml = `<option value="-1">${defaultItem}</option>`;
+            }
             for (let item of data) {
                 console.log(item);
                 itemsHtml += `<option value="${item.Id}">${item.Name}</option>`;

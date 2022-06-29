@@ -9,7 +9,7 @@ namespace XettuyenDGNLTHPT.Controllers
 {
     public class HomeController : Controller
     {
-        XettuyenVLUEntities model = new XettuyenVLUEntities();
+        demo2Entities model = new demo2Entities();
         public ActionResult Index() //Form Dang ky THTP QG
         {
             var HoSoTHPT = new tblHoSoTHPT();
@@ -33,7 +33,7 @@ namespace XettuyenDGNLTHPT.Controllers
             ViewBag.TP_QH_PX = new SelectList(TP_QH_PX, "MaTinhTP", "TenTinhTP");
 
             var THPT = model.tblTruongTHPTs.Select(e => new { e.MA_TINHTP, e.TEN_TINHTP }).Distinct().ToList();
-            THPT.Insert(0, new  { MA_TINHTP = "", TEN_TINHTP = "-- Chọn tỉnh thành phố --" });
+            THPT.Insert(0, new  { MA_TINHTP = "-1", TEN_TINHTP = "-- Chọn tỉnh thành phố --" });
             ViewBag.THPT = new SelectList(THPT, "MA_TINHTP", "TEN_TINHTP");
             
             return View(HoSoTHPT);
@@ -95,9 +95,20 @@ namespace XettuyenDGNLTHPT.Controllers
         }
         public JsonResult GetSchool(string id)
         {
+            var idQH = id.Split('-')[0];
+            var idTP = id.Split('-')[1];
             var data = model.tblTruongTHPTs
-                .Where(e => e.MA_QH == id)
-                .Select(e => new { id = e.MA_TRUONG, Name = e.TEN_TRUONG })
+                .Where(e=> e.MA_QH == idQH && e.MA_TINHTP == idTP)
+                .Select(e => new { Id = e.MA_TRUONG, Name = e.TEN_TRUONG })
+                .Distinct()
+                .ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetArea(string id)
+        {
+            var data = model.tblTruongTHPTs
+                .Where(e => e.MA_TRUONG == id)
+                .Select(e => new {  Name = e.KHU_VUC })
                 .Distinct()
                 .ToList();
             return Json(data, JsonRequestBehavior.AllowGet);
