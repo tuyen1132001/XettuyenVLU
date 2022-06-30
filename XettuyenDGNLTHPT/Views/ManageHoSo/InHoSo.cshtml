@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form method="post" action="@Url.Action("DetailDGNL","ManageHoSo")">
+ 
+<div class="aspNetHidden">
+    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
+</div>
+
+<div class="aspNetHidden">
+
+    <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9D10CFA7" />
+    <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="ACPVZjx4teabP4d658ST999oEjDO/a6aGtJJC4dkGPvG5OFVSemQywijrq2b56pYqVJYVd0aHufGxdAX5A6sri5+zQhUS+fcDiEzX/YxJI9DLd/PJFA+KbvgjgEg2twwreoIkFkqpiWSojykIistPKZvq35Msxitl7ve4ciMan7Ypu+NV5oZWppH1ba6+VNtqh3/oD/z6NDnLM28Db4gWiT9J/dx/Y3KJ2bV8HEKQ8A=" />
+</div>
+<div class="page-container">
+    <!-- BEGIN CONTENT -->
+
+    @if (Convert.ToBoolean(Session["notfound"]) == true )
+    { <div style="font-size:1.3em" class="text-center font-blue bold"><br>Không tìm thấy hồ sơ của bạn trên hệ thống!<br>Bạn cần nhập đúng SỐ CMND/CCCD hoặc SỐ ĐIỆN THOẠI đã đăng ký hồ sơ.<br><br>Nếu cần hỗ trợ, bạn có thể liên hệ hotline: (028) 7105 9999</div>}
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <!-- BEGIN PAGE CONTENT BODY -->
+            <div class="page-content" style="background-color: white">
+                <p></p>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <select name="DropDownList1" id="DropDownList1" class="form-control">
+                            <option value="dot1">Đợt 1</option>
+                            <option value="dot2">Đợt 2</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="ddlLoaiXetTuyen" id="ddlLoaiXetTuyen" class="form-control">
+                            <option value="HB">THPT QG</option>
+                            <option value="DGNL">Đ&#225;nh gi&#225; năng lực</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
+                    <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
+                    <div class="col-md-2"></div>
+                </div>
+
+
+            </div>
+
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
+            <div class="vertical_space"></div>
+        </div>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    </div>
+</form>
+
