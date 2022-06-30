@@ -9,7 +9,7 @@ namespace XettuyenDGNLTHPT.Controllers
 {
     public class HomeController : Controller
     {
-        demo2Entities model = new demo2Entities();
+        demo2Entities1 model = new demo2Entities1();
         public ActionResult Index() //Form Dang ky THTP QG
         {
             var HoSoTHPT = new tblHoSoTHPT();

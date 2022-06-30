@@ -180,7 +180,6 @@
     </Key>
     <Property Name="MA_TINHTP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TEN_TINHTP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="tblTP_QH_PX" Relationship="Self.fk_TPQHPX_MaTinhTP" FromRole="tblTinhTP" ToRole="tblTP_QH_PX" />
   </EntityType>
   <EntityType Name="tblTonGiao">
     <Key>
@@ -231,7 +230,7 @@
     <Property Name="Role" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="IsActive" Type="Boolean" />
   </EntityType>
-  <EntityContainer Name="demo2Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="demo2Entities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tblChungChiNNs" EntityType="Self.tblChungChiNN" />
     <EntitySet Name="tblDanTocs" EntityType="Self.tblDanToc" />
     <EntitySet Name="tblHoSoDGNLs" EntityType="Self.tblHoSoDGNL" />
@@ -240,24 +239,8 @@
     <EntitySet Name="tblQuocTiches" EntityType="Self.tblQuocTich" />
     <EntitySet Name="tblTinhTPs" EntityType="Self.tblTinhTP" />
     <EntitySet Name="tblTonGiaos" EntityType="Self.tblTonGiao" />
-    <EntitySet Name="tblTruongTHPTs" EntityType="Self.tblTruongTHPT" />
-    <EntitySet Name="Accounts" EntityType="Self.Account" />
     <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" />
     <EntitySet Name="tblTruongTHPTs" EntityType="Self.tblTruongTHPT" />
     <EntitySet Name="Accounts" EntityType="Self.Account" />
-    <EntitySet Name="AspNetUserLogins" EntityType="XettuyenVLUModel.AspNetUserLogin" />
-    <EntitySet Name="AspNetUsers" EntityType="XettuyenVLUModel.AspNetUser" />
-    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="XettuyenVLUModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="XettuyenVLUModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
-    </AssociationSet>
-    <AssociationSet Name="AspNetUserRoles" Association="XettuyenVLUModel.AspNetUserRoles">
-      <End Role="AspNetRole" EntitySet="AspNetRoles" />
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

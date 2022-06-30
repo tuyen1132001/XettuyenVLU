@@ -207,15 +207,13 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
           <Property Name="TEN_TONGIAO" Type="nvarchar" MaxLength="255" />
           <Property Name="DIENGIAI" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="tblTP_QH_PX">
           <Key>
-            <PropertyRef Name="MaTinhTP" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenTinhTP" Type="nvarchar" MaxLength="255" />
-          <Property Name="MaTinhTP" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="MaTinhTP" Type="nvarchar" MaxLength="255" />
           <Property Name="TenQH" Type="nvarchar" MaxLength="255" />
           <Property Name="MaQH" Type="nvarchar" MaxLength="255" />
           <Property Name="TenPX" Type="nvarchar" MaxLength="255" />
@@ -248,6 +246,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
           <EntitySet Name="tblQuocTich" EntityType="Self.tblQuocTich" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTinhTP" EntityType="Self.tblTinhTP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTonGiao" EntityType="Self.tblTonGiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTruongTHPT" EntityType="Self.tblTruongTHPT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Account" EntityType="Self.Account" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -445,7 +444,6 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
           </Key>
           <Property Name="MA_TINHTP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TEN_TINHTP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblTP_QH_PX" Relationship="Self.fk_TPQHPX_MaTinhTP" FromRole="tblTinhTP" ToRole="tblTP_QH_PX" />
         </EntityType>
         <EntityType Name="tblTonGiao">
           <Key>
@@ -496,7 +494,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
           <Property Name="Role" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
-        <EntityContainer Name="demo2Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="demo2Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblChungChiNNs" EntityType="Self.tblChungChiNN" />
           <EntitySet Name="tblDanTocs" EntityType="Self.tblDanToc" />
           <EntitySet Name="tblHoSoDGNLs" EntityType="Self.tblHoSoDGNL" />
@@ -505,6 +503,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
           <EntitySet Name="tblQuocTiches" EntityType="Self.tblQuocTich" />
           <EntitySet Name="tblTinhTPs" EntityType="Self.tblTinhTP" />
           <EntitySet Name="tblTonGiaos" EntityType="Self.tblTonGiao" />
+          <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" />
           <EntitySet Name="tblTruongTHPTs" EntityType="Self.tblTruongTHPT" />
           <EntitySet Name="Accounts" EntityType="Self.Account" />
         </EntityContainer>
@@ -513,7 +512,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="demo2ModelStoreContainer" CdmEntityContainer="demo2Entities">
+        <EntityContainerMapping StorageEntityContainer="demo2ModelStoreContainer" CdmEntityContainer="demo2Entities1">
           <EntitySetMapping Name="tblChungChiNNs">
             <EntityTypeMapping TypeName="demo2Model.tblChungChiNN">
               <MappingFragment StoreEntitySet="tblChungChiNN">

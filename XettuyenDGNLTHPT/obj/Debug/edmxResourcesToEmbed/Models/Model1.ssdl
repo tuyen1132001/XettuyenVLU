@@ -202,15 +202,13 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
     <Property Name="TEN_TONGIAO" Type="nvarchar" MaxLength="255" />
     <Property Name="DIENGIAI" Type="nvarchar(max)" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="tblTP_QH_PX">
     <Key>
-      <PropertyRef Name="MaTinhTP" />
+      <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenTinhTP" Type="nvarchar" MaxLength="255" />
-    <Property Name="MaTinhTP" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="MaTinhTP" Type="nvarchar" MaxLength="255" />
     <Property Name="TenQH" Type="nvarchar" MaxLength="255" />
     <Property Name="MaQH" Type="nvarchar" MaxLength="255" />
     <Property Name="TenPX" Type="nvarchar" MaxLength="255" />
@@ -234,20 +232,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
     <Property Name="KHU_VUC" Type="nvarchar" MaxLength="255" />
     <Property Name="LOAI_TRUONG" Type="nvarchar" MaxLength="255" />
   </EntityType>
-  <Association Name="fk_TPQHPX_MaTinhTP">
-    <End Role="tblTinhTP" Type="Self.tblTinhTP" Multiplicity="1" />
-    <End Role="tblTP_QH_PX" Type="Self.tblTP_QH_PX" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="tblTinhTP">
-        <PropertyRef Name="MA_TINHTP" />
-      </Principal>
-      <Dependent Role="tblTP_QH_PX">
-        <PropertyRef Name="MaTinhTP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="XettuyenVLUModelStoreContainer">
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  <EntityContainer Name="demo2ModelStoreContainer">
     <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblHoSoDGNL" EntityType="Self.tblHoSoDGNL" Schema="dbo" store:Type="Tables" />
@@ -256,6 +241,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
     <EntitySet Name="tblQuocTich" EntityType="Self.tblQuocTich" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTinhTP" EntityType="Self.tblTinhTP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTonGiao" EntityType="Self.tblTonGiao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTruongTHPT" EntityType="Self.tblTruongTHPT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Account" EntityType="Self.Account" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -267,21 +253,5 @@ warning 6002: The table/view 'XettuyenVLU.dbo.tblTP_QH_PX' does not have a prima
     [Account].[IsActive] AS [IsActive]
     FROM [dbo].[Account] AS [Account]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [tblTP_QH_PX].[TenTinhTP] AS [TenTinhTP], 
-    [tblTP_QH_PX].[MaTinhTP] AS [MaTinhTP], 
-    [tblTP_QH_PX].[TenQH] AS [TenQH], 
-    [tblTP_QH_PX].[MaQH] AS [MaQH], 
-    [tblTP_QH_PX].[TenPX] AS [TenPX], 
-    [tblTP_QH_PX].[MaPX] AS [MaPX], 
-    [tblTP_QH_PX].[Cap] AS [Cap], 
-    [tblTP_QH_PX].[EnglishName] AS [EnglishName]
-    FROM [dbo].[tblTP_QH_PX] AS [tblTP_QH_PX]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="fk_TPQHPX_MaTinhTP" Association="Self.fk_TPQHPX_MaTinhTP">
-      <End Role="tblTinhTP" EntitySet="tblTinhTP" />
-      <End Role="tblTP_QH_PX" EntitySet="tblTP_QH_PX" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -9,7 +9,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
 {
     public class AcountController : Controller
     {
-        XettuyenVLUEntities model = new XettuyenVLUEntities();
+        demo2Entities1 model = new demo2Entities1();
         // GET: Admin/Login_Logout
         public ActionResult Login()
         {

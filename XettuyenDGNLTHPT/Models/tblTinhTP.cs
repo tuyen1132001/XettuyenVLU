@@ -16,7 +16,5 @@ namespace XettuyenDGNLTHPT.Models
     {
         public string MA_TINHTP { get; set; }
         public string TEN_TINHTP { get; set; }
-    
-        public virtual tblTP_QH_PX tblTP_QH_PX { get; set; }
     }
 }

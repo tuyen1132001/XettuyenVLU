@@ -12,8 +12,8 @@ namespace XettuyenDGNLTHPT.Controllers
 {
     public class HoSoDGNLsController : Controller
     {
-        private demo2Entities db = new demo2Entities();
-        demo2Entities model = new demo2Entities(); 
+        private demo2Entities1 db = new demo2Entities1();
+        demo2Entities1 model = new demo2Entities1(); 
 
         // GET: HoSoDGNLs
         public ActionResult Index()

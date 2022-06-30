@@ -13,10 +13,10 @@ namespace XettuyenDGNLTHPT.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class demo2Entities : DbContext
+    public partial class demo2Entities1 : DbContext
     {
-        public demo2Entities()
-            : base("name=demo2Entities")
+        public demo2Entities1()
+            : base("name=demo2Entities1")
         {
         }
     
@@ -25,7 +25,6 @@ namespace XettuyenDGNLTHPT.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tblChungChiNN> tblChungChiNNs { get; set; }
         public virtual DbSet<tblDanToc> tblDanTocs { get; set; }
         public virtual DbSet<tblHoSoDGNL> tblHoSoDGNLs { get; set; }
@@ -34,6 +33,7 @@ namespace XettuyenDGNLTHPT.Models
         public virtual DbSet<tblQuocTich> tblQuocTiches { get; set; }
         public virtual DbSet<tblTinhTP> tblTinhTPs { get; set; }
         public virtual DbSet<tblTonGiao> tblTonGiaos { get; set; }
+        public virtual DbSet<tblTP_QH_PX> tblTP_QH_PX { get; set; }
         public virtual DbSet<tblTruongTHPT> tblTruongTHPTs { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
     }
