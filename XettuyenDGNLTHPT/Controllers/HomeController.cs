@@ -9,7 +9,7 @@ namespace XettuyenDGNLTHPT.Controllers
 {
     public class HomeController : Controller
     {
-        demo2Entities1 model = new demo2Entities1();
+        DataxettuyenEntities model = new DataxettuyenEntities();
         public ActionResult Index() //Form Dang ky THTP QG
         {
             var HoSoTHPT = new tblHoSoTHPT();
@@ -127,5 +127,6 @@ namespace XettuyenDGNLTHPT.Controllers
                 .ToList();
             return Json(data, JsonRequestBehavior.AllowGet);
         }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿@model XettuyenDGNLTHPT.Models.tblHoSoTHPT
+﻿@model XettuyenDGNLTHPT.Models.tblHoSoDGNL
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -43,7 +43,7 @@
         window.print();
     }
 </script>
-<form method="post" action="@Url.Action("DetailDGNL","ManageHoSo")">
+<form method="post" action="@Url.Action("PrintlDGNL","ManageHoSo")">
     <div class="aspNetHidden">
         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
     </div>
@@ -61,31 +61,6 @@
         <div class="page-content-wrapper">
             <!-- BEGIN CONTENT BODY -->
             <!-- BEGIN PAGE CONTENT BODY -->
-            <div class="page-content" style="background-color: white">
-                <p></p>
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-2">
-                        <select name="DropDownList1" id="DropDownList1" class="form-control">
-                            <option value="dot1">Đợt 1</option>
-                            <option value="dot2">Đợt 2</option>
-
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <select name="ddlLoaiXetTuyen" id="ddlLoaiXetTuyen" class="form-control">
-                            <option value="HB">THPT QG</option>
-                            <option value="DGNL">Đ&#225;nh gi&#225; năng lực</option>
-
-                        </select>
-                    </div>
-                    <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
-                    <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
-                    <div class="col-md-2"></div>
-                </div>
-
-
-            </div>
 
             <div class="vertical_space"></div>
             <div class="vertical_space"></div>
@@ -118,7 +93,7 @@
                     <td colspan="6" class="text-center">
                         <span style="font-weight:bold;color:red;font-size:1.5em">ĐĂNG KÝ XÉT TUYỂN 2022 </span>
                         <br />
-                        <span style="font-size:1.2em">(Dành cho thí sinh xét kết quả THPT)</span>
+                        <span style="font-size:1.2em">(Dành cho thí sinh xét kết quả DGNL)</span>
                     </td>
                     <td></td>
                     <td></td>
@@ -280,7 +255,7 @@
 
                     <td colspan="2" style="color:Highlight;font-weight:bold;font-size:1.3em">THÔNG TIN XÉT TUYỂN</td>
 
-                    <td colspan="6"><b>Phương Thức Xét Tuyển</b>: THPT Quốc Gia</td>
+                    <td colspan="6"><b>Phương Thức Xét Tuyển</b>: DGNL</td>
 
                 </tr>
 
@@ -290,32 +265,16 @@
 
                         <table class="table-bordered text-center" style="width:80%">
                             <tr>
-                                <th style="text-align:center;width:20%">MÔN HỌC</th>
-                                <th class="text-center">TOÁN</th>
-                                <th class="text-center">VĂN</th>
-                                <th class="text-center">ANH</th>
-                                <th class="text-center">PHÁP</th>
-                                <th class="text-center">LÝ</th>
-                                <th class="text-center">HÓA</th>
-                                <th class="text-center">SINH</th>
-                                <th class="text-center">SỬ</th>
-                                <th class="text-center">ĐỊA</th>
-                                <th class="text-center">GDCD</th>
+                                <th style="text-align:center;width:20%">Ngày Thi DGNL</th>
+                                <th class="text-center">@Model.TGThiDGNL</th>
+
+                            </tr>
+                            <tr>
+                                <th style="text-align:center;width:20%">Điểm thi DGNL</th>
+                                <th>@Model.DiemDGNL</th>
+
                             </tr>
 
-                            <tr>
-                                <td class="text-left bold">Điểm thi THPT Quốc Gia</td>
-                                <td>@Model.Toan</td>
-                                <td>@Model.Van</td>
-                                <td>@Model.Anh</td>
-                                <td>@Model.Phap</td>
-                                <td>@Model.Ly</td>
-                                <td>@Model.Hoa</td>
-                                <td>@Model.Sinh</td>
-                                <td>@Model.Su</td>
-                                <td>@Model.Dia</td>
-                                <td>@Model.GDCD</td>
-                            </tr>
 
 
                         </table>
@@ -373,14 +332,12 @@
         <div class="vertical_space"></div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <a href="@Url.Action("PrintTHPT","ManageHoSo" ,Model) input  type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning" ">
-                    PRINT
-                </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" id="btnUploadHocBa" class="btn btn-warning" value="UPLOAD HỌC BẠ" onclick="parent.open('/myupload');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" name="btnDieuChinhNguyenVong" value="ĐIỀU CHỈNH THÔNG TIN" id="btnDieuChinhNguyenVong" disabled="true" class="btn btn-primary">
-                <//div>
-            </div>
+                <input type="button" id="btnPrint" name="btnPrint" class="btn btn-warning" value="Print" onclick="myFunction()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+            </div>
         </div>
+
+    </div>
 
     <div class="vertical_space"></div>
     <div class="vertical_space"></div>
@@ -388,4 +345,5 @@
     </div>
     </div>
 </form>
+
 

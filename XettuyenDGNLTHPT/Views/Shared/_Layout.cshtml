@@ -48,7 +48,11 @@
             height: 10px;
         }
     </style>
+    <script>
+        $(document).ready(Function() {
 
+        })
+    </script>
 </head>
 <body class="page-container-bg-solid page-md">
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -84,8 +88,8 @@
                 <div class="hor-menu">
                     <ul class="nav navbar-nav">
                         <li><a target="_blank" href="http://tuyensinh.vanlanguni.edu.vn/">TUYỂN SINH 2022</a></li>
-                        <li class="active"><a href="thptQuocGia.html">XÉT ĐIỂM THI THPT QG</a></li>
-                        <li><a href="danhgianangluc.html">XÉT ĐIỂM ĐGNL</a></li>
+                        <li><a href="@Url.Action("index", "Home")">XÉT ĐIỂM THI THPT QG</a></li>
+                        <li><a href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
                         <li> <a href="@Url.Action("InHoSo", "ManageHoSo")">HỒ SƠ CỦA TÔI</a></li>
                         <li><a target="_blank" href="https://xettuyenonline.vanlanguni.edu.vn/cunhanquocte">CỬ NHÂN QUỐC TẾ</a></li>
 
@@ -99,7 +103,7 @@
     </DIV><!-- END HEADER -->
     <!-- BEGIN CONTAINER -->
     @RenderBody();
-    
+   
     <!-- BEGIN FOOTER -->
     <!-- BEGIN INNER FOOTER -->
     <div class="page-footer">

@@ -4,9 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="demo2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DataxettuyenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
-warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Dataxettuyen.dbo.Account' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="ID" />
@@ -237,7 +237,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
           <Property Name="KHU_VUC" Type="nvarchar" MaxLength="255" />
           <Property Name="LOAI_TRUONG" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <EntityContainer Name="demo2ModelStoreContainer">
+        <EntityContainer Name="DataxettuyenModelStoreContainer">
           <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHoSoDGNL" EntityType="Self.tblHoSoDGNL" Schema="dbo" store:Type="Tables" />
@@ -263,7 +263,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="demo2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DataxettuyenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tblChungChiNN">
           <Key>
             <PropertyRef Name="ID" />
@@ -494,7 +494,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
           <Property Name="Role" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
-        <EntityContainer Name="demo2Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DataxettuyenEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblChungChiNNs" EntityType="Self.tblChungChiNN" />
           <EntitySet Name="tblDanTocs" EntityType="Self.tblDanToc" />
           <EntitySet Name="tblHoSoDGNLs" EntityType="Self.tblHoSoDGNL" />
@@ -512,9 +512,9 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="demo2ModelStoreContainer" CdmEntityContainer="demo2Entities1">
+        <EntityContainerMapping StorageEntityContainer="DataxettuyenModelStoreContainer" CdmEntityContainer="DataxettuyenEntities">
           <EntitySetMapping Name="tblChungChiNNs">
-            <EntityTypeMapping TypeName="demo2Model.tblChungChiNN">
+            <EntityTypeMapping TypeName="DataxettuyenModel.tblChungChiNN">
               <MappingFragment StoreEntitySet="tblChungChiNN">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MaNN" ColumnName="MaNN" />
@@ -524,7 +524,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblDanTocs">
-            <EntityTypeMapping TypeName="demo2Model.tblDanToc">
+            <EntityTypeMapping TypeName="DataxettuyenModel.tblDanToc">
               <MappingFragment StoreEntitySet="tblDanToc">
                 <ScalarProperty Name="MA_DANTOC" ColumnName="MA_DANTOC" />
                 <ScalarProperty Name="TEN_DANTOC" ColumnName="TEN_DANTOC" />
@@ -533,7 +533,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblHoSoDGNLs">
-            <EntityTypeMapping TypeName="demo2Model.tblHoSoDGNL">
+            <EntityTypeMapping TypeName="DataxettuyenModel.tblHoSoDGNL">
               <MappingFragment StoreEntitySet="tblHoSoDGNL">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
@@ -598,7 +598,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblHoSoTHPTs">
-            <EntityTypeMapping TypeName="demo2Model.tblHoSoTHPT">
+            <EntityTypeMapping TypeName="DataxettuyenModel.tblHoSoTHPT">
               <MappingFragment StoreEntitySet="tblHoSoTHPT">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
@@ -669,7 +669,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblNganhs">
-            <EntityTypeMapping TypeName="demo2Model.tblNganh">
+            <EntityTypeMapping TypeName="DataxettuyenModel.tblNganh">
               <MappingFragment StoreEntitySet="tblNganh">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MANGANH_TOHOP" ColumnName="MANGANH_TOHOP" />
@@ -685,7 +685,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblQuocTiches">
-            <EntityTypeMapping TypeName="demo2Model.tblQuocTich">
+            <EntityTypeMapping TypeName="DataxettuyenModel.tblQuocTich">
               <MappingFragment StoreEntitySet="tblQuocTich">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MaQT" ColumnName="MaQT" />
@@ -694,7 +694,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblTinhTPs">
-            <EntityTypeMapping TypeName="demo2Model.tblTinhTP">
+            <EntityTypeMapping TypeName="DataxettuyenModel.tblTinhTP">
               <MappingFragment StoreEntitySet="tblTinhTP">
                 <ScalarProperty Name="MA_TINHTP" ColumnName="MA_TINHTP" />
                 <ScalarProperty Name="TEN_TINHTP" ColumnName="TEN_TINHTP" />
@@ -702,7 +702,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblTonGiaos">
-            <EntityTypeMapping TypeName="demo2Model.tblTonGiao">
+            <EntityTypeMapping TypeName="DataxettuyenModel.tblTonGiao">
               <MappingFragment StoreEntitySet="tblTonGiao">
                 <ScalarProperty Name="MA_TONGIAO" ColumnName="MA_TONGIAO" />
                 <ScalarProperty Name="TEN_TONGIAO" ColumnName="TEN_TONGIAO" />
@@ -711,7 +711,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblTP_QH_PX">
-            <EntityTypeMapping TypeName="demo2Model.tblTP_QH_PX">
+            <EntityTypeMapping TypeName="DataxettuyenModel.tblTP_QH_PX">
               <MappingFragment StoreEntitySet="tblTP_QH_PX">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TenTinhTP" ColumnName="TenTinhTP" />
@@ -726,7 +726,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblTruongTHPTs">
-            <EntityTypeMapping TypeName="demo2Model.tblTruongTHPT">
+            <EntityTypeMapping TypeName="DataxettuyenModel.tblTruongTHPT">
               <MappingFragment StoreEntitySet="tblTruongTHPT">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MA_TPTRUONG" ColumnName="MA_TPTRUONG" />
@@ -743,7 +743,7 @@ warning 6002: The table/view 'demo2.dbo.Account' does not have a primary key def
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="demo2Model.Account">
+            <EntityTypeMapping TypeName="DataxettuyenModel.Account">
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Username" ColumnName="Username" />

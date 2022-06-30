@@ -9,7 +9,7 @@ namespace XettuyenDGNLTHPT.Controllers
 {
     public class ManageHoSoController : Controller
     {
-        demo2Entities1 model = new demo2Entities1();
+        DataxettuyenEntities model = new DataxettuyenEntities();
         // GET: ManageHoSo
         
         public ActionResult InHoSo()
@@ -41,6 +41,10 @@ namespace XettuyenDGNLTHPT.Controllers
             }
             return View("InHoSo");
         }
+        public ActionResult PrintTHPT(tblHoSoTHPT tHPT)
+        {
+            return View(tHPT);
+        }
         [HttpPost]
         public ActionResult DetailDGNL(string DropDownList1, string ddlLoaiXetTuyen, string CMND)
         {
@@ -60,6 +64,10 @@ namespace XettuyenDGNLTHPT.Controllers
                 }
                 return DetailTHPT(CMND);
             }
+        }
+        public ActionResult PrintDGNL(tblHoSoDGNL dgnl)
+        {
+            return View(dgnl);
         }
     }
 }
