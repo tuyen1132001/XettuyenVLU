@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\XettuyenDGNLTHPT",
+    "\\XettuyenDGNLTHPT\\Controllers",
+    "\\XettuyenDGNLTHPT\\Views",
+    "\\XettuyenDGNLTHPT\\Views\\Home"
   ],
-  "SelectedNode": "\\XettuyenDGNLTHPT.sln",
+  "SelectedNode": "\\XettuyenDGNLTHPT\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

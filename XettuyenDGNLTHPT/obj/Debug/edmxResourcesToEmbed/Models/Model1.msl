@@ -1,19 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="XettuyenVLUModelStoreContainer" CdmEntityContainer="XettuyenVLUEntities">
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+  <EntityContainerMapping StorageEntityContainer="demo2ModelStoreContainer" CdmEntityContainer="demo2Entities">
     <EntitySetMapping Name="tblChungChiNNs">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblChungChiNN">
+      <EntityTypeMapping TypeName="demo2Model.tblChungChiNN">
         <MappingFragment StoreEntitySet="tblChungChiNN">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MaNN" ColumnName="MaNN" />
@@ -23,7 +12,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblDanTocs">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblDanToc">
+      <EntityTypeMapping TypeName="demo2Model.tblDanToc">
         <MappingFragment StoreEntitySet="tblDanToc">
           <ScalarProperty Name="MA_DANTOC" ColumnName="MA_DANTOC" />
           <ScalarProperty Name="TEN_DANTOC" ColumnName="TEN_DANTOC" />
@@ -32,7 +21,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblHoSoDGNLs">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblHoSoDGNL">
+      <EntityTypeMapping TypeName="demo2Model.tblHoSoDGNL">
         <MappingFragment StoreEntitySet="tblHoSoDGNL">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
@@ -97,7 +86,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblHoSoTHPTs">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblHoSoTHPT">
+      <EntityTypeMapping TypeName="demo2Model.tblHoSoTHPT">
         <MappingFragment StoreEntitySet="tblHoSoTHPT">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
@@ -168,7 +157,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblNganhs">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblNganh">
+      <EntityTypeMapping TypeName="demo2Model.tblNganh">
         <MappingFragment StoreEntitySet="tblNganh">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MANGANH_TOHOP" ColumnName="MANGANH_TOHOP" />
@@ -184,7 +173,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblQuocTiches">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblQuocTich">
+      <EntityTypeMapping TypeName="demo2Model.tblQuocTich">
         <MappingFragment StoreEntitySet="tblQuocTich">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MaQT" ColumnName="MaQT" />
@@ -193,7 +182,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblTinhTPs">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTinhTP">
+      <EntityTypeMapping TypeName="demo2Model.tblTinhTP">
         <MappingFragment StoreEntitySet="tblTinhTP">
           <ScalarProperty Name="MA_TINHTP" ColumnName="MA_TINHTP" />
           <ScalarProperty Name="TEN_TINHTP" ColumnName="TEN_TINHTP" />
@@ -201,7 +190,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblTonGiaos">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTonGiao">
+      <EntityTypeMapping TypeName="demo2Model.tblTonGiao">
         <MappingFragment StoreEntitySet="tblTonGiao">
           <ScalarProperty Name="MA_TONGIAO" ColumnName="MA_TONGIAO" />
           <ScalarProperty Name="TEN_TONGIAO" ColumnName="TEN_TONGIAO" />
@@ -209,8 +198,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tblTP_QH_PX">
+      <EntityTypeMapping TypeName="demo2Model.tblTP_QH_PX">
+        <MappingFragment StoreEntitySet="tblTP_QH_PX">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenTinhTP" ColumnName="TenTinhTP" />
+          <ScalarProperty Name="MaTinhTP" ColumnName="MaTinhTP" />
+          <ScalarProperty Name="TenQH" ColumnName="TenQH" />
+          <ScalarProperty Name="MaQH" ColumnName="MaQH" />
+          <ScalarProperty Name="TenPX" ColumnName="TenPX" />
+          <ScalarProperty Name="MaPX" ColumnName="MaPX" />
+          <ScalarProperty Name="Cap" ColumnName="Cap" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tblTruongTHPTs">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTruongTHPT">
+      <EntityTypeMapping TypeName="demo2Model.tblTruongTHPT">
         <MappingFragment StoreEntitySet="tblTruongTHPT">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MA_TPTRUONG" ColumnName="MA_TPTRUONG" />
@@ -227,7 +231,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Accounts">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.Account">
+      <EntityTypeMapping TypeName="demo2Model.Account">
         <MappingFragment StoreEntitySet="Account">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Username" ColumnName="Username" />
@@ -235,20 +239,6 @@
           <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
           <ScalarProperty Name="Role" ColumnName="Role" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tblTP_QH_PX">
-      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTP_QH_PX">
-        <MappingFragment StoreEntitySet="tblTP_QH_PX">
-          <ScalarProperty Name="TenTinhTP" ColumnName="TenTinhTP" />
-          <ScalarProperty Name="MaTinhTP" ColumnName="MaTinhTP" />
-          <ScalarProperty Name="TenQH" ColumnName="TenQH" />
-          <ScalarProperty Name="MaQH" ColumnName="MaQH" />
-          <ScalarProperty Name="TenPX" ColumnName="TenPX" />
-          <ScalarProperty Name="MaPX" ColumnName="MaPX" />
-          <ScalarProperty Name="Cap" ColumnName="Cap" />
-          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

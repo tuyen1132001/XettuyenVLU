@@ -12,6 +12,15 @@ namespace XettuyenDGNLTHPT.Models
     using System;
     using System.Collections.Generic;
     
+<<<<<<< HEAD:XettuyenDGNLTHPT/Models/sysdiagram.cs
+    public partial class sysdiagram
+    {
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
+=======
     public partial class Account
     {
         public int ID { get; set; }
@@ -20,5 +29,6 @@ namespace XettuyenDGNLTHPT.Models
         public string Full_Name { get; set; }
         public string Role { get; set; }
         public Nullable<bool> IsActive { get; set; }
+>>>>>>> NguyenThanhLuan:XettuyenDGNLTHPT/Models/Account.cs
     }
 }
