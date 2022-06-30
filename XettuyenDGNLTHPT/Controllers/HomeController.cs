@@ -35,7 +35,12 @@ namespace XettuyenDGNLTHPT.Controllers
             var THPT = model.tblTruongTHPTs.Select(e => new { e.MA_TINHTP, e.TEN_TINHTP }).Distinct().ToList();
             THPT.Insert(0, new  { MA_TINHTP = "-1", TEN_TINHTP = "-- Chọn tỉnh thành phố --" });
             ViewBag.THPT = new SelectList(THPT, "MA_TINHTP", "TEN_TINHTP");
-            
+
+            var Majors = model.tblNganhs.Select(e => new { e.MA_NGANH, e.TEN_NGANH }).Distinct().ToList();
+            Majors.Insert(0, new { MA_NGANH = "-1", TEN_NGANH = "--------------Chọn-------------- " });
+            ViewBag.NGANH = new SelectList(Majors, "MA_NGANH", "TEN_NGANH");
+
+
             return View(HoSoTHPT);
         }
 
@@ -109,6 +114,15 @@ namespace XettuyenDGNLTHPT.Controllers
             var data = model.tblTruongTHPTs
                 .Where(e => e.MA_TRUONG == id)
                 .Select(e => new {  Name = e.KHU_VUC })
+                .Distinct()
+                .ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetMajors(string id)// tim to hop theo nganh
+        {
+            var data = model.tblNganhs
+                .Where(e => e.MA_NGANH == id)
+                .Select(e => new { Id= e.MA_TOHOP,Name = e.MA_TOHOP+"-"+e.TEN_TOHOP })
                 .Distinct()
                 .ToList();
             return Json(data, JsonRequestBehavior.AllowGet);

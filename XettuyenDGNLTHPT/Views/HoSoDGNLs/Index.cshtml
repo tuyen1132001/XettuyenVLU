@@ -5,189 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<h2>Index</h2>*@
-
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
-@*<table class="table">*@
-    @*<tr>
-            <th>
-                @Html.DisplayNameFor(model => model.HoVaTen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GioiTinh)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgaySinh)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaNoiSinh)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenNoiSinh)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaDanToc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenDanToc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaTonGiao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenTonGiao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CMND)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.QuocTich)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoKhau)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoKhau_MaPhuong)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoKhau_TenPhuong)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoKhau_MaTinhTP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoKhau_TenTinhTP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoKhau_MaQH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoKhau_TenQH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NamTotNghiep)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SoBaoDanh)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HocLucLop12)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HanhKiemLop12)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LoaiHinhTN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TruongTHPT_MaTinhTP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TruongTHPT_TenTinhTP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TruongTHPT_MaQH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TruongTHPT_TenQH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenTruongTHPT)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaTruongTHPT)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenLop12)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KhuVuc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DiemDGNL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TGThiDGNL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DoiTuongUuTien)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CCNN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaNganh_ToHop1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenNganh_TenToHop1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaNganh_ToHop2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenNganh_TenToHop2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaNganh_ToHop3)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenNganh_TenToHop3)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CTCT)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CTDB)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LienLac_DiaChi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LienLac_MaPhuongXa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LienLac_TenPhuongXa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LienLac_MaTP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LienLac_TenTP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LienLac_MaQH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LienLac_TenQH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DienThoaiDD)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DienThoaiPhuHuynh)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateInserted)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateEdited)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DaNhanHoSo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DiemVeMyThuat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DiemVeNangKhieu)
-            </th>
-            <th></th>
-        </tr>*@
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -419,74 +236,7 @@
                                                                                 @Html.DropDownList("TP_QH_PX", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlHoKhauQuanHuyen" })
                                                                                 @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
                                                                                 @Html.ValidationMessageFor(model => model.HoKhau_TenTinhTP, "", new { @class = "text-danger" })
-                                                                                @*<select name="ddlHoKhauTinhTP" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlHoKhauTinhTP\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlHoKhauTinhTP" class="form-control" required="true">
-                            <option selected="selected" value="">-- Chọn Tỉnh/Th&#224;nh Phố --</option>
-                            <option value="92">Th&#224;nh phố Cần Thơ</option>
-                            <option value="48">Th&#224;nh phố Đ&#224; Nẵng</option>
-                            <option value="01">Th&#224;nh phố H&#224; Nội</option>
-                            <option value="31">Th&#224;nh phố Hải Ph&#242;ng</option>
-                            <option value="79">Th&#224;nh phố Hồ Ch&#237; Minh</option>
-                            <option value="89">Tỉnh An Giang</option>
-                            <option value="77">Tỉnh B&#224; Rịa - Vũng T&#224;u</option>
-                            <option value="24">Tỉnh Bắc Giang</option>
-                            <option value="06">Tỉnh Bắc Kạn</option>
-                            <option value="95">Tỉnh Bạc Li&#234;u</option>
-                            <option value="27">Tỉnh Bắc Ninh</option>
-                            <option value="83">Tỉnh Bến Tre</option>
-                            <option value="52">Tỉnh B&#236;nh Định</option>
-                            <option value="74">Tỉnh B&#236;nh Dương</option>
-                            <option value="70">Tỉnh B&#236;nh Phước</option>
-                            <option value="60">Tỉnh B&#236;nh Thuận</option>
-                            <option value="96">Tỉnh C&#224; Mau</option>
-                            <option value="04">Tỉnh Cao Bằng</option>
-                            <option value="66">Tỉnh Đắk Lắk</option>
-                            <option value="67">Tỉnh Đắk N&#244;ng</option>
-                            <option value="11">Tỉnh Điện Bi&#234;n</option>
-                            <option value="75">Tỉnh Đồng Nai</option>
-                            <option value="87">Tỉnh Đồng Th&#225;p</option>
-                            <option value="64">Tỉnh Gia Lai</option>
-                            <option value="02">Tỉnh H&#224; Giang</option>
-                            <option value="35">Tỉnh H&#224; Nam</option>
-                            <option value="42">Tỉnh H&#224; Tĩnh</option>
-                            <option value="30">Tỉnh Hải Dương</option>
-                            <option value="93">Tỉnh Hậu Giang</option>
-                            <option value="17">Tỉnh Ho&#224; B&#236;nh</option>
-                            <option value="33">Tỉnh Hưng Y&#234;n</option>
-                            <option value="56">Tỉnh Kh&#225;nh H&#242;a</option>
-                            <option value="91">Tỉnh Ki&#234;n Giang</option>
-                            <option value="62">Tỉnh Kon Tum</option>
-                            <option value="12">Tỉnh Lai Ch&#226;u</option>
-                            <option value="68">Tỉnh L&#226;m Đồng</option>
-                            <option value="20">Tỉnh Lạng Sơn</option>
-                            <option value="10">Tỉnh L&#224;o Cai</option>
-                            <option value="80">Tỉnh Long An</option>
-                            <option value="36">Tỉnh Nam Định</option>
-                            <option value="40">Tỉnh Nghệ An</option>
-                            <option value="37">Tỉnh Ninh B&#236;nh</option>
-                            <option value="58">Tỉnh Ninh Thuận</option>
-                            <option value="25">Tỉnh Ph&#250; Thọ</option>
-                            <option value="54">Tỉnh Ph&#250; Y&#234;n</option>
-                            <option value="44">Tỉnh Quảng B&#236;nh</option>
-                            <option value="49">Tỉnh Quảng Nam</option>
-                            <option value="51">Tỉnh Quảng Ng&#227;i</option>
-                            <option value="22">Tỉnh Quảng Ninh</option>
-                            <option value="45">Tỉnh Quảng Trị</option>
-                            <option value="94">Tỉnh S&#243;c Trăng</option>
-                            <option value="14">Tỉnh Sơn La</option>
-                            <option value="72">Tỉnh T&#226;y Ninh</option>
-                            <option value="34">Tỉnh Th&#225;i B&#236;nh</option>
-                            <option value="19">Tỉnh Th&#225;i Nguy&#234;n</option>
-                            <option value="38">Tỉnh Thanh H&#243;a</option>
-                            <option value="46">Tỉnh Thừa Thi&#234;n Huế</option>
-                            <option value="82">Tỉnh Tiền Giang</option>
-                            <option value="84">Tỉnh Tr&#224; Vinh</option>
-                            <option value="08">Tỉnh Tuy&#234;n Quang</option>
-                            <option value="86">Tỉnh Vĩnh Long</option>
-                            <option value="26">Tỉnh Vĩnh Ph&#250;c</option>
-                            <option value="15">Tỉnh Y&#234;n B&#225;i</option>
-                            <option value="65">Kh&#225;c (kh&#244;ng thuộc c&#225;c Tỉnh th&#224;nh tr&#234;n)</option>
-
-                        </select>*@
+                                                                                
                                                                             </div>
                                                                         </div>
                                                                         <div class="vertical_space"></div>
@@ -573,86 +323,13 @@
                                                                 <div class="form-group">
                                                                     <label class="control-label col-md-4">Trường THPT lớp 12 thuộc Tỉnh/TP <span class="required"> * </span></label>
                                                                     <div class="col-md-5">
-                                                                        <select name="ddlTinhTPTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTinhTPTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTinhTPTruongTHPT" class="form-control" required="true">
-                                                                            <option selected="selected" value="">-- Chọn Tỉnh/Th&#224;nh Phố --</option>
-                                                                            <option value="51">An Giang</option>
-                                                                            <option value="52">B&#224; Rịa-Vũng T&#224;u</option>
-                                                                            <option value="18">Bắc Giang</option>
-                                                                            <option value="11">Bắc Kạn</option>
-                                                                            <option value="60">Bạc Li&#234;u</option>
-                                                                            <option value="19">Bắc Ninh</option>
-                                                                            <option value="56">Bến Tre</option>
-                                                                            <option value="37">B&#236;nh Định</option>
-                                                                            <option value="44">B&#236;nh Dương</option>
-                                                                            <option value="43">B&#236;nh Phước</option>
-                                                                            <option value="47">B&#236;nh Thuận</option>
-                                                                            <option value="61">C&#224; Mau</option>
-                                                                            <option value="55">Cần Thơ</option>
-                                                                            <option value="06">Cao Bằng</option>
-                                                                            <option value="65">Cục nh&#224; trường</option>
-                                                                            <option value="04">Đ&#224; Nẵng</option>
-                                                                            <option value="40">Đắk Lắk</option>
-                                                                            <option value="63">Đăk N&#244;ng</option>
-                                                                            <option value="62">Điện Bi&#234;n</option>
-                                                                            <option value="48">Đồng Nai</option>
-                                                                            <option value="50">Đồng Th&#225;p</option>
-                                                                            <option value="38">Gia Lai</option>
-                                                                            <option value="05">H&#224; Giang</option>
-                                                                            <option value="24">H&#224; Nam</option>
-                                                                            <option value="01">H&#224; Nội</option>
-                                                                            <option value="30">H&#224; Tĩnh</option>
-                                                                            <option value="21">Hải Dương</option>
-                                                                            <option value="03">Hải Ph&#242;ng</option>
-                                                                            <option value="64">Hậu Giang</option>
-                                                                            <option value="23">Ho&#224; B&#236;nh</option>
-                                                                            <option value="22">Hưng Y&#234;n</option>
-                                                                            <option value="41">Kh&#225;nh Ho&#224;</option>
-                                                                            <option value="54">Ki&#234;n Giang</option>
-                                                                            <option value="36">Kon Tum</option>
-                                                                            <option value="07">Lai Ch&#226;u</option>
-                                                                            <option value="42">L&#226;m Đồng</option>
-                                                                            <option value="10">Lạng Sơn</option>
-                                                                            <option value="08">L&#224;o Cai</option>
-                                                                            <option value="49">Long An</option>
-                                                                            <option value="25">Nam Định</option>
-                                                                            <option value="29">Nghệ An</option>
-                                                                            <option value="27">Ninh B&#236;nh</option>
-                                                                            <option value="45">Ninh Thuận</option>
-                                                                            <option value="15">Ph&#250; Thọ</option>
-                                                                            <option value="39">Ph&#250; Y&#234;n</option>
-                                                                            <option value="31">Quảng B&#236;nh</option>
-                                                                            <option value="34">Quảng Nam</option>
-                                                                            <option value="35">Quảng Ng&#227;i</option>
-                                                                            <option value="17">Quảng Ninh</option>
-                                                                            <option value="32">Quảng Trị</option>
-                                                                            <option value="59">S&#243;c Trăng</option>
-                                                                            <option value="14">Sơn La</option>
-                                                                            <option value="46">T&#226;y Ninh</option>
-                                                                            <option value="26">Th&#225;i B&#236;nh</option>
-                                                                            <option value="12">Th&#225;i Nguy&#234;n</option>
-                                                                            <option value="28">Thanh Ho&#225;</option>
-                                                                            <option value="28">Thanh H&#243;a</option>
-                                                                            <option value="33">Thừa Thi&#234;n -Huế</option>
-                                                                            <option value="53">Tiền Giang</option>
-                                                                            <option value="52">Tỉnh B&#224; Rịa - Vũng T&#224;u</option>
-                                                                            <option value="56">Tỉnh Bến Tre</option>
-                                                                            <option value="037">Tỉnh B&#236;nh Định</option>
-                                                                            <option value="55">Tỉnh Cần Thơ</option>
-                                                                            <option value="46">Tỉnh T&#226;y Ninh</option>
-                                                                            <option value="01">Tp. H&#224; Nội</option>
-                                                                            <option value="02">Tp. Hồ Ch&#237; Minh</option>
-                                                                            <option value="58">Tr&#224; Vinh</option>
-                                                                            <option value="09">Tuy&#234;n Quang</option>
-                                                                            <option value="57">Vĩnh Long</option>
-                                                                            <option value="16">Vĩnh Ph&#250;c</option>
-                                                                            <option value="13">Y&#234;n B&#225;i</option>
-
-                                                                        </select>
+                                                                        @Html.DropDownList("THPT", (IEnumerable<SelectListItem>)ViewBag.THPT, null, new { @class = "form-control districtschool-select", target = "#ddlQuanHuyenTHPT" })
+                                                                        @Html.ValidationMessageFor(model => model.TruongTHPT_TenTinhTP, "", new { @class = "text-danger" })
                                                                         <div class="vertical_space"></div>
                                                                         <div class="row">
                                                                             <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
                                                                             <div class="col-md-8">
-                                                                                <select name="ddlQuanHuyenTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlQuanHuyenTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlQuanHuyenTHPT" class="form-control" required="true">
+                                                                                <select name="ddlQuanHuyenTHPT" id="ddlQuanHuyenTHPT" class="form-control school-select" required="true" target="#ddlTenTruongTHPT">
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -660,8 +337,7 @@
                                                                         <div class="row">
                                                                             <div class="col-md-4 control-label">Tên trường THPT<span class="required"> * </span></div>
                                                                             <div class="col-md-8">
-                                                                                <select name="ddlTenTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTenTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTenTruongTHPT" class="form-control" required="true">
-                                                                                </select>
+                                                                                <select name="ddlTenTruongTHPT" id="ddlTenTruongTHPT" class="form-control area-select" required="true" target="#ddlKhuVuc"></select>
                                                                             </div>
                                                                         </div>
                                                                         <div class="vertical_space"></div>
@@ -681,12 +357,7 @@
                                                                         <table>
                                                                             <tr>
                                                                                 <td>
-                                                                                    <select name="ddlKhuVuc" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlKhuVuc\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlKhuVuc" class="form-control">
-                                                                                        <option value="1">1</option>
-                                                                                        <option value="2">2</option>
-                                                                                        <option value="2NT">2NT</option>
-                                                                                        <option selected="selected" value="3">3</option>
-
+                                                                                    <select name="ddlKhuVuc" id="ddlKhuVuc" class="form-control" required="true">
                                                                                     </select>
                                                                                 </td>
                                                                                 <td>Đối tượng ưu tiên</td>
@@ -734,8 +405,7 @@
                                                                 <div class="form-group">
                                                                     <div class="col-md-4 text-right">Sử dụng thông tin của Hộ khẩu</div>
                                                                     <div class="col-md-6">
-                                                                        <input id="chkLayDCHoKhau" type="checkbox" name="chkLayDCHoKhau" onclick="javascript:setTimeout(&#39;__doPostBack(\&#39;chkLayDCHoKhau\&#39;,\&#39;\&#39;)&#39;, 0)" />
-                                                                    </div>
+                                                                        <input id="chkLayDCHoKhau" type="checkbox" name="chkLayDCHoKhau" />                                                                    </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label class="control-label col-md-4">Địa chỉ gửi thư báo kết quả<span class="required"> * </span></label>
@@ -749,74 +419,7 @@
                                                                                 @Html.DropDownList("TP_QH_PX", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlQuanHuyen" })
                                                                                 @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
                                                                                 @Html.ValidationMessageFor(model => model.HoKhau_TenTinhTP, "", new { @class = "text-danger" })
-                                                                                @*<select name="ddlTinhThanhPho" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTinhThanhPho\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTinhThanhPho" class="form-control" required="true">
-                                                                                    <option selected="selected" value="">-- Chọn Tỉnh/Th&#224;nh Phố --</option>
-                                                                                    <option value="92">Th&#224;nh phố Cần Thơ</option>
-                                                                                    <option value="48">Th&#224;nh phố Đ&#224; Nẵng</option>
-                                                                                    <option value="01">Th&#224;nh phố H&#224; Nội</option>
-                                                                                    <option value="31">Th&#224;nh phố Hải Ph&#242;ng</option>
-                                                                                    <option value="79">Th&#224;nh phố Hồ Ch&#237; Minh</option>
-                                                                                    <option value="89">Tỉnh An Giang</option>
-                                                                                    <option value="77">Tỉnh B&#224; Rịa - Vũng T&#224;u</option>
-                                                                                    <option value="24">Tỉnh Bắc Giang</option>
-                                                                                    <option value="06">Tỉnh Bắc Kạn</option>
-                                                                                    <option value="95">Tỉnh Bạc Li&#234;u</option>
-                                                                                    <option value="27">Tỉnh Bắc Ninh</option>
-                                                                                    <option value="83">Tỉnh Bến Tre</option>
-                                                                                    <option value="52">Tỉnh B&#236;nh Định</option>
-                                                                                    <option value="74">Tỉnh B&#236;nh Dương</option>
-                                                                                    <option value="70">Tỉnh B&#236;nh Phước</option>
-                                                                                    <option value="60">Tỉnh B&#236;nh Thuận</option>
-                                                                                    <option value="96">Tỉnh C&#224; Mau</option>
-                                                                                    <option value="04">Tỉnh Cao Bằng</option>
-                                                                                    <option value="66">Tỉnh Đắk Lắk</option>
-                                                                                    <option value="67">Tỉnh Đắk N&#244;ng</option>
-                                                                                    <option value="11">Tỉnh Điện Bi&#234;n</option>
-                                                                                    <option value="75">Tỉnh Đồng Nai</option>
-                                                                                    <option value="87">Tỉnh Đồng Th&#225;p</option>
-                                                                                    <option value="64">Tỉnh Gia Lai</option>
-                                                                                    <option value="02">Tỉnh H&#224; Giang</option>
-                                                                                    <option value="35">Tỉnh H&#224; Nam</option>
-                                                                                    <option value="42">Tỉnh H&#224; Tĩnh</option>
-                                                                                    <option value="30">Tỉnh Hải Dương</option>
-                                                                                    <option value="93">Tỉnh Hậu Giang</option>
-                                                                                    <option value="17">Tỉnh Ho&#224; B&#236;nh</option>
-                                                                                    <option value="33">Tỉnh Hưng Y&#234;n</option>
-                                                                                    <option value="56">Tỉnh Kh&#225;nh H&#242;a</option>
-                                                                                    <option value="91">Tỉnh Ki&#234;n Giang</option>
-                                                                                    <option value="62">Tỉnh Kon Tum</option>
-                                                                                    <option value="12">Tỉnh Lai Ch&#226;u</option>
-                                                                                    <option value="68">Tỉnh L&#226;m Đồng</option>
-                                                                                    <option value="20">Tỉnh Lạng Sơn</option>
-                                                                                    <option value="10">Tỉnh L&#224;o Cai</option>
-                                                                                    <option value="80">Tỉnh Long An</option>
-                                                                                    <option value="36">Tỉnh Nam Định</option>
-                                                                                    <option value="40">Tỉnh Nghệ An</option>
-                                                                                    <option value="37">Tỉnh Ninh B&#236;nh</option>
-                                                                                    <option value="58">Tỉnh Ninh Thuận</option>
-                                                                                    <option value="25">Tỉnh Ph&#250; Thọ</option>
-                                                                                    <option value="54">Tỉnh Ph&#250; Y&#234;n</option>
-                                                                                    <option value="44">Tỉnh Quảng B&#236;nh</option>
-                                                                                    <option value="49">Tỉnh Quảng Nam</option>
-                                                                                    <option value="51">Tỉnh Quảng Ng&#227;i</option>
-                                                                                    <option value="22">Tỉnh Quảng Ninh</option>
-                                                                                    <option value="45">Tỉnh Quảng Trị</option>
-                                                                                    <option value="94">Tỉnh S&#243;c Trăng</option>
-                                                                                    <option value="14">Tỉnh Sơn La</option>
-                                                                                    <option value="72">Tỉnh T&#226;y Ninh</option>
-                                                                                    <option value="34">Tỉnh Th&#225;i B&#236;nh</option>
-                                                                                    <option value="19">Tỉnh Th&#225;i Nguy&#234;n</option>
-                                                                                    <option value="38">Tỉnh Thanh H&#243;a</option>
-                                                                                    <option value="46">Tỉnh Thừa Thi&#234;n Huế</option>
-                                                                                    <option value="82">Tỉnh Tiền Giang</option>
-                                                                                    <option value="84">Tỉnh Tr&#224; Vinh</option>
-                                                                                    <option value="08">Tỉnh Tuy&#234;n Quang</option>
-                                                                                    <option value="86">Tỉnh Vĩnh Long</option>
-                                                                                    <option value="26">Tỉnh Vĩnh Ph&#250;c</option>
-                                                                                    <option value="15">Tỉnh Y&#234;n B&#225;i</option>
-                                                                                    <option value="65">Kh&#225;c (kh&#244;ng thuộc c&#225;c Tỉnh th&#224;nh tr&#234;n)</option>
-
-                                                                                </select>*@
+                                                                               
                                                                             </div>
                                                                         </div>
                                                                         <div class="vertical_space"></div>
@@ -871,71 +474,9 @@
                                                                     <table>
                                                                         <tr>
                                                                             <td style="width:30%">
-                                                                                <strong>Ngành xét tuyển ưu tiên 1</strong><select name="ddlNganh1" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlNganh1\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlNganh1" class="form-control" required="true">
-                                                                                    <option selected="selected" value="">----------------Chọn----------------</option>
-                                                                                    <option value="7720301"> Điều dưỡng</option>
-                                                                                    <option value="7850201">Bảo hộ lao động</option>
-                                                                                    <option value="7340116">Bất động sản</option>
-                                                                                    <option value="7510301">C&#244;ng nghệ Kỹ thuật Điện - Điện tử</option>
-                                                                                    <option value="7510406">C&#244;ng nghệ Kỹ thuật M&#244;i trường</option>
-                                                                                    <option value="7510205">C&#244;ng nghệ Kỹ thuật &#212; t&#244;</option>
-                                                                                    <option value="7420201">C&#244;ng nghệ Sinh học</option>
-                                                                                    <option value="7420205">C&#244;ng nghệ sinh học Y dược</option>
-                                                                                    <option value="7420207">C&#244;ng nghệ Thẩm mỹ</option>
-                                                                                    <option value="7480201">C&#244;ng nghệ Th&#244;ng tin</option>
-                                                                                    <option value="7540101">C&#244;ng nghệ Thực phẩm</option>
-                                                                                    <option value="7760101">C&#244;ng t&#225;c X&#227; hội</option>
-                                                                                    <option value="7210235">Đạo diễn Điện ảnh  - Truyền h&#236;nh</option>
-                                                                                    <option value="7210234">Diễn vi&#234;n Kịch, Điện ảnh - Truyền h&#236;nh</option>
-                                                                                    <option value="7310608">Đ&#244;ng phương học</option>
-                                                                                    <option value="7810101">Du lịch</option>
-                                                                                    <option value="7720201">Dược học</option>
-                                                                                    <option value="7340405">Hệ thống Th&#244;ng tin Quản l&#253; </option>
-                                                                                    <option value="7340301">Kế to&#225;n</option>
-                                                                                    <option value="7480109">Khoa học Dữ liệu</option>
-                                                                                    <option value="7580101">Kiến tr&#250;c</option>
-                                                                                    <option value="7340120">Kinh doanh Quốc tế</option>
-                                                                                    <option value="7340121">Kinh doanh Thương mại</option>
-                                                                                    <option value="7310106">Kinh tế Quốc tế</option>
-                                                                                    <option value="7520114">Kỹ thuật Cơ - Điện tử</option>
-                                                                                    <option value="7520115">Kỹ thuật Nhiệt</option>
-                                                                                    <option value="7480103">Kỹ thuật Phần mềm</option>
-                                                                                    <option value="7580201">Kỹ thuật X&#226;y dựng</option>
-                                                                                    <option value="7580205">Kỹ thuật X&#226;y dựng C&#244;ng tr&#236;nh Giao th&#244;ng</option>
-                                                                                    <option value="7720601">Kỹ thuật X&#233;t nghiệm Y học</option>
-                                                                                    <option value="7510605">Logistic v&#224; Quản l&#253; Chuỗi cung ứng</option>
-                                                                                    <option value="7380101">Luật</option>
-                                                                                    <option value="7380107">Luật Kinh tế</option>
-                                                                                    <option value="7340115">Marketing</option>
-                                                                                    <option value="7220201">Ng&#244;n ngữ Anh</option>
-                                                                                    <option value="7220210">Ng&#244;n ngữ H&#224;n Quốc</option>
-                                                                                    <option value="7220204">Ng&#244;n ngữ Trung Quốc</option>
-                                                                                    <option value="7620118">N&#244;ng nghiệp C&#244;ng nghệ cao</option>
-                                                                                    <option value="7210208">Piano</option>
-                                                                                    <option value="7320108">Quan hệ C&#244;ng ch&#250;ng</option>
-                                                                                    <option value="7510601">Quản l&#253; c&#244;ng nghiệp</option>
-                                                                                    <option value="7580302">Quản l&#253; X&#226;y dựng</option>
-                                                                                    <option value="7810103">Quản trị Dịch vụ Du lịch v&#224; Lữ h&#224;nh</option>
-                                                                                    <option value="7810201">Quản trị Kh&#225;ch sạn</option>
-                                                                                    <option value="7340101">Quản trị Kinh doanh</option>
-                                                                                    <option value="7510606">Quản trị M&#244;i trường Doanh nghiệp</option>
-                                                                                    <option value="7810202">Quản trị Nh&#224; h&#224;ng v&#224; Dịch vụ ăn uống</option>
-                                                                                    <option value="7720501">Răng - H&#224;m - Mặt</option>
-                                                                                    <option value="7340201">T&#224;i ch&#237;nh – Ng&#226;n h&#224;ng</option>
-                                                                                    <option value="7310401">T&#226;m l&#253; học</option>
-                                                                                    <option value="7210205">Thanh nhạc</option>
-                                                                                    <option value="7210402">Thiết kế C&#244;ng nghiệp</option>
-                                                                                    <option value="7210403">Thiết kế Đồ họa</option>
-                                                                                    <option value="7210409">Thiết kế Mỹ thuật số</option>
-                                                                                    <option value="7580108">Thiết kế Nội thất</option>
-                                                                                    <option value="7210404">Thiết kế Thời trang</option>
-                                                                                    <option value="7589001">Thiết kế Xanh</option>
-                                                                                    <option value="7340122">Thương mại Điện tử</option>
-                                                                                    <option value="7320104">Truyền th&#244;ng đa phương tiện</option>
-                                                                                    <option value="7229030">Văn học Ứng dụng</option>
-                                                                                    <option value="7310630">Việt Nam học</option>
-
-                                                                                </select>
+                                                                                <strong>Ngành xét tuyển ưu tiên 1</strong>
+                                                                                @Html.DropDownList("Majors", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon1" })
+                                                                                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop1, "", new { @class = "text-danger" })
                                                                             </td>
                                                                             <td>
                                                                             </td>
@@ -947,71 +488,9 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <strong>Ngành xét tuyển ưu tiên 2</strong><select name="ddlNganh2" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlNganh2\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlNganh2" class="form-control">
-                                                                                    <option selected="selected" value="">----------------Chọn----------------</option>
-                                                                                    <option value="7720301"> Điều dưỡng</option>
-                                                                                    <option value="7850201">Bảo hộ lao động</option>
-                                                                                    <option value="7340116">Bất động sản</option>
-                                                                                    <option value="7510301">C&#244;ng nghệ Kỹ thuật Điện - Điện tử</option>
-                                                                                    <option value="7510406">C&#244;ng nghệ Kỹ thuật M&#244;i trường</option>
-                                                                                    <option value="7510205">C&#244;ng nghệ Kỹ thuật &#212; t&#244;</option>
-                                                                                    <option value="7420201">C&#244;ng nghệ Sinh học</option>
-                                                                                    <option value="7420205">C&#244;ng nghệ sinh học Y dược</option>
-                                                                                    <option value="7420207">C&#244;ng nghệ Thẩm mỹ</option>
-                                                                                    <option value="7480201">C&#244;ng nghệ Th&#244;ng tin</option>
-                                                                                    <option value="7540101">C&#244;ng nghệ Thực phẩm</option>
-                                                                                    <option value="7760101">C&#244;ng t&#225;c X&#227; hội</option>
-                                                                                    <option value="7210235">Đạo diễn Điện ảnh  - Truyền h&#236;nh</option>
-                                                                                    <option value="7210234">Diễn vi&#234;n Kịch, Điện ảnh - Truyền h&#236;nh</option>
-                                                                                    <option value="7310608">Đ&#244;ng phương học</option>
-                                                                                    <option value="7810101">Du lịch</option>
-                                                                                    <option value="7720201">Dược học</option>
-                                                                                    <option value="7340405">Hệ thống Th&#244;ng tin Quản l&#253; </option>
-                                                                                    <option value="7340301">Kế to&#225;n</option>
-                                                                                    <option value="7480109">Khoa học Dữ liệu</option>
-                                                                                    <option value="7580101">Kiến tr&#250;c</option>
-                                                                                    <option value="7340120">Kinh doanh Quốc tế</option>
-                                                                                    <option value="7340121">Kinh doanh Thương mại</option>
-                                                                                    <option value="7310106">Kinh tế Quốc tế</option>
-                                                                                    <option value="7520114">Kỹ thuật Cơ - Điện tử</option>
-                                                                                    <option value="7520115">Kỹ thuật Nhiệt</option>
-                                                                                    <option value="7480103">Kỹ thuật Phần mềm</option>
-                                                                                    <option value="7580201">Kỹ thuật X&#226;y dựng</option>
-                                                                                    <option value="7580205">Kỹ thuật X&#226;y dựng C&#244;ng tr&#236;nh Giao th&#244;ng</option>
-                                                                                    <option value="7720601">Kỹ thuật X&#233;t nghiệm Y học</option>
-                                                                                    <option value="7510605">Logistic v&#224; Quản l&#253; Chuỗi cung ứng</option>
-                                                                                    <option value="7380101">Luật</option>
-                                                                                    <option value="7380107">Luật Kinh tế</option>
-                                                                                    <option value="7340115">Marketing</option>
-                                                                                    <option value="7220201">Ng&#244;n ngữ Anh</option>
-                                                                                    <option value="7220210">Ng&#244;n ngữ H&#224;n Quốc</option>
-                                                                                    <option value="7220204">Ng&#244;n ngữ Trung Quốc</option>
-                                                                                    <option value="7620118">N&#244;ng nghiệp C&#244;ng nghệ cao</option>
-                                                                                    <option value="7210208">Piano</option>
-                                                                                    <option value="7320108">Quan hệ C&#244;ng ch&#250;ng</option>
-                                                                                    <option value="7510601">Quản l&#253; c&#244;ng nghiệp</option>
-                                                                                    <option value="7580302">Quản l&#253; X&#226;y dựng</option>
-                                                                                    <option value="7810103">Quản trị Dịch vụ Du lịch v&#224; Lữ h&#224;nh</option>
-                                                                                    <option value="7810201">Quản trị Kh&#225;ch sạn</option>
-                                                                                    <option value="7340101">Quản trị Kinh doanh</option>
-                                                                                    <option value="7510606">Quản trị M&#244;i trường Doanh nghiệp</option>
-                                                                                    <option value="7810202">Quản trị Nh&#224; h&#224;ng v&#224; Dịch vụ ăn uống</option>
-                                                                                    <option value="7720501">Răng - H&#224;m - Mặt</option>
-                                                                                    <option value="7340201">T&#224;i ch&#237;nh – Ng&#226;n h&#224;ng</option>
-                                                                                    <option value="7310401">T&#226;m l&#253; học</option>
-                                                                                    <option value="7210205">Thanh nhạc</option>
-                                                                                    <option value="7210402">Thiết kế C&#244;ng nghiệp</option>
-                                                                                    <option value="7210403">Thiết kế Đồ họa</option>
-                                                                                    <option value="7210409">Thiết kế Mỹ thuật số</option>
-                                                                                    <option value="7580108">Thiết kế Nội thất</option>
-                                                                                    <option value="7210404">Thiết kế Thời trang</option>
-                                                                                    <option value="7589001">Thiết kế Xanh</option>
-                                                                                    <option value="7340122">Thương mại Điện tử</option>
-                                                                                    <option value="7320104">Truyền th&#244;ng đa phương tiện</option>
-                                                                                    <option value="7229030">Văn học Ứng dụng</option>
-                                                                                    <option value="7310630">Việt Nam học</option>
-
-                                                                                </select>
+                                                                                <strong>Ngành xét tuyển ưu tiên 2</strong>
+                                                                                @Html.DropDownList("Majors", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon1" })
+                                                                                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop2, "", new { @class = "text-danger" })
                                                                             </td>
                                                                             <td>
                                                                             </td>
@@ -1023,71 +502,9 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>
-                                                                                <strong>Ngành xét tuyển ưu tiên 3</strong><select name="ddlNganh3" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlNganh3\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlNganh3" class="form-control">
-                                                                                    <option selected="selected" value="">----------------Chọn----------------</option>
-                                                                                    <option value="7720301"> Điều dưỡng</option>
-                                                                                    <option value="7850201">Bảo hộ lao động</option>
-                                                                                    <option value="7340116">Bất động sản</option>
-                                                                                    <option value="7510301">C&#244;ng nghệ Kỹ thuật Điện - Điện tử</option>
-                                                                                    <option value="7510406">C&#244;ng nghệ Kỹ thuật M&#244;i trường</option>
-                                                                                    <option value="7510205">C&#244;ng nghệ Kỹ thuật &#212; t&#244;</option>
-                                                                                    <option value="7420201">C&#244;ng nghệ Sinh học</option>
-                                                                                    <option value="7420205">C&#244;ng nghệ sinh học Y dược</option>
-                                                                                    <option value="7420207">C&#244;ng nghệ Thẩm mỹ</option>
-                                                                                    <option value="7480201">C&#244;ng nghệ Th&#244;ng tin</option>
-                                                                                    <option value="7540101">C&#244;ng nghệ Thực phẩm</option>
-                                                                                    <option value="7760101">C&#244;ng t&#225;c X&#227; hội</option>
-                                                                                    <option value="7210235">Đạo diễn Điện ảnh  - Truyền h&#236;nh</option>
-                                                                                    <option value="7210234">Diễn vi&#234;n Kịch, Điện ảnh - Truyền h&#236;nh</option>
-                                                                                    <option value="7310608">Đ&#244;ng phương học</option>
-                                                                                    <option value="7810101">Du lịch</option>
-                                                                                    <option value="7720201">Dược học</option>
-                                                                                    <option value="7340405">Hệ thống Th&#244;ng tin Quản l&#253; </option>
-                                                                                    <option value="7340301">Kế to&#225;n</option>
-                                                                                    <option value="7480109">Khoa học Dữ liệu</option>
-                                                                                    <option value="7580101">Kiến tr&#250;c</option>
-                                                                                    <option value="7340120">Kinh doanh Quốc tế</option>
-                                                                                    <option value="7340121">Kinh doanh Thương mại</option>
-                                                                                    <option value="7310106">Kinh tế Quốc tế</option>
-                                                                                    <option value="7520114">Kỹ thuật Cơ - Điện tử</option>
-                                                                                    <option value="7520115">Kỹ thuật Nhiệt</option>
-                                                                                    <option value="7480103">Kỹ thuật Phần mềm</option>
-                                                                                    <option value="7580201">Kỹ thuật X&#226;y dựng</option>
-                                                                                    <option value="7580205">Kỹ thuật X&#226;y dựng C&#244;ng tr&#236;nh Giao th&#244;ng</option>
-                                                                                    <option value="7720601">Kỹ thuật X&#233;t nghiệm Y học</option>
-                                                                                    <option value="7510605">Logistic v&#224; Quản l&#253; Chuỗi cung ứng</option>
-                                                                                    <option value="7380101">Luật</option>
-                                                                                    <option value="7380107">Luật Kinh tế</option>
-                                                                                    <option value="7340115">Marketing</option>
-                                                                                    <option value="7220201">Ng&#244;n ngữ Anh</option>
-                                                                                    <option value="7220210">Ng&#244;n ngữ H&#224;n Quốc</option>
-                                                                                    <option value="7220204">Ng&#244;n ngữ Trung Quốc</option>
-                                                                                    <option value="7620118">N&#244;ng nghiệp C&#244;ng nghệ cao</option>
-                                                                                    <option value="7210208">Piano</option>
-                                                                                    <option value="7320108">Quan hệ C&#244;ng ch&#250;ng</option>
-                                                                                    <option value="7510601">Quản l&#253; c&#244;ng nghiệp</option>
-                                                                                    <option value="7580302">Quản l&#253; X&#226;y dựng</option>
-                                                                                    <option value="7810103">Quản trị Dịch vụ Du lịch v&#224; Lữ h&#224;nh</option>
-                                                                                    <option value="7810201">Quản trị Kh&#225;ch sạn</option>
-                                                                                    <option value="7340101">Quản trị Kinh doanh</option>
-                                                                                    <option value="7510606">Quản trị M&#244;i trường Doanh nghiệp</option>
-                                                                                    <option value="7810202">Quản trị Nh&#224; h&#224;ng v&#224; Dịch vụ ăn uống</option>
-                                                                                    <option value="7720501">Răng - H&#224;m - Mặt</option>
-                                                                                    <option value="7340201">T&#224;i ch&#237;nh – Ng&#226;n h&#224;ng</option>
-                                                                                    <option value="7310401">T&#226;m l&#253; học</option>
-                                                                                    <option value="7210205">Thanh nhạc</option>
-                                                                                    <option value="7210402">Thiết kế C&#244;ng nghiệp</option>
-                                                                                    <option value="7210403">Thiết kế Đồ họa</option>
-                                                                                    <option value="7210409">Thiết kế Mỹ thuật số</option>
-                                                                                    <option value="7580108">Thiết kế Nội thất</option>
-                                                                                    <option value="7210404">Thiết kế Thời trang</option>
-                                                                                    <option value="7589001">Thiết kế Xanh</option>
-                                                                                    <option value="7340122">Thương mại Điện tử</option>
-                                                                                    <option value="7320104">Truyền th&#244;ng đa phương tiện</option>
-                                                                                    <option value="7229030">Văn học Ứng dụng</option>
-                                                                                    <option value="7310630">Việt Nam học</option>
-
-                                                                                </select>
+                                                                                <strong>Ngành xét tuyển ưu tiên 3</strong>
+                                                                                @Html.DropDownList("Majors", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon1" })
+                                                                                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop3, "", new { @class = "text-danger" })
                                                                             </td>
                                                                             <td>
                                                                             </td>
@@ -1201,45 +618,177 @@
 @section Scripts {
     <script src="~/Scripts/app.js"></script>
     @Scripts.Render("~/bundles/jqueryval")
-    <script>
-        $('select.city-select').change(function () {
-            let maTp = $(this).val();
-            let target = $(this).attr('target');
-            if (maTp != '-1') {
-                $.get(`/home/GetDistrict/${maTp}`, data => {
-                    attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
-                });
-            }
-        });
+<script>
+    $('select.city-select').change(function () {
+        let maTp = $(this).val();
+        let target = $(this).attr('target');
 
-        $('select.district-select').change(function () {
-            let maPx = $(this).val();
-            let target = $(this).attr('target');
-            if (maPx != '-1') {
-                $.get(`/home/GetWard/${maPx}`, data => {
-                    attachDistrictOrWard($(target), data, '-- Chọn phường/xã --');
-                });
-            }
-        });
-
-        $('select.school-select').change(function () {
-            let maQH = $(this).val();
-            let target = $(this).attr('target');
-            if (maQH != '-1') {
-                $.get(`/home/GetWard/${maQH}`, data => {
-                    attachDistrictOrWard($(target), data, '-- Chọn trường --');
-                });
-            }
-        });
-
-
-        function attachDistrictOrWard(element, data, defaultItem) {
-            let itemsHtml = `<option value="-1">${defaultItem}</option>`;
-            for (let item of data) {
-                console.log(item);
-                itemsHtml += `<option value="${item.Id}">${item.Name}</option>`;
-            }
-            element.html(itemsHtml);
+        let chkLayDCHoKhau = $("#chkLayDCHoKhau").is(':checked');
+        if (chkLayDCHoKhau) {
+            $('#TP_QH_PX option').each(function () {
+                if ($(this).val() == maTp) {
+                    $(this).prop("selected", true);
+                    return;
+                }
+            });
         }
-    </script>
+
+        if (maTp != '-1') {
+            $.get(`/home/GetDistrict/${maTp}`, data => {
+                attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
+                $('#ddlHoKhau_PhuongXa').html('');
+
+                if (chkLayDCHoKhau) {
+                    attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
+                    $('#ddlPhuongXa').html('');
+                }
+            });
+        } else {
+            attachDistrictOrWard($('#ddlHoKhauQuanHuyen'), [], '-- Chọn quận/huyện --');
+            $('#ddlHoKhau_PhuongXa').html('');
+
+            if (chkLayDCHoKhau) {
+                attachDistrictOrWard($('#ddlQuanHuyen'), [], '-- Chọn quận/huyện --');
+                $('#ddlPhuongXa').html('');
+            }
+        }
+    });
+
+    $('select.district-select').change(function () {
+        let maPx = $(this).val();
+        let target = $(this).attr('target');
+
+        let chkLayDCHoKhau = $("#chkLayDCHoKhau").is(':checked');
+        if (chkLayDCHoKhau) {
+            $('#ddlQuanHuyen option').each(function () {
+                if ($(this).val() == maPx) {
+                    $(this).prop("selected", true);
+                    return;
+                }
+            });
+        }
+
+        if (maPx != '-1') {
+            $.get(`/home/GetWard/${maPx}`, data => {
+                attachDistrictOrWard($(target), data, '-- Chọn phường/xã --');
+
+                if (chkLayDCHoKhau) {
+                    attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
+                }
+            });
+        } else {
+            attachDistrictOrWard($('#ddlHoKhau_PhuongXa'), [], '-- Chọn phường/xã --');
+            if (chkLayDCHoKhau) {
+                attachDistrictOrWard($('#ddlPhuongXa'), [], '-- Chọn phường/xã --');
+            }
+        }
+    });
+
+    $('select.districtschool-select').change(function () {
+        let maQHTH = $(this).val();
+        let target = $(this).attr('target');
+        if (maQHTH != '-1') {
+
+            $.get(`/home/GetDistrictSchool/${maQHTH}`, data => {
+                attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
+            });
+        }
+    });
+    $('select.school-select').change(function () {
+        let maQHTH = $('select.districtschool-select').val();
+        let maTH = $(this).val();
+        let target = $(this).attr('target');
+        if (maTH != '-1') {
+            let id = maTH + '-' + maQHTH;
+            $.get(`/home/GetSchool/${id}`, data => {
+                attachDistrictOrWard($(target), data, '-- Chọn trường --');
+            });
+        }
+    });
+    $('select.area-select').change(function () {
+        let maKV = $(this).val();
+        let target = $(this).attr('target');
+        if (maKV != '-1') {
+            $.get(`/home/GetArea/${maKV}`, data => {
+                attachDistrictOrWard($(target), data, "", false);
+            });
+        }
+    });
+    $('#chkLayDCHoKhau').change(function () {
+        if ($("#chkLayDCHoKhau").is(':checked')) {
+            let txtHoKhau = $('#txtHoKhau').val();
+            $('#txtDiaChi').val(txtHoKhau);
+
+            $('#TP_QH_PX option').each(function () {
+                if ($(this).val() == $('select.city-select').val()) {
+                    $(this).prop("selected", true);
+                    let maTp = $(this).val();
+                    if (maTp != -1) {
+                        $.get(`/home/GetDistrict/${maTp}`, data => {
+                            attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
+                            $('#ddlPhuongXa').html('');
+
+                            $('#ddlQuanHuyen option').each(function () {
+                                if ($(this).val() == $('#ddlHoKhauQuanHuyen').val()) {
+                                    $(this).prop("selected", true);
+                                    let maPx = $(this).val();
+                                    if (maPx != -1) {
+                                        $.get(`/home/GetWard/${maPx}`, data => {
+                                            attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
+
+                                            $('#ddlPhuongXa option').each(function () {
+                                                if ($(this).val() == $('#ddlHoKhau_PhuongXa').val()) {
+                                                    $(this).prop("selected", true);
+                                                    return;
+                                                }
+                                            });
+                                        });
+                                    } else {
+                                        attachDistrictOrWard($('#ddlPhuongXa'), [], '-- Chọn phường/xã --');
+                                    }
+                                    return;
+                                }
+                            });
+                        });
+                    } else {
+                        attachDistrictOrWard($('#ddlQuanHuyen'), [], '-- Chọn quận/huyện --');
+                        $('#ddlPhuongXa').html('');
+                    }
+                    return;
+                }
+            });
+        }
+    });
+
+    $('#ddlHoKhau_PhuongXa').change(function () {
+        $('#ddlPhuongXa option').each(function () {
+            if ($(this).val() == $('#ddlHoKhau_PhuongXa').val()) {
+                $(this).prop("selected", true);
+                return;
+            }
+        });
+    });
+    $('#txtHoKhau').keyup(function () {
+        if ($("#chkLayDCHoKhau").is(':checked')) {
+            let txtHoKhau = $('#txtHoKhau').val();
+            $('#txtDiaChi').val(txtHoKhau);
+        }
+    });
+
+
+
+
+
+    function attachDistrictOrWard(element, data, defaultItem, needFirstItem = true) {
+        let itemsHtml = '';
+        if (needFirstItem) {
+            itemsHtml = `<option value="-1">${defaultItem}</option>`;
+        }
+        for (let item of data) {
+            console.log(item);
+            itemsHtml += `<option value="${item.Id}">${item.Name}</option>`;
+        }
+        element.html(itemsHtml);
+    }
+</script>
 }
