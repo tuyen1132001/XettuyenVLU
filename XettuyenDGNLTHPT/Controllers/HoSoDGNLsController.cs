@@ -12,8 +12,8 @@ namespace XettuyenDGNLTHPT.Controllers
 {
     public class HoSoDGNLsController : Controller
     {
-        private DataxettuyenEntities db = new DataxettuyenEntities();
-        DataxettuyenEntities model = new DataxettuyenEntities(); 
+        private XettuyenVLUEntities db = new XettuyenVLUEntities();
+        XettuyenVLUEntities model = new XettuyenVLUEntities(); 
 
         // GET: HoSoDGNLs
         public ActionResult Index()
@@ -55,6 +55,7 @@ namespace XettuyenDGNLTHPT.Controllers
             {
                 model.tblHoSoDGNLs.Add(tblHoSoDGNL);
                 model.SaveChanges();
+                RedirectToAction("Detail");
             }
             return View();
         }

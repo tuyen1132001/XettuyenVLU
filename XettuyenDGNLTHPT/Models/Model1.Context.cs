@@ -13,10 +13,10 @@ namespace XettuyenDGNLTHPT.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DataxettuyenEntities : DbContext
+    public partial class XettuyenVLUEntities : DbContext
     {
-        public DataxettuyenEntities()
-            : base("name=DataxettuyenEntities")
+        public XettuyenVLUEntities()
+            : base("name=XettuyenVLUEntities")
         {
         }
     

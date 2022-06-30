@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DataxettuyenModelStoreContainer" CdmEntityContainer="DataxettuyenEntities">
+  <EntityContainerMapping StorageEntityContainer="XettuyenVLUModelStoreContainer" CdmEntityContainer="XettuyenVLUEntities">
     <EntitySetMapping Name="tblChungChiNNs">
-      <EntityTypeMapping TypeName="DataxettuyenModel.tblChungChiNN">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblChungChiNN">
         <MappingFragment StoreEntitySet="tblChungChiNN">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MaNN" ColumnName="MaNN" />
@@ -12,7 +12,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblDanTocs">
-      <EntityTypeMapping TypeName="DataxettuyenModel.tblDanToc">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblDanToc">
         <MappingFragment StoreEntitySet="tblDanToc">
           <ScalarProperty Name="MA_DANTOC" ColumnName="MA_DANTOC" />
           <ScalarProperty Name="TEN_DANTOC" ColumnName="TEN_DANTOC" />
@@ -21,7 +21,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblHoSoDGNLs">
-      <EntityTypeMapping TypeName="DataxettuyenModel.tblHoSoDGNL">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblHoSoDGNL">
         <MappingFragment StoreEntitySet="tblHoSoDGNL">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
@@ -86,7 +86,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblHoSoTHPTs">
-      <EntityTypeMapping TypeName="DataxettuyenModel.tblHoSoTHPT">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblHoSoTHPT">
         <MappingFragment StoreEntitySet="tblHoSoTHPT">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
@@ -157,7 +157,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblNganhs">
-      <EntityTypeMapping TypeName="DataxettuyenModel.tblNganh">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblNganh">
         <MappingFragment StoreEntitySet="tblNganh">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MANGANH_TOHOP" ColumnName="MANGANH_TOHOP" />
@@ -173,7 +173,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblQuocTiches">
-      <EntityTypeMapping TypeName="DataxettuyenModel.tblQuocTich">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblQuocTich">
         <MappingFragment StoreEntitySet="tblQuocTich">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MaQT" ColumnName="MaQT" />
@@ -182,7 +182,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblTinhTPs">
-      <EntityTypeMapping TypeName="DataxettuyenModel.tblTinhTP">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTinhTP">
         <MappingFragment StoreEntitySet="tblTinhTP">
           <ScalarProperty Name="MA_TINHTP" ColumnName="MA_TINHTP" />
           <ScalarProperty Name="TEN_TINHTP" ColumnName="TEN_TINHTP" />
@@ -190,7 +190,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblTonGiaos">
-      <EntityTypeMapping TypeName="DataxettuyenModel.tblTonGiao">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTonGiao">
         <MappingFragment StoreEntitySet="tblTonGiao">
           <ScalarProperty Name="MA_TONGIAO" ColumnName="MA_TONGIAO" />
           <ScalarProperty Name="TEN_TONGIAO" ColumnName="TEN_TONGIAO" />
@@ -199,7 +199,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblTP_QH_PX">
-      <EntityTypeMapping TypeName="DataxettuyenModel.tblTP_QH_PX">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTP_QH_PX">
         <MappingFragment StoreEntitySet="tblTP_QH_PX">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="TenTinhTP" ColumnName="TenTinhTP" />
@@ -214,7 +214,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblTruongTHPTs">
-      <EntityTypeMapping TypeName="DataxettuyenModel.tblTruongTHPT">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.tblTruongTHPT">
         <MappingFragment StoreEntitySet="tblTruongTHPT">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MA_TPTRUONG" ColumnName="MA_TPTRUONG" />
@@ -231,7 +231,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Accounts">
-      <EntityTypeMapping TypeName="DataxettuyenModel.Account">
+      <EntityTypeMapping TypeName="XettuyenVLUModel.Account">
         <MappingFragment StoreEntitySet="Account">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Username" ColumnName="Username" />

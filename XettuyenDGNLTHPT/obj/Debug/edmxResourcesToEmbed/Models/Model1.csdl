@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DataxettuyenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="XettuyenVLUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="tblChungChiNN">
     <Key>
       <PropertyRef Name="ID" />
@@ -230,7 +230,7 @@
     <Property Name="Role" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="IsActive" Type="Boolean" />
   </EntityType>
-  <EntityContainer Name="DataxettuyenEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="XettuyenVLUEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tblChungChiNNs" EntityType="Self.tblChungChiNN" />
     <EntitySet Name="tblDanTocs" EntityType="Self.tblDanToc" />
     <EntitySet Name="tblHoSoDGNLs" EntityType="Self.tblHoSoDGNL" />

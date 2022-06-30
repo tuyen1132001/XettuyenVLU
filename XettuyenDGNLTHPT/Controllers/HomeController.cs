@@ -9,7 +9,7 @@ namespace XettuyenDGNLTHPT.Controllers
 {
     public class HomeController : Controller
     {
-        DataxettuyenEntities model = new DataxettuyenEntities();
+        XettuyenVLUEntities model = new XettuyenVLUEntities();
         public ActionResult Index() //Form Dang ky THTP QG
         {
             var HoSoTHPT = new tblHoSoTHPT();
@@ -17,6 +17,7 @@ namespace XettuyenDGNLTHPT.Controllers
             ViewBag.DanToc = new SelectList(model.tblDanTocs, "MA_DANTOC", "TEN_DANTOC");
             ViewBag.TonGiao = new SelectList(model.tblTonGiaos, "MA_TONGIAO", "TEN_TONGIAO");
             ViewBag.TinhTP = new SelectList(model.tblTinhTPs, "MA_TINHTP", "TEN_TINHTP"); ;
+            
             
             //ViewBag.CCNN = new SelectList(model.tblChungChiNNs, "ID", "MaNN"+"ChungChi"+"DiemQuiDoi");
             var CCNN = model.tblChungChiNNs.ToList();
@@ -41,21 +42,25 @@ namespace XettuyenDGNLTHPT.Controllers
             ViewBag.NGANH = new SelectList(Majors, "MA_NGANH", "TEN_NGANH");
 
 
+
             return View(HoSoTHPT);
         }
 
         [HttpPost]
-        public ActionResult Index(tblHoSoTHPT tblHoSoTHPT) //Form Dang ky THTP QG
+        public ActionResult Index(tblHoSoTHPT tblHoSoTHPT , string TP_QH_PX) //Form Dang ky THTP QG
         {
             if (ModelState.IsValid)
             {
-                model.tblHoSoTHPTs.Add(tblHoSoTHPT);
-                model.SaveChanges();
+                //string id = form["TP_QH_PX"].ToString();
+                 
+               
+
+                RedirectToAction("DEtail");
             }
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Detail()
         {
             ViewBag.Message = "Your application description page.";
 

@@ -1,10 +1,11 @@
-﻿@model XettuyenDGNLTHPT.Models.tblHoSoDGNL
+﻿@model XettuyenDGNLTHPT.Models.tblHoSoTHPT
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<DIV class="page-container">
+
+<   <DIV class="page-container">
     <!-- BEGIN CONTENT -->
 
     <DIV class="page-content-wrapper">
@@ -28,28 +29,28 @@
                                                 <td colspan="4"><strong>Mã hồ sơ: </strong> <span style="font-size:1.2em;color:red;font-weight:bold">Sẽ phát sinh sau khi hoàn tất việc nộp Hồ sơ</span></td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Họ và tên</strong>: NGUYỄN PHÚC HẬU</td>
-                                                <td><strong>Ngày sinh</strong>: 29/12/2004</td>
+                                                <td><strong>Họ và tên</strong>: @Model.HoVaTen</td>
+                                                <td><strong>Ngày sinh</strong>: @Model.NgaySinh</td>
                                                 <td><strong>Giới tính</strong>: Nam</td>
-                                                <td><strong>Số CMND/CCCD</strong>: 325412892</td>
+                                                <td><strong>Số CMND/CCCD</strong>: @Model.CMND</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Tên trường THPT</strong>: 019 - THPT Trần Văn Thành - Lớp: 12a1</td>
-                                                <td><strong>Trường THPT thuộc Tỉnh/TP</strong>: An Giang</td>
+                                                <td><strong>Tên trường THPT</strong>: @Model.MaTruongTHPT - Học ở nước ngoài_40 - Lớp: 12a1</td>
+                                                <td><strong>Trường THPT thuộc Tỉnh/TP</strong>: Đắk Lắk</td>
                                                 <td><strong>Năm tốt nghiệp THPT</strong>: 2022</td>
                                                 <td><strong>Loại hình tốt nghiệp</strong>: THPT</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Điện thoại Di Động</strong>: 03256954851</td>
-                                                <td><strong>Email</strong>: phu00201@gmail.com</td>
-                                                <td><strong>Khu vực</strong>: 2NT</td>
+                                                <td><strong>Điện thoại Di Động</strong>: 03256954856</td>
+                                                <td><strong>Email</strong>: hauk201@gmail.com</td>
+                                                <td><strong>Khu vực</strong>: 3</td>
                                                 <td><strong>Đối tượng ưu tiên</strong>: 0</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="4"><strong>Hộ khẩu</strong>: 246 Bình Lợi, Xã Phú Mỹ, Huyện Phú Tân, Tỉnh Cà Mau</td>
+                                                <td colspan="4"><strong>Hộ khẩu</strong>: 246 Bình Lợi, Xã Đông Bình, Huyện Thới Lai, Thành phố Cần Thơ</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="4"><strong>Địa chỉ liên hệ</strong>: 246 Bình Lợi, Xã Phú Mỹ, Huyện Phú Tân, Tỉnh Cà Mau</td>
+                                                <td colspan="4"><strong>Địa chỉ liên hệ</strong>: 246 Bình Lợi, Xã Đông Bình, Huyện Thới Lai, Thành phố Cần Thơ</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4"><strong>Quốc tịch</strong>: 704|Việt Nam</td>
@@ -64,10 +65,36 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-3"><strong>Ngày thi ĐGNL</strong>: 28/03/2022</div>
-                                        <div class="col-md-9"><strong>Điểm thi ĐGNL</strong>: 1000</div>
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-9">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong>Phương án xét tuyển:</strong> 2</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+
+                                                            <strong>Điểm TB lớp 12</strong>:
+                                                            <b>Toán:</b> 10, <b>Văn:</b> 10, <b>Anh:</b> 5
+                                                            , <b>Pháp:</b> 6, <b>Lý:</b> 6, <b>Hóa:</b> 7
+                                                            , <b>Sinh: </b> 9, <b>Sử:</b> 8
+                                                            , <b>Địa:</b> 6, <b>GDCD:</b> 7
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+
+                                                            <strong>Chứng chỉ ngoại ngữ (<i>nếu có</i>)</strong>: Tiếng Pháp - TCF (300-400 điểm) - quy đổi: 10đ
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                    <div class="vertical_space"></div>
+
                                     <div class="row">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-9">
@@ -77,11 +104,15 @@
                                                         <th><strong>Nguyện vọng</strong></th>
                                                         <th><strong>Ngành xét tuyển</strong></th>
                                                         <th><strong>Mã ngành</strong></th>
+                                                        <th><strong>Mã tổ hợp</strong></th>
+                                                        <th><strong>Tổ hợp môn xét tuyển</strong></th>
                                                         <th><strong>Chương trình học</strong></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr><td>1</td> <td>Dược học</td> <td>7720201</td> <td>Tiêu chuẩn</td></tr>
+                                                    <tr><td>1</td> <td>Đông phương học</td> <td>7310608</td> <td>A01</td> <td>Toán, Vật lý, Tiếng Anh</td> <td>Tiêu chuẩn</td></tr>
+                                                    <tr><td>2</td> <td>Công nghệ Kỹ thuật Điện - Điện tử</td> <td>7510301</td> <td>A00</td> <td>Toán, Vật lý, Hóa học</td> <td>Tiêu chuẩn</td></tr>
+                                                    <tr><td>3</td> <td>Du lịch</td> <td>7810101</td> <td>A00</td> <td>Toán, Vật lý, Hóa học</td> <td>Tiêu chuẩn</td></tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -111,8 +142,3 @@
                         </DIV>
 
                     </div>
-                </DIV>
-            </DIV>
-        </DIV>
-    </DIV>
-</DIV>   

@@ -9,7 +9,7 @@ namespace XettuyenDGNLTHPT.Controllers
 {
     public class ManageHoSoController : Controller
     {
-        DataxettuyenEntities model = new DataxettuyenEntities();
+        XettuyenVLUEntities model = new XettuyenVLUEntities();
         // GET: ManageHoSo
         
         public ActionResult InHoSo()
