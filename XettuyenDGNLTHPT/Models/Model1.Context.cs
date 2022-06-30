@@ -25,6 +25,7 @@ namespace XettuyenDGNLTHPT.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tblChungChiNN> tblChungChiNNs { get; set; }
         public virtual DbSet<tblDanToc> tblDanTocs { get; set; }
         public virtual DbSet<tblHoSoDGNL> tblHoSoDGNLs { get; set; }
@@ -33,12 +34,8 @@ namespace XettuyenDGNLTHPT.Models
         public virtual DbSet<tblQuocTich> tblQuocTiches { get; set; }
         public virtual DbSet<tblTinhTP> tblTinhTPs { get; set; }
         public virtual DbSet<tblTonGiao> tblTonGiaos { get; set; }
-        public virtual DbSet<tblTP_QH_PX> tblTP_QH_PX { get; set; }
         public virtual DbSet<tblTruongTHPT> tblTruongTHPTs { get; set; }
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<tblTP_QH_PX> tblTP_QH_PX { get; set; }
     }
 }

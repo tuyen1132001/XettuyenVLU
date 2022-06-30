@@ -14,7 +14,6 @@ namespace XettuyenDGNLTHPT.Models
     
     public partial class tblTonGiao
     {
-        public int ID { get; set; }
         public string MA_TONGIAO { get; set; }
         public string TEN_TONGIAO { get; set; }
         public string DIENGIAI { get; set; }
