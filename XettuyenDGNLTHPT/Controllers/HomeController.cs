@@ -51,12 +51,11 @@ namespace XettuyenDGNLTHPT.Controllers
         {
             
             var dbNoiSinh = model.tblTinhTPs.Find(tblHoSoTHPT.MaNoiSinh);
-            string Namenoisinh = dbNoiSinh.TEN_TINHTP;
-            tblHoSoTHPT.TenNoiSinh = Namenoisinh;
+            string NameNoisinh = dbNoiSinh.TEN_TINHTP.ToString();
+            tblHoSoTHPT.TenNoiSinh = NameNoisinh;
             //Dân tộc
             var dbDanToc = model.tblDanTocs.Find(tblHoSoTHPT.MaDanToc);
-            string Namedantoc = dbDanToc.TEN_DANTOC;
-            tblHoSoTHPT.TenDanToc = Namedantoc;
+            tblHoSoTHPT.TenDanToc = dbDanToc.TEN_DANTOC+"";
             //Quốc tịch
             var dbQuocTich = model.tblQuocTiches.Find(int.Parse(tblHoSoTHPT.QuocTich));
             string quoctich = dbQuocTich.MaQT+"|"+ dbQuocTich.TenQT;
@@ -129,28 +128,19 @@ namespace XettuyenDGNLTHPT.Controllers
             tblHoSoTHPT.MaNganh_ToHop1 = Majors1 +"#"+ ddlToHopMon1;     tblHoSoTHPT.TenNganh_TenToHop1 = NameNganhTohop1;
             tblHoSoTHPT.MaNganh_ToHop2 = Majors2 + "#" + ddlToHopMon2;   tblHoSoTHPT.TenNganh_TenToHop2 = NameNganhTohop2;
             tblHoSoTHPT.MaNganh_ToHop3 = Majors3 + "#" + ddlToHopMon3;   tblHoSoTHPT.TenNganh_TenToHop3 = NameNganhTohop3;
-            return View("DEtail",tblHoSoTHPT);
+            return RedirectToAction("Detail",tblHoSoTHPT);
         }
 
         public ActionResult Detail(tblHoSoTHPT thpt)
         {
-            if (ModelState.IsValid)
-            {
-                string id = Request.Form["TP_QH_PX"];
-
-
-
-                RedirectToAction("DEtail");
-            }
+            model.tblHoSoTHPTs.Add(thpt);
+            model.SaveChanges();
             return View();
+    
         }
+  
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+   
 
         public JsonResult GetDistrict(string id) // lấy quận huyện
         {
