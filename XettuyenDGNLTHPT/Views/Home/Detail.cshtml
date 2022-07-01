@@ -31,29 +31,36 @@
                                             <tr>
                                                 <td><strong>Họ và tên</strong>: @Model.HoVaTen</td>
                                                 <td><strong>Ngày sinh</strong>: @Model.NgaySinh</td>
-                                                <td><strong>Giới tính</strong>: Nam</td>
+                                                @if (Model.GioiTinh == true)
+                                                {
+                                                    <td><strong>Giới tính</strong>: Nam</td>
+                                                }
+                                                else
+                                                {
+                                                    <td><strong>Giới tính</strong>: Nữ</td>
+                                                }
                                                 <td><strong>Số CMND/CCCD</strong>: @Model.CMND</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Tên trường THPT</strong>: @Model.MaTruongTHPT - Học ở nước ngoài_40 - Lớp: 12a1</td>
-                                                <td><strong>Trường THPT thuộc Tỉnh/TP</strong>: Đắk Lắk</td>
-                                                <td><strong>Năm tốt nghiệp THPT</strong>: 2022</td>
-                                                <td><strong>Loại hình tốt nghiệp</strong>: THPT</td>
+                                                <td><strong>Tên trường THPT</strong>: @Model.TenTruongTHPT - Lớp: @Model.TenLop12</td>
+                                                <td><strong>Trường THPT thuộc Tỉnh/TP</strong>: @Model.TruongTHPT_TenTinhTP</td>
+                                                <td><strong>Năm tốt nghiệp THPT</strong>: @Model.NamTotNghiep</td>
+                                                <td><strong>Loại hình tốt nghiệp</strong>: @Model.LoaiHinhTN</td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Điện thoại Di Động</strong>: 03256954856</td>
-                                                <td><strong>Email</strong>: hauk201@gmail.com</td>
-                                                <td><strong>Khu vực</strong>: 3</td>
-                                                <td><strong>Đối tượng ưu tiên</strong>: 0</td>
+                                                <td><strong>Điện thoại Di Động</strong>: @Model.DienThoaiDD</td>
+                                                <td><strong>Email</strong>: @Model.Email</td>
+                                                <td><strong>Khu vực</strong>: @Model.KhuVuc</td>
+                                                <td><strong>Đối tượng ưu tiên</strong>: @Model.DoiTuongUuTien</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="4"><strong>Hộ khẩu</strong>: 246 Bình Lợi, Xã Đông Bình, Huyện Thới Lai, Thành phố Cần Thơ</td>
+                                                <td colspan="4"><strong>Hộ khẩu</strong>: @Model.HoKhau, @Model.HoKhau_TenPhuong, @Model.HoKhau_TenQH, @Model.HoKhau_TenTinhTP</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="4"><strong>Địa chỉ liên hệ</strong>: 246 Bình Lợi, Xã Đông Bình, Huyện Thới Lai, Thành phố Cần Thơ</td>
+                                                <td colspan="4"><strong>Địa chỉ liên hệ</strong>: @Model.LienLac_DiaChi, @Model.LienLac_TenPhuongXa, @Model.LienLac_TenQH, @Model.LienLac_TenTP</td>
                                             </tr>
                                             <tr>
-                                                <td colspan="4"><strong>Quốc tịch</strong>: 704|Việt Nam</td>
+                                                <td colspan="4"><strong>Quốc tịch</strong>: @Model.QuocTich</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -70,23 +77,23 @@
                                             <table class="table table-bordered">
                                                 <tbody>
                                                     <tr>
-                                                        <td><strong>Phương án xét tuyển:</strong> 2</td>
+                                                       
                                                     </tr>
                                                     <tr>
                                                         <td>
 
-                                                            <strong>Điểm TB lớp 12</strong>:
-                                                            <b>Toán:</b> 10, <b>Văn:</b> 10, <b>Anh:</b> 5
-                                                            , <b>Pháp:</b> 6, <b>Lý:</b> 6, <b>Hóa:</b> 7
-                                                            , <b>Sinh: </b> 9, <b>Sử:</b> 8
-                                                            , <b>Địa:</b> 6, <b>GDCD:</b> 7
+                                                            <strong>Điểm Thi THPT</strong>:
+                                                            <b>Toán:</b> @Model.Toan, <b>Văn:</b> @Model.Van, <b>Anh:</b> @Model.Anh
+                                                            , <b>Pháp:</b> @Model.Phap, <b>Lý:</b> @Model.Ly, <b>Hóa:</b> @Model.Hoa
+                                                            , <b>Sinh: </b> @Model.Sinh, <b>Sử:</b> @Model.Su
+                                                            , <b>Địa:</b> @Model.Dia, <b>GDCD:</b> @Model.GDCD
 
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>
 
-                                                            <strong>Chứng chỉ ngoại ngữ (<i>nếu có</i>)</strong>: Tiếng Pháp - TCF (300-400 điểm) - quy đổi: 10đ
+                                                            <strong>Chứng chỉ ngoại ngữ (<i>nếu có</i>)</strong>: @Model.CCNN
 
                                                         </td>
                                                     </tr>
@@ -110,9 +117,9 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr><td>1</td> <td>Đông phương học</td> <td>7310608</td> <td>A01</td> <td>Toán, Vật lý, Tiếng Anh</td> <td>Tiêu chuẩn</td></tr>
-                                                    <tr><td>2</td> <td>Công nghệ Kỹ thuật Điện - Điện tử</td> <td>7510301</td> <td>A00</td> <td>Toán, Vật lý, Hóa học</td> <td>Tiêu chuẩn</td></tr>
-                                                    <tr><td>3</td> <td>Du lịch</td> <td>7810101</td> <td>A00</td> <td>Toán, Vật lý, Hóa học</td> <td>Tiêu chuẩn</td></tr>
+                                                    <tr><td>1</td> <td>@Model.TenNganh_TenToHop1.ToString().Split('#')[0]</td> <td>@Model.MaNganh_ToHop1.ToString().Split('#')[0]</td> <td>@Model.MaNganh_ToHop1.ToString().Split('#')[1]</td><td>@Model.TenNganh_TenToHop1.ToString().Split('-')[1] </td> <td></td></tr>
+                                                    <tr><td>2</td> <td>@Model.TenNganh_TenToHop2.ToString().Split('#')[0]</td><td>@Model.MaNganh_ToHop2.ToString().Split('#')[0] </td><td> @Model.MaNganh_ToHop2.ToString().Split('#')[1]</td><td> @Model.TenNganh_TenToHop2.ToString().Split('-')[1]</td><td></td> </tr>
+                                                    <tr><td>3</td> <td>@Model.TenNganh_TenToHop3.ToString().Split('#')[0]</td><td> @Model.MaNganh_ToHop3.ToString().Split('#')[0]</td><td> @Model.MaNganh_ToHop3.ToString().Split('#')[1]</td><td> @Model.TenNganh_TenToHop2.ToString().Split('-')[1]</td><td></td> </tr>
                                                 </tbody>
                                             </table>
                                         </div>
