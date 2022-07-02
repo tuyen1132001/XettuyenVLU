@@ -4,115 +4,128 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <DIV class="page-container">
     <!-- BEGIN CONTENT -->
+    @using (Html.BeginForm("Save", "HoSoDGNLs",FormMethod.Post))
+    {
+        <DIV class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <!-- BEGIN PAGE CONTENT BODY -->
+            <DIV class="page-content">
+                <DIV class="container">
+                    <!-- BEGIN PAGE CONTENT INNER -->
+                    <DIV class="page-content-inner">
+                        <div id="Panel1">
 
-    <DIV class="page-content-wrapper">
-        <!-- BEGIN CONTENT BODY -->
-        <!-- BEGIN PAGE CONTENT BODY -->
-        <DIV class="page-content">
-            <DIV class="container">
-                <!-- BEGIN PAGE CONTENT INNER -->
-                <DIV class="page-content-inner">
-                    <div id="Panel1">
-
-                        <DIV class="form-body">
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="tab1">
-                                    <h3 style="color:#2B67FE; padding-bottom:10px; margin-top:4px">
-                                        <strong>THÔNG TIN THÍ SINH</strong>
-                                    </h3>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                            <tr>
-                                                <td colspan="4"><strong>Mã hồ sơ: </strong> <span style="font-size:1.2em;color:red;font-weight:bold">Sẽ phát sinh sau khi hoàn tất việc nộp Hồ sơ</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Họ và tên</strong>: NGUYỄN PHÚC HẬU</td>
-                                                <td><strong>Ngày sinh</strong>: 29/12/2004</td>
-                                                <td><strong>Giới tính</strong>: Nam</td>
-                                                <td><strong>Số CMND/CCCD</strong>: 325412892</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Tên trường THPT</strong>: 019 - THPT Trần Văn Thành - Lớp: 12a1</td>
-                                                <td><strong>Trường THPT thuộc Tỉnh/TP</strong>: An Giang</td>
-                                                <td><strong>Năm tốt nghiệp THPT</strong>: 2022</td>
-                                                <td><strong>Loại hình tốt nghiệp</strong>: THPT</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Điện thoại Di Động</strong>: 03256954851</td>
-                                                <td><strong>Email</strong>: phu00201@gmail.com</td>
-                                                <td><strong>Khu vực</strong>: 2NT</td>
-                                                <td><strong>Đối tượng ưu tiên</strong>: 0</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="4"><strong>Hộ khẩu</strong>: 246 Bình Lợi, Xã Phú Mỹ, Huyện Phú Tân, Tỉnh Cà Mau</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="4"><strong>Địa chỉ liên hệ</strong>: 246 Bình Lợi, Xã Phú Mỹ, Huyện Phú Tân, Tỉnh Cà Mau</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="4"><strong>Quốc tịch</strong>: 704|Việt Nam</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="text-left font-red bold">
-                                                <h3><strong>THÔNG TIN XÉT TUYỂN</strong></h3>
+                            <DIV class="form-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab1">
+                                        <h3 style="color:#2B67FE; padding-bottom:10px; margin-top:4px">
+                                            <strong>THÔNG TIN THÍ SINH</strong>
+                                        </h3>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="4"><strong>Mã hồ sơ: </strong> <span style="font-size:1.2em;color:red;font-weight:bold">Sẽ phát sinh sau khi hoàn tất việc nộp Hồ sơ</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Họ và tên</strong>: @Model.HoVaTen</td>
+                                                    <td><strong>Ngày sinh</strong>: @Model.NgaySinh</td>
+                                                    @if (Model.GioiTinh == true)
+                                                    {
+                                                        <td><strong>Giới tính</strong>: Nam</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td><strong>Giới tính</strong>: Nữ</td>
+                                                    }
+                                                    <td><strong>Số CMND/CCCD</strong>: @Model.CMND</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Tên trường THPT</strong>: @Model.TenTruongTHPT - Lớp: @Model.TenLop12</td>
+                                                    <td><strong>Trường THPT thuộc Tỉnh/TP</strong>: @Model.TruongTHPT_TenTinhTP</td>
+                                                    <td><strong>Năm tốt nghiệp THPT</strong>: @Model.NamTotNghiep</td>
+                                                    <td><strong>Loại hình tốt nghiệp</strong>: @Model.LoaiHinhTN</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Điện thoại Di Động</strong>: @Model.DienThoaiDD</td>
+                                                    <td><strong>Email</strong>: @Model.Email</td>
+                                                    <td><strong>Khu vực</strong>: @Model.KhuVuc</td>
+                                                    <td><strong>Đối tượng ưu tiên</strong>: @Model.DoiTuongUuTien</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><strong>Hộ khẩu</strong>: @Model.HoKhau, @Model.HoKhau_TenPhuong, @Model.HoKhau_TenQH, @Model.HoKhau_TenTinhTP</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><strong>Địa chỉ liên hệ</strong>: @Model.LienLac_DiaChi, @Model.LienLac_TenPhuongXa, @Model.LienLac_TenQH, @Model.LienLac_TenTP</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><strong>Quốc tịch</strong>: @Model.QuocTich</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="text-left font-red bold">
+                                                    <h3><strong>THÔNG TIN XÉT TUYỂN</strong></h3>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3"><strong>Ngày thi ĐGNL</strong>: 28/03/2022</div>
-                                        <div class="col-md-9"><strong>Điểm thi ĐGNL</strong>: 1000</div>
-                                    </div>
-                                    <div class="vertical_space"></div>
-                                    <div class="row">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-9">
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th><strong>Nguyện vọng</strong></th>
-                                                        <th><strong>Ngành xét tuyển</strong></th>
-                                                        <th><strong>Mã ngành</strong></th>
-                                                        <th><strong>Chương trình học</strong></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr><td>1</td> <td>Dược học</td> <td>7720201</td> <td>Tiêu chuẩn</td></tr>
-                                                </tbody>
-                                            </table>
+                                        <div class="row">
+                                            <div class="col-md-3"><strong>Ngày thi ĐGNL</strong>: @Model.TGThiDGNL</div>
+                                            <div class="col-md-9"><strong>Điểm thi ĐGNL</strong>: @Model.DiemDGNL</div>
                                         </div>
-                                        <div class="col-md-1"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-6">
-                                            <input name="btnGoBack" type="button" id="btnGoBack" class="btn btn-warning" value="QUAY LẠI CHỈNH SỬA " onclick="history.go(-1);return false;" /><span class="tab"></span>
-                                            <input type="submit" name="btnFinish" value="ĐỒNG Ý VÀ NỘP HỒ SƠ" id="btnFinish" class="btn green-jungle button-submit" />
+                                        <div class="vertical_space"></div>
+                                        <div class="row">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-9">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th><strong>Nguyện vọng</strong></th>
+                                                            <th><strong>Ngành xét tuyển</strong></th>
+                                                            <th><strong>Mã ngành</strong></th>
+                                                            <th><strong>Chương trình học</strong></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr><td>1</td> <td>@Model.TenNganh_TenToHop1</td> <td>@Model.MaNganh_ToHop1</td> <td></td></tr>
+                                                        <tr><td>1</td> <td>@Model.TenNganh_TenToHop2</td> <td>@Model.MaNganh_ToHop2</td> <td></td></tr>
+                                                        <tr><td>1</td> <td>@Model.TenNganh_TenToHop3</td> <td>@Model.MaNganh_ToHop3</td> <td></td></tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-1"></div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-4"></div>
+                                            <div class="col-md-6">
+                                                <input name="btnGoBack" type="button" id="btnGoBack" class="btn btn-warning" value="QUAY LẠI CHỈNH SỬA " onclick="history.go(-1);return false;" /><span class="tab"></span>
+                                                <a href="@Url.Action("Save","HoSoDGNLs",Model)"   class="btn green-jungle button-submit">ĐỒNG Ý VÀ NỘP HỒ SƠ"</a>
+                                                @*<input type="submit" name="btnFinish" value="ĐỒNG Ý VÀ NỘP HỒ SƠ" id="btnFinish" class="btn green-jungle button-submit" />*@
+                                            </div>
+                                        </div>
+                                        <p></p>
+                                        <div class="vertical_space"></div>
+                                        <div class="vertical_space"></div>
+                                        <div class="vertical_space"></div>
                                     </div>
-                                    <p></p>
-                                    <div class="vertical_space"></div>
-                                    <div class="vertical_space"></div>
-                                    <div class="vertical_space"></div>
+                                    <!--end id="tab1"-->
                                 </div>
-                                <!--end id="tab1"-->
-                            </div>
-                            <DIV class="form-actions">
-                                <DIV class="row">
-                                    <div class="col-md-offset-5 col-md-5">
+                                <DIV class="form-actions">
+                                    <DIV class="row">
+                                        <div class="col-md-offset-5 col-md-5">
 
-                                    </div>
+                                        </div>
+                                    </DIV>
                                 </DIV>
                             </DIV>
-                        </DIV>
 
-                    </div>
+                        </div>
+                    </DIV>
                 </DIV>
             </DIV>
         </DIV>
-    </DIV>
-</DIV>   
+    }
+ </DIV>   

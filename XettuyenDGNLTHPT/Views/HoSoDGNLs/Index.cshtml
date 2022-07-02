@@ -100,9 +100,10 @@
                                                     <DIV class="form-body">
                                                         <div class="tab-content">
                                                             <div class="tab-pane active" id="tab1">
-                                                                @using (Html.BeginForm())
+                                                                @using (Html.BeginForm("Index", "HoSoDGNLs", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                                                 {
                                                                     @Html.AntiForgeryToken()
+                                                                    
                                                                     <div style="background-color:red;color: white;text-transform:uppercase;padding-left:0.8em;font-size:1.3em">thông tin thí sinh</div>
                                                                     <h5 style="color:blue; border-bottom:solid;border-width:1px;border-color:lightgray; padding-bottom:15px; margin-top:8px">
                                                                         <strong>A. THÔNG TIN CÁ NHÂN</strong>
@@ -112,7 +113,7 @@
                                                                            
                                                                          <div class="col-md-5 col-validate">
                                                                              @Html.EditorFor(model => model.HoVaTen, new { htmlAttributes = new { @class = "form-control" , placeholder = "NGUYỄN VĂN A" } })
-                                                                             @Html.ValidationMessageFor(model => model.HoVaTen, "", new { @class = "text-danger" })
+                                                                             
                                                                          </div>
 
                                                                          </div>
@@ -121,10 +122,10 @@
                                                                         <div class="col-md-4 col-validate">
                                                                             <div class="radio-list">
                                                                                 <label>
-
-                                                                                    @Html.RadioButtonFor(model => model.GioiTinh, "Nam") Nam  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                    
-                                                                                    @Html.RadioButtonFor(model => model.GioiTinh, "Nữ") Nữ
+                                                                                    @Html.RadioButtonFor(model => model.GioiTinh, true)
+                                                                                    Nam &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                    @Html.RadioButtonFor(model => model.GioiTinh, false)
+                                                                                    Nữ
                                                                                 </label>
                                                                             </div>
                                                                         </div>
@@ -141,9 +142,7 @@
                                                                                     </td>
                                                                                     <td>Nơi sinh<span style="color:red"> * </span></td>
                                                                                     <td>
-                                                                                        @Html.DropDownList("TinhTP", (IEnumerable<SelectListItem>)ViewBag.TinhTP, null, new { @class = "form-control"  })
-                                                                                        @*@Html.EditorFor(model => model.TenNoiSinh, new { htmlAttributes = new { @class = "form-control" } })*@
-                                                                                        @Html.ValidationMessageFor(model => model.TenNoiSinh, "", new { @class = "text-danger" })
+                                                                                        @Html.DropDownList("MaNoiSinh", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, new { @class = "form-control", @required = "required" })
 
                                                                                     </td>
                                                                                 </tr>
@@ -156,15 +155,17 @@
                                                                             <table>
                                                                                 <tr>
                                                                                     <td>
-                                                                                        @Html.DropDownList("DanToc", (IEnumerable<SelectListItem>)ViewBag.DanToc, null, new { @class = "form-control" })
+                                                                                        @Html.DropDownList("MaDanToc", (IEnumerable<SelectListItem>)ViewBag.DanToc, null, new { @class = "form-control", required = "true" })
                                                                                         @*@Html.EditorFor(model => model.TenDanToc, new { htmlAttributes = new { @class = "form-control" } })*@
-                                                                                        @Html.ValidationMessageFor(model => model.TenDanToc, "", new { @class = "text-danger" })
+                                                                                        @Html.ValidationMessageFor(model => model.MaDanToc, "", new { @class = "text-danger" })
                                                                                     </td>
                                                                                     <td>Tôn giáo<span style="color:red"> * </span></td>
                                                                                     <td>
-                                                                                        @Html.DropDownList("TonGiao", (IEnumerable<SelectListItem>)ViewBag.TonGiao, null, new { @class = "form-control" })
+                                                                                        @Html.DropDownList("MaTonGiao", (IEnumerable<SelectListItem>)ViewBag.TonGiao, null, new { @class = "form-control", required = "true" })
                                                                                         @*@Html.EditorFor(model => model.TenDanToc, new { htmlAttributes = new { @class = "form-control" } })*@
-                                                                                        @Html.ValidationMessageFor(model => model.TenDanToc, "", new { @class = "text-danger" })
+                                                                                        @Html.ValidationMessageFor(model => model.MaTonGiao, "", new { @class = "text-danger" })
+                                                                                    </td>
+                                                                                    <td>
                                                                                     </td>
                                                                                 </tr>
                                                                             </table>
@@ -197,7 +198,8 @@
                                                                     <div class="form-group">
                                                                         <label class="control-label col-md-4">Hộ khẩu thường trú<span class="required"> * </span></label>
                                                                         <div class="col-md-5">
-                                                                            <input name="txtHoKhau" id="txtHoKhau" required="true" placeholder="Số nhà/ khu phố, thôn, tên đường, ấp, tổ" type="text" class="form-control" />
+                                                                            @Html.EditorFor(model => model.HoKhau, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Số nhà/ khu phố, thôn, tên đường, ấp, tổ" } })
+                                                                            @Html.ValidationMessageFor(model => model.HoKhau, "", new { @class = "text-danger" })
                                                                             <div class="vertical_space"></div>
                                                                             <div class="row">
                                                                                 <div class="col-md-4 control-label">Tỉnh/Thành phố <span class="required"> * </span></div>
@@ -354,7 +356,7 @@
                                                                             <table>
                                                                                 <tr>
                                                                                     <td>
-                                                                                        @Html.EditorFor(model => model.TGThiDGNL, new { htmlAttributes = new { @class = "form-control", placeholder = "18/03/2022" } })
+                                                                                        @Html.EditorFor(model => model.TGThiDGNL, new { htmlAttributes = new { @class = "form-control", placeholder = "18/03/2022", Type = "Date" } })
                                                                                         @Html.ValidationMessageFor(model => model.TGThiDGNL, "", new { @class = "text-danger" })
                                                                                     </td>
                                                                                     <td>Điểm thi<span style="color:red"> * </span></td>
@@ -380,13 +382,13 @@
                                                                     <div class="form-group">
                                                                         <label class="control-label col-md-4">Địa chỉ gửi thư báo kết quả<span class="required"> * </span></label>
                                                                         <div class="col-md-5 col-validate">
-                                                                            <input name="txtDiaChi" type="text" id="txtDiaChi" class="form-control" required="true" placeholder="Số nhà, Tên đường" />
-
+                                                                            @Html.EditorFor(model => model.LienLac_DiaChi, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Số nhà, Tên đường" } })
+                                                                            @Html.ValidationMessageFor(model => model.LienLac_DiaChi, "", new { @class = "text-danger" })
                                                                             <div class="vertical_space"></div>
                                                                             <div class="row">
                                                                                 <div class="col-md-4 control-label">Tỉnh/Thành phố <span class="required"> * </span></div>
                                                                                 <div class="col-md-8">
-                                                                                    @Html.DropDownList("TP_QH_PX", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlQuanHuyen" })
+                                                                                    @Html.DropDownList("LienHeTP", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlQuanHuyen" })
                                                                                     @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
                                                                                     @Html.ValidationMessageFor(model => model.HoKhau_TenTinhTP, "", new { @class = "text-danger" })
 
@@ -445,7 +447,7 @@
                                                                             <tr>
                                                                                 <td style="width:30%">
                                                                                     <strong>Ngành xét tuyển ưu tiên 1</strong>
-                                                                                    @Html.DropDownList("Majors", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon1" })
+                                                                                    @Html.DropDownList("Majors1", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select " })
                                                                                     @Html.ValidationMessageFor(model => model.TenNganh_TenToHop1, "", new { @class = "text-danger" })
                                                                                 </td>
                                                                                 <td>
@@ -459,7 +461,7 @@
                                                                             <tr>
                                                                                 <td>
                                                                                     <strong>Ngành xét tuyển ưu tiên 2</strong>
-                                                                                    @Html.DropDownList("Majors", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon1" })
+                                                                                    @Html.DropDownList("Majors2", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select "})
                                                                                     @Html.ValidationMessageFor(model => model.TenNganh_TenToHop2, "", new { @class = "text-danger" })
                                                                                 </td>
                                                                                 <td>
@@ -473,7 +475,7 @@
                                                                             <tr>
                                                                                 <td>
                                                                                     <strong>Ngành xét tuyển ưu tiên 3</strong>
-                                                                                    @Html.DropDownList("Majors", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon1" })
+                                                                                    @Html.DropDownList("Majors3", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select " })
                                                                                     @Html.ValidationMessageFor(model => model.TenNganh_TenToHop3, "", new { @class = "text-danger" })
                                                                                 </td>
                                                                                 <td>
@@ -584,6 +586,12 @@
                     return;
                 }
             });
+            $('#LienHeTP option').each(function () {
+                if ($(this).val() == maTp) {
+                    $(this).prop("selected", true);
+                    return;
+                }
+            });
         }
 
         if (maTp != '-1') {
@@ -669,10 +677,10 @@
     });
     $('#chkLayDCHoKhau').change(function () {
         if ($("#chkLayDCHoKhau").is(':checked')) {
-            let txtHoKhau = $('#txtHoKhau').val();
-            $('#txtDiaChi').val(txtHoKhau);
+            let txtHoKhau = $('#HoKhau').val();
+            $('#LienLac_DiaChi').val(txtHoKhau);
 
-            $('#TP_QH_PX option').each(function () {
+            $('#LienHeTP option').each(function () {
                 if ($(this).val() == $('select.city-select').val()) {
                     $(this).prop("selected", true);
                     let maTp = $(this).val();
@@ -721,13 +729,45 @@
             }
         });
     });
-    $('#txtHoKhau').keyup(function () {
+    $('#HoKhau').keyup(function () {
         if ($("#chkLayDCHoKhau").is(':checked')) {
-            let txtHoKhau = $('#txtHoKhau').val();
-            $('#txtDiaChi').val(txtHoKhau);
+            let txtHoKhau = $('#HoKhau').val();
+            $('#LienLac_DiaChi').val(txtHoKhau);
         }
     });
-
+    $('select.majors1-select').change(function () {
+        let maNG = $(this).val();
+        let id = $('#ddlToHopMon1').val();
+        console.info(id);
+        let target = $(this).attr('target');
+        if (maNG != '-1') {
+            $.get(`/home/GetMajors1/${maNG}`, data => {
+                attachDistrictOrWard($(target), data, '--------------Chọn--------------');
+            });
+        }
+    });
+    $('select.majors2-select').change(function () {
+        let maNG = $(this).val();
+        let id = $('#ddlToHopMon1').val();
+        console.info(id);
+        let target = $(this).attr('target');
+        if (maNG != '-1') {
+            $.get(`/home/GetMajors2/${maNG}`, data => {
+                attachDistrictOrWard($(target), data, '--------------Chọn--------------');
+            });
+        }
+    });
+    $('select.majors3-select').change(function () {
+        let maNG = $(this).val();
+        let id = $('#ddlToHopMon1').val();
+        console.info(id);
+        let target = $(this).attr('target');
+        if (maNG != '-1') {
+            $.get(`/home/GetMajors3/${maNG}`, data => {
+                attachDistrictOrWard($(target), data, '--------------Chọn--------------');
+            });
+        }
+    });
 
 
 
