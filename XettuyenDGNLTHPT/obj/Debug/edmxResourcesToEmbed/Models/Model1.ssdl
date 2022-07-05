@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SEP25Team08Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'SEP25Team08.dbo.Account' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Account">
     <Key>
       <PropertyRef Name="ID" />
@@ -235,6 +233,7 @@ warning 6002: The table/view 'SEP25Team08.dbo.Account' does not have a primary k
     <Property Name="LOAI_TRUONG" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityContainer Name="SEP25Team08ModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblHoSoDGNL" EntityType="Self.tblHoSoDGNL" Schema="dbo" store:Type="Tables" />
@@ -245,17 +244,5 @@ warning 6002: The table/view 'SEP25Team08.dbo.Account' does not have a primary k
     <EntitySet Name="tblTonGiao" EntityType="Self.tblTonGiao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTruongTHPT" EntityType="Self.tblTruongTHPT" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Account" EntityType="Self.Account" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Account].[ID] AS [ID], 
-    [Account].[Username] AS [Username], 
-    [Account].[Password] AS [Password], 
-    [Account].[Email] AS [Email], 
-    [Account].[Phone] AS [Phone], 
-    [Account].[Full_Name] AS [Full_Name], 
-    [Account].[Role] AS [Role], 
-    [Account].[IsActive] AS [IsActive]
-    FROM [dbo].[Account] AS [Account]</DefiningQuery>
-    </EntitySet>
   </EntityContainer>
 </Schema>

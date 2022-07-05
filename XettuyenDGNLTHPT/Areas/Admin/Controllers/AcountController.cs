@@ -48,6 +48,39 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
          return RedirectToAction("Login");
   
         }
-        
+        public ActionResult AddAccount()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddAccount(Account account, string repass, string role)
+        {
+            var thongtin = account;
+            if (account.Password.Equals(repass))
+            {
+                if (role.Equals("1"))
+                {
+                    thongtin.Role = "1";
+                    model.Accounts.Add(thongtin);
+                    model.SaveChanges();
+                    return RedirectToAction("Index","HomeAdmin");
+                }
+                else
+                {
+                    thongtin.Role = "0";
+                    model.Accounts.Add(thongtin);
+                    model.SaveChanges();
+                    return RedirectToAction("Index", "HomeAdmin");
+                }
+            }
+            else
+            {
+                
+            }
+            
+            return View();
+        }
+
     }
 }

@@ -2,69 +2,85 @@
 
 @{
     ViewBag.Title = "ManageAcount";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
 }
 
-<h2>ManageAcount</h2>
+z    </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Full_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Role)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th></th>
-    </tr>
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Full_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Role)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
 
-</table>
+<body>
+
+        
+        <div class="page-wrapper">
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 style="padding-top: 10px;" class="page-title">Quản Lý Tài Khoản</h4>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <a href="@Url.Action("AddAccount","Acount")">
+                            <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Thêm</button>
+                        </a>
+
+                        <div class="white-box">
+
+                            <div class="table-responsive">
+
+                                <table style="text-align:center" class="table no-wrap">
+
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0">#</th>
+                                            <th class="border-top-0"><b>Họ và Tên</b></th>
+                                            <th class="border-top-0"><b>Email</b></th>
+                                            <th class="border-top-0"><b>SĐT</b></th>
+                                            <th class="border-top-0"><b>Địa chỉ</b></th>
+                                            <th class="border-top-0"><b>Quyền</b></th>
+                                            <th class="border-top-0"><b></b></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td class="txt-oflo">@item.Full_Name</td>
+                                                <td>@item.Email</td>
+                                                <td class="txt-oflo">@item.Phone</td>
+                                                <td><span></span></td>
+                                                <td><span></span></td>
+                                                <td>
+                                                    <span>
+                                                        <a href="">Update</a>
+
+                                                    </span>
+                                                </td>
+
+                                            </tr>
+                                        }
+                                        
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+            <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+        </div>
+
+</body>
+
+</html>-
