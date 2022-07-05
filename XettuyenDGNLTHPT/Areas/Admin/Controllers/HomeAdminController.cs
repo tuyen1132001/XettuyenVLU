@@ -15,5 +15,9 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult ManageAcount()
+        {
+            return View();
+        }
     }
 }

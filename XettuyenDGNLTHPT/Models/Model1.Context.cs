@@ -13,10 +13,10 @@ namespace XettuyenDGNLTHPT.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class XettuyenVLUEntities : DbContext
+    public partial class SEP25Team08Entities : DbContext
     {
-        public XettuyenVLUEntities()
-            : base("name=XettuyenVLUEntities")
+        public SEP25Team08Entities()
+            : base("name=SEP25Team08Entities")
         {
         }
     

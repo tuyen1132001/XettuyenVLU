@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bfdbe8288d1a4a3ab5da9c91012d3f2e" Name="Diagram1">
-        <EntityTypeShape EntityType="XettuyenVLUModel.tblChungChiNN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XettuyenVLUModel.tblDanToc" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XettuyenVLUModel.tblHoSoDGNL" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XettuyenVLUModel.tblHoSoTHPT" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XettuyenVLUModel.tblNganh" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XettuyenVLUModel.tblQuocTich" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XettuyenVLUModel.tblTinhTP" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XettuyenVLUModel.tblTonGiao" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XettuyenVLUModel.tblTP_QH_PX" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XettuyenVLUModel.tblTruongTHPT" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XettuyenVLUModel.Account" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+      <Diagram DiagramId="0acdc4fdefd54e5ea2e1773b002e3dbe" Name="Diagram1">
+        <EntityTypeShape EntityType="SEP25Team08Model.tblChungChiNN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP25Team08Model.tblDanToc" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP25Team08Model.tblHoSoDGNL" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP25Team08Model.tblHoSoTHPT" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP25Team08Model.tblNganh" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP25Team08Model.tblQuocTich" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP25Team08Model.tblTinhTP" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP25Team08Model.tblTonGiao" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP25Team08Model.tblTP_QH_PX" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP25Team08Model.tblTruongTHPT" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP25Team08Model.Account" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

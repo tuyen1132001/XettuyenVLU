@@ -4,9 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="XettuyenVLUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SEP25Team08Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
-warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'SEP25Team08.dbo.Account' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="ID" />
@@ -14,6 +14,8 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Username" Type="varchar" MaxLength="100" />
           <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="10" />
           <Property Name="Full_Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Role" Type="nvarchar" MaxLength="30" />
           <Property Name="IsActive" Type="bit" />
@@ -237,7 +239,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
           <Property Name="KHU_VUC" Type="nvarchar" MaxLength="255" />
           <Property Name="LOAI_TRUONG" Type="nvarchar" MaxLength="255" />
         </EntityType>
-        <EntityContainer Name="XettuyenVLUModelStoreContainer">
+        <EntityContainer Name="SEP25Team08ModelStoreContainer">
           <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHoSoDGNL" EntityType="Self.tblHoSoDGNL" Schema="dbo" store:Type="Tables" />
@@ -253,6 +255,8 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
     [Account].[ID] AS [ID], 
     [Account].[Username] AS [Username], 
     [Account].[Password] AS [Password], 
+    [Account].[Email] AS [Email], 
+    [Account].[Phone] AS [Phone], 
     [Account].[Full_Name] AS [Full_Name], 
     [Account].[Role] AS [Role], 
     [Account].[IsActive] AS [IsActive]
@@ -263,7 +267,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="XettuyenVLUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SEP25Team08Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tblChungChiNN">
           <Key>
             <PropertyRef Name="ID" />
@@ -490,11 +494,13 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Full_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Role" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
-        <EntityContainer Name="XettuyenVLUEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SEP25Team08Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblChungChiNNs" EntityType="Self.tblChungChiNN" />
           <EntitySet Name="tblDanTocs" EntityType="Self.tblDanToc" />
           <EntitySet Name="tblHoSoDGNLs" EntityType="Self.tblHoSoDGNL" />
@@ -512,9 +518,9 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="XettuyenVLUModelStoreContainer" CdmEntityContainer="XettuyenVLUEntities">
+        <EntityContainerMapping StorageEntityContainer="SEP25Team08ModelStoreContainer" CdmEntityContainer="SEP25Team08Entities">
           <EntitySetMapping Name="tblChungChiNNs">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblChungChiNN">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblChungChiNN">
               <MappingFragment StoreEntitySet="tblChungChiNN">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MaNN" ColumnName="MaNN" />
@@ -524,7 +530,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblDanTocs">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblDanToc">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblDanToc">
               <MappingFragment StoreEntitySet="tblDanToc">
                 <ScalarProperty Name="MA_DANTOC" ColumnName="MA_DANTOC" />
                 <ScalarProperty Name="TEN_DANTOC" ColumnName="TEN_DANTOC" />
@@ -533,7 +539,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblHoSoDGNLs">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblHoSoDGNL">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblHoSoDGNL">
               <MappingFragment StoreEntitySet="tblHoSoDGNL">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
@@ -598,7 +604,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblHoSoTHPTs">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblHoSoTHPT">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblHoSoTHPT">
               <MappingFragment StoreEntitySet="tblHoSoTHPT">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
@@ -669,7 +675,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblNganhs">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblNganh">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblNganh">
               <MappingFragment StoreEntitySet="tblNganh">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MANGANH_TOHOP" ColumnName="MANGANH_TOHOP" />
@@ -685,7 +691,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblQuocTiches">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblQuocTich">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblQuocTich">
               <MappingFragment StoreEntitySet="tblQuocTich">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MaQT" ColumnName="MaQT" />
@@ -694,7 +700,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblTinhTPs">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblTinhTP">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblTinhTP">
               <MappingFragment StoreEntitySet="tblTinhTP">
                 <ScalarProperty Name="MA_TINHTP" ColumnName="MA_TINHTP" />
                 <ScalarProperty Name="TEN_TINHTP" ColumnName="TEN_TINHTP" />
@@ -702,7 +708,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblTonGiaos">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblTonGiao">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblTonGiao">
               <MappingFragment StoreEntitySet="tblTonGiao">
                 <ScalarProperty Name="MA_TONGIAO" ColumnName="MA_TONGIAO" />
                 <ScalarProperty Name="TEN_TONGIAO" ColumnName="TEN_TONGIAO" />
@@ -711,7 +717,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblTP_QH_PX">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblTP_QH_PX">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblTP_QH_PX">
               <MappingFragment StoreEntitySet="tblTP_QH_PX">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TenTinhTP" ColumnName="TenTinhTP" />
@@ -726,7 +732,7 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblTruongTHPTs">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.tblTruongTHPT">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblTruongTHPT">
               <MappingFragment StoreEntitySet="tblTruongTHPT">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MA_TPTRUONG" ColumnName="MA_TPTRUONG" />
@@ -743,11 +749,13 @@ warning 6002: The table/view 'XettuyenVLU.dbo.Account' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="XettuyenVLUModel.Account">
+            <EntityTypeMapping TypeName="SEP25Team08Model.Account">
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />

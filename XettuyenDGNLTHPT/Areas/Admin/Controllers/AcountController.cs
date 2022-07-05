@@ -10,7 +10,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
 {
     public class AcountController : Controller
     {
-        XettuyenVLUEntities model = new XettuyenVLUEntities();
+        SEP25Team08Entities model = new SEP25Team08Entities();
         // GET: Admin/Login_Logout
         public ActionResult Login()
         {

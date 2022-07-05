@@ -17,6 +17,8 @@ namespace XettuyenDGNLTHPT.Models
         public int ID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
         public string Full_Name { get; set; }
         public string Role { get; set; }
         public Nullable<bool> IsActive { get; set; }
