@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Windows.Forms;
+using XettuyenDGNLTHPT.Areas.Admin.Middleware;
 using XettuyenDGNLTHPT.Models;
 
 namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
@@ -48,6 +51,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
          return RedirectToAction("Login");
   
         }
+        [LoginVerification]
         public ActionResult AddAccount()
         {
 
@@ -81,6 +85,57 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             
             return View();
         }
+        [LoginVerification]
+        public ActionResult EditAccount(int id)
+        {
+            var thongtin = model.Accounts.Find(id);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            return View(thongtin);
+        }
+        [HttpPost]
+        public ActionResult EditAccount(Account account, string repass, string role)
+        {
+            if (ModelState.IsValid)
+            {
+                var thongtin = account;
+                if (account.Password.Equals(repass))
+                {
+                    if (role.Equals("1"))
+                    {
+                        
+                        thongtin.Role = "1";
+                        model.Entry(thongtin).State = EntityState.Modified;
+                        model.SaveChanges();
+                        return RedirectToAction("Index", "HomeAdmin");
+                    }
+                    else
+                    {
+                        thongtin.Role = "0";
+                        model.Entry(thongtin).State = EntityState.Modified;
+                        model.SaveChanges();
+                        return RedirectToAction("Index", "HomeAdmin");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Mật khẩu không trùng khớp");
+                }
+            }
+            return View();
+        }
+        [LoginVerification]
+        public ActionResult DeleteAccount(int id)
+        {
+            var xoa = model.Accounts.Find(id);
+            model.Accounts.Remove(xoa);
+            model.SaveChanges();
+            return RedirectToAction("ManageAcount","HomeAdmin");
+        }
+
 
     }
 }

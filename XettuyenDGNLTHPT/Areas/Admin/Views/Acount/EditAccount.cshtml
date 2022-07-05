@@ -1,15 +1,17 @@
 ﻿@model XettuyenDGNLTHPT.Models.Account
 
 @{
-    ViewBag.Title = "AddAccount";
+    ViewBag.Title = "EditAccount";
     Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
 }
 
 
 
-@using (Html.BeginForm("AddAccount","Acount"))
+@using (Html.BeginForm())
 {
+   
     @Html.AntiForgeryToken()
+
     <div class="page-wrapper">
         <div class="page-breadcrumb bg-white">
             <div class="row align-items-center">
@@ -24,7 +26,7 @@
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="white-box">
-                        <h3>Thêm Tài khoản</h3>
+                        <h3>Chỉnh sửa tài khoản</h3>
                         <form class="bg-light p-4 m-4">
                             <div class="form-group">
                                 <label for="yourmail">Họ và Tên:</label>
@@ -34,7 +36,7 @@
 
                             <div class="form-group">
                                 <label for="yourmail">Email:</label>
-                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập email" , required = "true" } })
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập email", required = "true" } })
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
@@ -44,8 +46,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="yourmail">Tên Đăng Nhập</label>
-                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" ,placeholder = "Nhập tên đăng nhâp", required = "true" } })
-                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })    
+                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập tên đăng nhâp", required = "true" } })
+                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 <label for="yourmail">Mật Khẩu</label>
@@ -54,12 +56,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="yourmail">Nhập lại mật khẩu</label>
-                                <input type="password" class="form-control" name="repass" placeholder="Nhập lại mật khẩu" , required = "true">
+                                <input type="password" class="form-control" name="repass" placeholder="Nhập lại mật khẩu" , required="true">
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 <label for="yourmail">Chọn quyền:</label>
-                                <select  name="role" style=" width: 155px;
-                                        height: 35px; text-align: center; font-size: 15px;", required = "true">
+                                <select name="role" style=" width: 155px;
+                                        height: 35px; text-align: center; font-size: 15px;" , required="true">
                                     <option value="">-----Chọn Quyền-----</option>
                                     <option value="1">Quản Trị</option>
                                     <option value="0">Quản Lý</option>
@@ -72,7 +76,7 @@
                 </div>
             </div>
         </div>
-     
+
     </div>
 }
 
