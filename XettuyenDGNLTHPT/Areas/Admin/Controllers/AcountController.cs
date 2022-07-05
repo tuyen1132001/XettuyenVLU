@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows.Forms;
 using XettuyenDGNLTHPT.Models;
 
 namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
@@ -38,12 +39,14 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             Session["username-incorrect"] = true;
             return View();
         }
-        public ActionResult Logout()
+        public ActionResult Logout(string confirm_value)
         {
-            Session["usser-fullname"] = null;
-            Session["user-id"] = null;
-            Session["user-role"] = null;
-            return RedirectToAction("Login");
+            
+          Session["usser-fullname"] = null;
+         Session["user-id"] = null;
+         Session["user-role"] = null;
+         return RedirectToAction("Login");
+  
         }
         
     }
