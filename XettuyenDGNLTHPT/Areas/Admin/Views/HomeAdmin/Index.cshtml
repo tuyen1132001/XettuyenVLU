@@ -9,181 +9,17 @@
 
 <body>
 
-    <!-- ==========================croll==================================== -->
-    <script>
-        //Get the button
-        var mybutton = document.getElementById("myBtn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () { scrollFunction() };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-
-        }
-    </script>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar" data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header" data-logobg="skin6">
-                    <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.html">
-                        <!-- Logo icon -->
-                        <b class="logo-icon">
-                            <!-- Dark Logo icon -->
-                            <img style="margin: 10px;" src="https://xettuyenonline.vanlanguni.edu.vn/files/logo.png" alt="homepage" />
-                        </b>
-                        <!--End Logo icon -->
-
-                    </a>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
-                       href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div style="background-color: #FF0000; margin-top: 0;" class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav ms-auto d-flex align-items-center">
-
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        <li class=" in">
-                            <form role="search" class="app-search d-none d-md-block me-3">
-                                <input type="text" placeholder="Search..." class="form-control mt-0">
-                                <a href="" class="active">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </form>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                        <li>
-                            <a class="profile-pic" href="#">
-                               <span class="text-white font-medium">Phúc Hậu</span>
-                            </a>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                    </ul>
-                </div>
-            </nav>
-        </header>
+      
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <!-- User Profile-->
-                        <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
-                               aria-expanded="false">
-                                <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="hide-menu">Dashboard</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="AD_ViewList.html"
-                               aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hide-menu">Quản lý thông tin hồ sơ</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="AD_ManagerAccount.html"
-                               aria-expanded="false">
-                                <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">Quản lý tài khoản</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_AreaList.html"
-                               aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Danh mục khu vực</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_ViewList.html"
-                               aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Hồ sơ tuyển sinh</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_Content.html"
-                               aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Quản lý nội dung</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_Category.html"
-                               aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Quản lý danh mục</span>
-                            </a>
-                        </li>
-                        <li class="text-center p-20 upgrade-btn">
-                            <a href="/Admin/Acount/Logout"
-                               class="btn d-grid btn-danger text-white" onclick="if (!confirm ('Bạn có muốn đăng xuất không')) { return false; }">
-                                Đăng Xuất
-                            </a>
-                        </li>
-                    </ul>
-
-                </nav>
-            </div>
-            <!-- End Sidebar scroll-->
-        </aside>
+     
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -257,61 +93,17 @@
             </div>
             <!-- /.col -->
         </div>
-    </div>
+
     <!-- ============================================================== -->
     <!-- End Container fluid  -->
     <!-- ============================================================== -->
     <!-- ===========================================>=================== -->
     <!-- footer -->
     <!-- ============================================================== -->
-    <div class="page-footer">
-        <div class="container">
-            <div class="">
-                <span><i style="display: inline-block;" class="gg-home-alt"></i></span> <span><strong><b>Trường Đại học Văn Lang</b></strong></span> <br>
-                <span>Phòng Tuyển sinh và Truyền thông</span> <br>
-                <span>Cơ sở chính: 69/68 Đặng Thùy Trâm, P. 13, Q. Bình Thạnh, Tp.HCM</span> <br>
-                <span>Cơ sở 1: 45 Nguyễn Khắc Nhu, P. Cô Giang, Quận 1, Tp.HCM</span>
-            </div>
-            <div class="">
-                <span>Website: <a href="http://tuyensinh.vanlanguni.edu.vn/">tuyensinh.vanlanguni.edu.vn </a></span> <br>
-                <span>Hotline:  (028) 7105 9999</span> <br>
-                <span>Zalo: 0904214254 (Trường Đại học Văn Lang)</span> <br>
-                <span>Email : tuyensinh@vanlanguni.edu.vn</span> <br>
-            </div>
-        </div>
-    </div>
+ 
 
     <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
-    <!-- ============================================================== -->
-    <!-- End footer -->
-    <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="~/assets/adminsep/plugins/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="~/assets/adminsep/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/assets/adminsep/js/app-style-switcher.js"></script>
-    <script src="~/assets/adminsep/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <!--Wave Effects -->
-    <script src="~/assets/adminsep/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="~/assets/adminsep/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="~/assets/adminsep/js/custom.js"></script>
-    <!--This page JavaScript -->
-    <!--chartis chart-->
-    <link href="~/assets/adminsep/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet" />
-    <script src="~/assets/adminsep/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="~/assets/adminsep/js/pages/dashboards/dashboard1.js"></script>
+
 </body>
 
 </html>-
