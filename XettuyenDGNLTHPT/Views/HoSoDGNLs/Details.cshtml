@@ -7,7 +7,7 @@
 
 <DIV class="page-container">
     <!-- BEGIN CONTENT -->
-    @using (Html.BeginForm("Save", "HoSoDGNLs",FormMethod.Post))
+    @using (Html.BeginForm("Save", "HoSoDGNLs", FormMethod.Post))
     {
         <DIV class="page-content-wrapper">
             <!-- BEGIN CONTENT BODY -->
@@ -91,8 +91,8 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr><td>1</td> <td>@Model.TenNganh_TenToHop1</td> <td>@Model.MaNganh_ToHop1</td> <td></td></tr>
-                                                        <tr><td>1</td> <td>@Model.TenNganh_TenToHop2</td> <td>@Model.MaNganh_ToHop2</td> <td></td></tr>
-                                                        <tr><td>1</td> <td>@Model.TenNganh_TenToHop3</td> <td>@Model.MaNganh_ToHop3</td> <td></td></tr>
+                                                        <tr><td>2</td> <td>@Model.TenNganh_TenToHop2</td> <td>@Model.MaNganh_ToHop2</td> <td></td></tr>
+                                                        <tr><td>3</td> <td>@Model.TenNganh_TenToHop3</td> <td>@Model.MaNganh_ToHop3</td> <td></td></tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -102,7 +102,7 @@
                                             <div class="col-md-4"></div>
                                             <div class="col-md-6">
                                                 <input name="btnGoBack" type="button" id="btnGoBack" class="btn btn-warning" value="QUAY LẠI CHỈNH SỬA " onclick="history.go(-1);return false;" /><span class="tab"></span>
-                                                <a href="@Url.Action("Save","HoSoDGNLs",Model)"   class="btn green-jungle button-submit">ĐỒNG Ý VÀ NỘP HỒ SƠ"</a>
+                                                <a href="@Url.Action("Save","HoSoDGNLs",Model)" class="btn green-jungle button-submit" ">ĐỒNG Ý VÀ NỘP HỒ SƠ"</a>
                                                 @*<input type="submit" name="btnFinish" value="ĐỒNG Ý VÀ NỘP HỒ SƠ" id="btnFinish" class="btn green-jungle button-submit" />*@
                                             </div>
                                         </div>
@@ -128,4 +128,5 @@
             </DIV>
         </DIV>
     }
- </DIV>   
+</DIV>
+

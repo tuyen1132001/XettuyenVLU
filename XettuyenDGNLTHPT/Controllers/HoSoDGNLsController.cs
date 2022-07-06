@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using XettuyenDGNLTHPT.Models;
+using System.Net.Mail;
 
 namespace XettuyenDGNLTHPT.Controllers
 {
@@ -146,10 +147,39 @@ namespace XettuyenDGNLTHPT.Controllers
         
         public ActionResult Save(tblHoSoDGNL DGNL)
         {
+            
             model.tblHoSoDGNLs.Add(DGNL);
             model.SaveChanges();
-            return RedirectToAction("InHoSo","ManageHoSo");
+            var hoso = model.tblHoSoDGNLs.FirstOrDefault(u =>u.CMND.Equals(DGNL.CMND));
+            string from = "khontuyen2001@gmail.com";
+            string pass = "tuyenhero123";
+            //MailMessage mail = new MailMessage();
+            //mail.To.Add(hoso.Email);
+            //mail.From = new MailAddress("khontuyen2001@gmail.com");
+           
+            //mail.Subject = "Đã tiếp nhận hồ sơ";
+            //mail.Body = "Chào bạn" + hoso.HoVaTen + "<br>Cảm ơn bạn đã đăng ký xét tuyển vào Trường Đại học Văn Lang trong năm</br> " + "Mã hồ sơ của bạn là NL_"+hoso.ID+
+            //             "<br>Kết quả tuyển sinh sẽ được Trường Đại học Văn Lang công bố và thông báo cho bạn sau khi kết thúc đợt nhận hồ sơ (dự kiến trong tháng 5/2021).</br>";
+            //var smtp = new SmtpClient
+            //{
+            //    Host = "smtp.gmail.com",
+            //    Port = 587,
+            //    EnableSsl = true,
+            //    DeliveryMethod = SmtpDeliveryMethod.Network,
+            //    UseDefaultCredentials = false,
+            //    Credentials = new NetworkCredential(from, pass)
+            //};
+            //using (var mess = new MailMessage(from, "khontuyen2001@gmail.com")
+            //{
+            //    Subject = mail.Subject,
+            //    Body = mail.Body
+            //})
+            //{
+            //    smtp.Send(mess);
+            //}
+            return View(hoso);
         }
+    
         
 
 
