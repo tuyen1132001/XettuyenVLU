@@ -787,6 +787,7 @@
     <Content Include="Views\ManageHoSo\DetailDGNL.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\HoSoDGNLs\Save.cshtml" />
+    <Content Include="Views\Home\Save.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
