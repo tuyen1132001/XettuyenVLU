@@ -184,6 +184,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AcountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FormContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Middleware\LoginVerification.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -732,6 +733,7 @@
     <Content Include="Areas\Admin\Views\HomeAdmin\ManageAcount.cshtml" />
     <Content Include="Areas\Admin\Views\Acount\AddAccount.cshtml" />
     <Content Include="Areas\Admin\Views\Acount\EditAccount.cshtml" />
+    <Content Include="Areas\Admin\Views\FormContent\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
