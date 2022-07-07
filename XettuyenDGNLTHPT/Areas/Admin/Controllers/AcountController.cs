@@ -114,10 +114,22 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                     }
                     else
                     {
-                        thongtin.Role = "0";
-                        model.Entry(thongtin).State = EntityState.Modified;
-                        model.SaveChanges();
-                        return RedirectToAction("Index", "HomeAdmin");
+                        SEP25Team08Entities db = new SEP25Team08Entities();
+                        var roletk = db.Accounts.ToList();
+                        int count = roletk.Count(u => u.Role == "1");
+                        if(count <= 1)
+                        {
+                            ViewBag.ErrorMessage = "Cần có 1 quản trị";
+                            return View();
+                        }
+                        else
+                        {
+                            thongtin.Role = "0";
+                            model.Entry(thongtin).State = EntityState.Modified;
+                            model.SaveChanges();
+                            return RedirectToAction("Index", "HomeAdmin");
+                        }
+
                     }
                 }
                 else

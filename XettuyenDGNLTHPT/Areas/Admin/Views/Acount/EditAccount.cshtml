@@ -68,8 +68,9 @@
                                     <option value="1">Quản Trị</option>
                                     <option value="0">Quản Lý</option>
                                 </select>
+                                <p  class = "text-danger">@ViewBag.ErrorMessage</p>
                             </div>
-                            <button class="btn-messger btn btn-success btn-save" onclick="document.getElementById('id01').style.display='block'">Đăng Ký</button>
+                            <button class="btn-messger btn btn-success btn-save"  onclick="if (!confirm ('Bạn có muốn lưu thông tin tài khoản không?')) { return false; }">Đăng Ký</button>
 
                         </form>
                     </div>
