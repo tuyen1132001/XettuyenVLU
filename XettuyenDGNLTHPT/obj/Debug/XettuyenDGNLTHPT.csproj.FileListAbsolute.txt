@@ -681,3 +681,4 @@ C:\Users\Tuyen\Source\Repos\tuyen1132001\XettuyenVLU\XettuyenDGNLTHPT\obj\Debug\
 C:\Users\Tuyen\Source\Repos\tuyen1132001\XettuyenVLU\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.csproj.CopyComplete
 C:\Users\Tuyen\Source\Repos\tuyen1132001\XettuyenVLU\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.dll
 C:\Users\Tuyen\Source\Repos\tuyen1132001\XettuyenVLU\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.pdb
+C:\Users\Tuyen\Source\Repos\tuyen1132001\XettuyenVLU\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.csproj.AssemblyReference.cache

@@ -151,32 +151,30 @@ namespace XettuyenDGNLTHPT.Controllers
             model.tblHoSoDGNLs.Add(DGNL);
             model.SaveChanges();
             var hoso = model.tblHoSoDGNLs.FirstOrDefault(u =>u.CMND.Equals(DGNL.CMND));
-            string from = "khontuyen2001@gmail.com";
-            string pass = "tuyenhero123";
-            //MailMessage mail = new MailMessage();
-            //mail.To.Add(hoso.Email);
-            //mail.From = new MailAddress("khontuyen2001@gmail.com");
-           
-            //mail.Subject = "Đã tiếp nhận hồ sơ";
-            //mail.Body = "Chào bạn" + hoso.HoVaTen + "<br>Cảm ơn bạn đã đăng ký xét tuyển vào Trường Đại học Văn Lang trong năm</br> " + "Mã hồ sơ của bạn là NL_"+hoso.ID+
-            //             "<br>Kết quả tuyển sinh sẽ được Trường Đại học Văn Lang công bố và thông báo cho bạn sau khi kết thúc đợt nhận hồ sơ (dự kiến trong tháng 5/2021).</br>";
-            //var smtp = new SmtpClient
-            //{
-            //    Host = "smtp.gmail.com",
-            //    Port = 587,
-            //    EnableSsl = true,
-            //    DeliveryMethod = SmtpDeliveryMethod.Network,
-            //    UseDefaultCredentials = false,
-            //    Credentials = new NetworkCredential(from, pass)
-            //};
-            //using (var mess = new MailMessage(from, "khontuyen2001@gmail.com")
-            //{
-            //    Subject = mail.Subject,
-            //    Body = mail.Body
-            //})
-            //{
-            //    smtp.Send(mess);
-            //}
+
+            MailMessage mail = new MailMessage();
+            mail.To.Add(hoso.Email);
+            mail.From = new MailAddress("xettuyenvanlang@gmail.com");
+            mail.Subject = "Đã tiếp nhận hồ sơ";
+            mail.Body = "Chào bạn" + hoso.HoVaTen + "<br>Cảm ơn bạn đã đăng ký xét tuyển vào Trường Đại học Văn Lang trong năm</br> " + "Mã hồ sơ của bạn là NL_" + hoso.ID +
+                         "<br>Kết quả tuyển sinh sẽ được Trường Đại học Văn Lang công bố và thông báo cho bạn sau khi kết thúc đợt nhận hồ sơ (dự kiến trong tháng 5/2021).</br>";
+
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+            smtp.UseDefaultCredentials = true;
+            smtp.EnableSsl = true;
+            smtp.Port = 25;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.Credentials = new NetworkCredential("xettuyenvanlang@gmail.com", "rywijjglguaugjex"); //Email, mật khẩu ứng dụng
+            try
+            {
+                smtp.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
             return View(hoso);
         }
     
