@@ -13,5 +13,14 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Index(string year, string dot, string TGStart, string TGEnd, string flexSwitchCheckDefault)
+        {
+            Session["Form-year"] = year;
+            Session["Form-dot"] = dot;
+            
+
+            return View(); 
+        }
     }
 }

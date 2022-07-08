@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\XettuyenDGNLTHPT",
+    "\\XettuyenDGNLTHPT\\Areas",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\FormContent"
   ],
-  "SelectedNode": "\\XettuyenDGNLTHPT.sln",
+  "SelectedNode": "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\HomeAdmin",
   "PreviewInSolutionExplorer": false
 }
