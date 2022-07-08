@@ -42,6 +42,16 @@ namespace XettuyenDGNLTHPT.Controllers
             Majors.Insert(0, new { MA_NGANH = "-1", TEN_NGANH = "--------------Chọn-------------- " });
             ViewBag.NGANH = new SelectList(Majors, "MA_NGANH", "TEN_NGANH");
 
+            // Form tuyển sinh
+            var form = model.tblFormTuyenSinhs.Find(0);
+            Session["Form-Title"] = form.Tieu_De;
+            Session["Form-Content"] = form.Noi_Dung;
+            Session["Form-bodyTHPT"] = form.Open_Close;
+            var formDGNL = model.tblFormTuyenSinhs.Find(1);
+            Session["Form-TitleDGNl"] = formDGNL.Tieu_De;
+            Session["Form-ContentDGNL"] = formDGNL.Noi_Dung;
+            Session["Form-bodyDGNL"] = formDGNL.Open_Close;
+
             return View();
         }
 

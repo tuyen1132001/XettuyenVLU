@@ -1,4 +1,4 @@
-﻿
+﻿@model XettuyenDGNLTHPT.Models.tblFormTuyenSinh
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
@@ -51,14 +51,12 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-       
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-       
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -96,42 +94,44 @@
     border: solid 2px #fff;
     padding: 20px;
                 " class="container">
-                    @using (Html.BeginForm("Index","FormContent", FormMethod.Post))
-                    {
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-
-
-                                <h3><b>Nội dung xét tuyển</b></h3>
-                                <h5 class="text-center">
-                                    <div class="">
-                                        <script language="javascript" type="text/javascript">
-                                            dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
-                                            monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
-                                            now = new Date
-                                            document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
-                                        </script>
-                                    </div>
-                                </h5>
-                            </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3><b>Nội dung xét tuyển THPT</b></h3>
+                            <h5 class="text-center">
+                                <div class="">
+                                    <script language="javascript" type="text/javascript">
+                                        dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
+                                        monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
+                                        now = new Date
+                                        document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
+                                    </script>
+                                </div>
+                            </h5>
+                        </div>
+                        @using (Html.BeginForm("Index", "FormContent", FormMethod.Post))
+                        {
                             <div class="panel-body">
                                 <div class="form-group">
                                     <label for="usr">Tiêu Đề Năm Xét Tuyển</label>
-                                    <input required="true" type="text" class="form-control" name="year">
+                                    @Html.EditorFor(model => model.Tieu_De, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Tieu_De, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Đợt Xét Tuyển</label>
-                                    <input required="true" type="email" class="form-control" name="dot">
+                                    <label for="email">Nội dung Xét Tuyển</label>
+                                    @Html.EditorFor(model => model.Noi_Dung, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Noi_Dung, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group form-xettuyenthoigian">
                                     <div>
                                         <label for="birthday">Thời Gian Bắt Đầu</label> <br>
-                                        <input type="date" class="start-end" name="TGStart">
+                                        @Html.EditorFor(model => model.NgayBatDau, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date" } })
+                                        @Html.ValidationMessageFor(model => model.NgayBatDau, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div>
                                         <label for="birthday">Thời Gian Kết Thúc</label> <br>
-                                        <input type="date" class="start-end" name="TGEnd">
+                                        @Html.EditorFor(model => model.NgayKetThuc, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date" } })
+                                        @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-check form-switch formandata">
@@ -141,14 +141,73 @@
 
                                 <button class="btn-messger btn btn-success btn-save" onclick="document.getElementById('id01').style.display='block'">Lưu Dữ Liệu</button>
 
-                                <div id="id01" class="modal">
-
-
-                                </div>
-                                <hr>
-                                <h3><b>Form Xét Tuyển</b></h3>
 
                             </div>
+                        }
+
+                        @using (Html.BeginForm("EditformTHPT", "FormContent", FormMethod.Post))
+                        {
+                            <h3><b>Form Xét tuyển </b></h3>
+                            <div class="form-group form-xettuyenthoigian">
+                                <div>
+                                    <label for="birthday">Thời Gian Bắt Đầu</label> <br>
+                                    @Html.EditorFor(model => model.NgayBatDau, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date" } })
+                                    @Html.ValidationMessageFor(model => model.NgayBatDau, "", new { @class = "text-danger" })>
+                                </div>
+
+                                <div>
+                                    <label for="birthday">Thời Gian Kết Thúc</label> <br>
+                                    @Html.EditorFor(model => model.NgayKetThuc, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date" } })
+                                    @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-check form-switch formandata">
+                                <input class="form-check-input" type="checkbox" name="editopen">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Mở trang chỉnh sửa hồ sơ cho thí sinh</label> <br> <label for=""> <i> (Khi kết thúc chỉnh sửa sau 3 ngày)</i></label>
+                            </div>
+                            <button class="btn-messger btn btn-success btn-save" onclick="document.getElementById('id01').style.display='block'">Lưu Dữ Liệu</button>
+                        }
+                        @using (Html.BeginForm("", "FormContent", FormMethod.Post))
+                        {
+                            <h3><b>Nội dung xét tuyển DGNL</b></h3>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="usr">Tiêu Đề Năm Xét Tuyển</label>
+                                    @Html.EditorFor(model => model.Tieu_De, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Tieu_De, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Nội dung Xét Tuyển</label>
+                                    @Html.EditorFor(model => model.Noi_Dung, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Noi_Dung, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group form-xettuyenthoigian">
+                                    <div>
+                                        <label for="birthday">Thời Gian Bắt Đầu</label> <br>
+                                        @Html.EditorFor(model => model.NgayBatDau, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date" } })
+                                        @Html.ValidationMessageFor(model => model.NgayBatDau, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div>
+                                        <label for="birthday">Thời Gian Kết Thúc</label> <br>
+                                        @Html.EditorFor(model => model.NgayKetThuc, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date" } })
+                                        @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-check form-switch formandata">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Ẩn Nội dung form đăng ký xét tuyển</label> <br> <label for=""> <i> (Khi kết thúc đợt xét tuyển)</i></label>
+                                </div>
+
+                                <button class="btn-messger btn btn-success btn-save" onclick="document.getElementById('id01').style.display='block'">Lưu Dữ Liệu</button>
+
+
+                            </div>
+                        }
+
+                        @using (Html.BeginForm("", "FormContent", FormMethod.Post))
+                        {
+                            <h3><b>Form Xét tuyển </b></h3>
                             <div class="form-group form-xettuyenthoigian">
                                 <div>
                                     <label for="birthday">Thời Gian Bắt Đầu</label> <br>
@@ -161,18 +220,19 @@
                                 </div>
                             </div>
                             <div class="form-check form-switch formandata">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <input class="form-check-input" type="checkbox" name="Openclick">
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Mở trang chỉnh sửa hồ sơ cho thí sinh</label> <br> <label for=""> <i> (Khi kết thúc chỉnh sửa sau 3 ngày)</i></label>
                             </div>
                             <button class="btn-messger btn btn-success btn-save" onclick="document.getElementById('id01').style.display='block'">Lưu Dữ Liệu</button>
-                        </div>
-                    }
+                        }
                     </div>
+                </div>
             </div>
+        </div>
 
         </div>
 
-       
+
 
         <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
         <!-- ============================================================== -->
@@ -182,7 +242,6 @@
     <!-- ============================================================== -->
     <!-- End Page wrapper  -->
     <!-- ============================================================== -->
-    </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
@@ -190,6 +249,9 @@
     <!-- All Jquery -->
     <!-- ============================================================== -->
  
+   
+    <!-- Bootstrap tether Core JavaScript -->
+   
 </body>
 
 </html>-

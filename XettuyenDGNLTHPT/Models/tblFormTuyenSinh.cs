@@ -12,15 +12,15 @@ namespace XettuyenDGNLTHPT.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class tblFormTuyenSinh
     {
         public int ID { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Full_Name { get; set; }
-        public string Role { get; set; }
-        public Nullable<bool> IsActive { get; set; }
+        public string Tieu_De { get; set; }
+        public string Noi_Dung { get; set; }
+        public Nullable<System.DateTime> NgayBatDau { get; set; }
+        public Nullable<System.DateTime> NgayKetThuc { get; set; }
+        public Nullable<bool> Open_Close { get; set; }
+        public string Loai { get; set; }
+        public Nullable<bool> Edit_Open { get; set; }
     }
 }

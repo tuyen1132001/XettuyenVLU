@@ -244,5 +244,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tblFormTuyenSinhs">
+      <EntityTypeMapping TypeName="SEP25Team08Model.tblFormTuyenSinh">
+        <MappingFragment StoreEntitySet="tblFormTuyenSinh">
+          <ScalarProperty Name="Edit_Open" ColumnName="Edit_Open" />
+          <ScalarProperty Name="Loai" ColumnName="Loai" />
+          <ScalarProperty Name="Open_Close" ColumnName="Open_Close" />
+          <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+          <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
+          <ScalarProperty Name="Noi_Dung" ColumnName="Noi_Dung" />
+          <ScalarProperty Name="Tieu_De" ColumnName="Tieu_De" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

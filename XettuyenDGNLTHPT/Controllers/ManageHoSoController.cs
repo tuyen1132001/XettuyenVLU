@@ -23,7 +23,15 @@ namespace XettuyenDGNLTHPT.Controllers
        
         public ActionResult DetailTHPT( string CMND)
         {
-   
+            var form = model.tblFormTuyenSinhs.Find(0);
+            if(form.Edit_Open == true)
+            {
+                Session["Form-button"] = true;
+            }
+            else
+            {
+                Session["Form-button"] = false;
+            }
             var Hoso = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND == CMND);
             if (Hoso != null)
             {
@@ -39,6 +47,7 @@ namespace XettuyenDGNLTHPT.Controllers
                 }
                 Session["notfound"] = true;
             }
+
             return View("InHoSo");
         }
         public ActionResult PrintTHPT(tblHoSoTHPT tHPT)

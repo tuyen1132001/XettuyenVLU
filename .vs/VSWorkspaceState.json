@@ -4,9 +4,11 @@
     "\\XettuyenDGNLTHPT",
     "\\XettuyenDGNLTHPT\\Areas",
     "\\XettuyenDGNLTHPT\\Areas\\Admin",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Controllers",
     "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views",
-    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\FormContent"
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\FormContent",
+    "\\XettuyenDGNLTHPT\\bin"
   ],
-  "SelectedNode": "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\HomeAdmin",
+  "SelectedNode": "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\FormContent\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
