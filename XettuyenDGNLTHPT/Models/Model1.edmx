@@ -35,6 +35,19 @@
           <Property Name="TEN_DANTOC" Type="nvarchar" MaxLength="255" />
           <Property Name="DIEN_GIAI" Type="nvarchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="tblFormTuyenSinh">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tieu_De" Type="nvarchar" MaxLength="255" />
+          <Property Name="Noi_Dung" Type="nvarchar" MaxLength="255" />
+          <Property Name="NgayBatDau" Type="datetime" />
+          <Property Name="NgayKetThuc" Type="datetime" />
+          <Property Name="Open_Close" Type="bit" />
+          <Property Name="Loai" Type="nvarchar" MaxLength="255" />
+          <Property Name="Edit_Open" Type="bit" />
+        </EntityType>
         <EntityType Name="tblHoSoDGNL">
           <Key>
             <PropertyRef Name="ID" />
@@ -241,6 +254,7 @@
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFormTuyenSinh" EntityType="Self.tblFormTuyenSinh" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHoSoDGNL" EntityType="Self.tblHoSoDGNL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHoSoTHPT" EntityType="Self.tblHoSoTHPT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblNganh" EntityType="Self.tblNganh" Schema="dbo" store:Type="Tables" />
@@ -498,7 +512,21 @@
           <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" />
           <EntitySet Name="tblTruongTHPTs" EntityType="Self.tblTruongTHPT" />
           <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="tblFormTuyenSinhs" EntityType="SEP25Team08Model.tblFormTuyenSinh" />
         </EntityContainer>
+        <EntityType Name="tblFormTuyenSinh">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tieu_De" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Noi_Dung" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NgayBatDau" Type="DateTime" Precision="3" />
+          <Property Name="NgayKetThuc" Type="DateTime" Precision="3" />
+          <Property Name="Open_Close" Type="Boolean" />
+          <Property Name="Loai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Edit_Open" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -745,6 +773,20 @@
                 <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFormTuyenSinhs">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblFormTuyenSinh">
+              <MappingFragment StoreEntitySet="tblFormTuyenSinh">
+                <ScalarProperty Name="Edit_Open" ColumnName="Edit_Open" />
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+                <ScalarProperty Name="Open_Close" ColumnName="Open_Close" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
+                <ScalarProperty Name="Noi_Dung" ColumnName="Noi_Dung" />
+                <ScalarProperty Name="Tieu_De" ColumnName="Tieu_De" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

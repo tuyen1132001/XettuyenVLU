@@ -88,8 +88,24 @@
                 <div class="hor-menu">
                     <ul class="nav navbar-nav">
                         <li><a target="_blank" href="http://tuyensinh.vanlanguni.edu.vn/">TUYỂN SINH 2022</a></li>
-                        <li><a href="@Url.Action("index", "Home")">XÉT ĐIỂM THI THPT QG</a></li>
-                        <li><a href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
+                        @if (Convert.ToBoolean(Session["Form-bodyTHPT"]) == true)
+                        {
+
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("index", "Home")"> XÉT ĐIỂM THI THPT QG</a></li>
+                        }
+                        @if (Convert.ToBoolean(Session["Form-bodyDGNL"]) == true)
+                        {
+
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
+                        }
+
+                        
                         <li> <a href="@Url.Action("InHoSo", "ManageHoSo")">HỒ SƠ CỦA TÔI</a></li>
                         <li><a target="_blank" href="https://xettuyenonline.vanlanguni.edu.vn/cunhanquocte">CỬ NHÂN QUỐC TẾ</a></li>
 

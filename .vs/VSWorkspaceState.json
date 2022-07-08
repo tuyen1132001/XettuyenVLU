@@ -2,10 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\XettuyenDGNLTHPT",
-    "\\XettuyenDGNLTHPT\\Controllers",
-    "\\XettuyenDGNLTHPT\\Views",
-    "\\XettuyenDGNLTHPT\\Views\\Home"
+    "\\XettuyenDGNLTHPT\\Areas",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Controllers",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\FormContent",
+    "\\XettuyenDGNLTHPT\\bin"
   ],
-  "SelectedNode": "\\XettuyenDGNLTHPT\\Views\\Home\\Index.cshtml",
+  "SelectedNode": "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\FormContent\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

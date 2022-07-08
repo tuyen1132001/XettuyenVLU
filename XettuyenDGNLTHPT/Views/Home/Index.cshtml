@@ -202,7 +202,7 @@
         Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form_dang_ky', ['tUpdatePanel1', 'UpdatePanel1'], [], [], 90, '');
         //]]>
     </script>
-
+  
     <div id="UpdatePanel1">
 
         <div class="page-container">
@@ -221,8 +221,8 @@
                             <DIV class="row">
                                 <DIV class="col-md-12">
                                     <div class="text-center font-blue bold">
-                                        <h3 style="color:#c61d23"><strong>ĐĂNG KÝ XÉT TUYỂN 2022</strong></h3>
-                                        <h4 style="color:#2F39B1;font-weight:bold">(Dành cho thí sinh xét kết quả thi THPT Quốc Gia 2022)</h4>
+                                        <h3 style="color:#c61d23"><strong>@Session["Form-Title"]</strong></h3>
+                                        <h4 style="color:#2F39B1;font-weight:bold">(@Session["Form-Content"])</h4>
                                     </div>
                                     <DIV class="portlet light " id="form_wizard_1">
                                         <DIV class="portlet-body form">
@@ -785,8 +785,10 @@
                         </DIV><!-- END CONTAINER -->
                     </DIV>
                 </DIV>
-
+                
             </div>
+            </div>
+        </div>
 
 
             <script type="text/javascript">

@@ -244,5 +244,19 @@
     <EntitySet Name="tblTP_QH_PX" EntityType="Self.tblTP_QH_PX" />
     <EntitySet Name="tblTruongTHPTs" EntityType="Self.tblTruongTHPT" />
     <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="tblFormTuyenSinhs" EntityType="SEP25Team08Model.tblFormTuyenSinh" />
   </EntityContainer>
+  <EntityType Name="tblFormTuyenSinh">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tieu_De" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Noi_Dung" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NgayBatDau" Type="DateTime" Precision="3" />
+    <Property Name="NgayKetThuc" Type="DateTime" Precision="3" />
+    <Property Name="Open_Close" Type="Boolean" />
+    <Property Name="Loai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Edit_Open" Type="Boolean" />
+  </EntityType>
 </Schema>
