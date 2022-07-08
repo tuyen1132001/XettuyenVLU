@@ -132,6 +132,7 @@ namespace XettuyenDGNLTHPT.Controllers
                 tblHoSoDGNL.MaNganh_ToHop3 = Majors3; tblHoSoDGNL.TenNganh_TenToHop3 = NameNganh3;
                 return RedirectToAction("Details", tblHoSoDGNL);
             }
+            
             return View();
         }
         // GET: HoSoDGNLs/Details/5

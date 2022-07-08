@@ -57,6 +57,15 @@ namespace XettuyenDGNLTHPT.Controllers
         [HttpPost]
         public ActionResult DetailDGNL(string DropDownList1, string ddlLoaiXetTuyen, string CMND)
         {
+            var form = model.tblFormTuyenSinhs.Find(1);
+            if (form.Edit_Open == true)
+            {
+                Session["Form-button"] = true;
+            }
+            else
+            {
+                Session["Form-button"] = false;
+            }
             string dot = DropDownList1;
             string loai = ddlLoaiXetTuyen;
             var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim()));

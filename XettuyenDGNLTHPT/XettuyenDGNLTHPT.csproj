@@ -737,6 +737,10 @@
     <Content Include="Areas\Admin\Views\Acount\AddAccount.cshtml" />
     <Content Include="Areas\Admin\Views\Acount\EditAccount.cshtml" />
     <Content Include="Areas\Admin\Views\FormContent\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\FormContent\IndexTHPT.cshtml" />
+    <Content Include="Areas\Admin\Views\FormContent\IndexDGNL.cshtml" />
+    <Content Include="Areas\Admin\Views\FormContent\EditformTHPT.cshtml" />
+    <Content Include="Areas\Admin\Views\FormContent\EditformDGNL.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
