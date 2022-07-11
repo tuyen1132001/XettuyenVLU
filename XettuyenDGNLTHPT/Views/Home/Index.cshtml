@@ -6,7 +6,11 @@
 }
 
 
-
+<style>
+    .d-none {
+        display: none
+    }
+</style>
 
 <script>
     function checkMark() {
@@ -202,7 +206,7 @@
         Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form_dang_ky', ['tUpdatePanel1', 'UpdatePanel1'], [], [], 90, '');
         //]]>
     </script>
-  
+
     <div id="UpdatePanel1">
 
         <div class="page-container">
@@ -221,8 +225,8 @@
                             <DIV class="row">
                                 <DIV class="col-md-12">
                                     <div class="text-center font-blue bold">
-                                        <h3 style="color:#c61d23"><strong>@Session["Form-Title"]</strong></h3>
-                                        <h4 style="color:#2F39B1;font-weight:bold">(@Session["Form-Content"])</h4>
+                                        <h3 style="color:#c61d23"><strong>ĐĂNG KÝ XÉT TUYỂN 2022</strong></h3>
+                                        <h4 style="color:#2F39B1;font-weight:bold">(Dành cho thí sinh xét kết quả thi THPT Quốc Gia 2022)</h4>
                                     </div>
                                     <DIV class="portlet light " id="form_wizard_1">
                                         <DIV class="portlet-body form">
@@ -253,7 +257,7 @@
                                                                     <div class="col-md-4 col-validate">
                                                                         <div class="radio-list">
                                                                             <label>
-                                                                                @Html.RadioButtonFor(model => model.GioiTinh, true)  
+                                                                                @Html.RadioButtonFor(model => model.GioiTinh, true)
                                                                                 Nam &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                                 @Html.RadioButtonFor(model => model.GioiTinh, false)
                                                                                 Nữ
@@ -268,7 +272,7 @@
                                                                             <tr>
                                                                                 <td>
                                                                                     @*<input name="txtNgaySinh" type="text" id="txtNgaySinh" class="form-control" required="true" placeholder="21/08/2000" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" style="width:130px;" />*@
-                                                                                    @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "10/02/2001" , Type= "Date"} })
+                                                                                    @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "10/02/2001", Type = "Date" } })
                                                                                     @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
                                                                                 </td>
                                                                                 <td>Nơi sinh<span style="color:red"> * </span></td>
@@ -712,15 +716,23 @@
                                                                             <tr>
                                                                                 <td style="width:30%">
                                                                                     <strong>Ngành xét tuyển ưu tiên 1</strong>
-                                                                                    @Html.DropDownList("Majors1", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors1-select ", target = "#ddlToHopMon1" })
+                                                                                    @Html.DropDownList("Majors1", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon1", order = "1" })
                                                                                     @Html.ValidationMessageFor(model => model.TenNganh_TenToHop1, "", new { @class = "text-danger" })
-
                                                                                 </td>
                                                                                 <td style="width:30%">
                                                                                     <strong>Tổ hợp môn</strong><select name="ddlToHopMon1" id="ddlToHopMon1" class="form-control" required="true">
                                                                                     </select>
                                                                                 </td>
                                                                                 <td>
+                                                                                    <div class="d-none">
+                                                                                        <strong>Chương trình đào tạo</strong>
+                                                                                        <div class="radio-list" style="margin-left: 20px">
+                                                                                            <label>
+                                                                                                <input type="radio" name="CTDT1" value="CTTC" checked />
+                                                                                                CTTC
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </td>
                                                                                 <td>
                                                                                     <p></p><strong style="color:red"></strong>
@@ -730,7 +742,7 @@
                                                                             <tr>
                                                                                 <td>
                                                                                     <strong>Ngành xét tuyển ưu tiên 2</strong>
-                                                                                    @Html.DropDownList("Majors2", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors2-select ", target = "#ddlToHopMon2" })
+                                                                                    @Html.DropDownList("Majors2", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon2", order = "2" })
                                                                                     @Html.ValidationMessageFor(model => model.TenNganh_TenToHop2, "", new { @class = "text-danger" })
                                                                                 </td>
                                                                                 <td>
@@ -738,6 +750,15 @@
                                                                                     </select>
                                                                                 </td>
                                                                                 <td>
+                                                                                    <div class="d-none">
+                                                                                        <strong>Chương trình đào tạo</strong>
+                                                                                        <div class="radio-list" style="margin-left: 20px">
+                                                                                            <label>
+                                                                                                <input type="radio" name="CTDT2" value="CTTC" checked />
+                                                                                                CTTC
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </td>
                                                                                 <td>
                                                                                     <p></p><strong></strong>
@@ -747,7 +768,7 @@
                                                                             <tr>
                                                                                 <td>
                                                                                     <strong>Ngành xét tuyển ưu tiên 3</strong>
-                                                                                    @Html.DropDownList("Majors3", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors3-select ", target = "#ddlToHopMon3" })
+                                                                                    @Html.DropDownList("Majors3", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon3", order = "3" })
                                                                                     @Html.ValidationMessageFor(model => model.TenNganh_TenToHop3, "", new { @class = "text-danger" })
                                                                                 </td>
                                                                                 <td>
@@ -755,6 +776,15 @@
                                                                                     </select>
                                                                                 </td>
                                                                                 <td>
+                                                                                    <div class="d-none">
+                                                                                        <strong>Chương trình đào tạo</strong>
+                                                                                        <div class="radio-list" style="margin-left: 20px">
+                                                                                            <label>
+                                                                                                <input type="radio" name="CTDT3" value="CTTC" checked />
+                                                                                                CTTC
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </td>
                                                                                 <td><p></p><strong></strong></td>
                                                                             </tr>
@@ -785,10 +815,8 @@
                         </DIV><!-- END CONTAINER -->
                     </DIV>
                 </DIV>
-                
+
             </div>
-            </div>
-        </div>
 
 
             <script type="text/javascript">
@@ -1009,42 +1037,40 @@
                 $('#LienLac_DiaChi').val(txtHoKhau);
             }
         });
-        $('select.majors1-select').change(function () {
+
+        $('select.majors-select').change(function () {
             let maNG = $(this).val();
-            let id = $('#ddlToHopMon1').val();
-            console.info(id);
             let target = $(this).attr('target');
+            let order = $(this).attr('order');
             if (maNG != '-1') {
-                $.get(`/home/GetMajors1/${maNG}`, data => {
+                $.get(`/home/GetMajors/${maNG}`, data => {
                     attachDistrictOrWard($(target), data, '--------------Chọn--------------');
+                    console.log($(this).parent().next().next());
+
+                    if (data[0].HasCTDBFlag) {
+                        $(this).parent().next().next().html(`<strong>Chương trình đào tạo</strong>
+                                                                <div class="radio-list" style="margin-left: 20px">
+                                                                    <label>
+                                                                        <input type="radio" name="CTDT${order}" value="CTTC" checked />
+                                                                        CTTC &nbsp; &nbsp; &nbsp;
+                                                                        <input type="radio" name="CTDT${order}" value="CTĐB" />
+                                                                        CTĐB
+                                                                    </label>
+                                                                </div>`);
+                    } else {
+                        $(this).parent().next().next().html(`<div class="d-none">
+                                                                    <strong>Chương trình đào tạo</strong>
+                                                                    <div class="radio-list" style="margin-left: 20px">
+                                                                        <label>
+                                                                            <input type="radio" name="CTDT${order}" value="CTTC" checked />
+                                                                            CTTC
+                                                                        </label>
+                                                                    </div>
+                                                                </div>`);
+                    }
                 });
             }
         });
-        $('select.majors2-select').change(function () {
-            let maNG = $(this).val();
-            let id = $('#ddlToHopMon1').val();
-            console.info(id);
-            let target = $(this).attr('target');
-            if (maNG != '-1') {
-                $.get(`/home/GetMajors2/${maNG}`, data => {
-                    attachDistrictOrWard($(target), data, '--------------Chọn--------------');
-                });
-            }
-        });
-        $('select.majors3-select').change(function () {
-            let maNG = $(this).val();
-            let id = $('#ddlToHopMon1').val();
-            console.info(id);
-            let target = $(this).attr('target');
-            if (maNG != '-1') {
-                $.get(`/home/GetMajors3/${maNG}`, data => {
-                    attachDistrictOrWard($(target), data, '--------------Chọn--------------');
-                });
-            }
-        });
-
-
-
 
         function attachDistrictOrWard(element, data, defaultItem, needFirstItem = true) {
             let itemsHtml = '';
@@ -1052,7 +1078,6 @@
                 itemsHtml = `<option value="-1">${defaultItem}</option>`;
             }
             for (let item of data) {
-                console.log(item);
                 itemsHtml += `<option value="${item.Id}">${item.Name}</option>`;
             }
             element.html(itemsHtml);

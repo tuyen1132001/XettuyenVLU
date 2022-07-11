@@ -11,16 +11,13 @@ namespace XettuyenDGNLTHPT.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class tblFormTuyenSinh
     {
         public int ID { get; set; }
         public string Tieu_De { get; set; }
         public string Noi_Dung { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<System.DateTime> NgayBatDau { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<System.DateTime> NgayKetThuc { get; set; }
         public Nullable<bool> Open_Close { get; set; }
         public string Loai { get; set; }

@@ -117,9 +117,15 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr><td>1</td> <td>@Model.TenNganh_TenToHop1.ToString().Split('#')[0]</td> <td>@Model.MaNganh_ToHop1.ToString().Split('#')[0]</td> <td>@Model.MaNganh_ToHop1.ToString().Split('#')[1]</td><td>@Model.TenNganh_TenToHop1.ToString().Split('-')[1] </td> <td></td></tr>
-                                                        <tr><td>2</td> <td>@Model.TenNganh_TenToHop2.ToString().Split('#')[0]</td><td>@Model.MaNganh_ToHop2.ToString().Split('#')[0] </td><td> @Model.MaNganh_ToHop2.ToString().Split('#')[1]</td><td> @Model.TenNganh_TenToHop2.ToString().Split('-')[1]</td><td></td> </tr>
-                                                        <tr><td>3</td> <td>@Model.TenNganh_TenToHop3.ToString().Split('#')[0]</td><td> @Model.MaNganh_ToHop3.ToString().Split('#')[0]</td><td> @Model.MaNganh_ToHop3.ToString().Split('#')[1]</td><td> @Model.TenNganh_TenToHop2.ToString().Split('-')[1]</td><td></td> </tr>
+                                                        <tr><td>1</td> <td>@Model.TenNganh_TenToHop1.ToString().Split('#')[0]</td> <td>@Model.MaNganh_ToHop1.ToString().Split('#')[0]</td> <td>@Model.MaNganh_ToHop1.ToString().Split('#')[1]</td><td>@Model.TenNganh_TenToHop1.ToString().Split('-')[1] </td> <td>@Model.CTDT1</td></tr>
+                                                        @if (Model.TenNganh_TenToHop2 != null)
+                                                        {
+                                                            <tr><td>2</td> <td>@Model.TenNganh_TenToHop2.ToString().Split('#')[0]</td><td>@Model.MaNganh_ToHop2.ToString().Split('#')[0] </td><td> @Model.MaNganh_ToHop2.ToString().Split('#')[1]</td><td> @Model.TenNganh_TenToHop2.ToString().Split('-')[1]</td><td>@Model.CTDT2</td> </tr>
+                                                        }
+                                                        @if (Model.TenNganh_TenToHop3 != null)
+                                                        {
+                                                            <tr><td>3</td> <td>@Model.TenNganh_TenToHop3.ToString().Split('#')[0]</td><td> @Model.MaNganh_ToHop3.ToString().Split('#')[0]</td><td> @Model.MaNganh_ToHop3.ToString().Split('#')[1]</td><td> @Model.TenNganh_TenToHop2.ToString().Split('-')[1]</td><td>@Model.CTDT3</td> </tr>
+                                                        }
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -155,4 +161,4 @@
                 </DIV>
             </DIV>
         </DIV>
-     }
+    }

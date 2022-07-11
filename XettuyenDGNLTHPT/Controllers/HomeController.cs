@@ -44,22 +44,12 @@ namespace XettuyenDGNLTHPT.Controllers
             Majors.Insert(0, new { MA_NGANH = "-1", TEN_NGANH = "--------------Chọn-------------- " });
             ViewBag.NGANH = new SelectList(Majors, "MA_NGANH", "TEN_NGANH");
 
-            // Form tuyển sinh
-            var form = model.tblFormTuyenSinhs.Find(0);
-            Session["Form-Title"] = form.Tieu_De;
-            Session["Form-Content"] = form.Noi_Dung;
-            Session["Form-bodyTHPT"] = form.Open_Close;
-
-            var formDGNL = model.tblFormTuyenSinhs.Find(1);
-            Session["Form-TitleDGNl"] = formDGNL.Tieu_De;
-            Session["Form-ContentDGNL"] = formDGNL.Noi_Dung;
-            Session["Form-bodyDGNL"] = formDGNL.Open_Close;
             return View();
         }
 
         [HttpPost]
         public ActionResult Index(tblHoSoTHPT tblHoSoTHPT, string TP_QH_PX, string ddlHoKhauQuanHuyen, string ddlHoKhau_PhuongXa, string THPT, string ddlQuanHuyenTHPT, string ddlTenTruongTHPT, string ddlKhuVuc
-                                    , string ddlDoiTuongUT, string LienHeTP, string ddlQuanHuyen, string ddlPhuongXa, string Majors1, string Majors2, string Majors3, string ddlToHopMon1, string ddlToHopMon2, string ddlToHopMon3) //Form Dang ky THTP QG
+                                    , string ddlDoiTuongUT, string LienHeTP, string ddlQuanHuyen, string ddlPhuongXa, string Majors1, string Majors2, string Majors3, string ddlToHopMon1, string ddlToHopMon2, string ddlToHopMon3, string CTDT1, string CTDT2, string CTDT3) //Form Dang ky THTP QG
         {
             if (ModelState.IsValid)
             {
@@ -134,15 +124,27 @@ namespace XettuyenDGNLTHPT.Controllers
                     tblHoSoTHPT.CCNN = "";
                 }
                 // Nganh va To hop 1/2/3
-                var dbNganhTohop1 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors1 + ddlToHopMon1));
-                string NameNganhTohop1 = dbNganhTohop1.TEN_NGANH + "#" + dbNganhTohop1.MA_TOHOP + " - " + dbNganhTohop1.TEN_TOHOP;
-                var dbNganhTohop2 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors2 + ddlToHopMon2));
-                string NameNganhTohop2 = dbNganhTohop2.TEN_NGANH + "#" + dbNganhTohop2.MA_TOHOP + " - " + dbNganhTohop2.TEN_TOHOP;
-                var dbNganhTohop3 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors3 + ddlToHopMon3));
-                string NameNganhTohop3 = dbNganhTohop3.TEN_NGANH + "#" + dbNganhTohop3.MA_TOHOP + " - " + dbNganhTohop3.TEN_TOHOP;
-                tblHoSoTHPT.MaNganh_ToHop1 = Majors1 + "#" + ddlToHopMon1; tblHoSoTHPT.TenNganh_TenToHop1 = NameNganhTohop1;
-                tblHoSoTHPT.MaNganh_ToHop2 = Majors2 + "#" + ddlToHopMon2; tblHoSoTHPT.TenNganh_TenToHop2 = NameNganhTohop2;
-                tblHoSoTHPT.MaNganh_ToHop3 = Majors3 + "#" + ddlToHopMon3; tblHoSoTHPT.TenNganh_TenToHop3 = NameNganhTohop3;
+                if (Majors1 != "-1" && !string.IsNullOrWhiteSpace(ddlToHopMon1))
+                {
+                    var dbNganhTohop1 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors1 + ddlToHopMon1));
+                    string NameNganhTohop1 = dbNganhTohop1.TEN_NGANH + "#" + dbNganhTohop1.MA_TOHOP + " - " + dbNganhTohop1.TEN_TOHOP;
+                    tblHoSoTHPT.MaNganh_ToHop1 = Majors1 + "#" + ddlToHopMon1; tblHoSoTHPT.TenNganh_TenToHop1 = NameNganhTohop1;
+                    tblHoSoTHPT.CTDT1 = CTDT1;
+                }
+                if (Majors2 != "-1" && !string.IsNullOrWhiteSpace(ddlToHopMon2))
+                {
+                    var dbNganhTohop2 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors2 + ddlToHopMon2));
+                    string NameNganhTohop2 = dbNganhTohop2.TEN_NGANH + "#" + dbNganhTohop2.MA_TOHOP + " - " + dbNganhTohop2.TEN_TOHOP;
+                    tblHoSoTHPT.MaNganh_ToHop2 = Majors2 + "#" + ddlToHopMon2; tblHoSoTHPT.TenNganh_TenToHop2 = NameNganhTohop2;
+                    tblHoSoTHPT.CTDT2 = CTDT2;
+                }
+                if (Majors3 != "-1" && !string.IsNullOrWhiteSpace(ddlToHopMon3))
+                {
+                    var dbNganhTohop3 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors3 + ddlToHopMon3));
+                    string NameNganhTohop3 = dbNganhTohop3.TEN_NGANH + "#" + dbNganhTohop3.MA_TOHOP + " - " + dbNganhTohop3.TEN_TOHOP;
+                    tblHoSoTHPT.MaNganh_ToHop3 = Majors3 + "#" + ddlToHopMon3; tblHoSoTHPT.TenNganh_TenToHop3 = NameNganhTohop3;
+                    tblHoSoTHPT.CTDT3 = CTDT3;
+                }
                 return RedirectToAction("Detail", tblHoSoTHPT);
             }
             return View();
@@ -151,12 +153,11 @@ namespace XettuyenDGNLTHPT.Controllers
         public ActionResult Detail(tblHoSoTHPT thpt)
         {
             var hoso = thpt;
-            
-            return View(hoso);
 
+            return View(hoso);
         }
 
-       public ActionResult Save(tblHoSoTHPT thpt)
+        public ActionResult Save(tblHoSoTHPT thpt)
         {
             model.tblHoSoTHPTs.Add(thpt);
             model.SaveChanges();
@@ -186,9 +187,6 @@ namespace XettuyenDGNLTHPT.Controllers
             }
             return View(hoso);
         }
-
-
-
 
         public JsonResult GetDistrict(string id) // lấy quận huyện
         {
@@ -239,33 +237,15 @@ namespace XettuyenDGNLTHPT.Controllers
                 .ToList();
             return Json(data, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult GetMajors1(string id)// tim to hop theo nganh
-        {
-            var data = model.tblNganhs
-                .Where(e => e.MA_NGANH == id)
-                .Select(e => new { Id = e.MA_TOHOP, Name = e.MA_TOHOP + "-" + e.TEN_TOHOP })
-                .Distinct()
-                .ToList();
-            return Json(data, JsonRequestBehavior.AllowGet);
-        }
-        public JsonResult GetMajors2(string id)// tim to hop theo nganh
-        {
-            var data = model.tblNganhs
-                .Where(e => e.MA_NGANH == id)
-                .Select(e => new { Id = e.MA_TOHOP, Name = e.MA_TOHOP + "-" + e.TEN_TOHOP })
-                .Distinct()
-                .ToList();
-            return Json(data, JsonRequestBehavior.AllowGet);
-        }
-        public JsonResult GetMajors3(string id)// tim to hop theo nganh
-        {
-            var data = model.tblNganhs
-                .Where(e => e.MA_NGANH == id)
-                .Select(e => new { Id = e.MA_TOHOP, Name = e.MA_TOHOP + "-" + e.TEN_TOHOP })
-                .Distinct()
-                .ToList();
-            return Json(data, JsonRequestBehavior.AllowGet);
-        }
 
+        public JsonResult GetMajors(string id)// tim to hop theo nganh
+        {
+            var data = model.tblNganhs
+                .Where(e => e.MA_NGANH == id)
+                .Select(e => new { Id = e.MA_TOHOP, Name = e.MA_TOHOP + "-" + e.TEN_TOHOP, HasCTDBFlag = e.CTDB != null })
+                .Distinct()
+                .ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
     }
 }
