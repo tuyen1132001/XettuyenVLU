@@ -186,6 +186,8 @@
     <Compile Include="Areas\Admin\Controllers\AcountController.cs" />
     <Compile Include="Areas\Admin\Controllers\FormContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageDGNLController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageTHPTController.cs" />
     <Compile Include="Areas\Admin\Middleware\LoginVerification.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -741,6 +743,8 @@
     <Content Include="Areas\Admin\Views\FormContent\IndexDGNL.cshtml" />
     <Content Include="Areas\Admin\Views\FormContent\EditformTHPT.cshtml" />
     <Content Include="Areas\Admin\Views\FormContent\EditformDGNL.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageTHPT\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageDGNL\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
