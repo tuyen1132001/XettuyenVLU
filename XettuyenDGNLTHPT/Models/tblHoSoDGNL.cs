@@ -73,5 +73,10 @@ namespace XettuyenDGNLTHPT.Models
         public string DaNhanHoSo { get; set; }
         public string DiemVeMyThuat { get; set; }
         public string DiemVeNangKhieu { get; set; }
+        public string CTDT1 { get; set; }
+
+        public string CTDT2 { get; set; }
+
+        public string CTDT3 { get; set; }
     }
 }

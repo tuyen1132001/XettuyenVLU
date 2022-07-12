@@ -51,7 +51,8 @@ z    </tr>
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>@item.ID</td>
+                                            <td><a href="@Url.Action("",new {id = item.ID })">@item.ID</a>
+                                            </td>
                                             <td class="txt-oflo">@item.Full_Name</td>
                                             <td>@item.Email</td>
                                             <td class="txt-oflo">@item.Phone</td>

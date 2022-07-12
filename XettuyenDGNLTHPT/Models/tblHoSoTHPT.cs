@@ -11,8 +11,10 @@ namespace XettuyenDGNLTHPT.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class tblHoSoTHPT
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    public  class tblHoSoTHPT
     {
         public long ID { get; set; }
         public string HoVaTen { get; set; }

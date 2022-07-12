@@ -248,8 +248,12 @@
                                                                 <div class="form-group">
                                                                     <label class="control-label col-md-4">Họ và tên<span class="required"> * </span></label>
                                                                     <div class="col-md-5 col-validate">
-                                                                        @Html.EditorFor(model => model.HoVaTen, new { htmlAttributes = new { @class = "form-control", placeholder = "NGUYỄN VĂN A", required = "true", style = "text-transform: uppercase;" } })
+                                                                        @Html.EditorFor(model => model.HoVaTen, new { htmlAttributes = new { @class = "form-control", placeholder = "NGUYỄN VĂN A",  style = "text-transform: uppercase;", @pattern = "[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ ]{1,}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào họ tên của bạn')", @oninput = "this.setCustomValidity('')"} })
+
+
                                                                         @*<input name="txtTenThiSinh" type="text" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />*@
+                                                                        @Html.ValidationMessageFor(model => model.HoVaTen, "", new { @class = "text-danger" })
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
@@ -272,14 +276,14 @@
                                                                             <tr>
                                                                                 <td>
                                                                                     @*<input name="txtNgaySinh" type="text" id="txtNgaySinh" class="form-control" required="true" placeholder="21/08/2000" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" style="width:130px;" />*@
-                                                                                    @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "10/02/2001", Type = "Date" } })
+                                                                                    @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào ngày sinh của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                     @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
                                                                                 </td>
                                                                                 <td>Nơi sinh<span style="color:red"> * </span></td>
                                                                                 <td>
 
-                                                                                    @Html.DropDownList("MaNoiSinh", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, new { @class = "form-control", @required = "required" })
-
+                                                                                    @Html.DropDownList("MaNoiSinh", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, new { @class = "form-control", @required = "required", @oninvalid = "this.setCustomValidity('Hãy chọn nơi sinh của bạn')", @oninput = "this.setCustomValidity('')" } )
+                                                                                    @Html.ValidationMessageFor(model => model.MaNoiSinh, "", new { @class = "text-danger" })
                                                                                     @*@Html.DropDownList("Noisinh", null, htmlAttributes: new { @class = "form-control", required = "true" })*@
 
                                                                                 </td>
@@ -319,7 +323,7 @@
                                                                                 <tr>
                                                                                     <td>
                                                                                         <!--<input name="txtCMND"--> @*maxlength="12" id="txtCMND" required="true" placeholder="9 số hoặc 12 số" type="text" class="form-control*@<!--" />-->
-                                                                                        @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "9 số hoặc 12 số" } })
+                                                                                        @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control",  placeholder = "9 số hoặc 12 số" ,@pattern = "[0-9]{9,12}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào CMND của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                         @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
                                                                                     </td>
                                                                                     <td>Quốc tịch<span style="color:red"> * </span></td>
@@ -338,7 +342,7 @@
                                                                     <div class="form-group">
                                                                         <label class="control-label col-md-4">Hộ khẩu thường trú<span class="required"> * </span></label>
                                                                         <div class="col-md-5">
-                                                                            @Html.EditorFor(model => model.HoKhau, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Số nhà/ khu phố, thôn, tên đường, ấp, tổ" } })
+                                                                            @Html.EditorFor(model => model.HoKhau, new { htmlAttributes = new { @class = "form-control", placeholder = "Số nhà/ khu phố, thôn, tên đường, ấp, tổ", @pattern = ".{1,}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào hộ khẩu của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                             @Html.ValidationMessageFor(model => model.HoKhau, "", new { @class = "text-danger" })
                                                                             <div class="vertical_space"></div>
                                                                             <div class="row">
@@ -348,7 +352,7 @@
 
 
 
-                                                                                    @Html.DropDownList("TP_QH_PX", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", required = "true", target = "#ddlHoKhauQuanHuyen" })
+                                                                                    @Html.DropDownList("TP_QH_PX", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select",  target = "#ddlHoKhauQuanHuyen", @required = "required", @oninvalid = "this.setCustomValidity('Hãy tỉnh thành phố hộ khẩu của bạn')", @oninput = "this.setCustomValidity('')" })
                                                                                     @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
                                                                                     @Html.ValidationMessageFor(model => model.HoKhau_TenTinhTP, "", new { @class = "text-danger" })
 
@@ -360,7 +364,7 @@
                                                                             <div class="row">
                                                                                 <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
                                                                                 <div class="col-md-8">
-                                                                                    <select name="ddlHoKhauQuanHuyen" id="ddlHoKhauQuanHuyen" class="form-control district-select" required="true" target="#ddlHoKhau_PhuongXa">
+                                                                                    <select name="ddlHoKhauQuanHuyen" id="ddlHoKhauQuanHuyen" class="form-control district-select"  target="#ddlHoKhau_PhuongXa ">
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
@@ -378,7 +382,7 @@
                                                                     <div class="form-group">
                                                                         <label class="control-label col-md-4">Năm tốt nghiệp<span class="required"> * </span></label>
                                                                         <div class="col-md-2">
-                                                                            @Html.EditorFor(model => model.NamTotNghiep, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Năm tốt nghiệp" } })
+                                                                            @Html.EditorFor(model => model.NamTotNghiep, new { htmlAttributes = new { @class = "form-control",placeholder = "Năm tốt nghiệp" ,@pattern = "[0-9]{4}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào năm tốt nghiệp của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                             @Html.ValidationMessageFor(model => model.NamTotNghiep, "", new { @class = "text-danger" })
                                                                             @*<input name="txtNamTotNghiep" id="txtNamTotNghiep" required="true" placeholder="Nhập năm tốt nghiệp" type="number" min="0" max="2022" class="form-control" />*@
                                                                         </div>
@@ -471,7 +475,7 @@
                                                                             <div class="row">
                                                                                 <div class="col-md-4 control-label">Tên lớp 12 <span class="required"> * </span></div>
                                                                                 <div class="col-md-8">
-                                                                                    @Html.EditorFor(model => model.TenLop12, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Tên lớp 12" } })
+                                                                                    @Html.EditorFor(model => model.TenLop12, new { htmlAttributes = new { @class = "form-control",  placeholder = "Tên lớp 12"  ,@pattern = ".{3,}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào tên lớp 12 của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                     @Html.ValidationMessageFor(model => model.TenLop12, "", new { @class = "text-danger" })
                                                                                     @*<input name="txtTenLop12" id="txtTenLop12" required="true" placeholder="Tên lớp 12" type="text" class="form-control" />*@
                                                                                     <span class="text-muted">(Ví dụ: lớp 12A1)</span>
@@ -520,7 +524,7 @@
                                                                     <div class="form-group">
                                                                         <label class="control-label col-md-4">Địa chỉ gửi thư báo kết quả<span class="required"> * </span></label>
                                                                         <div class="col-md-5 col-validate">
-                                                                            @Html.EditorFor(model => model.LienLac_DiaChi, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Số nhà, Tên đường" } })
+                                                                            @Html.EditorFor(model => model.LienLac_DiaChi, new { htmlAttributes = new { @class = "form-control", placeholder = "Số nhà, Tên đường", @pattern = ".{1,}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào địa chỉ liên lạc của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                             @Html.ValidationMessageFor(model => model.LienLac_DiaChi, "", new { @class = "text-danger" })
                                                                             @*<input name="txtDiaChi" type="text" id="txtDiaChi" class="form-control" required="true" placeholder="Số nhà, Tên đường" />*@
 
@@ -559,7 +563,8 @@
                                                                     <div class="form-group">
                                                                         <label class="control-label col-md-4">Điện thoại di động<span class="required"> * </span></label>
                                                                         <div class="col-md-5 col-validate">
-                                                                            @Html.EditorFor(model => model.DienThoaiDD, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Điện thoại di động" } })
+                                                                            @Html.EditorFor(model => model.DienThoaiDD, new { htmlAttributes = new { @class = "form-control", placeholder = "Điện thoại di động" , @pattern = "[0-9]{10}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào số điện thoại của bạn')", @oninput = "this.setCustomValidity('')"} })
+
                                                                             @Html.ValidationMessageFor(model => model.DienThoaiDD, "", new { @class = "text-danger" })
                                                                             @*<input name="txtDienThoaiDiDong" type="text" id="txtDienThoaiDiDong" class="form-control" required="true" placeholder="Điện thoại di động" />*@
                                                                         </div>
@@ -567,7 +572,7 @@
                                                                     <div class="form-group">
                                                                         <label class="control-label col-md-4">Email <span class="required"> * </span></label>
                                                                         <div class="col-md-5 col-validate">
-                                                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Email liên lạc" } })
+                                                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email liên lạc" ,Type = "Email", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào email của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                                                             @*<input name="txtEmail" id="txtEmail" class="form-control" required="true" type="Email" placeholder="Email liên lạc" />*@
                                                                             <span class="text-muted">(Nhà trường sẽ gửi Mã hồ sơ qua email này)</span>
@@ -576,7 +581,7 @@
                                                                     <div class="form-group">
                                                                         <label class="control-label col-md-4">Điện thoại phụ huynh <span class="required"> * </span></label>
                                                                         <div class="col-md-5 col-validate">
-                                                                            @Html.EditorFor(model => model.DienThoaiPhuHuynh, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Điện thoại phụ huynh" } })
+                                                                            @Html.EditorFor(model => model.DienThoaiPhuHuynh, new { htmlAttributes = new { @class = "form-control", placeholder = "Điện thoại phụ huynh", @pattern = "[0-9]{10}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào số điện thoại của phụ huynh')", @oninput = "this.setCustomValidity('')" } })
                                                                             @Html.ValidationMessageFor(model => model.DienThoaiPhuHuynh, "", new { @class = "text-danger" })
                                                                             @*<input name="txtDienThoaiPhuHuynh" type="text" id="txtDienThoaiPhuHuynh" class="form-control" required="true" placeholder="Điện thoại phụ huynh" />*@
                                                                             <span class="text-muted">(Trường hợp không liên lạc được với thí sinh, nhà Trường sẽ liên lạc qua số này)</span>
@@ -608,14 +613,14 @@
                                                                                 <tr>
                                                                                     <td>
                                                                                         Toán
-                                                                                        @Html.EditorFor(model => model.Toan, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; " } })
+                                                                                        @Html.EditorFor(model => model.Toan, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px; height: 40px; ", type = "number" , min = "0" , max = "10" ,@required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào điểm Toán của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                         @Html.ValidationMessageFor(model => model.Toan, "", new { @class = "text-danger" })
                                                                                         @*<span class="bold">TOÁN</span> <input name="txtToan12" type="text" maxlength="5" id="txtToan12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                                     </td>
                                                                                     <td>
                                                                                         Văn
-                                                                                        @Html.EditorFor(model => model.Van, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px; height: 40px;  " } })
+                                                                                        @Html.EditorFor(model => model.Van, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px; height: 40px;  ", type = "number", min = "0", max = "10", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào điểm Văn của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                         @Html.ValidationMessageFor(model => model.Van, "", new { @class = "text-danger" })
                                                                                         @*<span class="bold">VĂN</span> <input name="txtVan12" type="text" maxlength="5" id="txtVan12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
@@ -623,7 +628,7 @@
                                                                                     </td>
                                                                                     <td>
                                                                                         Anh
-                                                                                        @Html.EditorFor(model => model.Anh, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control ", @style = " width: 60px;    height: 40px;  " } })
+                                                                                        @Html.EditorFor(model => model.Anh, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control ", @style = " width: 60px;    height: 40px;  ", type = "number", min = "0", max = "10", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào điểm Anh của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                         @Html.ValidationMessageFor(model => model.Anh, "", new { @class = "text-danger" })
                                                                                         @*<span class="bold">ANH</span><input name="txtAnh12" type="text" maxlength="5" id="txtAnh12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
@@ -637,7 +642,7 @@
                                                                                     </td>
                                                                                     <td>
                                                                                         Lý
-                                                                                        @Html.EditorFor(model => model.Ly, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; " } })
+                                                                                        @Html.EditorFor(model => model.Ly, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; " , type = "number", min = "0", max = "10", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào điểm Lý của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                         @Html.ValidationMessageFor(model => model.Ly, "", new { @class = "text-danger" })
                                                                                         @*<span class="bold">LÝ</span><input name="txtLy12" type="text" maxlength="5" id="txtLy12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
@@ -646,35 +651,35 @@
                                                                                 <tr>
                                                                                     <td>
                                                                                         Hóa
-                                                                                        @Html.EditorFor(model => model.Hoa, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; " } })
+                                                                                        @Html.EditorFor(model => model.Hoa, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; ", type = "number", min = "0", max = "10", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào điểm Hóa của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                         @Html.ValidationMessageFor(model => model.Hoa, "", new { @class = "text-danger" })
                                                                                         @*<span class="bold">HÓA</span><input name="txtHoa12" type="text" maxlength="5" id="txtHoa12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                                     </td>
                                                                                     <td>
                                                                                         Sinh
-                                                                                        @Html.EditorFor(model => model.Sinh, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; " } })
+                                                                                        @Html.EditorFor(model => model.Sinh, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; ", type = "number", min = "0", max = "10", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào điểm Sinh của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                         @Html.ValidationMessageFor(model => model.Sinh, "", new { @class = "text-danger" })
                                                                                         @*<span class="bold">SINH</span><input name="txtSinh12" type="text" maxlength="5" id="txtSinh12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                                     </td>
                                                                                     <td>
                                                                                         Sử
-                                                                                        @Html.EditorFor(model => model.Su, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; " } })
+                                                                                        @Html.EditorFor(model => model.Su, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; " , type = "number", min = "0", max = "10", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào điểm Sử của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                         @Html.ValidationMessageFor(model => model.Su, "", new { @class = "text-danger" })
                                                                                         @*<span class="bold">SỬ</span><input name="txtSu12" type="text" maxlength="5" id="txtSu12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                                     </td>
                                                                                     <td>
                                                                                         Địa
-                                                                                        @Html.EditorFor(model => model.Dia, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; " } })
+                                                                                        @Html.EditorFor(model => model.Dia, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; ", type = "number", min = "0", max = "10", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào điểm Dịa của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                         @Html.ValidationMessageFor(model => model.Dia, "", new { @class = "text-danger" })
                                                                                         @*<span class="bold">ĐỊA</span><input name="txtDia12" type="text" maxlength="5" id="txtDia12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
                                                                                     </td>
                                                                                     <td>
                                                                                         GDCD
-                                                                                        @Html.EditorFor(model => model.GDCD, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; " } })
+                                                                                        @Html.EditorFor(model => model.GDCD, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; ", type = "number", min = "0", max = "10", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào điểm GDCD của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                         @Html.ValidationMessageFor(model => model.GDCD, "", new { @class = "text-danger" })
                                                                                         @*<span class="bold">GDCD</span><input name="txtGDCD12" type="text" maxlength="5" id="txtGDCD12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
