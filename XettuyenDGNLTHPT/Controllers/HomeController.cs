@@ -43,7 +43,15 @@ namespace XettuyenDGNLTHPT.Controllers
             var Majors = model.tblNganhs.Select(e => new { e.MA_NGANH, e.TEN_NGANH }).Distinct().ToList();
             Majors.Insert(0, new { MA_NGANH = "-1", TEN_NGANH = "--------------Chọn-------------- " });
             ViewBag.NGANH = new SelectList(Majors, "MA_NGANH", "TEN_NGANH");
+            var form = model.tblFormTuyenSinhs.Find(0);
+            Session["Form-Title"] = form.Tieu_De;
+            Session["Form-Content"] = form.Noi_Dung;
+            Session["Form-bodyTHPT"] = form.Open_Close;
 
+            var formDGNL = model.tblFormTuyenSinhs.Find(1);
+            Session["Form-TitleDGNl"] = formDGNL.Tieu_De;
+            Session["Form-ContentDGNL"] = formDGNL.Noi_Dung;
+            Session["Form-bodyDGNL"] = formDGNL.Open_Close;
             return View();
         }
 
