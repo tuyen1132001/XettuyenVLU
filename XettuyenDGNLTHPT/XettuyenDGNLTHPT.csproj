@@ -801,6 +801,10 @@
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\HoSoDGNLs\Save.cshtml" />
     <Content Include="Views\Home\Save.cshtml" />
+    <Content Include="Views\ManageHoSo\EditTHPT.cshtml" />
+    <Content Include="Views\ManageHoSo\EditDGNL.cshtml" />
+    <Content Include="Views\ManageHoSo\SaveTHPT.cshtml" />
+    <Content Include="Views\ManageHoSo\SaveDGNL.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
