@@ -1,0 +1,121 @@
+﻿@model IEnumerable<XettuyenDGNLTHPT.Models.tblTruongTHPT>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+
+<html dir="ltr" lang="en">
+
+
+<body>
+
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+
+
+
+        <div class="page-wrapper">
+
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 style="padding-top: 10px;" class="page-title">Danh Mục Khu Vực</h4>
+                    </div>
+
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <div class="container">
+                @using (Html.BeginForm("Import", "ManageImporData", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <label for="" class="">Import excel:</label>
+                    <input class="form-control" type="file" name="ExcelData" />
+                    <button type="submit" id="submit"> Import</button>
+                }
+
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <div class="d-md-flex mb-3">
+                                <h1 class="box-title mb-0">Dữ liệu Danh Mục Khu Vực</h1>
+
+                                <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
+                                    <script language="javascript" type="text/javascript">
+
+                                        dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
+                                        monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
+                                        now = new Date
+                                        document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="c">
+                                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Tỉnh - Thành Phố</th>
+                                            <th>Quận - Huyện</th>
+                                            <th>Trường THPT</th>
+                                            <th>Tùy Chỉnh</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.TEN_TINHTP</td>
+                                                <td>@item.TEN_QH</td>
+                                                <td>@item.TEN_TRUONG</td>
+                                                <td>@item.TEN_TRUONG</td>
+                                                <td><a href="">Edit</a> | <a href="">Delete</a></td>
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+
+                                </table>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+
