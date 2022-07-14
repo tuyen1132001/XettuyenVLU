@@ -812,6 +812,7 @@
     <Content Include="Areas\Admin\Views\FormContent\EditformTHPT.cshtml" />
     <Content Include="Areas\Admin\Views\FormContent\EditformDGNL.cshtml" />
     <Content Include="Areas\Admin\Views\ManageImporData\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageImporData\EditImportData.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

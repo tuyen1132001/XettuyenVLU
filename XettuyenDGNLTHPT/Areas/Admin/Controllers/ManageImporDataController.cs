@@ -105,5 +105,28 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
         }
+        public ActionResult Delete(int id)
+        {
+            var Data = model.tblTruongTHPTs.Find(id);
+            model.tblTruongTHPTs.Remove(Data);
+            model.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult EditImportData(int id)
+        {
+            var Data = model.tblTruongTHPTs.Find(id);
+            return View(Data);
+        }
+        [HttpPost]
+        public ActionResult EditImportData(tblTruongTHPT data)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Entry(data).State = EntityState.Modified;
+                model.SaveChanges();
+                return RedirectToAction("Index", "ManageImporData");
+            }
+         return View();
+        }
     }
 }
