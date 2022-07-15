@@ -21,6 +21,10 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         // GET: Admin/ManageImporData
         public ActionResult Index()
         {
+            return View();
+        }
+        public ActionResult IndexTHPT()
+        {
             var truong = model.tblTruongTHPTs.ToList();
             return View(truong);
         }
@@ -98,27 +102,27 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                         }
                     }
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexTHPT");
             }
             catch
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexTHPT");
             }
         }
-        public ActionResult Delete(int id)
+        public ActionResult DeleteTHPT(int id)
         {
             var Data = model.tblTruongTHPTs.Find(id);
             model.tblTruongTHPTs.Remove(Data);
             model.SaveChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult EditImportData(int id)
+        public ActionResult EditImportDataTHPT(int id)
         {
             var Data = model.tblTruongTHPTs.Find(id);
             return View(Data);
         }
         [HttpPost]
-        public ActionResult EditImportData(tblTruongTHPT data)
+        public ActionResult EditImportDataTHPT(tblTruongTHPT data)
         {
             if (ModelState.IsValid)
             {
@@ -127,6 +131,106 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                 return RedirectToAction("Index", "ManageImporData");
             }
          return View();
+        }
+        public ActionResult IndexCNN()
+        {
+            var CNN = model.tblChungChiNNs.ToList();
+            return View(CNN);
+        }
+        public ActionResult ImportCNN(HttpPostedFileBase ExcelData)
+        {
+            try
+            {
+                string filepath = string.Empty;
+                if (ExcelData != null)
+                {
+                    string path = Server.MapPath("~/Upload");
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    filepath = path + Path.GetFileName(ExcelData.FileName);
+                    string extension = Path.GetExtension(ExcelData.FileName);
+                    ExcelData.SaveAs(filepath);
+
+                    string conString = string.Empty;
+                    switch (extension)
+                    {
+                        case ".xls":
+                            conString = ConfigurationManager.ConnectionStrings["Excel03ConString"].ConnectionString;
+                            break;
+                        case ".xlsx":
+                            conString = ConfigurationManager.ConnectionStrings["Excel07ConString"].ConnectionString;
+                            break;
+
+                    }
+
+                    DataTable dtExcel = new DataTable();
+                    conString = string.Format(conString, filepath);
+                    using (OleDbConnection connExcel = new OleDbConnection(conString))
+                    {
+                        using (OleDbCommand cmdExcel = new OleDbCommand())
+                        {
+                            using (OleDbDataAdapter odaExcel = new OleDbDataAdapter())
+                            {
+                                cmdExcel.Connection = connExcel;
+                                connExcel.Open();
+                                DataTable dtExcelSchema = connExcel.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+                                string sheetName = dtExcelSchema.Rows[0].Field<string>("TABLE_NAME");
+                                connExcel.Close();
+                                connExcel.Open();
+                                cmdExcel.CommandText = "SELECT * from [" + sheetName + "]";
+                                odaExcel.SelectCommand = cmdExcel;
+                                odaExcel.Fill(dtExcel);
+                                connExcel.Close();
+                            }
+                        }
+                    }
+                    conString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                    using (SqlConnection con = new SqlConnection(conString))
+                    {
+                        using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
+                        {
+                            sqlBulkCopy.DestinationTableName = "[dbo].[tblChungChiNN]";
+                            sqlBulkCopy.ColumnMappings.Add("Mã Ngoại Ngữ", "MaNN");
+                            sqlBulkCopy.ColumnMappings.Add("Chứng Chỉ", "ChungChi");
+                            sqlBulkCopy.ColumnMappings.Add("Điểm Quy Đổi", "DiemQuiDoi");
+                            con.Open();
+                            sqlBulkCopy.WriteToServer(dtExcel);
+                            con.Close();
+
+                        }
+                    }
+                }
+                return RedirectToAction("IndexCNN");
+            }
+            catch
+            {
+                return RedirectToAction("IndexCNN");
+            }
+        }
+        public ActionResult EditImportDataCNN(int id)
+        {
+            var Data = model.tblChungChiNNs.Find(id);
+            return View(Data);
+        }
+        [HttpPost]
+        public ActionResult EditImportDataCNN(tblChungChiNN data)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Entry(data).State = EntityState.Modified;
+                model.SaveChanges();
+                return RedirectToAction("IndexCNN", "ManageImporData");
+            }
+            return View();
+        }
+        public ActionResult DeleteCNN(int id)
+        {
+            var Data = model.tblChungChiNNs.Find(id);
+            model.tblChungChiNNs.Remove(Data);
+            model.SaveChanges();
+            return RedirectToAction("IndexCNN");
         }
     }
 }

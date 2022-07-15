@@ -1,134 +1,129 @@
-﻿@model IEnumerable<XettuyenDGNLTHPT.Models.tblTruongTHPT>
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
 }
 
-<!
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <title>Phân trang ảo với Bootstrap 4 --- dammio.com</title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta name="keywords"
+          content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+          content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>	VLU - TRANG ĐĂNG KÝ TUYỂN SINH ONLINE</title>
+    <!---->
+    <!---->
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./plugins/images/logo-page.png">
+    <!-- Custom CSS -->
+    <link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+    <!-- Custom CSS -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.code.css">
+    <link href='https://css.gg/home-alt.css' rel='stylesheet'>
+    <style>
+        .form-conten-edit {
+            display: flex;
+            justify-content: space-around;
+        }
 
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+        .btn-edit {
+            margin: 40px;
+            height: 5rem;
+            width: 13rem;
+            background: blue;
+        }
 
-    <script>
-        $(document).ready(function () {
+            .btn-edit:hover {
+                background: #ff0000;
+                background: linear-gradient(170deg,#ff0000 0%, #ff0083 80%);
+                background: -webkit-linear-gradient(170deg,#ff0000 0%, #ff0083 80%);
+                background: -moz-linear-gradient(170deg,#ff0000 0%, #ff0083 80%);
+            }
 
-            // Cấu hình các nhãn phân trang
-            $('#example').dataTable({
-                "language": {
-                    "sProcessing": "Đang xử lý...",
-                    "sLengthMenu": "Xem _MENU_ mục",
-                    "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
-                    "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
-                    "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
-                    "sInfoFiltered": "(được lọc từ _MAX_ mục)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Tìm:",
-                    "sUrl": "",
-                    "oPaginate": {
-                        "sFirst": "Đầu",
-                        "sPrevious": "Trước",
-                        "sNext": "Tiếp",
-                        "sLast": "Cuối"
-                    }
-                }
-            });
-
-        });
-    </script>
-
+            .btn-edit a {
+                font-weight: 500;
+                font-size: 1rem;
+                color: #fff;
+            }
+    </style>
 </head>
-<body>
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
+<html dir="ltr" lang="en">
+
+
+
+
+<div class="page-wrapper">
+
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 style="padding-top: 10px;" class="page-title">Quản Lý Dữ Liệu Danh Mục</h4>
+            </div>
+
         </div>
+        <!-- /.col-lg-12 -->
     </div>
 
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Three charts -->
+        <!-- ============================================================== -->
 
 
-
-
-
-        <div class="page-breadcrumb bg-white">
-            <div class="row align-items-center">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 style="padding-top: 10px;" class="page-title">Danh Mục Khu Vực</h4>
-                </div>
-
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <div class="container">
-            @using (Html.BeginForm("Import", "ManageImporData", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-
-                <input class="form-control" type="file" name="ExcelData" />
-                <button type="submit" id="submit"> Import</button>
-            }
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12">
-                    <div class="white-box">
-
-                        <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
+        <div style="
+                    background: #fff;
+    border: solid 2px #fff;
+    padding: 20px;
+                " class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <center>     <h3><b>Dữ Liệu Danh Mục</b></h3></center>
+                    <h5 class="text-center">
+                        <div class="">
                             <script language="javascript" type="text/javascript">
-
                                 dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
                                 monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
                                 now = new Date
                                 document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
                             </script>
                         </div>
-                        <div class="container">
-                            <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Tỉnh - Thành Phố</th>
-                                        <th>Quận - Huyện</th>
-                                        <th>Phường - Xã</th>
-                                        <th>Trường THPT</th>
-                                        <th>Tùy Chỉnh</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr>
-                                            <td>@item.ID</td>
-                                            <td>@item.TEN_TINHTP</td>
-                                            <td>@item.TEN_QH</td>
-                                            <td>@item.TEN_TRUONG</td>
-                                            <td>@item.TEN_TRUONG</td>
-                                            <td><a href="@Url.Action("EditImportData","ManageImporData",new {id = item.ID})">Edit</a> | <a href="@Url.Action("Delete","ManageImporData",new {id = item.ID})" onclick="if (!confirm ('Bạn có muốn xóa thông tin dữ liệu không?')) { return false; }">Delete</a></td>
-
-                                        </tr>
-
-                                    }
-                                </tbody>
-
-                            </table>
-                        </div>
-
-                    </div>
+                    </h5>
                 </div>
+
+
             </div>
+
+            <DIV class="form-conten-edit">
+                <button type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("IndexTHPT","ManageImporData")">Thêm dữ liệu trường học khu vực</a></button>
+                <button type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("IndexCNN","ManageImporData")">Thêm dữ liệu chứng chỉ</a></button> <br>
+                <button type="button" class="btn-edit btn-edit2 btn  btn-lg"><a href="@Url.Action("EditformTHPT","FormContent")">Thêm dữ liệu Tỉnh TP</a></button>
+               
+
+
+
+            </DIV>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+<!-- ============================================================== -->
+<!-- End footer -->
+<!-- ============================================================== -->
         </div>
 
-</body>
-</html>
-
+</html>-
 
