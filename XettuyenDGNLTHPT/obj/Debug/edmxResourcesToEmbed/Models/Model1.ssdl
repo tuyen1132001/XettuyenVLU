@@ -13,6 +13,14 @@
     <Property Name="Role" Type="nvarchar" MaxLength="30" />
     <Property Name="IsActive" Type="bit" />
   </EntityType>
+  <EntityType Name="DanhMuc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDanhMuc" Type="nvarchar" MaxLength="255" />
+    <Property Name="motaDanhMuc" Type="nvarchar" MaxLength="255" />
+  </EntityType>
   <EntityType Name="tblChungChiNN">
     <Key>
       <PropertyRef Name="ID" />
@@ -106,6 +114,9 @@
     <Property Name="DaNhanHoSo" Type="char" MaxLength="1" />
     <Property Name="DiemVeMyThuat" Type="varchar" MaxLength="20" />
     <Property Name="DiemVeNangKhieu" Type="varchar" MaxLength="20" />
+    <Property Name="CTDT1" Type="nvarchar" MaxLength="4" />
+    <Property Name="CTDT2" Type="nvarchar" MaxLength="4" />
+    <Property Name="CTDT3" Type="nvarchar" MaxLength="4" />
   </EntityType>
   <EntityType Name="tblHoSoTHPT">
     <Key>
@@ -176,6 +187,9 @@
     <Property Name="DaNhanHoSo" Type="char" MaxLength="1" />
     <Property Name="DiemVeMyThuat" Type="varchar" MaxLength="20" />
     <Property Name="DiemVeNangKhieu" Type="varchar" MaxLength="20" />
+    <Property Name="CTDT1" Type="nvarchar" MaxLength="4" />
+    <Property Name="CTDT2" Type="nvarchar" MaxLength="4" />
+    <Property Name="CTDT3" Type="nvarchar" MaxLength="4" />
   </EntityType>
   <EntityType Name="tblNganh">
     <Key>
@@ -247,6 +261,7 @@
   </EntityType>
   <EntityContainer Name="SEP25Team08ModelStoreContainer">
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblFormTuyenSinh" EntityType="Self.tblFormTuyenSinh" Schema="dbo" store:Type="Tables" />

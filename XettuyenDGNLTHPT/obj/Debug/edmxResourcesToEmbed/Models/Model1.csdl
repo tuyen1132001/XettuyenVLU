@@ -80,6 +80,9 @@
     <Property Name="DaNhanHoSo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <Property Name="DiemVeMyThuat" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="DiemVeNangKhieu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CTDT1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CTDT2" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CTDT3" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="tblHoSoTHPT">
     <Key>
@@ -150,6 +153,9 @@
     <Property Name="DaNhanHoSo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <Property Name="DiemVeMyThuat" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="DiemVeNangKhieu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CTDT1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CTDT2" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CTDT3" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="tblNganh">
     <Key>
@@ -245,6 +251,7 @@
     <EntitySet Name="tblTruongTHPTs" EntityType="Self.tblTruongTHPT" />
     <EntitySet Name="Accounts" EntityType="Self.Account" />
     <EntitySet Name="tblFormTuyenSinhs" EntityType="SEP25Team08Model.tblFormTuyenSinh" />
+    <EntitySet Name="DanhMucs" EntityType="SEP25Team08Model.DanhMuc" />
   </EntityContainer>
   <EntityType Name="tblFormTuyenSinh">
     <Key>
@@ -258,5 +265,13 @@
     <Property Name="Open_Close" Type="Boolean" />
     <Property Name="Loai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Edit_Open" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DanhMuc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDanhMuc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="motaDanhMuc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>
