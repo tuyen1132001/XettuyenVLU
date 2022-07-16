@@ -4,7 +4,6 @@
     Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
 }
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,61 +48,46 @@
 
 </head>
 <body>
-
+    <a href="@Url.Action("Index","ManageDGNL")">
+        <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Hồ sơ ĐGNL</button>
+    </a>
     <div class="container-fluid">
         <table id="example" class="table table-striped table-bordered" style="width:100%">
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12">
-                    <a href="@Url.Action("Index","ManageDGNL")">
-                        <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Hồ sơ ĐGNL</button>
-                    </a>
-
-                    <div class="white-box">
-
-                        <div class="table-responsive">
-
-                            <table style="text-align:center" class="table no-wrap">
-
-                                <thead>
-                                    <tr>
-                                        <th class="border-top-0">Mã Hồ Sơ</th>
-                                        <th class="border-top-0"><b>Họ và Tên</b></th>
-                                        <th class="border-top-0"><b>CMND</b></th>
-                                        <th class="border-top-0"><b>Email</b></th>
-                                        <th class="border-top-0"><b>SĐT</b></th>
-                                        <th class="border-top-0"><b>Địa chỉ</b></th>
-                                        <th class="border-top-0"><b>Nhận hồ sơ</b></th>
-
-                                        <th class="border-top-0"><b></b></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr>
-                                            <td>
-                                                <a href="@Url.Action("DetailsHoSoTHPT","ManageTHPT",new {id = item.ID })">@item.ID</a>
-                                            </td>
-                                            <td class="txt-oflo">@item.HoVaTen</td>
-                                            <td class="txt-oflo">@item.CMND</td>
-                                            <td class="txt-oflo">@item.Email</td>
-                                            <td class="txt-oflo">@item.DienThoaiDD</td>
-                                            <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
-                                            <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
+            <thead>
+                <tr>
+                    <th>Mã hồ sơ</th>
+                    <th>Họ và tên</th>
+                    <th>CMND</th>
+                    <th>Email</th>
+                    <th>SĐT</th>
+                    <th>Địa chỉ</th>
+                    <th>Đã nhận hồ sơ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="@Url.Action("DetailsHoSoTHPT","ManageTHPT",new {id = item.ID })">@item.ID</a>
+                        </td>
+                        <td class="txt-oflo">@item.HoVaTen</td>
+                        <td class="txt-oflo">@item.CMND</td>
+                        <td class="txt-oflo">@item.Email</td>
+                        <td class="txt-oflo">@item.DienThoaiDD</td>
+                        <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
+                        <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
 
 
 
-                                        </tr>
-                                    }
-                                </tbody>
+                    </tr>
+                }
+            </tbody>
 
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </table>
-        </div>
+        </table>
+        <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+
+    </div>
 
 </body>
 </html>
