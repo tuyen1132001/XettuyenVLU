@@ -4,7 +4,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
 }
 
-
+<!
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,9 +49,39 @@
 
 </head>
 <body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
 
-    <div class="container-fluid">
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+
+
+
+
+
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 style="padding-top: 10px;" class="page-title">Danh Mục Khu Vực Trường THPT</h4>
+                </div>
+
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
+            <script language="javascript" type="text/javascript">
+
+                dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
+                monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
+                now = new Date
+                document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
+            </script>
+        </div>
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12">
                     <a href="@Url.Action("Index","ManageDGNL")">
@@ -102,8 +132,8 @@
                     </div>
                 </div>
             </div>
-            </table>
         </div>
-
 </body>
 </html>
+
+
