@@ -12,9 +12,11 @@ using System.Data.Entity;
 using OfficeOpenXml;
 using XettuyenDGNLTHPT.Models;
 using System.Data.SqlClient;
+using XettuyenDGNLTHPT.Areas.Admin.Middleware;
 
 namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
 {
+    [LoginVerification]
     public class ManageImporDataController : Controller
     {
         SEP25Team08Entities model = new SEP25Team08Entities();
@@ -54,7 +56,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                         case ".xlsx":
                             conString = ConfigurationManager.ConnectionStrings["Excel07ConString"].ConnectionString;
                             break;
-                      
+
                     }
 
                     DataTable dtExcel = new DataTable();
@@ -79,12 +81,12 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                         }
                     }
                     conString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                    using(SqlConnection con = new SqlConnection(conString))
+                    using (SqlConnection con = new SqlConnection(conString))
                     {
-                        using(SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
+                        using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
                         {
                             sqlBulkCopy.DestinationTableName = "[dbo].[tblTruongTHPT]";
-                            sqlBulkCopy.ColumnMappings.Add("STT","ID");
+                            sqlBulkCopy.ColumnMappings.Add("STT", "ID");
                             sqlBulkCopy.ColumnMappings.Add("Mã TpTruong", "MA_TPTRUONG");
                             sqlBulkCopy.ColumnMappings.Add("Mã Tỉnh/TP", "MA_TINHTP");
                             sqlBulkCopy.ColumnMappings.Add("Tên Tỉnh/TP", "TEN_TINHTP");
@@ -130,7 +132,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                 model.SaveChanges();
                 return RedirectToAction("Index", "ManageImporData");
             }
-         return View();
+            return View();
         }
         public ActionResult IndexCNN()
         {
@@ -231,6 +233,112 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             model.tblChungChiNNs.Remove(Data);
             model.SaveChanges();
             return RedirectToAction("IndexCNN");
+        }
+        //Import TP_QH_PX
+        public ActionResult IndexTP_QH_PX()
+        {
+            var TP_QH_PX = model.tblTP_QH_PX.ToList();
+            return View(TP_QH_PX);
+        }
+        public ActionResult EditImportDataTP_QH_PX(int id)
+        {
+            var Data = model.tblTP_QH_PX.Find(id);
+            return View(Data);
+        }
+        [HttpPost]
+        public ActionResult EditImportDataTP_QH_PX(tblTP_QH_PX data)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Entry(data).State = EntityState.Modified;
+                model.SaveChanges();
+                return RedirectToAction("IndexTP_QH_PX", "ManageImporData");
+            }
+            return View();
+        }
+        public ActionResult DeleteTP_QH_PX(int id)
+        {
+            var Data = model.tblTP_QH_PX.Find(id);
+            model.tblTP_QH_PX.Remove(Data);
+            model.SaveChanges();
+            return RedirectToAction("IndexTP_QH_PX");
+        }
+        public ActionResult ImportTP_QH_PX(HttpPostedFileBase ExcelData)
+        {
+            try
+            {
+                string filepath = string.Empty;
+                if (ExcelData != null)
+                {
+                    string path = Server.MapPath("~/Upload");
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    filepath = path + Path.GetFileName(ExcelData.FileName);
+                    string extension = Path.GetExtension(ExcelData.FileName);
+                    ExcelData.SaveAs(filepath);
+
+                    string conString = string.Empty;
+                    switch (extension)
+                    {
+                        case ".xls":
+                            conString = ConfigurationManager.ConnectionStrings["Excel03ConString"].ConnectionString;
+                            break;
+                        case ".xlsx":
+                            conString = ConfigurationManager.ConnectionStrings["Excel07ConString"].ConnectionString;
+                            break;
+
+                    }
+
+                    DataTable dtExcel = new DataTable();
+                    conString = string.Format(conString, filepath);
+                    using (OleDbConnection connExcel = new OleDbConnection(conString))
+                    {
+                        using (OleDbCommand cmdExcel = new OleDbCommand())
+                        {
+                            using (OleDbDataAdapter odaExcel = new OleDbDataAdapter())
+                            {
+                                cmdExcel.Connection = connExcel;
+                                connExcel.Open();
+                                DataTable dtExcelSchema = connExcel.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+                                string sheetName = dtExcelSchema.Rows[0].Field<string>("TABLE_NAME");
+                                connExcel.Close();
+                                connExcel.Open();
+                                cmdExcel.CommandText = "SELECT * from [" + sheetName + "]";
+                                odaExcel.SelectCommand = cmdExcel;
+                                odaExcel.Fill(dtExcel);
+                                connExcel.Close();
+                            }
+                        }
+                    }
+                    conString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                    using (SqlConnection con = new SqlConnection(conString))
+                    {
+                        using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
+                        {
+                            sqlBulkCopy.DestinationTableName = "[dbo].[tblTP_QH_PX]";
+                            sqlBulkCopy.ColumnMappings.Add("Tỉnh Thành Phố", "TenTinhTP");
+                            sqlBulkCopy.ColumnMappings.Add("Mã TP", "MaTinhTP");
+                            sqlBulkCopy.ColumnMappings.Add("Quận Huyện", "TenQH");
+                            sqlBulkCopy.ColumnMappings.Add("Mã QH", "MaQH");
+                            sqlBulkCopy.ColumnMappings.Add("Phường Xã", "TenPX");
+                            sqlBulkCopy.ColumnMappings.Add("Mã PX", "MaPX");
+                            sqlBulkCopy.ColumnMappings.Add("Cấp", "Cap");
+                            sqlBulkCopy.ColumnMappings.Add("Tên Tiếng Anh", "EnglishName");
+                            con.Open();
+                            sqlBulkCopy.WriteToServer(dtExcel);
+                            con.Close();
+
+                        }
+                    }
+                }
+                return RedirectToAction("IndexTP_QH_PX");
+            }
+            catch
+            {
+                return RedirectToAction("IndexTP_QH_PX");
+            }
         }
     }
 }

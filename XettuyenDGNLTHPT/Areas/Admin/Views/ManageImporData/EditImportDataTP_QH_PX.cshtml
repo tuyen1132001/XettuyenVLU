@@ -1,0 +1,72 @@
+﻿@model XettuyenDGNLTHPT.Models.tblTP_QH_PX
+@{
+    ViewBag.Title = "EditImportDataTP_QH_PX";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+                    <h3>Chỉnh sửa tài khoản</h3>
+                    <form class="bg-light p-4 m-4">
+                        <div class="form-group">
+                            <label for="yourmail">Mã Tỉnh TP</label>
+                            @Html.EditorFor(model => model.MaTinhTP, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MaTinhTP, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="yourmail">Tên Tỉnh TP</label>
+                            @Html.EditorFor(model => model.TenTinhTP, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenTinhTP, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Mã Quận Huyện</label>
+                            @Html.EditorFor(model => model.MaQH, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MaQH, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Tên Quận Huyện</label>
+                            @Html.EditorFor(model => model.TenQH, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenQH, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Mã Phường Xã</label>
+                            @Html.EditorFor(model => model.MaPX, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MaPX, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Tên Phường Xã</label>
+                            @Html.EditorFor(model => model.TenPX, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenPX, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Cap</label>
+                            @Html.EditorFor(model => model.Cap, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Cap, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Tên tiếng anh</label>
+                            @Html.EditorFor(model => model.EnglishName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.EnglishName, "", new { @class = "text-danger" })
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn-messger btn btn-success" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
