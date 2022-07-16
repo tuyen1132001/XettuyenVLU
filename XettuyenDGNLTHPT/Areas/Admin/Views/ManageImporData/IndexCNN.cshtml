@@ -1,0 +1,129 @@
+﻿@model  IEnumerable < XettuyenDGNLTHPT.Models.tblChungChiNN>
+@{
+    ViewBag.Title = "IndexCNN";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
+}
+
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // Cấu hình các nhãn phân trang
+            $('#example').dataTable({
+                "language": {
+                    "sProcessing": "Đang xử lý...",
+                    "sLengthMenu": "Xem _MENU_ mục",
+                    "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                    "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                    "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+                    "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Tìm:",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "Đầu",
+                        "sPrevious": "Trước",
+                        "sNext": "Tiếp",
+                        "sLast": "Cuối"
+                    }
+                }
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+
+
+
+
+
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 style="padding-top: 10px;" class="page-title">Danh Mục Chứng Chỉ</h4>
+                </div>
+
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <div class="container">
+            @using (Html.BeginForm("ImportCNN", "ManageImporData", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                <input class="form-control" type="file" name="ExcelData" />
+                <button type="submit" id="submit"> Import</button>
+            }
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="white-box">
+
+                        <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
+                            <script language="javascript" type="text/javascript">
+
+                                dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
+                                monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
+                                now = new Date
+                                document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
+                            </script>
+                        </div>
+                        <div class="container">
+                            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Mã Ngoại Ngữ</th>
+                                        <th>Chứng chỉ</th>
+                                        <th>Điểm quy đổi</th>
+                                        <th>Tùy Chỉnh</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.ID</td>
+                                            <td>@item.MaNN</td>
+                                            <td>@item.ChungChi</td>
+                                            <td>@item.DiemQuiDoi</td>
+                                            <td><a href="@Url.Action("EditImportDataCNN","ManageImporData",new {id = item.ID})">Edit</a> | <a href="@Url.Action("DeleteTHPT","ManageImporData",new {id = item.ID})" onclick="if (!confirm ('Bạn có muốn xóa thông tin dữ liệu không?')) { return false; }">Delete</a></td>
+
+                                        </tr>
+
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>
+
