@@ -254,6 +254,8 @@
     <Compile Include="Areas\Admin\Controllers\AcountController.cs" />
     <Compile Include="Areas\Admin\Controllers\FormContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageDGNLController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageTHPTController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageImporDataController.cs" />
     <Compile Include="Areas\Admin\Middleware\LoginVerification.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -811,13 +813,6 @@
     <Content Include="Areas\Admin\Views\FormContent\IndexDGNL.cshtml" />
     <Content Include="Areas\Admin\Views\FormContent\EditformTHPT.cshtml" />
     <Content Include="Areas\Admin\Views\FormContent\EditformDGNL.cshtml" />
-    <Content Include="Areas\Admin\Views\ManageImporData\IndexTHPT.cshtml" />
-    <Content Include="Areas\Admin\Views\ManageImporData\EditImportDataTHPT.cshtml" />
-    <Content Include="Areas\Admin\Views\ManageImporData\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\ManageImporData\IndexCNN.cshtml" />
-    <Content Include="Areas\Admin\Views\ManageImporData\EditImportDataCNN.cshtml" />
-    <Content Include="Areas\Admin\Views\ManageImporData\IndexTP_QH_PX.cshtml" />
-    <Content Include="Areas\Admin\Views\ManageImporData\EditImportDataTP_QH_PX.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -874,6 +869,10 @@
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\HoSoDGNLs\Save.cshtml" />
     <Content Include="Views\Home\Save.cshtml" />
+    <Content Include="Views\ManageHoSo\EditTHPT.cshtml" />
+    <Content Include="Views\ManageHoSo\EditDGNL.cshtml" />
+    <Content Include="Views\ManageHoSo\SaveTHPT.cshtml" />
+    <Content Include="Views\ManageHoSo\SaveDGNL.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
