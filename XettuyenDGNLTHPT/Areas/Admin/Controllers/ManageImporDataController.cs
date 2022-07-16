@@ -87,7 +87,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                         {
                             sqlBulkCopy.DestinationTableName = "[dbo].[tblTruongTHPT]";
                             sqlBulkCopy.ColumnMappings.Add("STT", "ID");
-                            sqlBulkCopy.ColumnMappings.Add("Mã TpTruong", "MA_TPTRUONG");
+                            sqlBulkCopy.ColumnMappings.Add("MãTpTruong", "MA_TPTRUONG");
                             sqlBulkCopy.ColumnMappings.Add("Mã Tỉnh/TP", "MA_TINHTP");
                             sqlBulkCopy.ColumnMappings.Add("Tên Tỉnh/TP", "TEN_TINHTP");
                             sqlBulkCopy.ColumnMappings.Add("Mã Quận/Huyện", "MA_QH");
@@ -128,9 +128,12 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.Entry(data).State = EntityState.Modified;
+
+                var newdata = data;
+                newdata.MA_TPTRUONG = data.MA_TINHTP + data.MA_TRUONG;
+                model.Entry(newdata).State = EntityState.Modified;
                 model.SaveChanges();
-                return RedirectToAction("Index", "ManageImporData");
+                return RedirectToAction("IndexTHPT", "ManageImporData");
             }
             return View();
         }
