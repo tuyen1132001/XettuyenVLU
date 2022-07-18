@@ -153,11 +153,11 @@ namespace XettuyenDGNLTHPT.Controllers
                     tblHoSoTHPT.MaNganh_ToHop3 = Majors3 + "#" + ddlToHopMon3; tblHoSoTHPT.TenNganh_TenToHop3 = NameNganhTohop3;
                     tblHoSoTHPT.CTDT3 = CTDT3;
                 }
-                return RedirectToAction("Detail", tblHoSoTHPT);
+                return View("Detail", tblHoSoTHPT);
             }
             return View();
         }
-
+        
         public ActionResult Detail(tblHoSoTHPT thpt)
         {
             var hoso = thpt;
