@@ -23,6 +23,9 @@
     <EntitySetMapping Name="tblHoSoDGNLs">
       <EntityTypeMapping TypeName="SEP25Team08Model.tblHoSoDGNL">
         <MappingFragment StoreEntitySet="tblHoSoDGNL">
+          <ScalarProperty Name="CTDT3" ColumnName="CTDT3" />
+          <ScalarProperty Name="CTDT2" ColumnName="CTDT2" />
+          <ScalarProperty Name="CTDT1" ColumnName="CTDT1" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -88,6 +91,9 @@
     <EntitySetMapping Name="tblHoSoTHPTs">
       <EntityTypeMapping TypeName="SEP25Team08Model.tblHoSoTHPT">
         <MappingFragment StoreEntitySet="tblHoSoTHPT">
+          <ScalarProperty Name="CTDT3" ColumnName="CTDT3" />
+          <ScalarProperty Name="CTDT2" ColumnName="CTDT2" />
+          <ScalarProperty Name="CTDT1" ColumnName="CTDT1" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -254,6 +260,15 @@
           <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
           <ScalarProperty Name="Noi_Dung" ColumnName="Noi_Dung" />
           <ScalarProperty Name="Tieu_De" ColumnName="Tieu_De" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DanhMucs">
+      <EntityTypeMapping TypeName="SEP25Team08Model.DanhMuc">
+        <MappingFragment StoreEntitySet="DanhMuc">
+          <ScalarProperty Name="motaDanhMuc" ColumnName="motaDanhMuc" />
+          <ScalarProperty Name="TenDanhMuc" ColumnName="TenDanhMuc" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -18,6 +18,14 @@
           <Property Name="Role" Type="nvarchar" MaxLength="30" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
+        <EntityType Name="DanhMuc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenDanhMuc" Type="nvarchar" MaxLength="255" />
+          <Property Name="motaDanhMuc" Type="nvarchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="tblChungChiNN">
           <Key>
             <PropertyRef Name="ID" />
@@ -111,6 +119,9 @@
           <Property Name="DaNhanHoSo" Type="char" MaxLength="1" />
           <Property Name="DiemVeMyThuat" Type="varchar" MaxLength="20" />
           <Property Name="DiemVeNangKhieu" Type="varchar" MaxLength="20" />
+          <Property Name="CTDT1" Type="nvarchar" MaxLength="4" />
+          <Property Name="CTDT2" Type="nvarchar" MaxLength="4" />
+          <Property Name="CTDT3" Type="nvarchar" MaxLength="4" />
         </EntityType>
         <EntityType Name="tblHoSoTHPT">
           <Key>
@@ -181,6 +192,9 @@
           <Property Name="DaNhanHoSo" Type="char" MaxLength="1" />
           <Property Name="DiemVeMyThuat" Type="varchar" MaxLength="20" />
           <Property Name="DiemVeNangKhieu" Type="varchar" MaxLength="20" />
+          <Property Name="CTDT1" Type="nvarchar" MaxLength="4" />
+          <Property Name="CTDT2" Type="nvarchar" MaxLength="4" />
+          <Property Name="CTDT3" Type="nvarchar" MaxLength="4" />
         </EntityType>
         <EntityType Name="tblNganh">
           <Key>
@@ -252,6 +266,7 @@
         </EntityType>
         <EntityContainer Name="SEP25Team08ModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblFormTuyenSinh" EntityType="Self.tblFormTuyenSinh" Schema="dbo" store:Type="Tables" />
@@ -348,6 +363,9 @@
           <Property Name="DaNhanHoSo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="DiemVeMyThuat" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DiemVeNangKhieu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CTDT1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="CTDT2" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="CTDT3" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblHoSoTHPT">
           <Key>
@@ -418,6 +436,9 @@
           <Property Name="DaNhanHoSo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="DiemVeMyThuat" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DiemVeNangKhieu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CTDT1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="CTDT2" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="CTDT3" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblNganh">
           <Key>
@@ -513,6 +534,7 @@
           <EntitySet Name="tblTruongTHPTs" EntityType="Self.tblTruongTHPT" />
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="tblFormTuyenSinhs" EntityType="SEP25Team08Model.tblFormTuyenSinh" />
+          <EntitySet Name="DanhMucs" EntityType="SEP25Team08Model.DanhMuc" />
         </EntityContainer>
         <EntityType Name="tblFormTuyenSinh">
           <Key>
@@ -526,6 +548,14 @@
           <Property Name="Open_Close" Type="Boolean" />
           <Property Name="Loai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Edit_Open" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DanhMuc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenDanhMuc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="motaDanhMuc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -555,6 +585,9 @@
           <EntitySetMapping Name="tblHoSoDGNLs">
             <EntityTypeMapping TypeName="SEP25Team08Model.tblHoSoDGNL">
               <MappingFragment StoreEntitySet="tblHoSoDGNL">
+                <ScalarProperty Name="CTDT3" ColumnName="CTDT3" />
+                <ScalarProperty Name="CTDT2" ColumnName="CTDT2" />
+                <ScalarProperty Name="CTDT1" ColumnName="CTDT1" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -620,6 +653,9 @@
           <EntitySetMapping Name="tblHoSoTHPTs">
             <EntityTypeMapping TypeName="SEP25Team08Model.tblHoSoTHPT">
               <MappingFragment StoreEntitySet="tblHoSoTHPT">
+                <ScalarProperty Name="CTDT3" ColumnName="CTDT3" />
+                <ScalarProperty Name="CTDT2" ColumnName="CTDT2" />
+                <ScalarProperty Name="CTDT1" ColumnName="CTDT1" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="HoVaTen" ColumnName="HoVaTen" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -786,6 +822,15 @@
                 <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
                 <ScalarProperty Name="Noi_Dung" ColumnName="Noi_Dung" />
                 <ScalarProperty Name="Tieu_De" ColumnName="Tieu_De" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DanhMucs">
+            <EntityTypeMapping TypeName="SEP25Team08Model.DanhMuc">
+              <MappingFragment StoreEntitySet="DanhMuc">
+                <ScalarProperty Name="motaDanhMuc" ColumnName="motaDanhMuc" />
+                <ScalarProperty Name="TenDanhMuc" ColumnName="TenDanhMuc" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

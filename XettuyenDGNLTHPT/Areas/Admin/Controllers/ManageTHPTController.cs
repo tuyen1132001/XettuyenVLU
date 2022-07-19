@@ -8,8 +8,10 @@ using XettuyenDGNLTHPT.Models;
 
 namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
 {
+    [LoginVerification]
     public class ManageTHPTController : Controller
     {
+        
         // GET: Admin/ManageTHPT
         SEP25Team08Entities model = new SEP25Team08Entities();
         public ActionResult Index()
@@ -19,9 +21,10 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         }
 
         // GET: Admin/ManageTHPT/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetailsHoSoTHPT(int id)
         {
-            return View();
+            var dthsTHPT = model.tblHoSoTHPTs.Find(id);
+            return View(dthsTHPT);
         }
 
         // GET: Admin/ManageTHPT/Create

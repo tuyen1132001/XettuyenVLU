@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using XettuyenDGNLTHPT.Areas.Admin.Middleware;
 using XettuyenDGNLTHPT.Models;
 
 namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
 {
+    [LoginVerification]
     public class ManageDGNLController : Controller
     {
         SEP25Team08Entities model = new SEP25Team08Entities();
@@ -18,9 +20,10 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         }
 
         // GET: Admin/ManageDGNL/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetailsHoSoDGNL(int id)
         {
-            return View();
+            var dthsDGNL = model.tblHoSoDGNLs.Find(id);
+            return View(dthsDGNL);
         }
 
         // GET: Admin/ManageDGNL/Create

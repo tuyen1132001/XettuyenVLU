@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="SEP25Team08Model.tblChungChiNN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP25Team08Model.tblDanToc" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP25Team08Model.tblHoSoDGNL" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEP25Team08Model.tblHoSoTHPT" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP25Team08Model.tblHoSoTHPT" Width="1.5" PointX="2.875" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP25Team08Model.tblNganh" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP25Team08Model.tblQuocTich" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP25Team08Model.tblTinhTP" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
@@ -17,6 +17,7 @@
         <EntityTypeShape EntityType="SEP25Team08Model.tblTruongTHPT" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP25Team08Model.Account" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP25Team08Model.tblFormTuyenSinh" Width="1.5" PointX="9.375" PointY="8.75" />
+        <EntityTypeShape EntityType="SEP25Team08Model.DanhMuc" Width="1.5" PointX="5.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
