@@ -1,0 +1,62 @@
+﻿@model IEnumerable<XettuyenDGNLTHPT.Models.DanhMuc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
+}
+
+
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 style="padding-top: 10px;" class="page-title">Quản Lý danh mục</h4>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <a href="@Url.Action("Create","ManageDanhMuc")">
+                    <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Thêm Danh Mục</button>
+                </a>
+
+                <div class="white-box">
+                    <table style="text-align:center" class="table no-wrap">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0">#</th>
+                                <th class="border-top-0"><b>Tên Danh Mục</b></th>
+                                <th class="border-top-0"><b>Mô Tả</b></th>
+                                <th class="border-top-0"><b>Tùy Chỉnh</b></th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("",new {id = item.ID })">@item.ID</a>
+                                    </td>
+                                    <td class="txt-oflo">@item.TenDanhMuc</td>
+                                    <td class="txt-oflo">@item.motaDanhMuc</td>
+                                    <td class="txt-oflo">
+
+                                        <a href="@Url.Action("Update","ManageDanhMuc",new {id = item.ID})">Update</a> |
+                                        <a href="@Url.Action("DeleteDanhMuc","ManageDanhMuc",new {id = item.ID})" onclick="if (!confirm ('Bạn có muốn xóa danh mục này không?')) { return false; }">Delete</a>
+
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

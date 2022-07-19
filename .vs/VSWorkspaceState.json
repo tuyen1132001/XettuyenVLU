@@ -4,8 +4,12 @@
     "\\XettuyenDGNLTHPT",
     "\\XettuyenDGNLTHPT\\Areas",
     "\\XettuyenDGNLTHPT\\Areas\\Admin",
-    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Controllers"
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\Acount",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\ManageDanhMuc",
+    "\\XettuyenDGNLTHPT\\Views",
+    "\\XettuyenDGNLTHPT\\Views\\Home"
   ],
-  "SelectedNode": "\\XettuyenDGNLTHPT\\Areas\\Admin\\Controllers\\ManageImporDataController.cs",
+  "SelectedNode": "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\ManageDanhMuc\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

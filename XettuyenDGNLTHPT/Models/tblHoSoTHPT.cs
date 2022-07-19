@@ -11,10 +11,8 @@ namespace XettuyenDGNLTHPT.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
-    public  class tblHoSoTHPT
+    
+    public partial class tblHoSoTHPT
     {
         public long ID { get; set; }
         public string HoVaTen { get; set; }
@@ -82,9 +80,7 @@ namespace XettuyenDGNLTHPT.Models
         public string DiemVeMyThuat { get; set; }
         public string DiemVeNangKhieu { get; set; }
         public string CTDT1 { get; set; }
-
         public string CTDT2 { get; set; }
-
         public string CTDT3 { get; set; }
     }
 }

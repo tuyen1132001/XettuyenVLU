@@ -37,5 +37,6 @@ namespace XettuyenDGNLTHPT.Models
         public virtual DbSet<tblTruongTHPT> tblTruongTHPTs { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<tblFormTuyenSinh> tblFormTuyenSinhs { get; set; }
+        public virtual DbSet<DanhMuc> DanhMucs { get; set; }
     }
 }
