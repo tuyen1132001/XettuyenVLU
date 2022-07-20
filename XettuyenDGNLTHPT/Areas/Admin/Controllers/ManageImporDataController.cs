@@ -30,6 +30,21 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             var truong = model.tblTruongTHPTs.ToList();
             return View(truong);
         }
+        public ActionResult AddTHPT()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddTHPT(tblTruongTHPT THPT)
+        {
+            int lastId = model.tblTruongTHPTs.Max(item => item.ID);
+            THPT.MA_TPTRUONG = THPT.MA_TINHTP + THPT.MA_TRUONG;
+            THPT.ID = lastId + 1;
+            model.tblTruongTHPTs.Add(THPT);
+            model.SaveChanges();
+            return RedirectToAction("IndexTHPT", "ManageImporData");
+        }
         [HttpPost]
         public ActionResult Import(HttpPostedFileBase ExcelData)
         {
@@ -116,7 +131,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             var Data = model.tblTruongTHPTs.Find(id);
             model.tblTruongTHPTs.Remove(Data);
             model.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexTHPT");
         }
         public ActionResult EditImportDataTHPT(int id)
         {
@@ -141,6 +156,18 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         {
             var CNN = model.tblChungChiNNs.ToList();
             return View(CNN);
+        }
+        public ActionResult AddCNN()
+        {
+            
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddCNN(tblChungChiNN CNN)
+        {
+            model.tblChungChiNNs.Add(CNN);
+            model.SaveChanges();
+            return RedirectToAction("IndexCNN", "ManageImporData");
         }
         public ActionResult ImportCNN(HttpPostedFileBase ExcelData)
         {
@@ -242,6 +269,18 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         {
             var TP_QH_PX = model.tblTP_QH_PX.ToList();
             return View(TP_QH_PX);
+        }
+        public ActionResult AddTP_QH_PX()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddTP_QH_PX(tblTP_QH_PX tP_QH_PX)
+        {
+            model.tblTP_QH_PX.Add(tP_QH_PX);
+            model.SaveChanges();
+            return RedirectToAction("IndexTP_QH_PX", "ManageImporData");
         }
         public ActionResult EditImportDataTP_QH_PX(int id)
         {

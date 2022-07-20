@@ -73,16 +73,28 @@
             <!-- /.col-lg-12 -->
         </div>
         <div class="container">
-            @using (Html.BeginForm("Import", "ManageImporData", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-
-                <input class="form-control" type="file" name="ExcelData" />
-                <button type="submit" id="submit"> Import</button>
-            }
+            
             <div class="row">
+                @using (Html.BeginForm("Import", "ManageImporData", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input class="form-control" type="file" name="ExcelData" />
+                                </td>
+                                <td></td>
+                                <td><button type="submit" id="submit"> Import</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
                 <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="white-box">
-
+                        <a href="@Url.Action("AddTHPT","ManageImporData")" style="min-block-size: 10px ">
+                            <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Thêm Trường THPT</button>
+                        </a>
                         <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
                             <script language="javascript" type="text/javascript">
 
@@ -99,7 +111,7 @@
                                         <th>#</th>
                                         <th>Tỉnh - Thành Phố</th>
                                         <th>Quận - Huyện</th>
-                                        
+
                                         <th>Trường THPT</th>
                                         <th>Tùy Chỉnh</th>
                                     </tr>
@@ -111,7 +123,7 @@
                                             <td>@item.ID</td>
                                             <td>@item.TEN_TINHTP</td>
                                             <td>@item.TEN_QH</td>
-                                            
+
                                             <td>@item.TEN_TRUONG</td>
                                             <td><a href="@Url.Action("EditImportDataTHPT","ManageImporData",new {id = item.ID})">Edit</a> | <a href="@Url.Action("DeleteTHPT","ManageImporData",new {id = item.ID})" onclick="if (!confirm ('Bạn có muốn xóa thông tin dữ liệu không?')) { return false; }">Delete</a></td>
 

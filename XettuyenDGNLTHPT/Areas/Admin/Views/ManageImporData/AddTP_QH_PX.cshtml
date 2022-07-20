@@ -1,6 +1,6 @@
 ﻿@model XettuyenDGNLTHPT.Models.tblTP_QH_PX
 @{
-    ViewBag.Title = "EditImportDataTP_QH_PX";
+    ViewBag.Title = "AddTP_QH_PX";
     Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
 }
 
@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12">
                 <div class="white-box">
-                    <h3>Chỉnh sửa Dữ liệu Tỉnh TP</h3>
+                    <h3>Thêm Dữ liệu Tỉnh TP</h3>
                     <form class="bg-light p-4 m-4">
                         <div class="form-group">
                             <label for="yourmail">Mã Tỉnh TP<span class="required" style="color:red"> * </span></label>
@@ -37,9 +37,10 @@
                         </div>
                         <div class="form-group">
                             <label for="yourmail">
-                                Mã Phường Xã<<span class="required" style="color:red"> * </span></label>
-                                @Html.EditorFor(model => model.MaPX, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
-                                @Html.ValidationMessageFor(model => model.MaPX, "", new { @class = "text-danger" })
+                                Mã Phường Xã<<span class="required" style="color:red"> * </span>
+                            </label>
+                            @Html.EditorFor(model => model.MaPX, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.MaPX, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <label for="yourmail">Tên Phường Xã<span class="required" style="color:red"> * </span></label>

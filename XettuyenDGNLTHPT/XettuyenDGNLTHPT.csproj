@@ -829,6 +829,9 @@
     <Content Include="Areas\Admin\Views\ManageTHPT\Index2.cshtml" />
     <Content Include="Areas\Admin\Views\ManageDGNL\DetailsHoSoDGNL.cshtml" />
     <Content Include="Areas\Admin\Views\ManageTHPT\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageImporData\AddCNN.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageImporData\AddTHPT.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageImporData\AddTP_QH_PX.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
