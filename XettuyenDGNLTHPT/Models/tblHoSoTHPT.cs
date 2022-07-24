@@ -11,13 +11,15 @@ namespace XettuyenDGNLTHPT.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblHoSoTHPT
     {
         public long ID { get; set; }
         public string HoVaTen { get; set; }
         public string Email { get; set; }
         public Nullable<bool> GioiTinh { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> NgaySinh { get; set; }
         public string MaNoiSinh { get; set; }
         public string TenNoiSinh { get; set; }

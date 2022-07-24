@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form method="post" action="@Url.Action("DetailDGNL","ManageHoSo")">
+<form  action="@Url.Action("EditDGNL","ManageHoSo",Model )">
     <div class="aspNetHidden">
         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
     </div>
@@ -121,7 +121,7 @@
 
                     <td colspan="2"><b>2. Ngày tháng năm sinh</b>:</td>
 
-                    <td colspan="6">@Model.NgaySinh</td>
+                    <td colspan="6">@Convert.ToDateTime(@Model.NgaySinh).ToString("dd/MM/yyyy")</td>
 
                 </tr>
 
@@ -323,16 +323,18 @@
                 </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" id="btnUploadHocBa" class="btn btn-warning" value="UPLOAD HỌC BẠ" onclick="parent.open('/myupload');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 @if (Convert.ToBoolean(Session["Form-button"]) == true)
                 {
-
-
+                    <a href="@Url.Action("EditDGNL","ManageHoSo",Model ) "type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning"  >
+                ĐIỀU CHỈNH THÔNG TIN
+            </a>
+                    @*<input type="submit" name="btnDieuChinhNguyenVong" value="ĐIỀU CHỈNH THÔNG TIN" id="btnDieuChinhNguyenVong" class="btn btn-primary">*@
                 }
                 else
                 {
                     <input type="submit" name="btnDieuChinhNguyenVong" value="ĐIỀU CHỈNH THÔNG TIN" id="btnDieuChinhNguyenVong" disabled="true" class="btn btn-primary">
                 }
-                <a href="@Url.Action("EditDGNL","ManageHoSo" ,Model) input  type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning" ">
-                    ĐIỀU CHỈNH THÔNG TIN
-                </a>
+                @*<a href="@Url.Action("EditDGNL","ManageHoSo" ) "type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning"  >
+            ĐIỀU CHỈNH THÔNG TIN
+        </a>*@
 
             </div>
         </div>

@@ -60,7 +60,7 @@ namespace XettuyenDGNLTHPT.Controllers
         }
         [HttpPost]
         public ActionResult Index(tblHoSoDGNL tblHoSoDGNL, string TP_QH_PX, string ddlHoKhauQuanHuyen, string ddlHoKhau_PhuongXa, string THPT, string ddlQuanHuyenTHPT, string ddlTenTruongTHPT, string ddlKhuVuc
-                                    , string ddlDoiTuongUT, string LienHeTP, string ddlQuanHuyen, string ddlPhuongXa, string Majors1, string Majors2, string Majors3, string ddlToHopMon1, string ddlToHopMon2, string ddlToHopMon3, string CTDT1, string CTDT2, string CTDT3) //Form Dang ky THTP QG
+                                    , string ddlDoiTuongUT, string LienHeTP, string ddlQuanHuyen, string ddlPhuongXa, string Majors1, string Majors2, string Majors3, string CTDT1, string CTDT2, string CTDT3) //Form Dang ky THTP QG
         {
             if (ModelState.IsValid)
             {
@@ -130,27 +130,18 @@ namespace XettuyenDGNLTHPT.Controllers
                 }
 
                 // Nganh va To hop 1/2/3
-                if (Majors1 != "-1" && !string.IsNullOrWhiteSpace(ddlToHopMon1))
-                {
-                    var dbNganhTohop1 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors1 + ddlToHopMon1));
-                    string NameNganhTohop1 = dbNganhTohop1.TEN_NGANH + "#" + dbNganhTohop1.MA_TOHOP + " - " + dbNganhTohop1.TEN_TOHOP;
-                    tblHoSoDGNL.MaNganh_ToHop1 = Majors1 + "#" + ddlToHopMon1; tblHoSoDGNL.TenNganh_TenToHop1 = NameNganhTohop1;
-                    tblHoSoDGNL.CTDT1 = CTDT1;
-                }
-                if (Majors2 != "-1" && !string.IsNullOrWhiteSpace(ddlToHopMon2))
-                {
-                    var dbNganhTohop2 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors2 + ddlToHopMon2));
-                    string NameNganhTohop2 = dbNganhTohop2.TEN_NGANH + "#" + dbNganhTohop2.MA_TOHOP + " - " + dbNganhTohop2.TEN_TOHOP;
-                    tblHoSoDGNL.MaNganh_ToHop2 = Majors2 + "#" + ddlToHopMon2; tblHoSoDGNL.TenNganh_TenToHop2 = NameNganhTohop2;
-                    tblHoSoDGNL.CTDT2 = CTDT2;
-                }
-                if (Majors3 != "-1" && !string.IsNullOrWhiteSpace(ddlToHopMon3))
-                {
-                    var dbNganhTohop3 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors3 + ddlToHopMon3));
-                    string NameNganhTohop3 = dbNganhTohop3.TEN_NGANH + "#" + dbNganhTohop3.MA_TOHOP + " - " + dbNganhTohop3.TEN_TOHOP;
-                    tblHoSoDGNL.MaNganh_ToHop3 = Majors3 + "#" + ddlToHopMon3; tblHoSoDGNL.TenNganh_TenToHop3 = NameNganhTohop3;
-                    tblHoSoDGNL.CTDT3 = CTDT3;
-                }
+                var dbNganhTohop1 = model.tblNganhs.FirstOrDefault(u => u.MA_NGANH.Equals(Majors1));
+                string NameNganh1 = dbNganhTohop1.TEN_NGANH;
+                var dbNganhTohop2 = model.tblNganhs.FirstOrDefault(u => u.MA_NGANH.Equals(Majors2));
+                string NameNganh2 = dbNganhTohop2.TEN_NGANH;
+                var dbNganhTohop3 = model.tblNganhs.FirstOrDefault(u => u.MA_NGANH.Equals(Majors3));
+                string NameNganh3 = dbNganhTohop3.TEN_NGANH;
+                tblHoSoDGNL.MaNganh_ToHop1 = Majors1; tblHoSoDGNL.TenNganh_TenToHop1 = NameNganh1;
+                tblHoSoDGNL.MaNganh_ToHop2 = Majors2; tblHoSoDGNL.TenNganh_TenToHop2 = NameNganh2;
+                tblHoSoDGNL.MaNganh_ToHop3 = Majors3; tblHoSoDGNL.TenNganh_TenToHop3 = NameNganh3;
+                tblHoSoDGNL.CTDT1 = CTDT1;
+                tblHoSoDGNL.CTDT2 = CTDT2;
+                tblHoSoDGNL.CTDT3 = CTDT3;
                 return View("Details", tblHoSoDGNL);
             }
             

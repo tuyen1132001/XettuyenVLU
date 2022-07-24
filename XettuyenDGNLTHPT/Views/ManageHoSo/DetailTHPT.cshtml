@@ -160,7 +160,7 @@
 
                     <td colspan="2"><b>2. Ngày tháng năm sinh</b>:</td>
 
-                    <td colspan="6">@Model.NgaySinh</td>
+                    <td colspan="6">@Convert.ToDateTime(@Model.NgaySinh).ToString("dd/MM/yyyy")</td>
 
                 </tr>
 
@@ -385,7 +385,7 @@
                 {
                     <input type="submit" name="btnDieuChinhNguyenVong" value="ĐIỀU CHỈNH THÔNG TIN" id="btnDieuChinhNguyenVong" disabled="true" class="btn btn-primary">
                 }
-                <a href="@Url.Action("EditTHPT","ManageHoSo" ,Model) input  type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning" ">
+                <a href="@Url.Action("EditTHPT","ManageHoSo" ,Model)"   type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning" ">
                     ĐIỀU CHỈNH THÔNG TIN
                 </a>
 
