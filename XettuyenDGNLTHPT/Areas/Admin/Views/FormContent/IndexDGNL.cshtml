@@ -34,127 +34,88 @@
 
         }
     </script>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="page-breadcrumb bg-white">
-                <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 style="padding-top: 10px;" class="page-title">Quản Lý Nội Dung Website</h4>
-                    </div>
-
-                </div>
-                <!-- /.col-lg-12 -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title" style="line-height: 40px; padding-top: 10px">Quản Lý Nội Dung</h4>
             </div>
 
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Three charts -->
-                <!-- ============================================================== -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Three charts -->
+        <!-- ============================================================== -->
 
 
-                <div style="
+        <div style="
                     background: #fff;
     border: solid 2px #fff;
     padding: 20px;
                 " class="container">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3><b>Nội dung xét tuyển DGNL</b></h3>
-                            <h5 class="text-center">
-                                <div class="">
-                                    <script language="javascript" type="text/javascript">
-                                        dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
-                                        monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
-                                        now = new Date
-                                        document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
-                                    </script>
-                                </div>
-                            </h5>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3><b>Nội dung xét tuyển DGNL</b></h3>
+                    <h5 class="text-center">
+                        <div class="">
+                            <script language="javascript" type="text/javascript">
+                                dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
+                                monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
+                                now = new Date
+                                document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
+                            </script>
+                        </div>
+                    </h5>
+                </div>
+
+                @using (Html.BeginForm("IndexDGNL", "FormContent", FormMethod.Post))
+                {
+
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="usr">Tiêu Đề Năm Xét Tuyển</label>
+                            @Html.EditorFor(model => model.Tieu_De, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Tieu_De, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Nội dung Xét Tuyển</label>
+                            @Html.EditorFor(model => model.Noi_Dung, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Noi_Dung, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group form-xettuyenthoigian">
+                            <div>
+                                <label for="birthday">Thời Gian Bắt Đầu</label> <br>
+                                @Html.EditorFor(model => model.NgayBatDau, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date" } })
+                                @Html.ValidationMessageFor(model => model.NgayBatDau, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div>
+                                <label for="birthday">Thời Gian Kết Thúc</label> <br>
+                                @Html.EditorFor(model => model.NgayKetThuc, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date" } })
+                                @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-check form-switch formandata">
+                            @Html.CheckBoxFor(model => model.Open_Close.Value, new { @checked = "checked", Name = "flexSwitchCheckDefault", @class = "form-check-input" })
+
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Ẩn Nội dung form đăng ký xét tuyển</label> <br> <label for=""> <i> (Khi kết thúc đợt xét tuyển)</i></label>
                         </div>
 
-                        @using (Html.BeginForm("IndexDGNL", "FormContent", FormMethod.Post))
-                        {
-                            
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <label for="usr">Tiêu Đề Năm Xét Tuyển</label>
-                                    @Html.EditorFor(model => model.Tieu_De, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Tieu_De, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Nội dung Xét Tuyển</label>
-                                    @Html.EditorFor(model => model.Noi_Dung, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Noi_Dung, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group form-xettuyenthoigian">
-                                    <div>
-                                        <label for="birthday">Thời Gian Bắt Đầu</label> <br>
-                                        @Html.EditorFor(model => model.NgayBatDau, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date" } })
-                                        @Html.ValidationMessageFor(model => model.NgayBatDau, "", new { @class = "text-danger" })
-                                    </div>
-
-                                    <div>
-                                        <label for="birthday">Thời Gian Kết Thúc</label> <br>
-                                        @Html.EditorFor(model => model.NgayKetThuc, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date" } })
-                                        @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <div class="form-check form-switch formandata">
-                                    @Html.CheckBoxFor(model => model.Open_Close.Value, new { @checked = "checked", Name = "flexSwitchCheckDefault", @class = "form-check-input" })
-                                   
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Ẩn Nội dung form đăng ký xét tuyển</label> <br> <label for=""> <i> (Khi kết thúc đợt xét tuyển)</i></label>
-                                </div>
-
-                                <button class="btn-messger btn btn-success btn-save" onclick="document.getElementById('id01').style.display='block'">Lưu Dữ Liệu</button>
+                        <button class="btn-messger btn btn-success btn-save" onclick="document.getElementById('id01').style.display='block'">Lưu Dữ Liệu</button>
 
 
-                            </div>
-                        }
-
-                     
                     </div>
-                </div>
+                }
+
+
             </div>
         </div>
-
     </div>
+    </div>
+
+
 
 
 
@@ -162,7 +123,6 @@
     <!-- ============================================================== -->
     <!-- End footer -->
     <!-- ============================================================== -->
-    </div>
     <!-- ============================================================== -->
     <!-- End Page wrapper  -->
     <!-- ============================================================== -->

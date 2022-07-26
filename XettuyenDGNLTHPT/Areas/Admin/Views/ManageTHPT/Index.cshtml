@@ -48,46 +48,67 @@
 
 </head>
 <body>
-    <a href="@Url.Action("Index","ManageDGNL")">
-        <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Hồ sơ ĐGNL</button>
-    </a>
-    <div class="container-fluid">
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Mã hồ sơ</th>
-                    <th>Họ và tên</th>
-                    <th>CMND</th>
-                    <th>Email</th>
-                    <th>SĐT</th>
-                    <th>Địa chỉ</th>
-                    <th>Đã nhận hồ sơ</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            <a href="@Url.Action("DetailsHoSoTHPT","ManageTHPT",new {id = item.ID })">@item.ID</a>
-                        </td>
-                        <td class="txt-oflo">@item.HoVaTen</td>
-                        <td class="txt-oflo">@item.CMND</td>
-                        <td class="txt-oflo">@item.Email</td>
-                        <td class="txt-oflo">@item.DienThoaiDD</td>
-                        <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
-                        <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
+
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title" style="line-height: 40px; padding-top: 10px">Hồ Sơ Xét Tuyển THPT Quốc Gia</h4>
+            </div>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="container-fluid" >
+
+        <div class="row" style="background-color: white ">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <a style="padding: 10px" href="@Url.Action("Index","ManageDGNL")">
+                    <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Hồ sơ ĐGNL</button>
+                </a>
+                <div class="container-fluid">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Mã hồ sơ</th>
+                                <th>Họ và tên</th>
+                                <th>CMND</th>
+                                <th>Email</th>
+                                <th>SĐT</th>
+                                <th>Địa chỉ</th>
+                                <th>Đã nhận hồ sơ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("DetailsHoSoTHPT","ManageTHPT",new {id = item.ID })">@item.ID</a>
+                                    </td>
+                                    <td class="txt-oflo">@item.HoVaTen</td>
+                                    <td class="txt-oflo">@item.CMND</td>
+                                    <td class="txt-oflo">@item.Email</td>
+                                    <td class="txt-oflo">@item.DienThoaiDD</td>
+                                    <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
+                                    <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
 
 
 
-                    </tr>
-                }
-            </tbody>
+                                </tr>
+                            }
+                        </tbody>
 
-        </table>
-        <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+                    </table>
+                    <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+
+                </div>
+            </div>
+
+        </div>
 
     </div>
+    
 
 </body>
 </html>
