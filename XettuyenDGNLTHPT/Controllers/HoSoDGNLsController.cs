@@ -161,34 +161,38 @@ namespace XettuyenDGNLTHPT.Controllers
         public ActionResult Save(tblHoSoDGNL DGNL)
         {
             
-            model.tblHoSoDGNLs.Add(DGNL);
-            model.SaveChanges();
-            var hoso = model.tblHoSoDGNLs.FirstOrDefault(u =>u.CMND.Equals(DGNL.CMND));
-
-            MailMessage mail = new MailMessage();
-            mail.To.Add(hoso.Email);
-            mail.From = new MailAddress("xettuyenvanlang@gmail.com");
-            mail.Subject = "Đã tiếp nhận hồ sơ";
-            mail.Body = "Chào bạn" + hoso.HoVaTen + "<br>Cảm ơn bạn đã đăng ký xét tuyển vào Trường Đại học Văn Lang trong năm</br> " + "Mã hồ sơ của bạn là NL_" + hoso.ID +
-                         "<br>Kết quả tuyển sinh sẽ được Trường Đại học Văn Lang công bố và thông báo cho bạn sau khi kết thúc đợt nhận hồ sơ (dự kiến trong tháng 5/2021).</br>";
-
-
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-            smtp.UseDefaultCredentials = true;
-            smtp.EnableSsl = true;
-            smtp.Port = 25;
-            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtp.Credentials = new NetworkCredential("xettuyenvanlang@gmail.com", "rywijjglguaugjex"); //Email, mật khẩu ứng dụng
-            try
+            using (var data = new SEP25Team08Entities())
             {
-                smtp.Send(mail);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+                data.tblHoSoDGNLs.Add(DGNL);
+                data.SaveChanges();
+                long  id = DGNL.ID;
+                var contentmail = model.tblContentMails.Find(2);
+                MailMessage mail = new MailMessage();
+                mail.To.Add(DGNL.Email);
+                mail.From = new MailAddress("xettuyenvanlang@gmail.com");
+                mail.Subject = "Đã tiếp nhận hồ sơ";
+                mail.IsBodyHtml = true;
+                mail.Body = "Chào bạn " + DGNL.HoVaTen + " <br>Cảm ơn bạn đã đăng ký xét tuyển vào Trường Đại học Văn Lang trong năm " +DateTime.Now.Year+ "<br>Mã hồ sơ của bạn là NL_" + id +
+                             "<br>"+contentmail.NOIDUNG;
 
-            return View(hoso);
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.UseDefaultCredentials = true;
+                smtp.EnableSsl = true;
+                smtp.Port = 25;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Credentials = new NetworkCredential("xettuyenvanlang@gmail.com", "rywijjglguaugjex"); //Email, mật khẩu ứng dụng
+                try
+                {
+                    smtp.Send(mail);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+
+                return View(DGNL);
+            }
         }
     
         

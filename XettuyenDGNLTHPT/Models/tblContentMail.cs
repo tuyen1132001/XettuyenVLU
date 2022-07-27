@@ -11,10 +11,12 @@ namespace XettuyenDGNLTHPT.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblContentMail
     {
         public int ID { get; set; }
+        [DataType(DataType.MultilineText)]
         public string NOIDUNG { get; set; }
         public string LOAI { get; set; }
     }

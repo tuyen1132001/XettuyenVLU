@@ -1,4 +1,4 @@
-﻿
+﻿@model XettuyenDGNLTHPT.Models.tblContentMail
 @{
     ViewBag.Title = "EditMailDGNL";
     Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
@@ -19,7 +19,7 @@
 
                         </div>
                         <div class="form-group">
-                            <textarea id="w3review" name="w3review" rows="4" cols="50"> </textarea>
+                            <textarea id="noidung" name="noidung" rows="4" cols="50" > @Model.NOIDUNG</textarea>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
