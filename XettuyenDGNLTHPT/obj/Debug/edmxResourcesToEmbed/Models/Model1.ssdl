@@ -30,6 +30,14 @@
     <Property Name="ChungChi" Type="nvarchar" MaxLength="200" />
     <Property Name="DiemQuiDoi" Type="float" />
   </EntityType>
+  <EntityType Name="tblContentMail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOIDUNG" Type="nvarchar(max)" />
+    <Property Name="LOAI" Type="nvarchar" MaxLength="255" />
+  </EntityType>
   <EntityType Name="tblDanToc">
     <Key>
       <PropertyRef Name="MA_DANTOC" />
@@ -263,6 +271,7 @@
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblContentMail" EntityType="Self.tblContentMail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblFormTuyenSinh" EntityType="Self.tblFormTuyenSinh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblHoSoDGNL" EntityType="Self.tblHoSoDGNL" Schema="dbo" store:Type="Tables" />

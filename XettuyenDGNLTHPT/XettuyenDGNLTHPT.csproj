@@ -254,6 +254,7 @@
     <Compile Include="Areas\Admin\Controllers\AcountController.cs" />
     <Compile Include="Areas\Admin\Controllers\FormContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageContentMailController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageDGNLController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageTHPTController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageImporDataController.cs" />
@@ -272,6 +273,9 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DanhMuc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblContentMail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrgTHPT.cs" />
@@ -832,6 +836,9 @@
     <Content Include="Areas\Admin\Views\ManageImporData\AddCNN.cshtml" />
     <Content Include="Areas\Admin\Views\ManageImporData\AddTHPT.cshtml" />
     <Content Include="Areas\Admin\Views\ManageImporData\AddTP_QH_PX.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageContentMail\EditMailTHPT.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageContentMail\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageContentMail\EditMailDGNL.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

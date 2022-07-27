@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "EditMailDGNL";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+                    <h3>Chỉnh sửa Nội dung  Mail DGNL</h3>
+                    <form class="bg-light p-4 m-4">
+                        <div class="form-group">
+                            <label for="yourmail">Nội dung<span class="required" style="color:red"> * </span></label>
+
+                        </div>
+                        <div class="form-group">
+                            <textarea id="w3review" name="w3review" rows="4" cols="50"> </textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn-messger btn btn-success" />
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+}
+
