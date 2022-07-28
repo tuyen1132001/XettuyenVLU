@@ -55,65 +55,59 @@
             }
     </style>
 </head>
-<html dir="ltr" lang="en">
 
-
-
-
-<div class="page-wrapper">
-
-    <div class="page-breadcrumb bg-white">
-        <div class="row align-items-center">
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 style="padding-top: 10px;" class="page-title">Quản Lý Dữ Liệu Danh Mục</h4>
-            </div>
-
+<div class="page-breadcrumb bg-white">
+    <div class="row align-items-center">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title" style="line-height: 40px; padding-top: 10px">Quản Lý Danh Mục Khu Vực</h4>
         </div>
-        <!-- /.col-lg-12 -->
+
     </div>
+    <!-- /.col-lg-12 -->
+</div>
 
 
-    <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Three charts -->
-        <!-- ============================================================== -->
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Three charts -->
+    <!-- ============================================================== -->
 
 
-        <div style="
+    <div style="
                     background: #fff;
     border: solid 2px #fff;
     padding: 20px;
                 " class="container">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <center>     <h3><b>Dữ Liệu Danh Mục</b></h3></center>
-                    <h5 class="text-center">
-                        <div class="">
-                            <script language="javascript" type="text/javascript">
-                                dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
-                                monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
-                                now = new Date
-                                document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
-                            </script>
-                        </div>
-                    </h5>
-                </div>
-
-
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <center>     <h3><b>Dữ Liệu Danh Mục</b></h3></center>
+                <h5 class="text-center">
+                    <div class="">
+                        <script language="javascript" type="text/javascript">
+                            dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
+                            monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
+                            now = new Date
+                            document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
+                        </script>
+                    </div>
+                </h5>
             </div>
 
-            <DIV class="form-conten-edit">
-                <button type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("IndexTHPT","ManageImporData")">Thêm dữ liệu trường học khu vực</a></button>
-                <button type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("IndexCNN","ManageImporData")">Thêm dữ liệu chứng chỉ</a></button> <br>
-                <button type="button" class="btn-edit btn-edit2 btn  btn-lg"><a href="@Url.Action("IndexTP_QH_PX","ManageImporData")">Thêm dữ liệu Tỉnh TP</a></button>
-               
-
-
-
-            </DIV>
 
         </div>
+
+        <DIV class="form-conten-edit">
+            <button style="margin-right: 100px" type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("IndexTHPT","ManageImporData")">Thêm dữ liệu trường học khu vực</a></button>
+            <button type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("IndexCNN","ManageImporData")">Thêm dữ liệu chứng chỉ</a></button> <br>
+            <button type="button" class="btn-edit btn-edit2 btn  btn-lg"><a href="@Url.Action("IndexTP_QH_PX","ManageImporData")">Thêm dữ liệu Tỉnh TP</a></button>
+
+
+
+
+        </DIV>
+
     </div>
+</div>
 </div>
 
 

@@ -402,7 +402,7 @@
     <Content Include="assets\adminsep\css\style.code.css" />
     <Content Include="assets\adminsep\css\style.css" />
     <Content Include="assets\adminsep\css\style.min.css" />
-    <Content Include="assets\adminsep\css\test.code.css" />
+    <Content Include="assets\adminsep\css\style.login.css" />
     <Content Include="assets\adminsep\dashboard.html" />
     <Content Include="assets\adminsep\js\app-style-switcher.js" />
     <Content Include="assets\adminsep\js\custom.js" />
