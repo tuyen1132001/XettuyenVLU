@@ -150,20 +150,20 @@
                         </li>
                         @if ((string)Session["user-role"] == "1")
                         {
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="AD_ViewList.html"
-                               aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hide-menu">Quản lý thông tin hồ sơ</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("ManageAcount","HomeAdmin")"
-                               aria-expanded="false">
-                                <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">Quản lý tài khoản</span>
-                            </a>
-                        </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="AD_ViewList.html"
+                                   aria-expanded="false">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="hide-menu">Quản lý thông tin hồ sơ</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("ManageAcount","HomeAdmin")"
+                                   aria-expanded="false">
+                                    <i class="fa fa-table" aria-hidden="true"></i>
+                                    <span class="hide-menu">Quản lý tài khoản</span>
+                                </a>
+                            </li>
                         }
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("Index","ManageImporData")"
@@ -173,7 +173,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link"  href="@Url.Action("Index","ManageTHPT")"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("Index","ManageTHPT")"
                                aria-expanded="false">
                                 <i class="fa fa-font" aria-hidden="true"></i>
                                 <span class="hide-menu">Hồ sơ tuyển sinh</span>
@@ -184,6 +184,13 @@
                                aria-expanded="false">
                                 <i class="fa fa-font" aria-hidden="true"></i>
                                 <span class="hide-menu">Quản lý nội dung</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("Index","ManageContentMail")"
+                               aria-expanded="false">
+                                <i class="fa fa-font" aria-hidden="true"></i>
+                                <span class="hide-menu">Quản lý nội dung mail</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

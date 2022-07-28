@@ -4,10 +4,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using XettuyenDGNLTHPT.Areas.Admin.Middleware;
 using XettuyenDGNLTHPT.Models;
 
 namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
 {
+    [LoginVerification]
     public class ManageContentMailController : Controller
     {
         SEP25Team08Entities model = new SEP25Team08Entities();
