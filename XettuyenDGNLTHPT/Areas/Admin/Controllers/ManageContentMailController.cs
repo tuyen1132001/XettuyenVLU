@@ -22,7 +22,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             data.NOIDUNG = data.NOIDUNG.Replace("<br>", "\r\n");
             return View(data);
         }
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult EditMailTHPT(string noidung)
         {
 
@@ -40,7 +40,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             data.NOIDUNG = data.NOIDUNG.Replace("<br>", "\r\n");
             return View(data);
         }
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult EditMailDGNL(string noidung)
         {
            
