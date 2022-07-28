@@ -68,16 +68,17 @@
     
     @Scripts.Render("~/bundles/jqueryval")
     <script>
+        let data = $("#ddlLoaiXetTuyen :selected").val();
+        if (data == 'HB') {
+            $('#DropDownList1').hide();
+        }
         $('#ddlLoaiXetTuyen').change(function () {
             $('#ddlLoaiXetTuyen option').each(function () {
                 if ($(this).val() == "DGNL") {
                     $('#DropDownList1').toggle();
                 }
             });
-            let data = $("#ddlLoaiXetTuyen :selected").val();
-            if (data == 'HB') {
-                $('#DropDownList1').hide();
-            }
+            
         });
     </script>
 }
