@@ -31,7 +31,8 @@
     <style>
         .form-conten-edit {
             display: flex;
-            justify-content: space-around;
+           justify-content: space-around;
+
         }
 
         .btn-edit {
@@ -39,6 +40,7 @@
             height: 5rem;
             width: 13rem;
             background: blue;
+            margin: 30px;
         }
 
             .btn-edit:hover {
@@ -60,7 +62,7 @@
 
 
 
-<div class="page-wrapper">
+
 
     <div class="page-breadcrumb bg-white">
         <div class="row align-items-center">
@@ -73,44 +75,45 @@
     </div>
 
 
-    <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Three charts -->
-        <!-- ============================================================== -->
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Three charts -->
+    <!-- ============================================================== -->
 
 
-        <div style="
+    <div style="
                     background: #fff;
     border: solid 2px #fff;
     padding: 20px;
                 " class="container">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <center>     <h3><b>Dữ Liệu Mail</b></h3></center>
-                    <h5 class="text-center">
-                        <div class="">
-                            <script language="javascript" type="text/javascript">
-                                dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
-                                monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
-                                now = new Date
-                                document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
-                            </script>
-                        </div>
-                    </h5>
-                </div>
-
-
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <center>     <h3><b>Dữ Liệu Mail</b></h3></center>
+                <h5 class="text-center">
+                    <div class="">
+                        <script language="javascript" type="text/javascript">
+                            dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
+                            monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
+                            now = new Date
+                            document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
+                        </script>
+                    </div>
+                </h5>
             </div>
 
-            <DIV class="form-conten-edit">
-                <button type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("EditMailTHPT","ManageContentMail")">Chỉnh sửa nội dung mail THPT</a></button>
-                <button type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("EditMailDGNL","ManageContentMail")">Chỉnh sửa nội dung mail DGNL</a></button> <br>
-            </DIV>
 
         </div>
+
+        <DIV class="form-conten-edit">
+            <button style="margin-right: 40%" type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("EditMailTHPT","ManageContentMail")">Chỉnh sửa nội dung mail THPT</a></button>
+            <button type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("EditMailDGNL","ManageContentMail")">Chỉnh sửa nội dung mail DGNL</a></button> <br>
+            
+
+
+        </DIV>
+
     </div>
 </div>
-
 
 
 
@@ -118,7 +121,7 @@
 <!-- ============================================================== -->
 <!-- End footer -->
 <!-- ============================================================== -->
-        </div>
+
 
 </html>-
 

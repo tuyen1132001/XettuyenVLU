@@ -7,6 +7,16 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 style="padding-top: 10px;" class="page-title">Quản Lý Nội Dung Mail</h4>
+            </div>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <br />
     <div class="container-fluid">
 
         <div class="row">
@@ -18,8 +28,8 @@
                             <label for="yourmail">Nội dung<span class="required" style="color:red"> * </span></label>
 
                         </div>
-                        <div class="form-group">
-                            <textarea id="noidung" name="noidung" rows="4" cols="50" > @Model.NOIDUNG</textarea>
+                        <div class="form-group" style="text-align: center">
+                            <textarea id="noidung" style="width: 70%; height: 600px; border: 2px solid #ff006e ; border-radius: 20px" name="noidung" rows="4" cols="50"> @Model.NOIDUNG</textarea>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
