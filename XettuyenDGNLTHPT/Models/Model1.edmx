@@ -35,6 +35,14 @@
           <Property Name="ChungChi" Type="nvarchar" MaxLength="200" />
           <Property Name="DiemQuiDoi" Type="float" />
         </EntityType>
+        <EntityType Name="tblContentMail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOIDUNG" Type="nvarchar(max)" />
+          <Property Name="LOAI" Type="nvarchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="tblDanToc">
           <Key>
             <PropertyRef Name="MA_DANTOC" />
@@ -268,6 +276,7 @@
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblContentMail" EntityType="Self.tblContentMail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblFormTuyenSinh" EntityType="Self.tblFormTuyenSinh" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblHoSoDGNL" EntityType="Self.tblHoSoDGNL" Schema="dbo" store:Type="Tables" />
@@ -535,6 +544,7 @@
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="tblFormTuyenSinhs" EntityType="SEP25Team08Model.tblFormTuyenSinh" />
           <EntitySet Name="DanhMucs" EntityType="SEP25Team08Model.DanhMuc" />
+          <EntitySet Name="tblContentMails" EntityType="SEP25Team08Model.tblContentMail" />
         </EntityContainer>
         <EntityType Name="tblFormTuyenSinh">
           <Key>
@@ -556,6 +566,14 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenDanhMuc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="motaDanhMuc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblContentMail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LOAI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -831,6 +849,15 @@
               <MappingFragment StoreEntitySet="DanhMuc">
                 <ScalarProperty Name="motaDanhMuc" ColumnName="motaDanhMuc" />
                 <ScalarProperty Name="TenDanhMuc" ColumnName="TenDanhMuc" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblContentMails">
+            <EntityTypeMapping TypeName="SEP25Team08Model.tblContentMail">
+              <MappingFragment StoreEntitySet="tblContentMail">
+                <ScalarProperty Name="LOAI" ColumnName="LOAI" />
+                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
