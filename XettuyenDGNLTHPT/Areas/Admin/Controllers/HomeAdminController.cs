@@ -17,7 +17,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         {
             var dsthpt = model.tblHoSoTHPTs.ToList();
             var dsdgnl = model.tblHoSoDGNLs.ToList();
-            Session["slhs"] = dsthpt.Count + dsthpt.Count;
+            Session["slhs"] = dsthpt.Count + dsdgnl.Count;
             return View();
         }
         public ActionResult ManageAcount()

@@ -31,6 +31,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         public ActionResult NhanHoSo(int id)
         {
             var nhanhosoTHPT = model.tblHoSoTHPTs.Where(h => h.ID == id).FirstOrDefault();
+            nhanhosoTHPT.DaNhanHoSo = "N";
             model.Entry(nhanhosoTHPT).State = EntityState.Modified;
             model.SaveChanges();
             return RedirectToAction("DetailsHoSoTHPT", new { id = id });
