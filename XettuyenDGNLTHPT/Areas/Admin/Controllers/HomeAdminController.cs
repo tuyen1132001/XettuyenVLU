@@ -15,6 +15,9 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         // GET: Admin/HomeAdmin
         public ActionResult Index()
         {
+            var dsthpt = model.tblHoSoTHPTs.ToList();
+            var dsdgnl = model.tblHoSoDGNLs.ToList();
+            Session["slhs"] = dsthpt.Count + dsthpt.Count;
             return View();
         }
         public ActionResult ManageAcount()
@@ -22,5 +25,6 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             var list = model.Accounts.ToList();
             return View(list);
         }
+
     }
 }
