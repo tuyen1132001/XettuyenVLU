@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -25,7 +26,14 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             var dthsDGNL = model.tblHoSoDGNLs.Find(id);
             return View(dthsDGNL);
         }
-
+        public ActionResult NhanHoSo(int id)
+        {
+            var nhanhosoDGNL = model.tblHoSoDGNLs.Where(h => h.ID == id).FirstOrDefault();
+            nhanhosoDGNL.DaNhanHoSo = "N";
+            model.Entry(nhanhosoDGNL).State = EntityState.Modified;
+            model.SaveChanges();
+            return RedirectToAction("DetailsHoSoDGNL", new { id = id });
+        }
         // GET: Admin/ManageDGNL/Create
         public ActionResult Create()
         {
