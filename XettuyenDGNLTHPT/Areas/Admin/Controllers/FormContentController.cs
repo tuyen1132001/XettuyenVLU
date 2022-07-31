@@ -24,8 +24,8 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             var Form = model.tblFormTuyenSinhs.Find(0);
             return View(Form);
         }
-        [HttpPost]
-        public ActionResult IndexTHPT(tblFormTuyenSinh form, string flexSwitchCheckDefault) // form xét tuyển THPT Quốc gia
+        [HttpPost, ValidateInput(false)]
+        public ActionResult IndexTHPT(tblFormTuyenSinh form, string flexSwitchCheckDefault, string noidung) // form xét tuyển THPT Quốc gia
         {
             SEP25Team08Entities db = new SEP25Team08Entities();
             var save = db.tblFormTuyenSinhs.Find(form.ID);
@@ -35,6 +35,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                 
                 form.Open_Close =false;
                 form.Edit_Open = save.Edit_Open;
+                form.thongbao = noidung;
                 form.Loai = "THPT";
                 model.Entry(form).State = EntityState.Modified;
                 model.SaveChanges();
@@ -42,6 +43,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             else {
                 form.Open_Close = true;
                 form.Edit_Open = save.Edit_Open;
+                form.thongbao = noidung;
                 form.Loai = "THPT";
                 model.Entry(form).State = EntityState.Modified;
                 model.SaveChanges();
@@ -84,10 +86,11 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         public ActionResult IndexDGNL()
         {
             var Form = model.tblFormTuyenSinhs.Find(1);
+            
             return View(Form);
         }
-        [HttpPost]
-        public ActionResult IndexDGNL(tblFormTuyenSinh form, string flexSwitchCheckDefault) // form xét tuyển DGNL Quốc gia
+        [HttpPost, ValidateInput(false)]
+        public ActionResult IndexDGNL(tblFormTuyenSinh form, string flexSwitchCheckDefault, string noidung) // form xét tuyển DGNL Quốc gia
         {
             SEP25Team08Entities db = new SEP25Team08Entities();
             var save = db.tblFormTuyenSinhs.Find(1);
@@ -99,6 +102,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                 save.Open_Close = false;
                 save.NgayBatDau = form.NgayBatDau;
                 save.NgayKetThuc = form.NgayKetThuc;
+                save.thongbao = noidung;
                 model.Entry(save).State = EntityState.Modified;
                 model.SaveChanges();
             }
@@ -107,6 +111,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                 save.Open_Close = true;
                 save.NgayBatDau = form.NgayBatDau;
                 save.NgayKetThuc = form.NgayKetThuc;
+                save.thongbao = noidung;
                 model.Entry(save).State = EntityState.Modified;
                 model.SaveChanges();
             }

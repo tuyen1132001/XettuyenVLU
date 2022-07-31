@@ -266,6 +266,7 @@
     <Property Name="Open_Close" Type="Boolean" />
     <Property Name="Loai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Edit_Open" Type="Boolean" />
+    <Property Name="thongbao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="DanhMuc">
     <Key>

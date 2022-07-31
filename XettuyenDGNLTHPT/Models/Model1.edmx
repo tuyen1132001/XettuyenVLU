@@ -63,6 +63,7 @@
           <Property Name="Open_Close" Type="bit" />
           <Property Name="Loai" Type="nvarchar" MaxLength="255" />
           <Property Name="Edit_Open" Type="bit" />
+          <Property Name="thongbao" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="tblHoSoDGNL">
           <Key>
@@ -107,10 +108,13 @@
           <Property Name="CCNN" Type="nvarchar" MaxLength="200" />
           <Property Name="MaNganh_ToHop1" Type="varchar" MaxLength="50" />
           <Property Name="TenNganh_TenToHop1" Type="nvarchar" MaxLength="200" />
+          <Property Name="CTDT1" Type="nvarchar" MaxLength="4" />
           <Property Name="MaNganh_ToHop2" Type="varchar" MaxLength="50" />
           <Property Name="TenNganh_TenToHop2" Type="nvarchar" MaxLength="200" />
+          <Property Name="CTDT2" Type="nvarchar" MaxLength="4" />
           <Property Name="MaNganh_ToHop3" Type="varchar" MaxLength="50" />
           <Property Name="TenNganh_TenToHop3" Type="nvarchar" MaxLength="200" />
+          <Property Name="CTDT3" Type="nvarchar" MaxLength="4" />
           <Property Name="CTCT" Type="int" />
           <Property Name="CTDB" Type="int" />
           <Property Name="LienLac_DiaChi" Type="nvarchar" MaxLength="200" />
@@ -127,9 +131,6 @@
           <Property Name="DaNhanHoSo" Type="char" MaxLength="1" />
           <Property Name="DiemVeMyThuat" Type="varchar" MaxLength="20" />
           <Property Name="DiemVeNangKhieu" Type="varchar" MaxLength="20" />
-          <Property Name="CTDT1" Type="nvarchar" MaxLength="4" />
-          <Property Name="CTDT2" Type="nvarchar" MaxLength="4" />
-          <Property Name="CTDT3" Type="nvarchar" MaxLength="4" />
         </EntityType>
         <EntityType Name="tblHoSoTHPT">
           <Key>
@@ -182,10 +183,13 @@
           <Property Name="CCNN" Type="nvarchar" MaxLength="200" />
           <Property Name="MaNganh_ToHop1" Type="varchar" MaxLength="50" />
           <Property Name="TenNganh_TenToHop1" Type="nvarchar" MaxLength="200" />
+          <Property Name="CTDT1" Type="nvarchar" MaxLength="4" />
           <Property Name="MaNganh_ToHop2" Type="varchar" MaxLength="50" />
           <Property Name="TenNganh_TenToHop2" Type="nvarchar" MaxLength="200" />
+          <Property Name="CTDT2" Type="nvarchar" MaxLength="4" />
           <Property Name="MaNganh_ToHop3" Type="varchar" MaxLength="50" />
           <Property Name="TenNganh_TenToHop3" Type="nvarchar" MaxLength="200" />
+          <Property Name="CTDT3" Type="nvarchar" MaxLength="4" />
           <Property Name="LienLac_DiaChi" Type="nvarchar" MaxLength="200" />
           <Property Name="LienLac_MaPhuongXa" Type="varchar" MaxLength="10" />
           <Property Name="LienLac_TenPhuongXa" Type="nvarchar" MaxLength="100" />
@@ -200,9 +204,6 @@
           <Property Name="DaNhanHoSo" Type="char" MaxLength="1" />
           <Property Name="DiemVeMyThuat" Type="varchar" MaxLength="20" />
           <Property Name="DiemVeNangKhieu" Type="varchar" MaxLength="20" />
-          <Property Name="CTDT1" Type="nvarchar" MaxLength="4" />
-          <Property Name="CTDT2" Type="nvarchar" MaxLength="4" />
-          <Property Name="CTDT3" Type="nvarchar" MaxLength="4" />
         </EntityType>
         <EntityType Name="tblNganh">
           <Key>
@@ -558,6 +559,7 @@
           <Property Name="Open_Close" Type="Boolean" />
           <Property Name="Loai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Edit_Open" Type="Boolean" />
+          <Property Name="thongbao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DanhMuc">
           <Key>
@@ -833,6 +835,7 @@
           <EntitySetMapping Name="tblFormTuyenSinhs">
             <EntityTypeMapping TypeName="SEP25Team08Model.tblFormTuyenSinh">
               <MappingFragment StoreEntitySet="tblFormTuyenSinh">
+                <ScalarProperty Name="thongbao" ColumnName="thongbao" />
                 <ScalarProperty Name="Edit_Open" ColumnName="Edit_Open" />
                 <ScalarProperty Name="Loai" ColumnName="Loai" />
                 <ScalarProperty Name="Open_Close" ColumnName="Open_Close" />
