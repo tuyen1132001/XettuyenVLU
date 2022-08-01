@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -47,11 +48,23 @@ namespace XettuyenDGNLTHPT.Controllers
             Session["Form-Title"] = form.Tieu_De;
             Session["Form-Content"] = form.Noi_Dung;
             Session["Form-bodyTHPT"] = form.Open_Close;
+            ViewData["Form-MessgeTHPT"] = form.thongbao;
 
             var formDGNL = model.tblFormTuyenSinhs.Find(1);
             Session["Form-TitleDGNl"] = formDGNL.Tieu_De;
             Session["Form-ContentDGNL"] = formDGNL.Noi_Dung;
+            ViewData["Form-MessgeDGNL"] = formDGNL.thongbao;
             Session["Form-bodyDGNL"] = formDGNL.Open_Close;
+            
+            if (form.NgayBatDau <= DateTime.Today && DateTime.Today <= form.NgayKetThuc)
+            {
+                Session["Form-closeform"] = false;
+            }
+            else
+            {
+                Session["Form-closeform"] = true;
+            }
+          
             return View();
         }
 
