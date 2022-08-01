@@ -56,7 +56,7 @@ namespace XettuyenDGNLTHPT.Controllers
             ViewData["Form-MessgeDGNL"] = formDGNL.thongbao;
             Session["Form-bodyDGNL"] = formDGNL.Open_Close;
             
-            if (DateTime.Today <= form.NgayKetThuc)
+            if (form.NgayBatDau <= DateTime.Today && DateTime.Today <= form.NgayKetThuc)
             {
                 Session["Form-closeform"] = false;
             }
