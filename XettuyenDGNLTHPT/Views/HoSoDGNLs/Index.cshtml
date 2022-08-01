@@ -230,18 +230,18 @@
                                                                                 <div class="row">
                                                                                     <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
-                                                                                        @Html.DropDownList("HoKhau_MaQH", (IEnumerable<SelectListItem>)ViewBag.TP_QH, null, new { @class = "form-control district-select", target = "#ddlHoKhau_PhuongXa", name = "ddlHoKhauQuanHuyen", id = "ddlHoKhauQuanHuyen" })
-                                                                                        @*<select name="ddlHoKhauQuanHuyen" id="ddlHoKhauQuanHuyen" class="form-control district-select" required="true" target="#ddlHoKhau_PhuongXa">
-                                    </select>*@
+                                                                                        @*@Html.DropDownList("HoKhau_MaQH", (IEnumerable<SelectListItem>)ViewBag.TP_QH, null, new { @class = "form-control district-select", target = "#ddlHoKhau_PhuongXa", name = "ddlHoKhauQuanHuyen", id = "ddlHoKhauQuanHuyen" })*@
+                                                                                        <select name="ddlHoKhauQuanHuyen" id="ddlHoKhauQuanHuyen" class="form-control district-select" required="true" target="#ddlHoKhau_PhuongXa">
+                                    </select>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="vertical_space"></div>
                                                                                 <div class="row">
                                                                                     <div class="col-md-4 control-label">Phường/Xã <span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
-                                                                                        @Html.DropDownList("HoKhau_MaPhuong", (IEnumerable<SelectListItem>)ViewBag.PX, null, new { @class = "form-control ", name = "ddlHoKhau_PhuongXa", id = "ddlHoKhau_PhuongXa", required = "true" })
-                                                                                        @*<select name="ddlHoKhau_PhuongXa" id="ddlHoKhau_PhuongXa" class="form-control" required="true">
-                                    </select>*@
+                                                                                        @*@Html.DropDownList("HoKhau_MaPhuong", (IEnumerable<SelectListItem>)ViewBag.PX, null, new { @class = "form-control ", name = "ddlHoKhau_PhuongXa", id = "ddlHoKhau_PhuongXa", required = "true" })*@
+                                                                                        <select name="ddlHoKhau_PhuongXa" id="ddlHoKhau_PhuongXa" class="form-control" required="true">
+                                    </select>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -318,15 +318,19 @@
                                                                                 <div class="row">
                                                                                     <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
-                                                                                        @Html.DropDownList("TruongTHPT_MaQH", (IEnumerable<SelectListItem>)ViewBag.THPT_QH, null, new { name = "ddlQuanHuyenTHPT", id = "ddlQuanHuyenTHPT", @class = "form-control school-select", required = "true", target = "#ddlTenTruongTHPT" })
-
+                                                                                        <select name="ddlQuanHuyenTHPT" id="ddlQuanHuyenTHPT" class="form-control school-select" required="true" target="#ddlTenTruongTHPT">
+                                                                                        </select>
+                                                                                        @*<select name="ddlQuanHuyenTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlQuanHuyenTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlQuanHuyenTHPT" class="form-control " required="true">
+                </select>*@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="vertical_space"></div>
                                                                                 <div class="row">
                                                                                     <div class="col-md-4 control-label">Tên trường THPT<span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
-                                                                                        @Html.DropDownList("MaTruongTHPT", (IEnumerable<SelectListItem>)ViewBag.THPT_TRG, null, new { name = "ddlTenTruongTHPT", id = "ddlTenTruongTHPT", @class = "form-control area-select", required = "true", target = "#ddlKhuVuc" })
+                                                                                        <select name="ddlTenTruongTHPT" id="ddlTenTruongTHPT" class="form-control area-select" required="true" target="#ddlKhuVuc"></select>
+                                                                                        @*<select name="ddlTenTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTenTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTenTruongTHPT" class="form-control " required="true">
+                </select>*@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="vertical_space"></div>
@@ -416,19 +420,16 @@
                                                                                 <div class="row">
                                                                                     <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
-                                                                                        @Html.DropDownList("LienLac_MaQH", (IEnumerable<SelectListItem>)ViewBag.TP_QH, null, new { @class = "form-control district-select", required = "true", target = "#ddlPhuongXa", name = "ddlQuanHuyen", id = "ddlQuanHuyen" })
-                                                                                        @*<select name="ddlQuanHuyen" id="ddlQuanHuyen" class="form-control district-select" required="true" target="#ddlPhuongXa">
-                                        <option value="@Model.LienLac_TenQH"></option>
-                                    </select>*@
+                                                                                        <select name="ddlQuanHuyen" id="ddlQuanHuyen" class="form-control district-select" required="true" target="#ddlPhuongXa">
+                                                                                        </select>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="vertical_space"></div>
                                                                                 <div class="row">
                                                                                     <div class="col-md-4 control-label">Phường/Xã <span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
-                                                                                        @Html.DropDownList("LienLac_MaPhuongXa", (IEnumerable<SelectListItem>)ViewBag.PX, null, new { @class = "form-control ", name = "ddlPhuongXa", id = "ddlPhuongXa", required = "true" })
-                                                                                        @*<select name="ddlPhuongXa" id="ddlPhuongXa" class="form-control" required="true">
-                                    </select>*@
+                                                                                        <select name="ddlPhuongXa" id="ddlPhuongXa" class="form-control" required="true">
+                                                                                        </select>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
