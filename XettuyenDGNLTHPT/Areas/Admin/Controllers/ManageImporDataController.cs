@@ -140,7 +140,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                                 }
                                 else
                                 {
-                                    DialogResult dialogResult = MessageBox.Show("Sure", "Có dữ liệu trùng lặp bạn có muốn lưu không", MessageBoxButtons.YesNo);
+                                    DialogResult dialogResult = MessageBox.Show("Có dữ liệu trùng lặp bạn có muốn lưu không", "Dữ liệu đã tồn tại", MessageBoxButtons.YesNo);
                                     if(dialogResult == DialogResult.Yes)
                                     {
                                         command.CommandText = "CREATE TABLE #TmpTable([ID] [int] NOT NULL," +
@@ -158,11 +158,10 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
 
                                         //Bulk insert into temp table
 
-                                        sqlBulkCopy.BulkCopyTimeout = 660;
+                                        //sqlBulkCopy.BulkCopyTimeout = 660;
                                         sqlBulkCopy.DestinationTableName = "#TmpTable";
                                         sqlBulkCopy.WriteToServer(dtExcel);
                                         sqlBulkCopy.Close();
-                                        command.CommandTimeout = 300;
                                         command.CommandText = "UPDATE tblTruongTHPT SET tblTruongTHPT.ID = Temp.ID, " +
                                                                 "tblTruongTHPT.MA_TRUONG=Temp.MA_TRUONG," +
                                                                 "tblTruongTHPT.MA_TPTRUONG=Temp.MA_TPTRUONG," +
@@ -291,22 +290,75 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                     conString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                     using (SqlConnection con = new SqlConnection(conString))
                     {
-                        using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
+                        using (SqlCommand command = new SqlCommand("", con))
                         {
-                            sqlBulkCopy.DestinationTableName = "[dbo].[tblChungChiNN]";
-                            sqlBulkCopy.ColumnMappings.Add("Mã Ngoại Ngữ", "MaNN");
-                            sqlBulkCopy.ColumnMappings.Add("Chứng Chỉ", "ChungChi");
-                            sqlBulkCopy.ColumnMappings.Add("Điểm Quy Đổi", "DiemQuiDoi");
-                            con.Open();
-                            sqlBulkCopy.WriteToServer(dtExcel);
-                            con.Close();
+                            using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
+                            {
+                                sqlBulkCopy.DestinationTableName = "[dbo].[tblChungChiNN]";
+                                sqlBulkCopy.ColumnMappings.Add("Mã Ngoại Ngữ", "MaNN");
+                                sqlBulkCopy.ColumnMappings.Add("Chứng Chỉ", "ChungChi");
+                                sqlBulkCopy.ColumnMappings.Add("Điểm Quy Đổi", "DiemQuiDoi");
+                                con.Open();
+                                bool check1 = false;
+                                for (int i = 0; i < dtExcel.Rows.Count; i++)
+                                {
+                                    string iDNN = dtExcel.Rows[i]["Mã Ngoại Ngữ"].ToString();
+                                    string StringCC = dtExcel.Rows[i]["Chứng Chỉ"].ToString();
+                                    var check = model.tblChungChiNNs.FirstOrDefault(t => t.MaNN.Equals(iDNN)&&t.ChungChi.Equals(StringCC));
+                                    if (check != null)
+                                    {
+                                        check1 = true;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        check1 = false;
+                                        break;
+                                    }
+                                }
+                                if (check1 == false)
+                                {
+                                    sqlBulkCopy.WriteToServer(dtExcel);
+                                }
+                                else
+                                {
+                                    DialogResult dialogResult = MessageBox.Show("Có dữ liệu trùng lặp bạn có muốn lưu không", "Dữ liệu đã tồn tại", MessageBoxButtons.YesNo);
+                                    if (dialogResult == DialogResult.Yes)
+                                    {
+                                        command.CommandText = "CREATE TABLE #TmpTable([ID] [int] IDENTITY(1,1) NOT NULL," +
+                                            "[MaNN] [varchar](10)  NULL," +
+                                            "[ChungChi] [nvarchar](200) NULL," +
+                                            "[DiemQuiDoi] [float] NULL)";
+                                        //command.CommandTimeout = 300;
+                                        command.ExecuteNonQuery();
 
+                                        //Bulk insert into temp table
+
+                                        s/*qlBulkCopy.BulkCopyTimeout = 660;*/
+                                        sqlBulkCopy.DestinationTableName = "#TmpTable";
+                                        sqlBulkCopy.WriteToServer(dtExcel);
+                                        sqlBulkCopy.Close();
+                                        command.CommandText = "UPDATE tblChungChiNN SET " +
+                                                                "tblChungChiNN.DiemQuiDoi=Temp.DiemQuiDoi" +
+                                                             " FROM tblChungChiNN " +
+                                                             "INNER JOIN #TmpTable Temp ON ( tblChungChiNN.MaNN = Temp.MaNN AND tblChungChiNN.ChungChi=Temp.ChungChi)" +
+                                                             "DROP TABLE #TmpTable";
+                                        command.ExecuteNonQuery();
+                                    }
+                                    else if (dialogResult == DialogResult.No)
+                                    {
+                                        return RedirectToAction("IndexCNN");
+                                    }
+                                }
+                                con.Close();
+
+                            }
                         }
                     }
                 }
                 return RedirectToAction("IndexCNN");
             }
-            catch
+            catch (Exception ex)
             {
                 return RedirectToAction("IndexCNN");
             }
