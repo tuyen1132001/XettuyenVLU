@@ -13,6 +13,7 @@ using OfficeOpenXml;
 using XettuyenDGNLTHPT.Models;
 using System.Data.SqlClient;
 using XettuyenDGNLTHPT.Areas.Admin.Middleware;
+using System.Windows.Forms;
 
 namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
 {
@@ -98,30 +99,99 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                     conString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                     using (SqlConnection con = new SqlConnection(conString))
                     {
-                        using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
+                        using (SqlCommand command = new SqlCommand("", con))
                         {
-                            sqlBulkCopy.DestinationTableName = "[dbo].[tblTruongTHPT]";
-                            sqlBulkCopy.ColumnMappings.Add("STT", "ID");
-                            sqlBulkCopy.ColumnMappings.Add("MãTpTruong", "MA_TPTRUONG");
-                            sqlBulkCopy.ColumnMappings.Add("Mã Tỉnh/TP", "MA_TINHTP");
-                            sqlBulkCopy.ColumnMappings.Add("Tên Tỉnh/TP", "TEN_TINHTP");
-                            sqlBulkCopy.ColumnMappings.Add("Mã Quận/Huyện", "MA_QH");
-                            sqlBulkCopy.ColumnMappings.Add("Tên Quận/Huyện", "TEN_QH");
-                            sqlBulkCopy.ColumnMappings.Add("Mã Trường", "MA_TRUONG");
-                            sqlBulkCopy.ColumnMappings.Add("Tên Trường", "TEN_TRUONG");
-                            sqlBulkCopy.ColumnMappings.Add("Địa Chỉ", "DIA_CHI");
-                            sqlBulkCopy.ColumnMappings.Add("Khu Vực", "KHU_VUC");
-                            sqlBulkCopy.ColumnMappings.Add("Trường DTNT", "LOAI_TRUONG");
-                            con.Open();
-                            sqlBulkCopy.WriteToServer(dtExcel);
-                            con.Close();
+                            using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
+                            {
 
+                                sqlBulkCopy.DestinationTableName = "[dbo].[tblTruongTHPT]";
+                                sqlBulkCopy.ColumnMappings.Add("STT", "ID");
+                                sqlBulkCopy.ColumnMappings.Add("MãTpTruong", "MA_TPTRUONG");
+                                sqlBulkCopy.ColumnMappings.Add("Mã Tỉnh/TP", "MA_TINHTP");
+                                sqlBulkCopy.ColumnMappings.Add("Tên Tỉnh/TP", "TEN_TINHTP");
+                                sqlBulkCopy.ColumnMappings.Add("Mã Quận/Huyện", "MA_QH");
+                                sqlBulkCopy.ColumnMappings.Add("Tên Quận/Huyện", "TEN_QH");
+                                sqlBulkCopy.ColumnMappings.Add("Mã Trường", "MA_TRUONG");
+                                sqlBulkCopy.ColumnMappings.Add("Tên Trường", "TEN_TRUONG");
+                                sqlBulkCopy.ColumnMappings.Add("Địa Chỉ", "DIA_CHI");
+                                sqlBulkCopy.ColumnMappings.Add("Khu Vực", "KHU_VUC");
+                                sqlBulkCopy.ColumnMappings.Add("Trường DTNT", "LOAI_TRUONG");
+                                con.Open();
+                                bool check1 = false;
+                                for (int i = 0; i < dtExcel.Rows.Count; i++)
+                                {
+                                    string userName = dtExcel.Rows[i]["STT"].ToString();
+                                    int id = int.Parse(userName);
+                                    var check = model.tblTruongTHPTs.FirstOrDefault(t => t.ID==id);
+                                    if (check != null)
+                                    {
+                                        check1 = true;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        check1 = false;
+                                        break;
+                                    }
+                                }
+                                if (check1 == false)
+                                {
+                                    sqlBulkCopy.WriteToServer(dtExcel);
+                                }
+                                else
+                                {
+                                    DialogResult dialogResult = MessageBox.Show("Sure", "Có dữ liệu trùng lặp bạn có muốn lưu không", MessageBoxButtons.YesNo);
+                                    if(dialogResult == DialogResult.Yes)
+                                    {
+                                        command.CommandText = "CREATE TABLE #TmpTable([ID] [int] NOT NULL," +
+                                            "[MA_TPTRUONG] [nvarchar](20) NULL," +
+                                            "[MA_TINHTP] [nvarchar](5) NULL," +
+                                            "[TEN_TINHTP] [nvarchar](255) NULL," +
+                                            "[MA_QH] [nvarchar](255) NULL," +
+                                            "[TEN_QH][nvarchar](255) NULL," +
+                                            "[MA_TRUONG] [nvarchar](20) NULL," +
+                                            "[TEN_TRUONG] [nvarchar](255) NULL," +
+                                            "[DIA_CHI] [nvarchar](255) NULL," +
+                                            "[KHU_VUC] [nvarchar](255) NULL," +
+                                            "[LOAI_TRUONG] [nvarchar](255) NULL)";
+                                        command.ExecuteNonQuery();
+
+                                        //Bulk insert into temp table
+
+                                        sqlBulkCopy.BulkCopyTimeout = 660;
+                                        sqlBulkCopy.DestinationTableName = "#TmpTable";
+                                        sqlBulkCopy.WriteToServer(dtExcel);
+                                        sqlBulkCopy.Close();
+                                        command.CommandTimeout = 300;
+                                        command.CommandText = "UPDATE tblTruongTHPT SET tblTruongTHPT.ID = Temp.ID, " +
+                                                                "tblTruongTHPT.MA_TRUONG=Temp.MA_TRUONG," +
+                                                                "tblTruongTHPT.MA_TPTRUONG=Temp.MA_TPTRUONG," +
+                                                                "tblTruongTHPT.MA_TINHTP=Temp.MA_TINHTP," +
+                                                                "tblTruongTHPT.TEN_TINHTP=Temp.TEN_TINHTP," +
+                                                                "tblTruongTHPT.MA_QH=Temp.MA_QH," +
+                                                                "tblTruongTHPT.TEN_QH=Temp.TEN_QH," +
+                                                                "tblTruongTHPT.TEN_TRUONG=Temp.TEN_TRUONG," +
+                                                                "tblTruongTHPT.DIA_CHI=Temp.DIA_CHI," +
+                                                                "tblTruongTHPT.KHU_VUC=Temp.KHU_VUC," +
+                                                                "tblTruongTHPT.LOAI_TRUONG=Temp.LOAI_TRUONG" +
+                                                             " FROM tblTruongTHPT " +
+                                                             "INNER JOIN #TmpTable Temp ON ( tblTruongTHPT.ID = Temp.ID )" +
+                                                             "DROP TABLE #TmpTable";
+                                        command.ExecuteNonQuery();
+                                    }
+                                    else if (dialogResult == DialogResult.No)
+                                    {
+                                        return RedirectToAction("IndexTHPT");
+                                    }
+                                }
+                                con.Close();
+                            }
                         }
                     }
                 }
                 return RedirectToAction("IndexTHPT");
             }
-            catch
+            catch (Exception ex)
             {
                 return RedirectToAction("IndexTHPT");
             }
@@ -159,7 +229,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         }
         public ActionResult AddCNN()
         {
-            
+
             return View();
         }
         [HttpPost]
@@ -369,6 +439,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                             sqlBulkCopy.ColumnMappings.Add("Cấp", "Cap");
                             sqlBulkCopy.ColumnMappings.Add("Tên Tiếng Anh", "EnglishName");
                             con.Open();
+
                             sqlBulkCopy.WriteToServer(dtExcel);
                             con.Close();
 
