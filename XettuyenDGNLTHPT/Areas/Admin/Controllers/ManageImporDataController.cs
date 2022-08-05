@@ -334,7 +334,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
 
                                         //Bulk insert into temp table
 
-                                        s/*qlBulkCopy.BulkCopyTimeout = 660;*/
+                                        /*sqlBulkCopy.BulkCopyTimeout = 660;*/
                                         sqlBulkCopy.DestinationTableName = "#TmpTable";
                                         sqlBulkCopy.WriteToServer(dtExcel);
                                         sqlBulkCopy.Close();
@@ -479,22 +479,81 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                     conString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                     using (SqlConnection con = new SqlConnection(conString))
                     {
-                        using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
+                        using (SqlCommand command = new SqlCommand("", con))
                         {
-                            sqlBulkCopy.DestinationTableName = "[dbo].[tblTP_QH_PX]";
-                            sqlBulkCopy.ColumnMappings.Add("Tỉnh Thành Phố", "TenTinhTP");
-                            sqlBulkCopy.ColumnMappings.Add("Mã TP", "MaTinhTP");
-                            sqlBulkCopy.ColumnMappings.Add("Quận Huyện", "TenQH");
-                            sqlBulkCopy.ColumnMappings.Add("Mã QH", "MaQH");
-                            sqlBulkCopy.ColumnMappings.Add("Phường Xã", "TenPX");
-                            sqlBulkCopy.ColumnMappings.Add("Mã PX", "MaPX");
-                            sqlBulkCopy.ColumnMappings.Add("Cấp", "Cap");
-                            sqlBulkCopy.ColumnMappings.Add("Tên Tiếng Anh", "EnglishName");
-                            con.Open();
+                            using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
+                            {
+                                sqlBulkCopy.DestinationTableName = "[dbo].[tblTP_QH_PX]";
+                                sqlBulkCopy.ColumnMappings.Add("Tỉnh Thành Phố", "TenTinhTP");
+                                sqlBulkCopy.ColumnMappings.Add("Mã TP", "MaTinhTP");
+                                sqlBulkCopy.ColumnMappings.Add("Quận Huyện", "TenQH");
+                                sqlBulkCopy.ColumnMappings.Add("Mã QH", "MaQH");
+                                sqlBulkCopy.ColumnMappings.Add("Phường Xã", "TenPX");
+                                sqlBulkCopy.ColumnMappings.Add("Mã PX", "MaPX");
+                                sqlBulkCopy.ColumnMappings.Add("Cấp", "Cap");
+                                sqlBulkCopy.ColumnMappings.Add("Tên Tiếng Anh", "EnglishName");
+                                con.Open();
+                                bool check1 = false;
+                                for (int i = 0; i < dtExcel.Rows.Count; i++)
+                                {
+                                    string IDTP = dtExcel.Rows[i]["Mã TP"].ToString();
+                                    string IDQH = dtExcel.Rows[i]["Mã QH"].ToString();
+                                    string IDPX = dtExcel.Rows[i]["Mã PX"].ToString();
+                                    var check = model.tblTP_QH_PX.FirstOrDefault(t => t.MaTinhTP.Equals(IDTP) && t.MaQH.Equals(IDQH) && t.MaPX.Equals(IDPX));
+                                    if (check != null)
+                                    {
+                                        check1 = true;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        check1 = false;
+                                        break;
+                                    }
+                                }
+                                if (check1 == false)
+                                {
+                                    sqlBulkCopy.WriteToServer(dtExcel);
+                                }
+                                else
+                                {
+                                    DialogResult dialogResult = MessageBox.Show("Có dữ liệu trùng lặp bạn có muốn lưu không", "Dữ liệu đã tồn tại", MessageBoxButtons.YesNo);
+                                    if (dialogResult == DialogResult.Yes)
+                                    {
+                                        command.CommandText = "CREATE TABLE #TmpTable([ID] [int] IDENTITY(1,1) NOT NULL," +
+                                            "[TenTinhTP][nvarchar](255) NULL," +
+                                            "[MaTinhTP] [nvarchar](255) NULL," +
+                                            "[TenQH] [nvarchar](255) NULL," +
+                                            "[MaQH] [nvarchar](255) NULL," +
+                                            "[TenPX] [nvarchar](255) NULL," +
+                                            "[MaPX] [nvarchar](255) NULL," +
+                                            "[Cap] [nvarchar](255) NULL," +
+                                            "[EnglishName] [nvarchar](255) NULL)";
+                                        //command.CommandTimeout = 300;
+                                        command.ExecuteNonQuery();
 
-                            sqlBulkCopy.WriteToServer(dtExcel);
-                            con.Close();
+                                        //Bulk insert into temp table
 
+                                        /*sqlBulkCopy.BulkCopyTimeout = 660;*/
+                                        sqlBulkCopy.DestinationTableName = "#TmpTable";
+                                        sqlBulkCopy.WriteToServer(dtExcel);
+                                        sqlBulkCopy.Close();
+                                        command.CommandText = "UPDATE tblTP_QH_PX SET " +
+                                                                "tblTP_QH_PX.TenQH=Temp.TenQH," +
+                                                                "tblTP_QH_PX.TenPX=Temp.TenPX" +
+                                                             " FROM tblTP_QH_PX " +
+                                                             "INNER JOIN #TmpTable Temp ON ( tblTP_QH_PX.MaTinhTP = Temp.MaTinhTP AND tblTP_QH_PX.MaQH=Temp.MaQH AND tblTP_QH_PX.MaPX=Temp.MaPX)" +
+                                                             "DROP TABLE #TmpTable";
+                                        command.ExecuteNonQuery();
+                                    }
+                                    else if (dialogResult == DialogResult.No)
+                                    {
+                                        return RedirectToAction("IndexTP_QH_PX");
+                                    }
+                                }
+                                con.Close();
+
+                            }
                         }
                     }
                 }
