@@ -6,7 +6,7 @@
 }
     </DIV><!-- END HEADER -->
 <!-- BEGIN CONTAINER -->
-<form  onsubmit="javascript:return WebForm_OnSubmit();" id="form_dang_ky" class="form-horizontal">
+<form onsubmit="javascript:return WebForm_OnSubmit();" id="form_dang_ky" class="form-horizontal">
     <div class="aspNetHidden">
         <input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
         <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
@@ -85,9 +85,9 @@
                                             <div id="myPanel" UpdateMode="Always">
 
                                                 <DIV class="form-body">
-                                                    @using (Html.BeginForm("SaveEditDGNL", "ManageHoSo",Model,FormMethod.Post))
+                                                    @using (Html.BeginForm("SaveEditDGNL", "ManageHoSo", Model, FormMethod.Post))
                                                     {
-                                                        
+
                                                         <div class="tab-content">
                                                             <div class="tab-pane active" id="tab1">
                                                                 <div style="background-color:red;color: white;text-transform:uppercase;padding-left:0.8em;font-size:1.3em">thông tin thí sinh</div>
@@ -209,8 +209,8 @@
                                                                     <label class="control-label col-md-4">Năm tốt nghiệp<span class="required"> * </span></label>
                                                                     <div class="col-md-2">
                                                                         @Html.EditorFor(model => model.NamTotNghiep, new { htmlAttributes = new { @class = "form-control", placeholder = "Năm tốt nghiệp", @pattern = "[0-9]{4}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào năm tốt nghiệp của bạn')", @oninput = "this.setCustomValidity('')" } })
-                                                                            @Html.ValidationMessageFor(model => model.NamTotNghiep, "", new { @class = "text-danger" })
-                                                                      </div>
+                                                                        @Html.ValidationMessageFor(model => model.NamTotNghiep, "", new { @class = "text-danger" })
+                                                                    </div>
                                                                 </div>
 
                                                                 <div class="form-group">
@@ -383,8 +383,8 @@
                                                                                 <div class="col-md-8">
                                                                                     @Html.DropDownList("LienLac_MaQH", (IEnumerable<SelectListItem>)ViewBag.TP_QH, null, new { @class = "form-control district-select", required = "true", target = "#ddlPhuongXa", name = "ddlQuanHuyen", id = "ddlQuanHuyen" })
                                                                                     @*<select name="ddlQuanHuyen" id="ddlQuanHuyen" class="form-control district-select" required="true" target="#ddlPhuongXa">
-                                                                                        <option value="@Model.LienLac_TenQH"></option>
-                                                                                    </select>*@
+                                                                                            <option value="@Model.LienLac_TenQH"></option>
+                                                                                        </select>*@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="vertical_space"></div>
@@ -393,7 +393,7 @@
                                                                                 <div class="col-md-8">
                                                                                     @Html.DropDownList("LienLac_MaPhuongXa", (IEnumerable<SelectListItem>)ViewBag.PX, null, new { @class = "form-control ", name = "ddlPhuongXa", id = "ddlPhuongXa", required = "true" })
                                                                                     @*<select name="ddlPhuongXa" id="ddlPhuongXa" class="form-control" required="true">
-        </select>*@
+                                                                                        </select>*@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -528,7 +528,7 @@
             </div>
 
 
-            
+
 </form>
 
 
@@ -536,7 +536,7 @@
     <script src="~/Scripts/app.js"></script>
     @Scripts.Render("~/bundles/jqueryval")
     <script>
-        $('select.city-select').change(function () {
+       $('select.city-select').change(function () {
             let maTp = $(this).val();
             let target = $(this).attr('target');
 
@@ -557,7 +557,7 @@
             }
 
             if (maTp != '-1') {
-                $.get(`/home/GetDistrict/${maTp}`, data => {
+                $.get(`@Url.Action("GetDistrict", "Home")/${maTp}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
                     $('#ddlHoKhau_PhuongXa').html('');
 
@@ -592,7 +592,7 @@
             }
 
             if (maPx != '-1') {
-                $.get(`/home/GetWard/${maPx}`, data => {
+                $.get(`@Url.Action("GetWard", "Home")/${maPx}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn phường/xã --');
 
                     if (chkLayDCHoKhau) {
@@ -612,7 +612,7 @@
             let target = $(this).attr('target');
             if (maQHTH != '-1') {
 
-                $.get(`/home/GetDistrictSchool/${maQHTH}`, data => {
+                $.get(`@Url.Action("GetDistrictSchool", "Home")/${maQHTH}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
                 });
             }
@@ -623,7 +623,7 @@
             let target = $(this).attr('target');
             if (maTH != '-1') {
                 let id = maTH + '-' + maQHTH;
-                $.get(`/home/GetSchool/${id}`, data => {
+                $.get(`@Url.Action("School", "Home")/${id}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn trường --');
                 });
             }
@@ -632,7 +632,7 @@
             let maKV = $(this).val();
             let target = $(this).attr('target');
             if (maKV != '-1') {
-                $.get(`/home/GetArea/${maKV}`, data => {
+                $.get(`@Url.Action("GetArea", "Home")/${maKV}`, data => {
                     attachDistrictOrWard($(target), data, "", false);
                 });
             }
@@ -647,7 +647,7 @@
                         $(this).prop("selected", true);
                         let maTp = $(this).val();
                         if (maTp != -1) {
-                            $.get(`/home/GetDistrict/${maTp}`, data => {
+                            $.get(`@Url.Action("GetDistrict", "Home")/${maTp}`, data => {
                                 attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
                                 $('#ddlPhuongXa').html('');
 
@@ -656,7 +656,7 @@
                                         $(this).prop("selected", true);
                                         let maPx = $(this).val();
                                         if (maPx != -1) {
-                                            $.get(`/home/GetWard/${maPx}`, data => {
+                                            $.get(`@Url.Action("GetWard", "Home")/${maPx}`, data => {
                                                 attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
 
                                                 $('#ddlPhuongXa option').each(function () {
@@ -706,7 +706,7 @@
             let target = $(this).attr('target');
             let order = $(this).attr('order');
             if (maNG != '-1') {
-                $.get(`/home/GetMajors/${maNG}`, data => {
+                $.get(`@Url.Action("GetMajors", "Home")/${maNG}`, data => {
                     attachDistrictOrWard($(target), data, '--------------Chọn--------------');
                     console.log($(this).parent().next().next());
 

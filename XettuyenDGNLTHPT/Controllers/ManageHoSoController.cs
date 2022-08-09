@@ -204,12 +204,109 @@ namespace XettuyenDGNLTHPT.Controllers
             model.SaveChanges();
             return View("InHoSo");
         }
-        public ActionResult SaveTHPT(tblHoSoTHPT thpt)
+        [HttpPost]
+        public ActionResult SaveTHPT(string id, tblHoSoTHPT hoSo, string TP_QH_PX, string ddlHoKhauQuanHuyen, string ddlHoKhau_PhuongXa, string THPT, string ddlQuanHuyenTHPT, string ddlTenTruongTHPT, string ddlKhuVuc
+                                     , string ddlDoiTuongUT, string LienHeTP, string ddlQuanHuyen, string ddlPhuongXa, string Majors1, string Majors2, string Majors3, string ddlToHopMon1, string ddlToHopMon2, string ddlToHopMon3, string CTDT1, string CTDT2, string CTDT3)
         {
-            model.tblHoSoTHPTs.Add(thpt);
-            model.SaveChanges();
+            //model.tblHoSoTHPTs.Add(thpt);
+            //model.SaveChanges();
 
-            return View(thpt);
+            //return View(thpt);
+            var dbNoiSinh = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(hoSo.MaNoiSinh));
+            string NameNoisinh = dbNoiSinh.TenTinhTP;
+
+
+            hoSo.TenNoiSinh = NameNoisinh;
+            //Dân tộc
+            var dbDanToc = model.tblDanTocs.Find(hoSo.MaDanToc);
+            hoSo.TenDanToc = dbDanToc.TEN_DANTOC;
+            //Quốc tịch
+            var dbQuocTich = model.tblQuocTiches.Find(int.Parse(hoSo.QuocTich));
+            string quoctich = dbQuocTich.MaQT + "|" + dbQuocTich.TenQT;
+            hoSo.QuocTich = quoctich;
+            //Tôn giáo
+            var dbTonGiao = model.tblTonGiaos.Find(hoSo.MaTonGiao);
+            string Nametongiao = dbTonGiao.TEN_TONGIAO;
+            hoSo.TenTonGiao = Nametongiao;
+            // Hộ khẩu địa chỉ
+            var dbHoKhauTP = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(TP_QH_PX));
+            string Nametp = dbHoKhauTP.TenTinhTP;
+            hoSo.HoKhau_MaTinhTP = TP_QH_PX;
+            hoSo.HoKhau_TenTinhTP = Nametp;
+            var dbQuanHuyen = model.tblTP_QH_PX.FirstOrDefault(u => u.MaQH.Equals(ddlHoKhauQuanHuyen));
+            string NameQuanHuyen = dbQuanHuyen.TenQH;
+            hoSo.HoKhau_MaQH = ddlHoKhauQuanHuyen;
+            hoSo.HoKhau_TenQH = NameQuanHuyen;
+            var dbPhuongXa = model.tblTP_QH_PX.FirstOrDefault(u => u.MaPX.Equals(ddlHoKhau_PhuongXa));
+            string NamePhuongXa = dbPhuongXa.TenPX;
+            hoSo.HoKhau_MaPhuong = ddlHoKhau_PhuongXa;
+            hoSo.HoKhau_TenPhuong = NamePhuongXa;
+            //Địa chỉ trường THPT
+            var dbDiaChiTrgtp = model.tblTruongTHPTs.FirstOrDefault(u => u.MA_TINHTP.Equals(THPT));
+            string Namediachitrgtp = dbDiaChiTrgtp.TEN_TINHTP;
+            hoSo.TruongTHPT_MaTinhTP = THPT;
+            hoSo.TruongTHPT_TenTinhTP = Namediachitrgtp;
+            var dbTrgQuanHuyen = model.tblTruongTHPTs.FirstOrDefault(u => u.MA_QH.Equals(ddlQuanHuyenTHPT) && u.MA_TINHTP.Equals(THPT));
+            string NameTrgQuanHuyen = dbTrgQuanHuyen.TEN_QH;
+            hoSo.TruongTHPT_MaQH = ddlQuanHuyenTHPT;
+            hoSo.TruongTHPT_TenQH = NameTrgQuanHuyen;
+            var dbTrg = model.tblTruongTHPTs.FirstOrDefault(u => u.MA_TRUONG.Equals(ddlTenTruongTHPT) && u.TEN_QH.Equals(NameTrgQuanHuyen) && u.MA_TINHTP.Equals(THPT));
+            string NameTrg = dbTrg.TEN_TRUONG;
+            hoSo.MaTruongTHPT = THPT + ddlTenTruongTHPT;
+            hoSo.TenTruongTHPT = ddlTenTruongTHPT + " - " + NameTrg;
+            //Thông tin liên hệ
+            var dbLienHeTP = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(LienHeTP));
+            string Namelienhetp = dbLienHeTP.TenTinhTP;
+            hoSo.LienLac_MaTP = LienHeTP;
+            hoSo.LienLac_TenTP = Namelienhetp;
+            var dbLienHeQuanHuyen = model.tblTP_QH_PX.FirstOrDefault(u => u.MaQH.Equals(ddlQuanHuyen));
+            string NameLienHeQuanHuyen = dbLienHeQuanHuyen.TenQH;
+            hoSo.LienLac_MaQH = ddlQuanHuyen;
+            hoSo.LienLac_TenQH = NameLienHeQuanHuyen;
+            var dbLienHePhuongXa = model.tblTP_QH_PX.FirstOrDefault(u => u.MaPX.Equals(ddlPhuongXa));
+            string NameLienHePhuongXa = dbLienHePhuongXa.TenPX;
+            hoSo.LienLac_MaPhuongXa = ddlPhuongXa;
+            hoSo.LienLac_TenPhuongXa = NameLienHePhuongXa;
+            //Khu vực và đối tượng 
+            var dbKhuVuc = model.tblTruongTHPTs.FirstOrDefault(u => u.KHU_VUC.Equals(ddlKhuVuc));
+            hoSo.KhuVuc = dbKhuVuc.KHU_VUC;
+            if (ddlDoiTuongUT.Equals("Không có"))
+            {
+                hoSo.DoiTuongUuTien = "0";
+            }
+            else
+            {
+                hoSo.DoiTuongUuTien = ddlDoiTuongUT.ToString();
+            }
+            if (hoSo.CCNN.Equals("-- Chọn chứng chỉ ngoại ngữ --"))
+            {
+                hoSo.CCNN = "";
+            }
+            // Nganh va To hop 1/2/3
+            if (Majors1 != "-1" && !string.IsNullOrWhiteSpace(ddlToHopMon1))
+            {
+                var dbNganhTohop1 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors1 + ddlToHopMon1));
+                string NameNganhTohop1 = dbNganhTohop1.TEN_NGANH + "#" + dbNganhTohop1.MA_TOHOP + " - " + dbNganhTohop1.TEN_TOHOP;
+                hoSo.MaNganh_ToHop1 = Majors1 + "#" + ddlToHopMon1; hoSo.TenNganh_TenToHop1 = NameNganhTohop1;
+                hoSo.CTDT1 = CTDT1;
+            }
+            if (Majors2 != "-1" && !string.IsNullOrWhiteSpace(ddlToHopMon2))
+            {
+                var dbNganhTohop2 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors2 + ddlToHopMon2));
+                string NameNganhTohop2 = dbNganhTohop2.TEN_NGANH + "#" + dbNganhTohop2.MA_TOHOP + " - " + dbNganhTohop2.TEN_TOHOP;
+                hoSo.MaNganh_ToHop2 = Majors2 + "#" + ddlToHopMon2; hoSo.TenNganh_TenToHop2 = NameNganhTohop2;
+                hoSo.CTDT2 = CTDT2;
+            }
+            if (Majors3 != "-1" && !string.IsNullOrWhiteSpace(ddlToHopMon3))
+            {
+                var dbNganhTohop3 = model.tblNganhs.FirstOrDefault(u => u.MANGANH_TOHOP.Equals(Majors3 + ddlToHopMon3));
+                string NameNganhTohop3 = dbNganhTohop3.TEN_NGANH + "#" + dbNganhTohop3.MA_TOHOP + " - " + dbNganhTohop3.TEN_TOHOP;
+                hoSo.MaNganh_ToHop3 = Majors3 + "#" + ddlToHopMon3; hoSo.TenNganh_TenToHop3 = NameNganhTohop3;
+                hoSo.CTDT3 = CTDT3;
+            }
+            model.Entry(hoSo).State = EntityState.Modified;
+            model.SaveChanges();
+            return RedirectToAction("DetailTHPT", hoSo);
         }
         public ActionResult SaveDGNL(tblHoSoDGNL dGNL)
         {

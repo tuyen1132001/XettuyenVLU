@@ -240,13 +240,13 @@
                                                         {
 
 
-                                                        <div id="test" style="width:1000px">
+                                                            <div id="test" style="width:1000px">
 
-                                                            @(new HtmlString(ViewData["Form-MessgeTHPT"].ToString()))
-                                                            @*<div id="demo" [innerHTML]="@Session["Form-MessgeTHPT"]"></div>*@
+                                                                @(new HtmlString(ViewData["Form-MessgeTHPT"].ToString()))
+                                                                @*<div id="demo" [innerHTML]="@Session["Form-MessgeTHPT"]"></div>*@
 
-                                                            @*<p id="new" [innerHTML]="@Session["Form-MessgeTHPT"]"></p>*@
-                                                        </div>
+                                                                @*<p id="new" [innerHTML]="@Session["Form-MessgeTHPT"]"></p>*@
+                                                            </div>
                                                         }
                                                         else
                                                         {
@@ -895,9 +895,8 @@
 @section Scripts {
     <script src="~/Scripts/app.js"></script>
     @Scripts.Render("~/bundles/jqueryval")
-<script>
-
-        $('select.city-select').change(function () {
+    <script>
+    $('select.city-select').change(function () {
             let maTp = $(this).val();
             let target = $(this).attr('target');
 
@@ -918,7 +917,7 @@
             }
 
             if (maTp != '-1') {
-                $.get(`/home/GetDistrict/${maTp}`, data => {
+                $.get(`@Url.Action("GetDistrict", "Home")/${maTp}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
                     $('#ddlHoKhau_PhuongXa').html('');
 
@@ -953,7 +952,7 @@
             }
 
             if (maPx != '-1') {
-                $.get(`/home/GetWard/${maPx}`, data => {
+                $.get(`@Url.Action("GetWard", "Home")/${maPx}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn phường/xã --');
 
                     if (chkLayDCHoKhau) {
@@ -973,7 +972,7 @@
             let target = $(this).attr('target');
             if (maQHTH != '-1') {
 
-                $.get(`/home/GetDistrictSchool/${maQHTH}`, data => {
+                $.get(`@Url.Action("GetDistrictSchool", "Home")/${maQHTH}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
                 });
             }
@@ -984,7 +983,7 @@
             let target = $(this).attr('target');
             if (maTH != '-1') {
                 let id = maTH + '-' + maQHTH;
-                $.get(`/home/GetSchool/${id}`, data => {
+                $.get(`@Url.Action("GetSchool", "Home")/${id}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn trường --');
                 });
             }
@@ -993,7 +992,7 @@
             let maKV = $(this).val();
             let target = $(this).attr('target');
             if (maKV != '-1') {
-                $.get(`/home/GetArea/${maKV}`, data => {
+                $.get(`@Url.Action("GetArea", "Home")/${maKV}`, data => {
                     attachDistrictOrWard($(target), data, "", false);
                 });
             }
@@ -1008,7 +1007,7 @@
                         $(this).prop("selected", true);
                         let maTp = $(this).val();
                         if (maTp != -1) {
-                            $.get(`/home/GetDistrict/${maTp}`, data => {
+                            $.get(`@Url.Action("GetDistrict", "Home")/${maTp}`, data => {
                                 attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
                                 $('#ddlPhuongXa').html('');
 
@@ -1017,7 +1016,7 @@
                                         $(this).prop("selected", true);
                                         let maPx = $(this).val();
                                         if (maPx != -1) {
-                                            $.get(`/home/GetWard/${maPx}`, data => {
+                                            $.get(`@Url.Action("GetWard", "Home")/${maPx}`, data => {
                                                 attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
 
                                                 $('#ddlPhuongXa option').each(function () {
@@ -1064,7 +1063,7 @@
             let target = $(this).attr('target');
             let order = $(this).attr('order');
             if (maNG != '-1') {
-                $.get(`/home/GetMajors/${maNG}`, data => {
+                $.get(`@Url.Action("GetMajors", "Home")/${maNG}`, data => {
                     attachDistrictOrWard($(target), data, '--------------Chọn--------------');
                     console.log($(this).parent().next().next());
 
@@ -1106,5 +1105,5 @@
             }
             element.html(itemsHtml);
         }
-</script>
+    </script>
 }
