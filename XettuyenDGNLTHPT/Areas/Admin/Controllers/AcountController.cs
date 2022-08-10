@@ -48,7 +48,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
           Session["usser-fullname"] = null;
          Session["user-id"] = null;
          Session["user-role"] = null;
-         return RedirectToAction("Login");
+         return RedirectToAction("Login", "Acount");
   
         }
         [LoginVerification]
