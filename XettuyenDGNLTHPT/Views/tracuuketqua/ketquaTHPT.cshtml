@@ -92,12 +92,18 @@
 
 
                         </div> <br>
-                        <div class="thongtin_tckq thongtin_tckq1">
-                            <span>Thí Sinh: <b> @Model.HoVaTen</b></span>
-                            <span>Ngày Sinh: <b> @Model.NgaySinh</b></span>
-                            <span>Giới Tính: <b> @Model.GioiTinh</b></span>
-
-                        </div>
+                               <div class="thongtin_tckq thongtin_tckq1">
+                                   <span>Thí Sinh: <b> @Model.HoVaTen</b></span>
+                                   <span>Ngày Sinh: <b>@Convert.ToDateTime(@Model.NgaySinh).ToString("dd/MM/yyyy")</b></span>
+                                   @if (Model.GioiTinh == true)
+                                   {
+                                       <span>Giới Tính: <b>Nam</b></span>
+                                   }
+                                   else
+                                   {
+                                       <span>Giới Tính: <b>Nữ</b></span>
+                                   }
+                               </div>
                         <div class="thongtin_tckq thongtin_tckq2">
                             <span>Mã Hồ Sơ: <b>@Model.ID</b></span>
                             <span>Hộ Khẩu: <b> @Model.HoKhau_TenPhuong - @Model.HoKhau_TenQH - @Model.HoKhau_TenTinhTP</b>
