@@ -1,6 +1,17 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\XettuyenDGNLTHPT",
+    "\\XettuyenDGNLTHPT\\Areas",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\Acount",
+    "\\XettuyenDGNLTHPT\\Controllers",
+    "\\XettuyenDGNLTHPT\\Views",
+    "\\XettuyenDGNLTHPT\\Views\\Home",
+    "\\XettuyenDGNLTHPT\\Views\\Shared",
+    "\\XettuyenDGNLTHPT\\Views\\tracuuketqua"
   ],
+  "SelectedNode": "\\XettuyenDGNLTHPT\\Views\\tracuuketqua\\ketquaTHPT.cshtml",
   "PreviewInSolutionExplorer": false
 }

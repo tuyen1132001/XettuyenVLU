@@ -265,6 +265,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\ManageHoSoController.cs" />
+    <Compile Include="Controllers\TraCuuKetQuaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -897,6 +898,9 @@
     <Content Include="Views\ManageHoSo\EditDGNL.cshtml" />
     <Content Include="Views\ManageHoSo\SaveTHPT.cshtml" />
     <Content Include="Views\ManageHoSo\SaveDGNL.cshtml" />
+    <Content Include="Views\tracuuketqua\ketquaTHPT.cshtml" />
+    <Content Include="Views\tracuuketqua\index.cshtml" />
+    <Content Include="Views\tracuuketqua\ketquaDGNL.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

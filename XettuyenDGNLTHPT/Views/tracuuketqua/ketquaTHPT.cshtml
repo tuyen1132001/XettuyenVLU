@@ -1,0 +1,173 @@
+﻿@model XettuyenDGNLTHPT.Models.tblHoSoTHPT
+
+@{
+    ViewBag.Title = "ketquaTHPT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    * {
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .form_tckq {
+        background-color: white;
+        padding: 20px;
+    }
+
+    .headtckq {
+        font-size: 2.0rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .chxh {
+        margin-top: 3%;
+        text-align: center;
+    }
+
+    .thongbao_tckq {
+        text-align: center;
+    }
+
+    .thongtin_tckq {
+        font-size: 2.0rem;
+    }
+
+    .thongtin_tckq1 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .thongtin_tckq2 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .thongtin_tckq3 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    hr {
+        color: red;
+        background: black;
+        border: 0;
+        height: 2px;
+        width: 45%;
+    }
+
+    .content_tckq {
+        font-size: 2.0rem;
+    }
+</style>
+
+<DIV class="page-container">
+    <!-- BEGIN CONTENT -->
+    <DIV class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <!-- BEGIN PAGE CONTENT BODY -->
+        <DIV class="page-content">
+            <DIV class="container">
+                <!-- BEGIN PAGE CONTENT INNER -->
+                <DIV class="page-content-inner">
+                    <div class="form_tckq">
+
+                        <div class="headtckq">
+                            <div><img style="width: 240px ;height: 180px;" src="https://lh3.googleusercontent.com/Oy6viNYZt2uuDYlvHxMlnQoaL7dTjb1cPr-IJEa7LmfQz9L6FEb6oOWGwLiJUsVVFCIDnBBRg_bmuWmrLh8ixQubXXw5twAFW0OZpEFTcr67xbBmKEG_l7iqk1Y1bWLGJpl4697R" alt=""></div>
+                            <div class="chxh">
+                                <h4><b>Cộng Hòa Xã Hội Chủ Nghĩa Việt Nam</b></h4>
+                                <span><i><u><b>Độc Lập - Tự Do - Hạnh Phúc</b></u></i></span> <br>
+
+                                <span>Tp. Hồ Chí Minh, ngày 10 Tháng 6 năm 2022</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="thongbao_tckq">
+
+                            <h1><b>THÔNG BÁO</b></h1>
+                            <h2><b>KẾT QUẢ XÉT TUYỂN HỆ ĐẠI HỌC CHÍNH QUY NĂM 2022</b></h2>
+                            <SPAn style="  font-size: 2.4rem;">Căn cứ vào kết quả học tập Trung Học Phổ Thông và nguyện vọng đăng ký xét tuyển của Anh/Chị, <br> <b>Trường Đại Học Văn Lang trân trọng thông báo:</b></SPAn>
+
+
+                        </div> <br>
+                               <div class="thongtin_tckq thongtin_tckq1">
+                                   <span>Thí Sinh: <b> @Model.HoVaTen</b></span>
+                                   <span>Ngày Sinh: <b>@Convert.ToDateTime(@Model.NgaySinh).ToString("dd/MM/yyyy")</b></span>
+                                   @if (Model.GioiTinh == true)
+                                   {
+                                       <span>Giới Tính: <b>Nam</b></span>
+                                   }
+                                   else
+                                   {
+                                       <span>Giới Tính: <b>Nữ</b></span>
+                                   }
+                               </div>
+                        <div class="thongtin_tckq thongtin_tckq2">
+                            <span>Mã Hồ Sơ: <b>@Model.ID</b></span>
+                            <span>Hộ Khẩu: <b> @Model.HoKhau_TenPhuong - @Model.HoKhau_TenQH - @Model.HoKhau_TenTinhTP</b>
+                            <br>  <samp style="text-align: center">(@Model.LienLac_DiaChi)</samp> 
+                            </span>
+                           
+
+                            <samp></samp>
+                        </div>
+                        <div class="thongtin_tckq thongtin_tckq3">
+                            <span>Đối Tượng: <b>@Model.DoiTuongUuTien</b></span>
+                            <span>Khu Vực: <b>@Model.KhuVuc</b></span>
+                            <samp></samp>
+                        </div>
+
+                        <div class="content_tckq">
+                            <samp><b> Trúng tuyển có điều kiện vào khóa 28 bật Đại Học hệ Chính quy tập trung theo các nguyện vọng sau: </b></samp>
+                            <h4><b>1. Ngành: @Model.TenNganh_TenToHop1 - @Model.MaNganh_ToHop1</b></h4>
+                            <h4><b>2. Ngành: @Model.TenNganh_TenToHop2 - @Model.MaNganh_ToHop2</b></h4>
+                            <h4><b>3. Ngành: @Model.TenNganh_TenToHop3 - @Model.MaNganh_ToHop3</b></h4>
+
+                            <br>
+                            <p>
+                                <b>
+                                    Thí sinh trúng tuyển có điều kiện năm 2022 cần được công nhận tốt nghiệp THPT và trúng tuyển trên hệ thống tuyển sinh quốc gia của Bộ Giáo Dục & đào tạo để chính thức nhập học Trường Đại Học Văn Lang.
+                                </b>
+                            </p>
+                            <p> <b>Từ tháng 7/2022, Theo quy chế tuyển sinh, thí sinh xác định nguyện vọng xét tuyển và thực hiện đăng ký xét tuyển trên hệ thống (Qua cổng thông tin của bộ giáo dục và đào tạo hoặc qua Cổng dịch vụ công quốc gia). Nếu được xác định nhập học Trường Đại Học Văn Lang, Anh/Chị cần đăng ký ngành học tại Trường Đại Học Văn Lang ở thứ tự nguyện vọng số 1</p>
+                            </b> </p>
+                            <p>
+                                Riêng đối với thí sinh vào nhóm ngành Sức khỏe, ngoài các điều kiện trên, cân đáp ứng thêm đủ điều kiện học lớp 12 loại Giỏi (đối với ngành Răng Hàm Mặt và ngành Dược học). học lực lớp 12 đặt từ loại Khá trở lên (Đối với ngành Điều Dưỡng và Kỹ thuật xét nghiệm Y học).
+
+                                lực lớp 12 đạt từ loại Khá trở lên (đối với ngành Điều dưỡng và Kỹ thuật Xét nghiệm Ý học),
+                            </p>
+                            <p>
+                                Sau khi thí sinh có kết quả tốt nghiệp THPT, Trường Đại học Văn Lang gửi Giấy báo trùng tuyền và Thư mời nhập học, hướng dân hô sơ nhập học. mức học phí, lệ phí nhập học. thời gian và địa điểm nhập học.
+                            </p>
+
+                        </div>
+
+                        <hr>
+                        <div style=" font-size: 2.0rem;">
+
+
+
+                            <span>
+                                <b> Các kênh tư vấn tuyển sinh của trường Đại Học Văn Lang:</b>
+                            </span>
+                            <ul>
+                                <li>Văn phòng tuyển sinh - Cơ sở chính: 69/68 Đặng Thùy Trâm, P. 13, Q. Bình Thạnh, Tp.HCM</li>
+                                <li>Văn phòng tuyển sinh -  Cơ sở 1: 45 Nguyễn Khắc Nhu, P. Cô Giang, Quận 1, Tp.HCM</li>
+                                <li>  Website: <a href="">https://tuyensinh.vanlanguni.edu.vn/</a></li>
+                                <li> Email : tuyensinh@vanlanguni.edu.vn</li>
+                                <li>   Hotline: (028) 7105 9999</li>
+                                <li>   Zalo: 0904214254 (Trường Đại học Văn Lang)</li>
+                                <li> Fanpage: Trường Đại học Văn Lang</li>
+                            </ul>
+
+
+
+                        </div>
+
+                    </div>
+                </DIV>
+            </DIV>
+        </DIV>
+    </DIV>
