@@ -59,7 +59,7 @@
         <!-- /.col-lg-12 -->
     </div>
 
-    <div class="container-fluid" >
+    <div class="container-fluid">
 
         <div class="row" style="background-color: white ">
             <div class="col-md-12 col-lg-12 col-sm-12">
@@ -70,32 +70,65 @@
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Mã hồ sơ</th>
-                                <th>Họ và tên</th>
-                                <th>CMND</th>
-                                <th>Email</th>
-                                <th>SĐT</th>
-                                <th>Địa chỉ</th>
-                                <th>Đã nhận hồ sơ</th>
+                                @if ((string)Session["user-role"] == "1")
+                                {
+                                    <th>Mã hồ sơ</th>
+
+                                    <th>Họ và tên</th>
+                                    <th>CMND</th>
+                                    <th>Email</th>
+                                    <th>SĐT</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Đã nhận hồ sơ</th>
+                                }
+                                else
+                                {
+                                    <th>Mã hồ sơ</th>
+
+                                    <th>Họ và tên</th>
+                                    <th>CMND</th>
+                                    <th>Email</th>
+                                    <th>SĐT</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Đã nhận hồ sơ</th>
+                                }
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        <a href="@Url.Action("DetailsHoSoTHPT","ManageTHPT",new {id = item.ID })">@item.ID</a>
-                                    </td>
-                                    <td class="txt-oflo">@item.HoVaTen</td>
-                                    <td class="txt-oflo">@item.CMND</td>
-                                    <td class="txt-oflo">@item.Email</td>
-                                    <td class="txt-oflo">@item.DienThoaiDD</td>
-                                    <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
-                                    <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
 
+                                <tr>
+                                    @if ((string)Session["user-role"] == "1")
+                                    {
+                                        <td>
+                                            <a href="@Url.Action("DetailsHoSoTHPT", "ManageTHPT", new { id = item.ID })">@item.ID</a>
+                                        </td>
+
+                                        <td class="txt-oflo">@item.HoVaTen</td>
+                                        <td class="txt-oflo">@item.CMND</td>
+                                        <td class="txt-oflo">@item.Email</td>
+                                        <td class="txt-oflo">@item.DienThoaiDD</td>
+                                        <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
+                                        <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="txt-oflo">
+                                            @item.ID
+                                        </td>
+
+                                        <td class="txt-oflo">@item.HoVaTen</td>
+                                        <td class="txt-oflo">@item.CMND</td>
+                                        <td class="txt-oflo">@item.Email</td>
+                                        <td class="txt-oflo">@item.DienThoaiDD</td>
+                                        <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
+                                        <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
+                                    }
 
 
                                 </tr>
+
                             }
                         </tbody>
 
@@ -108,7 +141,7 @@
         </div>
 
     </div>
-    
+
 
 </body>
 </html>

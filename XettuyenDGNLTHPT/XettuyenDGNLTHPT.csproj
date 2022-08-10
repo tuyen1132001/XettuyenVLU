@@ -829,8 +829,6 @@
     <Content Include="Areas\Admin\Views\ManageImporData\IndexTP_QH_PX.cshtml" />
     <Content Include="Areas\Admin\Views\ManageDGNL\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ManageTHPT\DetailsHoSoTHPT.cshtml" />
-    <Content Include="Areas\Admin\Views\ManageTHPT\Index1.cshtml" />
-    <Content Include="Areas\Admin\Views\ManageTHPT\Index2.cshtml" />
     <Content Include="Areas\Admin\Views\ManageDGNL\DetailsHoSoDGNL.cshtml" />
     <Content Include="Areas\Admin\Views\ManageTHPT\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ManageImporData\AddCNN.cshtml" />

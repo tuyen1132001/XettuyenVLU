@@ -103,12 +103,12 @@
                                                         <div class="tab-content">
                                                             @if (Convert.ToBoolean(Session["FormDGNL-closeform"]) == true)
                                                             {
-                                                            <div>
-                                                                @(new HtmlString(ViewData["Form-MessgeDGNL"].ToString()))
+                                                                <div>
+                                                                    @(new HtmlString(ViewData["Form-MessgeDGNL"].ToString()))
 
 
-                                                                <br />
-                                                            </div>
+                                                                    <br />
+                                                                </div>
                                                             }
                                                             else
                                                             {
@@ -232,7 +232,7 @@
                                                                                     <div class="col-md-8">
                                                                                         @*@Html.DropDownList("HoKhau_MaQH", (IEnumerable<SelectListItem>)ViewBag.TP_QH, null, new { @class = "form-control district-select", target = "#ddlHoKhau_PhuongXa", name = "ddlHoKhauQuanHuyen", id = "ddlHoKhauQuanHuyen" })*@
                                                                                         <select name="ddlHoKhauQuanHuyen" id="ddlHoKhauQuanHuyen" class="form-control district-select" required="true" target="#ddlHoKhau_PhuongXa">
-                                    </select>
+                                                                                        </select>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="vertical_space"></div>
@@ -241,7 +241,7 @@
                                                                                     <div class="col-md-8">
                                                                                         @*@Html.DropDownList("HoKhau_MaPhuong", (IEnumerable<SelectListItem>)ViewBag.PX, null, new { @class = "form-control ", name = "ddlHoKhau_PhuongXa", id = "ddlHoKhau_PhuongXa", required = "true" })*@
                                                                                         <select name="ddlHoKhau_PhuongXa" id="ddlHoKhau_PhuongXa" class="form-control" required="true">
-                                    </select>
+                                                                                        </select>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -321,7 +321,7 @@
                                                                                         <select name="ddlQuanHuyenTHPT" id="ddlQuanHuyenTHPT" class="form-control school-select" required="true" target="#ddlTenTruongTHPT">
                                                                                         </select>
                                                                                         @*<select name="ddlQuanHuyenTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlQuanHuyenTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlQuanHuyenTHPT" class="form-control " required="true">
-                </select>*@
+                                                                                            </select>*@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="vertical_space"></div>
@@ -330,7 +330,7 @@
                                                                                     <div class="col-md-8">
                                                                                         <select name="ddlTenTruongTHPT" id="ddlTenTruongTHPT" class="form-control area-select" required="true" target="#ddlKhuVuc"></select>
                                                                                         @*<select name="ddlTenTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTenTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTenTruongTHPT" class="form-control " required="true">
-                </select>*@
+                                                                                            </select>*@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="vertical_space"></div>
@@ -555,9 +555,9 @@
 
 
                                                         </div>
-                                                    </div>
-                                                </DIV>
-                                            </div>
+                                                    </DIV>
+                                                </div>
+                                            </DIV>
                                         </DIV>
                                     </DIV>
                                 </DIV><!-- END CONTENT -->
@@ -566,7 +566,7 @@
                         </DIV>
                     </DIV>
 
-                </DIV>
+                </div>
 
 
                 <script type="text/javascript">
@@ -648,7 +648,7 @@
             }
 
             if (maTp != '-1') {
-                $.get(`/home/GetDistrict/${maTp}`, data => {
+                $.get(`@Url.Action("GetDistrict", "Home")/${maTp}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
                     $('#ddlHoKhau_PhuongXa').html('');
 
@@ -683,7 +683,7 @@
             }
 
             if (maPx != '-1') {
-                $.get(`/home/GetWard/${maPx}`, data => {
+                $.get(`@Url.Action("GetWard", "Home")/${maPx}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn phường/xã --');
 
                     if (chkLayDCHoKhau) {
@@ -703,7 +703,7 @@
             let target = $(this).attr('target');
             if (maQHTH != '-1') {
 
-                $.get(`/home/GetDistrictSchool/${maQHTH}`, data => {
+                $.get(`@Url.Action("GetDistrictSchool", "Home")/${maQHTH}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
                 });
             }
@@ -714,7 +714,7 @@
             let target = $(this).attr('target');
             if (maTH != '-1') {
                 let id = maTH + '-' + maQHTH;
-                $.get(`/home/GetSchool/${id}`, data => {
+                $.get(`@Url.Action("GetSchool", "Home")/${id}`, data => {
                     attachDistrictOrWard($(target), data, '-- Chọn trường --');
                 });
             }
@@ -723,7 +723,7 @@
             let maKV = $(this).val();
             let target = $(this).attr('target');
             if (maKV != '-1') {
-                $.get(`/home/GetArea/${maKV}`, data => {
+                $.get(`@Url.Action("GetArea", "Home")/${maKV}`, data => {
                     attachDistrictOrWard($(target), data, "", false);
                 });
             }
@@ -738,7 +738,7 @@
                         $(this).prop("selected", true);
                         let maTp = $(this).val();
                         if (maTp != -1) {
-                            $.get(`/home/GetDistrict/${maTp}`, data => {
+                            $.get(`@Url.Action("GetDistrict", "Home")/${maTp}`, data => {
                                 attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
                                 $('#ddlPhuongXa').html('');
 
@@ -747,7 +747,7 @@
                                         $(this).prop("selected", true);
                                         let maPx = $(this).val();
                                         if (maPx != -1) {
-                                            $.get(`/home/GetWard/${maPx}`, data => {
+                                            $.get(`@Url.Action("GetWard", "Home")/${maPx}`, data => {
                                                 attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
 
                                                 $('#ddlPhuongXa option').each(function () {
@@ -797,7 +797,7 @@
             let target = $(this).attr('target');
             let order = $(this).attr('order');
             if (maNG != '-1') {
-                $.get(`/home/GetMajors/${maNG}`, data => {
+                $.get(`@Url.Action("GetMajors", "Home")/${maNG}`, data => {
                     attachDistrictOrWard($(target), data, '--------------Chọn--------------');
                     console.log($(this).parent().next().next());
 

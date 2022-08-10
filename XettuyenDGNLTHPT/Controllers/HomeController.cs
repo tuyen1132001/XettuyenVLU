@@ -81,7 +81,7 @@ namespace XettuyenDGNLTHPT.Controllers
                 tblHoSoTHPT.TenNoiSinh = NameNoisinh;
                 //Dân tộc
                 var dbDanToc = model.tblDanTocs.Find(tblHoSoTHPT.MaDanToc);
-                tblHoSoTHPT.TenDanToc = dbDanToc.TEN_DANTOC + "";
+                tblHoSoTHPT.TenDanToc = dbDanToc.TEN_DANTOC;
                 //Quốc tịch
                 var dbQuocTich = model.tblQuocTiches.Find(int.Parse(tblHoSoTHPT.QuocTich));
                 string quoctich = dbQuocTich.MaQT + "|" + dbQuocTich.TenQT;
