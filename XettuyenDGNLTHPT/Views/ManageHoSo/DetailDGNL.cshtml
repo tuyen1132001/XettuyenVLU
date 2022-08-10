@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form  action="@Url.Action("EditDGNL","ManageHoSo",Model )">
+<form action="@Url.Action("EditDGNL","ManageHoSo",Model )">
     <div class="aspNetHidden">
         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
     </div>
@@ -26,7 +26,7 @@
                 <p></p>
                 <div class="row">
                     <div class="col-md-1"></div>
-                    <div class="col-md-2">
+                    <div class="col-md-2" id="dot">
                         <select name="DropDownList1" id="DropDownList1" class="form-control">
                             <option value="dot1">Đợt 1</option>
                             <option value="dot2">Đợt 2</option>
@@ -40,8 +40,11 @@
 
                         </select>
                     </div>
+
                     <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
                     <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
+
+
                     <div class="col-md-2"></div>
                 </div>
 
@@ -323,9 +326,9 @@
                 </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" id="btnUploadHocBa" class="btn btn-warning" value="UPLOAD HỌC BẠ" onclick="parent.open('/myupload');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 @if (Convert.ToBoolean(Session["Form-button"]) == true)
                 {
-                    <a href="@Url.Action("EditDGNL","ManageHoSo",Model ) "type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning"  >
-                ĐIỀU CHỈNH THÔNG TIN
-            </a>
+                    <a href="@Url.Action("EditDGNL","ManageHoSo",Model ) " type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning">
+                        ĐIỀU CHỈNH THÔNG TIN
+                    </a>
                     @*<input type="submit" name="btnDieuChinhNguyenVong" value="ĐIỀU CHỈNH THÔNG TIN" id="btnDieuChinhNguyenVong" class="btn btn-primary">*@
                 }
                 else
@@ -333,8 +336,8 @@
                     <input type="submit" name="btnDieuChinhNguyenVong" value="ĐIỀU CHỈNH THÔNG TIN" id="btnDieuChinhNguyenVong" disabled="true" class="btn btn-primary">
                 }
                 @*<a href="@Url.Action("EditDGNL","ManageHoSo" ) "type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning"  >
-            ĐIỀU CHỈNH THÔNG TIN
-        </a>*@
+                        ĐIỀU CHỈNH THÔNG TIN
+                    </a>*@
 
             </div>
         </div>
@@ -349,3 +352,22 @@
 </form>
 
 
+@section Scripts {
+    <script src="~/Scripts/app.js"></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        let data = $("#ddlLoaiXetTuyen :selected").val();
+        if (data == 'HB') {
+            $('#DropDownList1').hide();
+        }
+        $('#ddlLoaiXetTuyen').change(function () {
+            $('#ddlLoaiXetTuyen option').each(function () {
+                if ($(this).val() == "DGNL") {
+                    $('#DropDownList1').toggle();
+                }
+            });
+
+        });
+    </script>
+}
