@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+          content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+          content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>	VLU - TRANG ĐĂNG KÝ TUYỂN SINH ONLINE</title>
+
+
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/adminsep/plugins/images/logo-page.png">
+    <!-- Custom CSS -->
+    <link href="~/assets/adminsep/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+    <!-- Custom CSS -->
+    <link href="~/assets/adminsep/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/adminsep/css/style.code.css">
+    <link href='https://css.gg/home-alt.css' rel='stylesheet'>
+</head>
+
+<body class="page-container-bg-solid page-md">
+   
+    <!-- ==========================croll==================================== -->
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+
+        }
+    </script>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="dashboard.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!-- Dark Logo icon -->
+                            <img style="margin: 10px;" src="https://xettuyenonline.vanlanguni.edu.vn/files/logo.png" alt="homepage" />
+                        </b>
+                        <!--End Logo icon -->
+
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+                       href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div style="background-color: #FF0000; margin-top: 0;" class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav ms-auto d-flex align-items-center">
+
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class=" in">
+                            <form role="search" class="app-search d-none d-md-block me-3">
+                                <input type="text" placeholder="Search..." class="form-control mt-0">
+                                <a href="" class="active">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </form>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li>
+                            <a class="profile-pic" href="#">
+                                <span class="text-white font-medium">@Session["usser-fullname"]</span>
+                            </a>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li class="sidebar-item pt-2">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("Index","HomeAdmin")"
+                               aria-expanded="false">
+                                <i class="far fa-clock" aria-hidden="true"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
+                        @if ((string)Session["user-role"] == "1")
+                        {
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="AD_ViewList.html"
+                                   aria-expanded="false">
+                             
+                                    <span class="hide-menu">Quản lý thông tin hồ sơ</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("ManageAcount","HomeAdmin")"
+                                   aria-expanded="false">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="hide-menu">Quản lý tài khoản</span>
+                                </a>
+                            </li>
+                        }
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("Index","ManageImporData")"
+                               aria-expanded="false">
+                                <i class="fa fa-database"  aria-hidden="true"></i>
+                                <span class="hide-menu">Quản lí dữ liệu danh mục </span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("Index","ManageTHPT")"
+                               aria-expanded="false">
+                                <i class="fa fa-book"  aria-hidden="true"></i>
+                                <span class="hide-menu">Hồ sơ tuyển sinh</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("Index","FormContent")"
+                               aria-expanded="false">
+                                <i class="fa fa-font" aria-hidden="true"></i>
+                                <span class="hide-menu">Quản lý nội dung</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("Index","ManageContentMail")"
+                               aria-expanded="false">
+                                <i class="fa fa-cart-arrow-down aria-hidden="true"></i>
+                                <span class="hide-menu">Quản lý nội dung mail</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_Category.html"
+                               aria-expanded="false">
+                                <i class="fa fa-check-square"></i>
+                                <span class="hide-menu">Quản lý danh mục</span>
+                            </a>
+                        </li>
+                        <li class="text-center p-20 upgrade-btn">
+                            <a href="/Admin/Acount/Logout"
+                               class="btn d-grid btn-danger text-white" onclick="if (!confirm ('Bạn có muốn đăng xuất không')) { return false; }">
+                                Đăng Xuất
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+          
+
+            <!-- ============================================================== -->
+            <!-- End Page wrapper  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End Wrapper -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- All Jquery -->
+            <!-- ============================================================== -->
+            <script src="~/assets/adminsep/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+            <!-- Bootstrap tether Core JavaScript -->
+            <script src="~/assets/adminsep/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="~/assets/adminsep/js/app-style-switcher.js"></script>
+            <script src="~/assets/adminsep/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+            <!--Wave Effects -->
+            <script src="~/assets/adminsep/js/waves.js"></script>
+            <!--Menu sidebar -->
+            <script src="~/assets/adminsep/js/sidebarmenu.js"></script>
+            <!--Custom JavaScript -->
+            <script src="~/assets/adminsep/js/custom.js"></script>
+            <!--This page JavaScript -->
+            <!--chartis chart-->
+            <link href="~/assets/adminsep/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet" />
+            <script src="~/assets/adminsep/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+            <script src="~/assets/adminsep/js/pages/dashboards/dashboard1.js"></script>
+            @RenderBody()
+           
+</body>
+
+</html>-

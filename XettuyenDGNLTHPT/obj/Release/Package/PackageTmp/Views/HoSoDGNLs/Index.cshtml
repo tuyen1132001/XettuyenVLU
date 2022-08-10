@@ -1,0 +1,845 @@
+﻿@model XettuyenDGNLTHPT.Models.tblHoSoDGNL
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    .d-none {
+        display: none
+    }
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139455606-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-139455606-1');
+</script>
+<!-- BEGIN HEADER -->
+<!-- BEGIN CONTAINER -->
+<form method="post" id="form_dang_ky" class="form-horizontal" onsubmit="javascript:return WebForm_OnSubmit();">
+    <div class="aspNetHidden">
+        <input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+        <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+        <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+    </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var theForm = document.forms['form_dang_ky'];
+        if (!theForm) {
+            theForm = document.form_dang_ky;
+        }
+        function __doPostBack(eventTarget, eventArgument) {
+            if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                theForm.__EVENTTARGET.value = eventTarget;
+                theForm.__EVENTARGUMENT.value = eventArgument;
+                theForm.submit();
+            }
+        }
+        //]]>
+    </script>
+
+
+    <script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZMmlaMti_Z0KPDxpJINxsMLii7djePDc0KFWAzb3gMJ_Dmi4MQnHE1ctnvXZXBCvUA2&amp;t=637816912794179319" type="text/javascript"></script>
+
+
+    <script src="/ScriptResource.axd?d=nv7asgRUU0tRmHNR2D6t1FThIgIlqXIf769CwFW17XwTz08_2Ct8iafl0RFyMVPJLI45Acl55Ltrv8WdIfcec7rBfREV7Ck9V-PJdqewQkDx8xLzmX2Lc1gILLtVsmxREodHSP0kLENTBjgSVS1gag2&amp;t=c895100" type="text/javascript"></script>
+    <script src="/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvnzTXlewviPKNZ26BhmteB0sxIzF67GpNSeVq-t1Xmgad8rG8RgI1q2-O9LxgiRbrplrkHI0Rd9bNHAixtwDOE_rSiGpXWhQnCnsTm9_c8ewBjjjex5NjRw1_K-NDDM6amENN-TifxCgMbaOhrhTwgI1&amp;t=ffffffffd416f7fc" type="text/javascript"></script>
+    <script src="/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OPN0CEqkiZAL5YOATS5KNsTjRgsNXaKf9oWkb7eL48XwSt3rIT5kUPNLQ9eiwwpfTCV8ZFEzelDxT7tyCAYZkX_SkuvRTEMusEAufXtG9NH3qiE1KfuhqsZG0f2duolei5PMC0jofICrzf2PBK2xiLs1&amp;t=ffffffffd416f7fc" type="text/javascript"></script>
+    <script src="Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="/WebResource.axd?d=JoBkLzP19aTuxbWOhHobYqYim5YVW_ve6brClB1iNPwIdTgrOIimjDy183986H4kbIYU6QUuOT9Wr28A8QF6vw2&amp;t=637816912794179319" type="text/javascript"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        function WebForm_OnSubmit() {
+            if (typeof (ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+            return true;
+        }
+        //]]>
+    </script>
+
+    <div class="aspNetHidden">
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="48D12E39" />
+        <input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+        <input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+
+        <script type="text/javascript">
+            //<![CDATA[
+            Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form_dang_ky', ['tUpdatePanel1', 'UpdatePanel1'], [], ['btnXemTruocHoSo', 'btnXemTruocHoSo'], 90, '');
+            //]]>
+        </script>
+
+        <div id="UpdatePanel1">
+
+            <div class="page-container">
+                <!-- BEGIN CONTENT -->
+
+                <div class="page-content-wrapper">
+                    <!-- BEGIN CONTENT BODY -->
+                    <!-- BEGIN PAGE CONTENT BODY -->
+                    <DIV class="page-content">
+                        <DIV class="container">
+                            <!-- BEGIN PAGE CONTENT INNER -->
+                            <DIV class="page-content-inner">
+                                <DIV class="row">
+                                    <DIV class="col-md-12">
+                                        <div class="text-center font-blue bold">
+                                            <h3 style="color:#c61d23"><strong>@Session["Form-TitleDGNl"]</strong></h3>
+                                            <h4 style="color:#2F39B1;font-weight:bold">( @Session["Form-ContentDGNL"])</h4>
+                                        </div>
+                                        <DIV class="portlet light " id="form_wizard_1">
+                                            <DIV class="portlet-body form">
+
+                                                <div id="myPanel" UpdateMode="Always">
+
+                                                    <DIV class="form-body">
+                                                        <div class="tab-content">
+                                                            @if (Convert.ToBoolean(Session["FormDGNL-closeform"]) == true)
+                                                            {
+                                                                <div>
+                                                                    @(new HtmlString(ViewData["Form-MessgeDGNL"].ToString()))
+
+
+                                                                    <br />
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="tab-pane active" id="tab1">
+                                                                    @using (Html.BeginForm("Index", "HoSoDGNLs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                                                    {
+                                                                        @Html.AntiForgeryToken()
+
+                                                                        <div style="background-color:red;color: white;text-transform:uppercase;padding-left:0.8em;font-size:1.3em">thông tin thí sinh</div>
+                                                                        <h5 style="color:blue; border-bottom:solid;border-width:1px;border-color:lightgray; padding-bottom:15px; margin-top:8px">
+                                                                            <strong>A. THÔNG TIN CÁ NHÂN</strong>
+                                                                        </h5><br />
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Họ và tên<span class="required, style="color:red">*</span>  </label>
+
+                                                                            <div class="col-md-5 col-validate">
+                                                                                @Html.EditorFor(model => model.HoVaTen, new { htmlAttributes = new { @class = "form-control", placeholder = "NGUYỄN VĂN A", style = "text-transform: uppercase;", @pattern = "[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ ]{1,}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào họ tên của bạn')", @oninput = "this.setCustomValidity('')" } })
+
+                                                                                @*<input name="txtTenThiSinh" type="text" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />*@
+                                                                                @Html.ValidationMessageFor(model => model.HoVaTen, "", new { @class = "text-danger" })
+
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Giới tính<span class="required" , style="color:red"> * </span></label>
+                                                                            <div class="col-md-4 col-validate">
+                                                                                <div class="radio-list">
+                                                                                    <label>
+                                                                                        @Html.RadioButtonFor(model => model.GioiTinh, true)
+                                                                                        Nam &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                        @Html.RadioButtonFor(model => model.GioiTinh, false)
+                                                                                        Nữ
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Ngày sinh<span class="required"> * </span></label>
+                                                                            <div class="col-md-8">
+                                                                                <table>
+                                                                                    <tr>
+
+                                                                                        <td>
+                                                                                            @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào ngày sinh của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                            @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+                                                                                        </td>
+                                                                                        <td>Nơi sinh<span style="color:red"> * </span></td>
+                                                                                        <td>
+                                                                                            @Html.DropDownList("MaNoiSinh", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, new { @class = "form-control", @required = "required", @oninvalid = "this.setCustomValidity('Hãy chọn nơi sinh của bạn')", @oninput = "this.setCustomValidity('')" })
+                                                                                            @Html.ValidationMessageFor(model => model.MaNoiSinh, "", new { @class = "text-danger" })
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Dân tộc<span class="required" , style="color:red"> * </span></label>
+                                                                            <div class="col-md-8">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            @Html.DropDownList("MaDanToc", (IEnumerable<SelectListItem>)ViewBag.DanToc, null, new { @class = "form-control", required = "true" })
+                                                                                            @*@Html.EditorFor(model => model.TenDanToc, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                                            @Html.ValidationMessageFor(model => model.MaDanToc, "", new { @class = "text-danger" })
+                                                                                        </td>
+                                                                                        <td>Tôn giáo<span style="color:red"> * </span></td>
+                                                                                        <td>
+                                                                                            @Html.DropDownList("MaTonGiao", (IEnumerable<SelectListItem>)ViewBag.TonGiao, null, new { @class = "form-control", required = "true" })
+                                                                                            @*@Html.EditorFor(model => model.TenDanToc, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                                            @Html.ValidationMessageFor(model => model.MaTonGiao, "", new { @class = "text-danger" })
+                                                                                        </td>
+                                                                                        <td>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">
+                                                                                Số CMND/CCCD<span class="required" ,style="color:red"> * </span>
+
+                                                                            </label>
+                                                                            <div class="col-md-8">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control", placeholder = "9 số hoặc 12 số", @pattern = "[0-9]{9,12}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào CMND của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                            @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
+                                                                                        </td>
+                                                                                        <td>Quốc tịch<span style="color:red"> * </span></td>
+                                                                                        <td>
+                                                                                            @Html.DropDownList("QuocTich", (IEnumerable<SelectListItem>)ViewBag.QuocTich, null, new { @class = "form-control" })
+
+                                                                                            @* @Html.DropDownList("Quoc Tich", new SelectList(ViewBag.QuocTich, "ID", "TenQT"))*@
+                                                                                            @*@Html.DropDownList(model => model.QuocTich, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                                            @Html.ValidationMessageFor(model => model.QuocTich, "", new { @class = "text-danger" })
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Hộ khẩu thường trú<span class="required"> * </span></label>
+                                                                            <div class="col-md-5">
+                                                                                @Html.EditorFor(model => model.HoKhau, new { htmlAttributes = new { @class = "form-control", placeholder = "Số nhà/ khu phố, thôn, tên đường, ấp, tổ", @pattern = ".{1,}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào hộ khẩu của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                @Html.ValidationMessageFor(model => model.HoKhau, "", new { @class = "text-danger" })
+                                                                                <div class="vertical_space"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4 control-label">Tỉnh/Thành phố <span class="required"> * </span></div>
+                                                                                    <div class="col-md-8">
+                                                                                        @Html.DropDownList("TP_QH_PX", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlHoKhauQuanHuyen" })
+                                                                                        @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                                        @Html.ValidationMessageFor(model => model.HoKhau_TenTinhTP, "", new { @class = "text-danger" })
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="vertical_space"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
+                                                                                    <div class="col-md-8">
+                                                                                        @*@Html.DropDownList("HoKhau_MaQH", (IEnumerable<SelectListItem>)ViewBag.TP_QH, null, new { @class = "form-control district-select", target = "#ddlHoKhau_PhuongXa", name = "ddlHoKhauQuanHuyen", id = "ddlHoKhauQuanHuyen" })*@
+                                                                                        <select name="ddlHoKhauQuanHuyen" id="ddlHoKhauQuanHuyen" class="form-control district-select" required="true" target="#ddlHoKhau_PhuongXa">
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="vertical_space"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4 control-label">Phường/Xã <span class="required"> * </span></div>
+                                                                                    <div class="col-md-8">
+                                                                                        @*@Html.DropDownList("HoKhau_MaPhuong", (IEnumerable<SelectListItem>)ViewBag.PX, null, new { @class = "form-control ", name = "ddlHoKhau_PhuongXa", id = "ddlHoKhau_PhuongXa", required = "true" })*@
+                                                                                        <select name="ddlHoKhau_PhuongXa" id="ddlHoKhau_PhuongXa" class="form-control" required="true">
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Năm tốt nghiệp<span class="required"> * </span></label>
+                                                                            <div class="col-md-2">
+                                                                                @Html.EditorFor(model => model.NamTotNghiep, new { htmlAttributes = new { @class = "form-control", placeholder = "Năm tốt nghiệp", @pattern = "[0-9]{4}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào năm tốt nghiệp của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                @Html.ValidationMessageFor(model => model.NamTotNghiep, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Học lực lớp 12<span class="required"> * </span></label>
+                                                                            <div class="col-md-8">
+                                                                                <div class="radio-list">
+                                                                                    <label>
+                                                                                        @Html.RadioButtonFor(model => model.HocLucLop12, "Giỏi")
+                                                                                        Giỏi &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                        @Html.RadioButtonFor(model => model.HocLucLop12, "Khá")
+                                                                                        Khá &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                        @Html.RadioButtonFor(model => model.HocLucLop12, "Trung bình")
+                                                                                        Trung bình &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                        @Html.RadioButtonFor(model => model.HocLucLop12, "Yếu")
+                                                                                        Yếu &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                        @Html.RadioButtonFor(model => model.HocLucLop12, "Khác")
+                                                                                        Khác
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Hạnh kiểm lớp 12<span class="required"> * </span></label>
+                                                                            <div class="col-md-8">
+                                                                                <div class="radio-list">
+                                                                                    <label>
+                                                                                        @Html.RadioButtonFor(model => model.HanhKiemLop12, "Tốt")
+                                                                                        Tốt &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                        @Html.RadioButtonFor(model => model.HanhKiemLop12, "Khá")
+                                                                                        Khá &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                        @Html.RadioButtonFor(model => model.HanhKiemLop12, "Trung bình")
+                                                                                        Trung bình &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                        @Html.RadioButtonFor(model => model.HanhKiemLop12, "Yếu")
+                                                                                        Yếu &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                        @Html.RadioButtonFor(model => model.HanhKiemLop12, "Khác")
+                                                                                        Khác
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Thí sinh học theo chương trình<span class="required"> * </span></label>
+                                                                            <div class="col-md-8 col-validate">
+                                                                                <div class="radio-list">
+                                                                                    <div class="radio-list">
+                                                                                        <label>
+                                                                                            @Html.RadioButtonFor(model => model.LoaiHinhTN, "THPT")
+                                                                                            THPT &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                            @Html.RadioButtonFor(model => model.LoaiHinhTN, "GDTX")
+                                                                                            GDTX
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Trường THPT lớp 12 thuộc Tỉnh/TP <span class="required"> * </span></label>
+                                                                            <div class="col-md-5">
+                                                                                @Html.DropDownList("THPT", (IEnumerable<SelectListItem>)ViewBag.THPT, null, new { @class = "form-control districtschool-select", target = "#ddlQuanHuyenTHPT" })
+                                                                                @Html.ValidationMessageFor(model => model.TruongTHPT_TenTinhTP, "", new { @class = "text-danger" })
+                                                                                <div class="vertical_space"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
+                                                                                    <div class="col-md-8">
+                                                                                        <select name="ddlQuanHuyenTHPT" id="ddlQuanHuyenTHPT" class="form-control school-select" required="true" target="#ddlTenTruongTHPT">
+                                                                                        </select>
+                                                                                        @*<select name="ddlQuanHuyenTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlQuanHuyenTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlQuanHuyenTHPT" class="form-control " required="true">
+                                                                                            </select>*@
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="vertical_space"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4 control-label">Tên trường THPT<span class="required"> * </span></div>
+                                                                                    <div class="col-md-8">
+                                                                                        <select name="ddlTenTruongTHPT" id="ddlTenTruongTHPT" class="form-control area-select" required="true" target="#ddlKhuVuc"></select>
+                                                                                        @*<select name="ddlTenTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTenTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTenTruongTHPT" class="form-control " required="true">
+                                                                                            </select>*@
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="vertical_space"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4 control-label">Tên lớp 12 <span class="required"> * </span></div>
+                                                                                    <div class="col-md-8">
+                                                                                        @Html.EditorFor(model => model.TenLop12, new { htmlAttributes = new { @class = "form-control", placeholder = "Tên lớp 12", @pattern = ".{3,}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào tên lớp 12 của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                        @Html.ValidationMessageFor(model => model.TenLop12, "", new { @class = "text-danger" })
+                                                                                        <span class="text-muted">(Ví dụ: lớp 12A1)</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Khu vực</label>
+                                                                            <div class="col-md-8">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <select name="ddlKhuVuc" id="ddlKhuVuc" class="form-control" required="true">
+                                                                                            </select>
+                                                                                        </td>
+                                                                                        <td>Đối tượng ưu tiên</td>
+                                                                                        <td>
+                                                                                            <select name="ddlDoiTuongUT" id="ddlDoiTuongUT" class="form-control">
+                                                                                                <option selected="selected" value="Không có">Kh&#244;ng c&#243;</option>
+                                                                                                <option value="1">1</option>
+                                                                                                <option value="2">2</option>
+                                                                                                <option value="3">3</option>
+                                                                                                <option value="4">4</option>
+                                                                                                <option value="5">5</option>
+                                                                                                <option value="6">6</option>
+                                                                                                <option value="7">7</option>
+
+                                                                                            </select>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Kết quả kỳ thi ĐGNL ngày<span class="required"> * </span></label>
+                                                                            <div class="col-md-8">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            @Html.EditorFor(model => model.TGThiDGNL, new { htmlAttributes = new { @class = "form-control", placeholder = "18/03/2022", Type = "Date", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào ngày thi của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                            @Html.ValidationMessageFor(model => model.TGThiDGNL, "", new { @class = "text-danger" })
+                                                                                        </td>
+                                                                                        <td>Điểm thi<span style="color:red"> * </span></td>
+                                                                                        <td>
+                                                                                            @Html.EditorFor(model => model.DiemDGNL, new { htmlAttributes = new { @class = "form-control", placeholder = "750", Type = "number", min = "100", max = "1200", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào điểm thi của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                            @Html.ValidationMessageFor(model => model.DiemDGNL, "", new { @class = "text-danger" })
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="vertical_space"></div>
+
+                                                                        <h5 style="color:blue;font-weight:bold"><strong>B. THÔNG TIN LIÊN HỆ</strong></h5>
+                                                                        <hr />
+                                                                        <div class="form-group">
+                                                                            <div class="col-md-4 text-right">Sử dụng thông tin của Hộ khẩu</div>
+                                                                            <div class="col-md-6">
+                                                                                <input id="chkLayDCHoKhau" type="checkbox" name="chkLayDCHoKhau" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Địa chỉ gửi thư báo kết quả<span class="required"> * </span></label>
+                                                                            <div class="col-md-5 col-validate">
+                                                                                @Html.EditorFor(model => model.LienLac_DiaChi, new { htmlAttributes = new { @class = "form-control", placeholder = "Số nhà, Tên đường", @pattern = ".{1,}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào địa chỉ liên lạc của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                @Html.ValidationMessageFor(model => model.LienLac_DiaChi, "", new { @class = "text-danger" })
+                                                                                <div class="vertical_space"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4 control-label">Tỉnh/Thành phố <span class="required"> * </span></div>
+                                                                                    <div class="col-md-8">
+                                                                                        @Html.DropDownList("LienLac_MaTP", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlQuanHuyen" })
+                                                                                        @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                                        @Html.ValidationMessageFor(model => model.HoKhau_TenTinhTP, "", new { @class = "text-danger" })
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="vertical_space"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
+                                                                                    <div class="col-md-8">
+                                                                                        <select name="ddlQuanHuyen" id="ddlQuanHuyen" class="form-control district-select" required="true" target="#ddlPhuongXa">
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="vertical_space"></div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4 control-label">Phường/Xã <span class="required"> * </span></div>
+                                                                                    <div class="col-md-8">
+                                                                                        <select name="ddlPhuongXa" id="ddlPhuongXa" class="form-control" required="true">
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Điện thoại di động<span class="required"> * </span></label>
+                                                                            <div class="col-md-5 col-validate">
+                                                                                @Html.EditorFor(model => model.DienThoaiDD, new { htmlAttributes = new { @class = "form-control", placeholder = "Điện thoại di động", @pattern = "[0-9]{10}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào số điện thoại của bạn')", @oninput = "this.setCustomValidity('')" } })
+
+                                                                                @Html.ValidationMessageFor(model => model.DienThoaiDD, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Email <span class="required"> * </span></label>
+                                                                            <div class="col-md-5 col-validate">
+                                                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email liên lạc", Type = "Email", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào email của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                                                                <span class="text-muted">(Nhà trường sẽ gửi Mã hồ sơ qua email này)</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label col-md-4">Điện thoại phụ huynh <span class="required"> * </span></label>
+                                                                            <div class="col-md-5 col-validate">
+                                                                                @Html.EditorFor(model => model.DienThoaiPhuHuynh, new { htmlAttributes = new { @class = "form-control", placeholder = "Điện thoại phụ huynh", @pattern = "[0-9]{10}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào số điện thoại của phụ huynh')", @oninput = "this.setCustomValidity('')" } })
+                                                                                @Html.ValidationMessageFor(model => model.DienThoaiPhuHuynh, "", new { @class = "text-danger" })
+                                                                                <span class="text-muted">(Trường hợp không liên lạc được với thí sinh, nhà Trường sẽ liên lạc qua số này)</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="vertical_space"></div>
+                                                                        <div class="vertical_space"></div>
+                                                                        <hr />
+                                                                        <div style="background-color:red;color: white;text-transform:uppercase;padding-left:0.8em;font-size:1.3em">THÔNG TIN XÉT TUYỂN</div>
+                                                                        <div class="vertical_space"></div>
+                                                                        <div class="vertical_space"></div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-1"></div>
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td style="width:30%">
+                                                                                        <strong>Ngành xét tuyển ưu tiên 1</strong>
+                                                                                        @Html.DropDownList("Majors1", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon1", order = "1" })
+                                                                                        @Html.ValidationMessageFor(model => model.TenNganh_TenToHop1, "", new { @class = "text-danger" })
+                                                                                    </td>
+                                                                                    <td style="width:30%">
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="d-none">
+                                                                                            <strong>Chương trình đào tạo</strong>
+                                                                                            <div class="radio-list" style="margin-left: 20px">
+                                                                                                <label>
+                                                                                                    <input type="radio" name="CTDT1" value="CTTC" checked />
+                                                                                                    CTTC
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <p></p><strong style="color:red"></strong>
+                                                                                    </td>
+
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <strong>Ngành xét tuyển ưu tiên 2</strong>
+                                                                                        @Html.DropDownList("Majors2", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon2", order = "2" })
+                                                                                        @Html.ValidationMessageFor(model => model.TenNganh_TenToHop2, "", new { @class = "text-danger" })
+                                                                                    </td>
+                                                                                    <td>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="d-none">
+                                                                                            <strong>Chương trình đào tạo</strong>
+                                                                                            <div class="radio-list" style="margin-left: 20px">
+                                                                                                <label>
+                                                                                                    <input type="radio" name="CTDT2" value="CTTC" checked />
+                                                                                                    CTTC
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <p></p><strong></strong>
+                                                                                    </td>
+
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <strong>Ngành xét tuyển ưu tiên 3</strong>
+                                                                                        @Html.DropDownList("Majors3", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon3", order = "3" })
+                                                                                        @Html.ValidationMessageFor(model => model.TenNganh_TenToHop3, "", new { @class = "text-danger" })
+                                                                                    </td>
+                                                                                    <td>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="d-none">
+                                                                                            <strong>Chương trình đào tạo</strong>
+                                                                                            <div class="radio-list" style="margin-left: 20px">
+                                                                                                <label>
+                                                                                                    <input type="radio" name="CTDT3" value="CTTC" checked />
+                                                                                                    CTTC
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td><p></p><strong></strong></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div class="vertical_space"></div>
+                                                                        <div class="vertical_space"></div>
+
+                                                                        <!--end id="tab1"-->
+
+                                                                        <DIV class="form-actions">
+                                                                            <DIV class="row">
+                                                                                <div class="col-md-offset-5 col-md-5">
+                                                                                    <input type="submit" name="btnXemTruocHoSo" value="XEM TRƯỚC HỒ SƠ" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnXemTruocHoSo&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="btnXemTruocHoSo" class="btn green button-submit" />
+                                                                                </div>
+                                                                            </DIV>
+                                                                        </DIV>}
+                                                                </div>
+                                                            }
+
+
+                                                        </div>
+                                                    </DIV>
+                                                </div>
+                                            </DIV>
+                                        </DIV>
+                                    </DIV>
+                                </DIV><!-- END CONTENT -->
+
+                            </DIV><!-- END CONTAINER -->
+                        </DIV>
+                    </DIV>
+
+                </div>
+
+
+                <script type="text/javascript">
+                    //<![CDATA[
+
+                    theForm.oldSubmit = theForm.submit;
+                    theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+                    theForm.oldOnSubmit = theForm.onsubmit;
+                    theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+                    WebForm_AutoFocus('txtTenThiSinh');//]]>
+                </script>
+</form>
+<!-- BEGIN FOOTER -->
+<!-- BEGIN INNER FOOTER -->
+
+<DIV class="scroll-to-top"><I class="icon-arrow-up"></I></DIV><!-- END INNER FOOTER -->
+<script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+<!-- IMPORTANT! fullcalendar depends on jquery-ui.min.js for drag & drop support -->
+<script src="assets/global/plugins/morris/morris.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="assets/adminsep/layout3/scripts/layout.js" type="text/javascript"></script>
+
+<script>
+    jQuery(document).ready(function () {
+        Metronic.init(); // init metronic core componets
+        Layout.init(); // init layout
+    });
+</script>
+<!-- END JAVASCRIPTS -->
+@*</table>*@
+
+@section Scripts {
+    <script src="~/Scripts/app.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+
+        $('select.city-select').change(function () {
+            let maTp = $(this).val();
+            let target = $(this).attr('target');
+
+            let chkLayDCHoKhau = $("#chkLayDCHoKhau").is(':checked');
+            if (chkLayDCHoKhau) {
+                $('#HoKhau_MaTinhTP option').each(function () {
+                    if ($(this).val() == maTp) {
+                        $(this).prop("selected", true);
+                        return;
+                    }
+                });
+                $('#LienLac_MaTP option').each(function () {
+                    if ($(this).val() == maTp) {
+                        $(this).prop("selected", true);
+                        return;
+                    }
+                });
+            }
+
+            if (maTp != '-1') {
+                $.get(`@Url.Action("GetDistrict", "Home")/${maTp}`, data => {
+                    attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
+                    $('#ddlHoKhau_PhuongXa').html('');
+
+                    if (chkLayDCHoKhau) {
+                        attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
+                        $('#ddlPhuongXa').html('');
+                    }
+                });
+            } else {
+                attachDistrictOrWard($('#ddlHoKhauQuanHuyen'), [], '-- Chọn quận/huyện --');
+                $('#ddlHoKhau_PhuongXa').html('');
+
+                if (chkLayDCHoKhau) {
+                    attachDistrictOrWard($('#ddlQuanHuyen'), [], '-- Chọn quận/huyện --');
+                    $('#ddlPhuongXa').html('');
+                }
+            }
+        });
+
+        $('select.district-select').change(function () {
+            let maPx = $(this).val();
+            let target = $(this).attr('target');
+
+            let chkLayDCHoKhau = $("#chkLayDCHoKhau").is(':checked');
+            if (chkLayDCHoKhau) {
+                $('#ddlQuanHuyen option').each(function () {
+                    if ($(this).val() == maPx) {
+                        $(this).prop("selected", true);
+                        return;
+                    }
+                });
+            }
+
+            if (maPx != '-1') {
+                $.get(`@Url.Action("GetWard", "Home")/${maPx}`, data => {
+                    attachDistrictOrWard($(target), data, '-- Chọn phường/xã --');
+
+                    if (chkLayDCHoKhau) {
+                        attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
+                    }
+                });
+            } else {
+                attachDistrictOrWard($('#ddlHoKhau_PhuongXa'), [], '-- Chọn phường/xã --');
+                if (chkLayDCHoKhau) {
+                    attachDistrictOrWard($('#ddlPhuongXa'), [], '-- Chọn phường/xã --');
+                }
+            }
+        });
+
+        $('select.districtschool-select').change(function () {
+            let maQHTH = $(this).val();
+            let target = $(this).attr('target');
+            if (maQHTH != '-1') {
+
+                $.get(`@Url.Action("GetDistrictSchool", "Home")/${maQHTH}`, data => {
+                    attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
+                });
+            }
+        });
+        $('select.school-select').change(function () {
+            let maQHTH = $('select.districtschool-select').val();
+            let maTH = $(this).val();
+            let target = $(this).attr('target');
+            if (maTH != '-1') {
+                let id = maTH + '-' + maQHTH;
+                $.get(`@Url.Action("GetSchool", "Home")/${id}`, data => {
+                    attachDistrictOrWard($(target), data, '-- Chọn trường --');
+                });
+            }
+        });
+        $('select.area-select').change(function () {
+            let maKV = $(this).val();
+            let target = $(this).attr('target');
+            if (maKV != '-1') {
+                $.get(`@Url.Action("GetArea", "Home")/${maKV}`, data => {
+                    attachDistrictOrWard($(target), data, "", false);
+                });
+            }
+        });
+        $('#chkLayDCHoKhau').change(function () {
+            if ($("#chkLayDCHoKhau").is(':checked')) {
+                let txtHoKhau = $('#HoKhau').val();
+                $('#LienLac_DiaChi').val(txtHoKhau);
+
+                $('#LienLac_MaTP option').each(function () {
+                    if ($(this).val() == $('select.city-select').val()) {
+                        $(this).prop("selected", true);
+                        let maTp = $(this).val();
+                        if (maTp != -1) {
+                            $.get(`@Url.Action("GetDistrict", "Home")/${maTp}`, data => {
+                                attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
+                                $('#ddlPhuongXa').html('');
+
+                                $('#ddlQuanHuyen option').each(function () {
+                                    if ($(this).val() == $('#ddlHoKhauQuanHuyen').val()) {
+                                        $(this).prop("selected", true);
+                                        let maPx = $(this).val();
+                                        if (maPx != -1) {
+                                            $.get(`@Url.Action("GetWard", "Home")/${maPx}`, data => {
+                                                attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
+
+                                                $('#ddlPhuongXa option').each(function () {
+                                                    if ($(this).val() == $('#ddlHoKhau_PhuongXa').val()) {
+                                                        $(this).prop("selected", true);
+                                                        return;
+                                                    }
+                                                });
+                                            });
+                                        } else {
+                                            attachDistrictOrWard($('#ddlPhuongXa'), [], '-- Chọn phường/xã --');
+                                        }
+                                        return;
+                                    }
+                                });
+                            });
+                        } else {
+                            attachDistrictOrWard($('#ddlQuanHuyen'), [], '-- Chọn quận/huyện --');
+                            $('#ddlPhuongXa').html('');
+                        }
+                        return;
+                    }
+                });
+            }
+        });
+
+        $('#ddlHoKhau_PhuongXa').change(function () {
+            let chkLayDCHoKhau = $("#chkLayDCHoKhau").is(':checked');
+            if (chkLayDCHoKhau) {
+                $('#ddlPhuongXa option').each(function () {
+                    if ($(this).val() == $('#ddlHoKhau_PhuongXa').val()) {
+                        $(this).prop("selected", true);
+                        return;
+                    }
+                });
+            }
+        });
+        $('#HoKhau').keyup(function () {
+            if ($("#chkLayDCHoKhau").is(':checked')) {
+                let txtHoKhau = $('#HoKhau').val();
+                $('#LienLac_DiaChi').val(txtHoKhau);
+            }
+        });
+
+        $('select.majors-select').change(function () {
+            let maNG = $(this).val();
+            let target = $(this).attr('target');
+            let order = $(this).attr('order');
+            if (maNG != '-1') {
+                $.get(`@Url.Action("GetMajors", "Home")/${maNG}`, data => {
+                    attachDistrictOrWard($(target), data, '--------------Chọn--------------');
+                    console.log($(this).parent().next().next());
+
+                    if (data[0].HasCTDBFlag) {
+                        $(this).parent().next().next().html(`<strong>Chương trình đào tạo</strong>
+                                                                                <div class="radio-list" style="margin-left: 20px">
+                                                                                    <label>
+                                                                                        <input type="radio" name="CTDT${order}" value="CTTC" checked />
+                                                                                        CTTC &nbsp; &nbsp; &nbsp;
+                                                                                        <input type="radio" name="CTDT${order}" value="CTĐB" />
+                                                                                        CTĐB
+                                                                                    </label>
+                                                                                </div>`);
+                    } else {
+                        $(this).parent().next().next().html(`<div class="d-none">
+                                                                                    <strong>Chương trình đào tạo</strong>
+                                                                                    <div class="radio-list" style="margin-left: 20px">
+                                                                                        <label>
+                                                                                            <input type="radio" name="CTDT${order}" value="CTTC" checked />
+                                                                                            CTTC
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>`);
+                    }
+                });
+            }
+        });
+
+
+
+
+        function attachDistrictOrWard(element, data, defaultItem, needFirstItem = true) {
+            let itemsHtml = '';
+            if (needFirstItem) {
+                itemsHtml = `<option value="-1">${defaultItem}</option>`;
+            }
+            for (let item of data) {
+                console.log(item);
+                itemsHtml += `<option value="${item.Id}">${item.Name}</option>`;
+            }
+            element.html(itemsHtml);
+        }
+
+    </script>
+}

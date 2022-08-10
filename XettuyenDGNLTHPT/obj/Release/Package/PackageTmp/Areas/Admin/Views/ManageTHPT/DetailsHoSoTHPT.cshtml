@@ -1,0 +1,204 @@
+﻿@model XettuyenDGNLTHPT.Models.tblHoSoTHPT
+
+@{
+    ViewBag.Title = "DetailsHoSoTHPT";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+
+
+<body>
+    <script>
+        var mybutton = document.getElementById("myBtn");
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+
+        }
+    </script>
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title" style="line-height: 40px; padding-top: 10px">Hồ Sơ Xét Tuyển THPT Quốc Gia</h4>
+            </div>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
+
+                    </div>
+                    <div class="white-box">
+                        <div style="display: flex; justify-content: space-between;" class="d-md-flex mb-3">
+                            <h3 style="color: red" class="">THÔNG TIN THÍ SINH: </h3>
+
+
+
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table no-wrap">
+                                <thead>
+                                    <tr>
+                                        <th colspan="4" class="border-top-0">Mã Hồ Sơ: <b>DVL_@Model.ID</b></th>
+                                        <th colspan="4" class="border-top-0">Trạng thái : <b>@Model.DaNhanHoSo</b></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--     -->
+                                    <tr>
+                                        <td style=" line-height: 35px;">Họ và tên: <b>@Model.HoVaTen</b></td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">Ngày sinh: <b>@Model.NgaySinh</b></td>
+                                        @if (Model.GioiTinh == true)
+                                        {
+                                            <td style=" line-height: 35px;">Giới tính: <b>Nam</b></td>
+                                        }
+                                        else
+                                        {
+                                            <td style=" line-height: 35px;">Giới tính: <b>Nữ</b></td>
+                                        }
+
+                                        <td style=" line-height: 35px;" class="txt-oflo">CCCD/CMND: <b>@Model.CMND</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" line-height: 35px;">Trường THPT - Lớp: <b>@Model.TenTruongTHPT - @Model.TenLop12</b></td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">Trường THPT Thuộc Tỉnh/TP: <b>@Model.TruongTHPT_TenTinhTP</b></td>
+                                        <td style=" line-height: 35px;">Năm tốt nghiệp THPT: <b>@Model.NamTotNghiep</b></td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">Loại hình tốt nghiệp: <b>@Model.LoaiHinhTN</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" line-height: 35px;">Số điện thoại: <b>@Model.DienThoaiDD</b></td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">Email: <b>@Model.Email</b></td>
+                                        <td style=" line-height: 35px;">Khu vực: <b>@Model.KhuVuc</b></td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">Đối tượng ưu tiên: <b>@Model.DoiTuongUuTien</b></td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4" style=" line-height: 35px;">Hộ khẩu: <b>@Model.HoKhau, @Model.HoKhau_TenPhuong, @Model.HoKhau_TenQH, @Model.HoKhau_TenTinhTP</b></th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4" style=" line-height: 35px;">Địa chỉ liên hệ: <b>@Model.LienLac_DiaChi, @Model.LienLac_TenPhuongXa, @Model.LienLac_TenQH, @Model.LienLac_TenTP</b></th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4" style=" line-height: 35px;">Quốc tịch: <b>@Model.QuocTich</b></th>
+                                    </tr>
+
+                                    <!--     -->
+                                    <!--     -->
+                                    <!--     -->
+                                </tbody>
+
+                            </table>
+                            <center> <hr style="height: 3px; width: 90%; "></center>
+                            <table class="table no-wrap">
+                                <thead>
+                                    <tr>
+                                        <th colspan="4" class="border-top-0"><h3>THÔNG TIN XÉT TUYỂN</h3></th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--     -->
+                                    <tr>
+                                        <td style=" line-height: 35px;">Phương thức xét tuyển: <b>THPT QG</b></td>
+
+                                        <td colspan="" style=" line-height: 35px;">Số nguyện vọng: <b>3</b></td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="" style=" line-height: 35px;" class="txt-oflo">Toán: <b>@Model.Toan</b></td>
+                                        <td colspan="" style=" line-height: 35px;" class="txt-oflo">Anh: <b>@Model.Anh</b></td>
+                                        <td colspan="" style=" line-height: 35px;" class="txt-oflo">Văn: <b>@Model.Van</b></td>
+                                        <td colspan="" style=" line-height: 35px;" class="txt-oflo">Lý: <b>@Model.Ly</b></td>
+                                        <td colspan="" style=" line-height: 35px;" class="txt-oflo">Sinh: <b>@Model.Sinh</b></td>
+                                        <td colspan="" style=" line-height: 35px;" class="txt-oflo">Sử: <b>@Model.Su</b></td>
+                                        <td colspan="" style=" line-height: 35px;" class="txt-oflo">Địa: <b>@Model.Dia</b></td>
+                                        <td colspan="" style=" line-height: 35px;" class="txt-oflo">GDCD: <b>@Model.GDCD</b></td>
+                                        <td colspan="" style=" line-height: 35px;" class="txt-oflo">Phap: <b>@Model.Phap</b></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th colspan="4" style=" line-height: 35px;">Chứng chỉ ngoại ngữ: <b>@Model.CCNN</b></th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="" class="">Nguyện Vọng</th>
+                                        <th colspan="" class="border-top-0">Ngành</th>
+                                        <th colspan="" class="border-top-0">Mã Ngành</th>
+                                        <th>Chương trình học</th>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td style=" line-height: 35px;">1</td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">@Model.TenNganh_TenToHop1</td>
+                                        <td style=" line-height: 35px;">@Model.MaNganh_ToHop1</td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">@Model.CTDT1</td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" line-height: 35px;">2</td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">@Model.TenNganh_TenToHop2</td>
+                                        <td style=" line-height: 35px;">@Model.MaNganh_ToHop2</td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">@Model.CTDT2</td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" line-height: 35px;">3</td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">@Model.TenNganh_TenToHop3</td>
+                                        <td style=" line-height: 35px;">@Model.MaNganh_ToHop3</td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">@Model.CTDT3</td>
+                                    </tr>
+
+                                    <!--     -->
+                                    <!--     -->
+                                    <!--     -->
+                                </tbody>
+
+                            </table>
+                            <a href="@Url.Action("Index","ManageTHPT")"><button style="border:none; background-color: #fff; outline: none;"><i style="font-size: 30px;" class="fas fa-reply"></i></button></a>
+                            <a role="button" class="btn d-grid btn-danger text-white" style="text-align:center" href="@Url.Action("NhanHoSo","ManageTHPT",new {id = Model.ID })">Nhận hồ sơ</a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app-style-switcher.js"></script>
+    <script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.js"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
+    <script src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="js/pages/dashboards/dashboard1.js"></script>
+</body>
+
+</html>-

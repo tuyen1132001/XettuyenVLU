@@ -1,0 +1,117 @@
+﻿@model IEnumerable<XettuyenDGNLTHPT.Models.Account>
+
+@{
+    ViewBag.Title = "ManageAcount";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+
+<body>
+
+
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title" style="line-height: 40px; padding-top: 10px">Quản Lý Tài Khoản</h4>
+            </div>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <a href="@Url.Action("AddAccount","Acount")">
+                    <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Thêm</button>
+                </a>
+
+                <div class="white-box">
+
+                    <div class="table-responsive">
+
+                        <table style="text-align:center" class="table no-wrap">
+
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0">#</th>
+                                    <th class="border-top-0"><b>Họ và Tên</b></th>
+                                    <th class="border-top-0"><b>Email</b></th>
+                                    <th class="border-top-0"><b>SĐT</b></th>
+                                    <th class="border-top-0"><b>Quyền</b></th>
+                                    <th class="border-top-0"><b></b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <a href="@Url.Action("",new {id = item.ID })">@item.ID</a>
+                                        </td>
+                                        <td class="txt-oflo">@item.Full_Name</td>
+                                        <td>@item.Email</td>
+                                        <td class="txt-oflo">@item.Phone</td>
+                                        @if (item.Role.Equals("1"))
+                                        {
+
+
+                                            <td>
+                                                <span>
+
+                                                    Quản trị
+
+                                                </span>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                <span>
+
+                                                    Quản lý
+
+                                                </span>
+                                            </td>
+                                        }
+                                        <td>
+                                            @if (item.Role.Equals("1"))
+                                            {
+                                                <span>
+
+                                                    <a href="@Url.Action("EditAccount","Acount",new {id = item.ID})">Update</a>
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span>
+
+                                                    <a href="@Url.Action("EditAccount","Acount",new {id = item.ID})">Update</a> |
+                                                    <a href="@Url.Action("DeleteAccount","Acount",new {id = item.ID})" onclick="if (!confirm ('Bạn có muốn xóa tài khoản không?')) { return false; }">Delete</a>
+                                                </span>
+                                            }
+
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+
+    <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+    </div>
+
+</body>
+
+</html>-

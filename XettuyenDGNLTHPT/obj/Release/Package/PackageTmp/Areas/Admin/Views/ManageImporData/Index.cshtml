@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
+}
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+          content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+          content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>	VLU - TRANG ĐĂNG KÝ TUYỂN SINH ONLINE</title>
+    <!---->
+    <!---->
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./plugins/images/logo-page.png">
+    <!-- Custom CSS -->
+    <link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+    <!-- Custom CSS -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.code.css">
+    <link href='https://css.gg/home-alt.css' rel='stylesheet'>
+    <style>
+        .form-conten-edit {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn-edit {
+            margin: 40px;
+            height: 5rem;
+            width: 13rem;
+            background: blue;
+        }
+
+            .btn-edit:hover {
+                background: #ff0000;
+                background: linear-gradient(170deg,#ff0000 0%, #ff0083 80%);
+                background: -webkit-linear-gradient(170deg,#ff0000 0%, #ff0083 80%);
+                background: -moz-linear-gradient(170deg,#ff0000 0%, #ff0083 80%);
+            }
+
+            .btn-edit a {
+                font-weight: 500;
+                font-size: 1rem;
+                color: #fff;
+            }
+    </style>
+</head>
+
+<div class="page-breadcrumb bg-white">
+    <div class="row align-items-center">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title" style="line-height: 40px; padding-top: 10px">Quản Lý Danh Mục Khu Vực</h4>
+        </div>
+
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Three charts -->
+    <!-- ============================================================== -->
+
+
+    <div style="
+                    background: #fff;
+    border: solid 2px #fff;
+    padding: 20px;
+                " class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <center>     <h3><b>Dữ Liệu Danh Mục</b></h3></center>
+                <h5 class="text-center">
+                    <div class="">
+                        <script language="javascript" type="text/javascript">
+                            dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
+                            monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
+                            now = new Date
+                            document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
+                        </script>
+                    </div>
+                </h5>
+            </div>
+
+
+        </div>
+
+        <DIV class="form-conten-edit">
+            <button style="margin-right: 100px" type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("IndexTHPT","ManageImporData")">Thêm dữ liệu trường học khu vực</a></button>
+            <button type="button" class="btn-edit btn-edit1 btn  btn-lg"><a href="@Url.Action("IndexCNN","ManageImporData")">Thêm dữ liệu chứng chỉ</a></button> <br>
+            <button type="button" class="btn-edit btn-edit2 btn  btn-lg"><a href="@Url.Action("IndexTP_QH_PX","ManageImporData")">Thêm dữ liệu Tỉnh TP</a></button>
+
+
+
+
+        </DIV>
+
+    </div>
+</div>
+</div>
+
+
+
+
+<div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+<!-- ============================================================== -->
+<!-- End footer -->
+<!-- ============================================================== -->
+        </div>
+
+</html>-
+

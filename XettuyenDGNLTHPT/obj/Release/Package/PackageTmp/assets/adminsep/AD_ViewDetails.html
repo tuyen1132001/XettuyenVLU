@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>	VLU - TRANG ĐĂNG KÝ TUYỂN SINH ONLINE</title>
+    
+
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./plugins/images/logo-page.png">
+    <!-- Custom CSS -->
+    <link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+    <!-- Custom CSS -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.code.css">
+    <link href='https://css.gg/home-alt.css' rel='stylesheet'>
+</head>
+
+<body>
+    <script>
+        var mybutton = document.getElementById("myBtn");
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+          
+        }
+        </script>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin6">
+                    <a class="navbar-brand" href="dashboard.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!-- Dark Logo icon -->
+                            <img style="margin: 10px;" src="https://xettuyenonline.vanlanguni.edu.vn/files/logo.png" alt="homepage" />
+                        </b>                   
+                    </a>
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                </div>
+                <div style="background-color: #FF0000; margin-top: 0;" class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                    <ul class="navbar-nav ms-auto d-flex align-items-center">
+                        <li class=" in">
+                            <form role="search" class="app-search d-none d-md-block me-3">
+                                <input type="text" placeholder="Search..." class="form-control mt-0">
+                                <a href="" class="active">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </form>
+                        </li>
+                        <li>
+                            <a class="profile-pic" href="#">
+                                <img src="plugins/images/users/varun.jpg" alt="user-img" width="36"
+                                    class="img-circle"><span class="text-white font-medium">Admin</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+       <aside class="left-sidebar" data-sidebarbg="skin6">
+            <div class="scroll-sidebar">
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li class="sidebar-item pt-2">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
+                                aria-expanded="false">
+                                <i class="far fa-clock" aria-hidden="true"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
+                 
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_ViewList.html"
+                                aria-expanded="false">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span class="hide-menu">Quản lý thông tin hồ sơ</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_AreaList.html"
+                                aria-expanded="false">
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <span class="hide-menu">Quản lý tài khoản</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_Content.html"
+                                aria-expanded="false">
+                                <i class="fa fa-font" aria-hidden="true"></i>
+                                <span class="hide-menu">Danh mục khu vực</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_Category.html"
+                                aria-expanded="false">
+                                <i class="fa fa-font" aria-hidden="true"></i>
+                                <span class="hide-menu">Hồ sơ tuyển sinh</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_Category.html"
+                                aria-expanded="false">
+                                <i class="fa fa-font" aria-hidden="true"></i>
+                                <span class="hide-menu">Quản lý nội dung</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_Category.html"
+                                aria-expanded="false">
+                                <i class="fa fa-font" aria-hidden="true"></i>
+                                <span class="hide-menu">Quản lý danh mục</span>
+                            </a>
+                        </li>
+                        <li class="text-center p-20 upgrade-btn">
+                            <a href="https://www.wrappixel.com/templates/ampleadmin/"
+                                class="btn d-grid btn-danger text-white" target="_blank">
+                                Đăng Xuất</a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+        </aside>
+        <div class="page-wrapper">
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 style="padding-top: 10px;" class="page-title">Quản Lý Hồ Sơ Tuyển Sinh</h4>
+                    </div>
+                 
+                </div>
+            </div>
+            <div class="container-fluid">
+              
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="white-box">
+                                <div style="display: flex; justify-content: space-between;" class="d-md-flex mb-3">
+                                    <h3 style="color: red" class="">THÔNG TIN THÍ SINH: <b>213 - Đợt 1</b></h3>
+                                    <h4 style="color: red" class="">Ngày nộp hồ sơ: <b>15/05/2022</b> </h4>
+                                    
+                                 
+         
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table no-wrap">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="4" class="border-top-0">Mã Hồ Sơ: <b>TSVL00213</b></th>
+                                              
+                                             
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!--     -->
+                                            <tr>
+                                                <td style=" line-height: 35px;">Họ và tên: <b>Nguyễn Văn Bảy</b></td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">Ngày sinh: <b>10/02/2001</b></td>
+                                                <td style=" line-height: 35px;">Giới tính: <b>Nam</b></td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">CCCD/CMND: <b>123456789</b></td>     
+                                            </tr>
+                                            <tr>
+                                                <td style=" line-height: 35px;">Trường THPT: <b>064 - THPT Phan Đăng Lưu - Lớp 12A1</b></td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">Trường THPT Thuộc Tỉnh/TP: <b>TP Hồ Chí Minh</b></td>
+                                                <td style=" line-height: 35px;">Năm tốt nghiệp THPT: <b>2019</b></td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">Loại hình tốt nghiệp: <b>THPT</b></td>     
+                                            </tr>
+                                            <tr>
+                                                <td style=" line-height: 35px;">Số điện thoại: <b>01678905463</b></td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">Email: <b>uraaa12@gmail.com</b></td>
+                                                <td style=" line-height: 35px;">Khu vực: <b>3</b></td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">Đối tượng ưu tiên: <b>0</b></td>     
+                                            </tr>
+                                            <tr>
+                                                <th colspan="4" style=" line-height: 35px;">Hộ khẩu: <b>147 Hoàng Hoa Thám, P5, Quận Phú Nhuận, TP Hồ Chí Minh</b></th>     
+                                            </tr>
+                                            <tr>
+                                                <th colspan="4" style=" line-height: 35px;">Địa chỉ liên hệ: <b>147 Hoàng Hoa Thám, P5, Quận Phú Nhuận, TP Hồ Chí Minh</b></th>     
+                                            </tr>
+                                            <tr>
+                                                <th colspan="4" style=" line-height: 35px;">Quốc tịch: <b>Việt Nam</b></th>     
+                                            </tr>
+                                           
+                                              <!--     -->
+                                         
+                                              <!--     -->
+                                             <!--     -->
+                                        </tbody>
+
+                                    </table>
+                                 <center> <hr style="height: 3px; width: 90%; "></center>  
+                                    <table class="table no-wrap">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="4" class="border-top-0"><h3>THÔNG TIN XÉT TUYỂN</h3></th>
+                                              
+                                             
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!--     -->
+                                            <tr>
+                                                <td style=" line-height: 35px;">Phương thức xét tuyển: <b>Đánh giá năng lực</b></td>
+                                                <td colspan="" style=" line-height: 35px;" class="txt-oflo">Điểm Thi ĐGNL: <b>1000</b></td>
+                                                <td colspan="" style=" line-height: 35px;">Số nguyện vọng: <b>3</b></td>
+                                                   
+                                            </tr>
+                                            <tr>
+                                                <th colspan="4" style=" line-height: 35px;">Chứng chỉ ngoại ngữ: <b>Không</b></th>     
+                                            </tr>
+                                            <tr>
+                                            <th colspan="" class="">Nguyện Vọng</th>
+                                            <th colspan="" class="border-top-0">Ngành</th>
+                                            <th colspan="" class="border-top-0">Mã Ngành</th>
+                                            <th>Chương trình học</th>
+                                          
+                                           
+                                        </tr>
+                                            <tr>
+                                                <td  style=" line-height: 35px;">1</td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">Kỷ thuật phần mềm</td>
+                                                <td style=" line-height: 35px;">7480103</td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">Tiêu Chuẩn</td>     
+                                            </tr>
+                                            <tr>
+                                                <td  style=" line-height: 35px;">2</td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">Công nghệ thông tin</td>
+                                                <td style=" line-height: 35px;">7480201</td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">Tiêu Chuẩn</td>     
+                                            </tr>
+                                            <tr>
+                                                <td  style=" line-height: 35px;">3</td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">Quản trị kinh doanh</td>
+                                                <td style=" line-height: 35px;">7318237</td>
+                                                <td style=" line-height: 35px;" class="txt-oflo">Chất lượng cao</td>     
+                                            </tr>
+                                        
+                                              <!--     -->
+                                         
+                                              <!--     -->
+                                             <!--     -->
+                                        </tbody>
+                                     
+                                    </table>
+                                    <a href="AD_ViewList.html"><button style="border:none; background-color: #fff; outline: none;"><i style="font-size: 30px;" class="fas fa-reply"></i></button></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>             
+            </div>
+            <div class="page-footer">
+                <div class="container">
+                    <div  class="">
+                       <span><i style="display: inline-block;" class="gg-home-alt"></i></span> <span><strong><b>Trường Đại học Văn Lang</b></strong></span> <br>
+                        <span>Phòng Tuyển sinh và Truyền thông</span> <br>
+                        <span>Cơ sở chính: 69/68 Đặng Thùy Trâm, P. 13, Q. Bình Thạnh, Tp.HCM</span> <br>
+                        <span>Cơ sở 1: 45 Nguyễn Khắc Nhu, P. Cô Giang, Quận 1, Tp.HCM</span> 
+                    </div>
+                    <div class="">
+                        <span>Website: <a href="http://tuyensinh.vanlanguni.edu.vn/">tuyensinh.vanlanguni.edu.vn </a></span> <br>
+                        <span>Hotline:  (028) 7105 9999</span> <br>
+                        <span>Zalo: 0904214254 (Trường Đại học Văn Lang)</span> <br>
+                        <span>Email : tuyensinh@vanlanguni.edu.vn</span> <br>            
+                    </div>
+                </div>
+            </div>
+     
+<div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+        </div>
+    </div>
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app-style-switcher.js"></script>
+    <script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.js"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
+    <script src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="js/pages/dashboards/dashboard1.js"></script>
+</body>
+
+</html>-

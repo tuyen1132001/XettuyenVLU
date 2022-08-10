@@ -1,0 +1,165 @@
+﻿@model XettuyenDGNLTHPT.Models.tblFormTuyenSinh
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+
+
+<body>
+
+    <!-- ==========================croll==================================== -->
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+
+        }
+    </script>
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title" style="line-height: 40px; padding-top: 10px">Quản Lý Nội Dung</h4>
+            </div>
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Three charts -->
+        <!-- ============================================================== -->
+
+
+        <div style="
+                    background: #fff;
+    border: solid 2px #fff;
+    padding: 20px;
+                " class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3><b>Nội dung xét tuyển THPT</b></h3>
+                    <h5 class="text-center">
+                        <div class="">
+                            <script language="javascript" type="text/javascript">
+                                dayName = new Array("Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy")
+                                monName = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12")
+                                now = new Date
+                                document.write("<font color=#FF6600><b>" + dayName[now.getDay()] + ", " + now.getDate() + "-" + monName[now.getMonth()] + "-" + now.getFullYear() + " - " + " " + now.getHours() + " " + "Giờ" + " " + now.getMinutes() + " " + " Phút </b></font>")
+                            </script>
+                        </div>
+                    </h5>
+                </div>
+                @using (Html.BeginForm("IndexTHPT", "FormContent", FormMethod.Post))
+                {
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="usr">Tiêu Đề Năm Xét Tuyển</label>
+                            @Html.EditorFor(model => model.Tieu_De, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Tieu_De, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Nội dung Xét Tuyển</label>
+                            @Html.EditorFor(model => model.Noi_Dung, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Noi_Dung, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group form-xettuyenthoigian">
+                            <div>
+                                <label for="birthday">Thời Gian Bắt Đầu</label> <br>
+                                @Html.EditorFor(model => model.NgayBatDau, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NgayBatDau, "", new { @class = "text-danger" })
+                                <p class="text-danger">@ViewBag.ErrorMessage</p>
+                            </div>
+
+                            <div>
+                                <label for="birthday">Thời Gian Kết Thúc</label> <br>
+                                @Html.EditorFor(model => model.NgayKetThuc, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
+                                <p class="text-danger">@ViewBag.ErrorMessage</p>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group" style="text-align: center">
+                            @Html.TextAreaFor(model => model.thongbao, new { @class = "form-control", placeholder = "Nhập nội dung thông báo", id = "noidung" })
+                            @*<textarea placeholder="Nhập nội dung thông báo" id="noidung" style="width: 70%; height: 600px; border: 2px solid #ff006e; border-radius: 20px " name="noidung" rows="4" cols="50">  @Model.thongbao</textarea>*@
+                        </div>
+                        <div class="form-check form-switch formandata">
+                            @Html.CheckBoxFor(model => model.Open_Close.Value, new { @checked = "checked", Name = "flexSwitchCheckDefault", @class = "form-check-input" })
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Ẩn Nội dung form đăng ký xét tuyển</label> <br> <label for=""> <i> (Khi kết thúc đợt xét tuyển)</i></label>
+                        </div>
+
+                        <button class="btn-messger btn btn-success btn-save" onclick="document.getElementById('id01').style.display='block'">Lưu Dữ Liệu</button>
+
+
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap tether Core JavaScript -->
+
+</body>
+
+</html>-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#noidung').summernote({
+            height: 200,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ]
+        });
+    });
+</script>

@@ -1,0 +1,164 @@
+﻿@model XettuyenDGNLTHPT.Models.tblHoSoTHPT
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<  <DIV class="page-container">
+    <!-- BEGIN CONTENT -->
+    @using (Html.BeginForm())
+    {
+        <DIV class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <!-- BEGIN PAGE CONTENT BODY -->
+            <DIV class="page-content">
+                <DIV class="container">
+                    <!-- BEGIN PAGE CONTENT INNER -->
+                    <DIV class="page-content-inner">
+                        <div id="Panel1">
+
+                            <DIV class="form-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab1">
+                                        <h3 style="color:#2B67FE; padding-bottom:10px; margin-top:4px">
+                                            <strong>THÔNG TIN THÍ SINH</strong>
+                                        </h3>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="4"><strong>Mã hồ sơ: </strong> <span style="font-size:1.2em;color:red;font-weight:bold">Sẽ phát sinh sau khi hoàn tất việc nộp Hồ sơ</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Họ và tên</strong>: @Model.HoVaTen</td>
+                                                    <td><strong>Ngày sinh</strong>: @Model.NgaySinh</td>
+                                                    @if (Model.GioiTinh == true)
+                                                    {
+                                                        <td><strong>Giới tính</strong>: Nam</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td><strong>Giới tính</strong>: Nữ</td>
+                                                    }
+                                                    <td><strong>Số CMND/CCCD</strong>: @Model.CMND</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Tên trường THPT</strong>: @Model.TenTruongTHPT - Lớp: @Model.TenLop12</td>
+                                                    <td><strong>Trường THPT thuộc Tỉnh/TP</strong>: @Model.TruongTHPT_TenTinhTP</td>
+                                                    <td><strong>Năm tốt nghiệp THPT</strong>: @Model.NamTotNghiep</td>
+                                                    <td><strong>Loại hình tốt nghiệp</strong>: @Model.LoaiHinhTN</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Điện thoại Di Động</strong>: @Model.DienThoaiDD</td>
+                                                    <td><strong>Email</strong>: @Model.Email</td>
+                                                    <td><strong>Khu vực</strong>: @Model.KhuVuc</td>
+                                                    <td><strong>Đối tượng ưu tiên</strong>: @Model.DoiTuongUuTien</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><strong>Hộ khẩu</strong>: @Model.HoKhau, @Model.HoKhau_TenPhuong, @Model.HoKhau_TenQH, @Model.HoKhau_TenTinhTP</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><strong>Địa chỉ liên hệ</strong>: @Model.LienLac_DiaChi, @Model.LienLac_TenPhuongXa, @Model.LienLac_TenQH, @Model.LienLac_TenTP</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4"><strong>Quốc tịch</strong>: @Model.QuocTich</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="text-left font-red bold">
+                                                    <h3><strong>THÔNG TIN XÉT TUYỂN</strong></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-9">
+                                                <table class="table table-bordered">
+                                                    <tbody>
+                                                        <tr>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+
+                                                                <strong>Điểm Thi THPT</strong>:
+                                                                <b>Toán:</b> @Model.Toan, <b>Văn:</b> @Model.Van, <b>Anh:</b> @Model.Anh
+                                                                , <b>Pháp:</b> @Model.Phap, <b>Lý:</b> @Model.Ly, <b>Hóa:</b> @Model.Hoa
+                                                                , <b>Sinh: </b> @Model.Sinh, <b>Sử:</b> @Model.Su
+                                                                , <b>Địa:</b> @Model.Dia, <b>GDCD:</b> @Model.GDCD
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+
+                                                                <strong>Chứng chỉ ngoại ngữ (<i>nếu có</i>)</strong>: @Model.CCNN
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-9">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th><strong>Nguyện vọng</strong></th>
+                                                            <th><strong>Ngành xét tuyển</strong></th>
+                                                            <th><strong>Mã ngành</strong></th>
+                                                            <th><strong>Mã tổ hợp</strong></th>
+                                                            <th><strong>Tổ hợp môn xét tuyển</strong></th>
+                                                            <th><strong>Chương trình học</strong></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr><td>1</td> <td>@Model.TenNganh_TenToHop1.ToString().Split('#')[0]</td> <td>@Model.MaNganh_ToHop1.ToString().Split('#')[0]</td> <td>@Model.MaNganh_ToHop1.ToString().Split('#')[1]</td><td>@Model.TenNganh_TenToHop1.ToString().Split('-')[1] </td> <td>@Model.CTDT1</td></tr>
+                                                        @if (Model.TenNganh_TenToHop2 != null)
+                                                        {
+                                                            <tr><td>2</td> <td>@Model.TenNganh_TenToHop2.ToString().Split('#')[0]</td><td>@Model.MaNganh_ToHop2.ToString().Split('#')[0] </td><td> @Model.MaNganh_ToHop2.ToString().Split('#')[1]</td><td> @Model.TenNganh_TenToHop2.ToString().Split('-')[1]</td><td>@Model.CTDT2</td> </tr>
+                                                        }
+                                                        @if (Model.TenNganh_TenToHop3 != null)
+                                                        {
+                                                            <tr><td>3</td> <td>@Model.TenNganh_TenToHop3.ToString().Split('#')[0]</td><td> @Model.MaNganh_ToHop3.ToString().Split('#')[0]</td><td> @Model.MaNganh_ToHop3.ToString().Split('#')[1]</td><td> @Model.TenNganh_TenToHop2.ToString().Split('-')[1]</td><td>@Model.CTDT3</td> </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-1"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4"></div>
+                                            <div class="col-md-6">
+                                                <input name="btnGoBack" type="button" id="btnGoBack" class="btn btn-warning" value="QUAY LẠI CHỈNH SỬA " onclick="history.go(-1);return false;" /><span class="tab"></span>
+                                                <a href="@Url.Action("Save","Home",Model)" class="btn green-jungle button-submit">ĐỒNG Ý VÀ NỘP HỒ SƠ"</a>
+                                                @*<input type="submit" name="btnFinish" value="ĐỒNG Ý VÀ NỘP HỒ SƠ" id="btnFinish" class="btn green-jungle button-submit" formmethod="post" />*@
+                                            </div>
+                                        </div>
+                                        <p></p>
+                                        <div class="vertical_space"></div>
+                                        <div class="vertical_space"></div>
+                                        <div class="vertical_space"></div>
+                                    </div>
+                                    <!--end id="tab1"-->
+                                </div>
+                                <DIV class="form-actions">
+                                    <DIV class="row">
+                                        <div class="col-md-offset-5 col-md-5">
+
+                                        </div>
+                                    </DIV>
+                                </DIV>
+                            </DIV>
+
+                        </div>
+
+                    </DIV>
+                </DIV>
+            </DIV>
+        </DIV>
+    }

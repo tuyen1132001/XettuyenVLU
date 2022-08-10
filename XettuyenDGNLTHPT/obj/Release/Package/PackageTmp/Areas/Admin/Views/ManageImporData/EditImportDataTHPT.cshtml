@@ -1,0 +1,85 @@
+﻿@model XettuyenDGNLTHPT.Models.tblTruongTHPT
+
+@{
+    ViewBag.Title = "EditImportDataTHPT";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+                    <h3>Chỉnh sửa tài khoản</h3>
+                    <form class="bg-light p-4 m-4">
+                        <div class="form-group">
+                            <label for="yourmail">Mã Tỉnh TPTruong</label>
+                            @Html.EditorFor(model => model.MA_TPTRUONG, new { htmlAttributes = new { @class = "form-control" ,@readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.MA_TPTRUONG, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Mã Tỉnh TP<span class="required"style="color:red"> * </span></label>
+                            @Html.EditorFor(model => model.MA_TINHTP, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.MA_TINHTP, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="yourmail">Tên Tỉnh TP<span class="required"style="color:red"> * </span></label>
+                            @Html.EditorFor(model => model.TEN_TINHTP, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.TEN_TINHTP, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Mã Quận Huyện<span class="required"style="color:red"> * </span></label>
+                            @Html.EditorFor(model => model.MA_QH, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.MA_QH, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Tên Quận Huyện<span class="required"style="color:red"> * </span></label>
+                            @Html.EditorFor(model => model.TEN_QH, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.TEN_QH, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Mã Trường<span class="required"style="color:red"> * </span></label>
+                            @Html.EditorFor(model => model.MA_TRUONG, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.MA_TRUONG, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Tên Trường<span class="required"style="color:red"> * </span></label>
+                            @Html.EditorFor(model => model.TEN_TRUONG, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.TEN_TRUONG, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Địa Chỉ<span class="required"style="color:red"> * </span></label>
+                            @Html.EditorFor(model => model.DIA_CHI, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.DIA_CHI, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Khu Vực<span class="required"style="color:red"> * </span></label>
+                            @Html.EditorFor(model => model.KHU_VUC, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.KHU_VUC, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="yourmail">Loại Trường<span class="required"style="color:red"> * </span></label>
+                            @Html.EditorFor(model => model.LOAI_TRUONG, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                            @Html.ValidationMessageFor(model => model.LOAI_TRUONG, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn-messger btn btn-success" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+

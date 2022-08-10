@@ -1,0 +1,977 @@
+﻿@model XettuyenDGNLTHPT.Models.tblHoSoTHPT
+
+@{
+    ViewBag.Title = "xettuyenthpt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    td {
+        padding: 5px;
+    }
+
+    .vertical_space {
+        height: 10px;
+    }
+</style>
+<script>
+    function checkMark() {
+        let pa1 = document.getElementById('rdPhuongAn1');
+        let pa2 = document.getElementById('rdPhuongAn2');
+        let message = "";
+
+        if (pa1.checked) {
+            document.getElementById("lblMessage").innerHTML = '';
+
+            let toan11 = document.getElementById("txtToan11").value;
+            let van11 = document.getElementById("txtVan11").value;
+            let ly11 = document.getElementById("txtLy11").value;
+            let hoa11 = document.getElementById("txtHoa11").value;
+            let sinh11 = document.getElementById("txtSinh11").value;
+            let su11 = document.getElementById("txtSu11").value;
+            let dia11 = document.getElementById("txtDia11").value;
+
+            if (isNaN(toan11) || toan11 < 1 || toan11 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtToan11").focus();
+            }
+            else if (isNaN(van11) || van11 < 1 || van11 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtVan11").focus();
+            }
+            else if (isNaN(ly11) || ly11 < 1 || ly11 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtLy11").focus();
+            }
+            else if (isNaN(hoa11) || hoa11 < 1 || hoa11 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtHoa11").focus();
+            }
+            else if (isNaN(sinh11) || sinh11 < 1 || sinh11 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtSinh11").focus();
+            }
+            else if (isNaN(su11) || su11 < 1 || su11 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtSu11").focus();
+            }
+            else if (isNaN(dia11) || dia11 < 1 || dia11 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtDia11").focus();
+            }
+
+            //--------HK1 lop 12
+            let toan12 = document.getElementById("txtToan12").value;
+            let van12 = document.getElementById("txtVan12").value;
+            let ly12 = document.getElementById("txtLy12").value;
+            let hoa12 = document.getElementById("txtHoa12").value;
+            let sinh12 = document.getElementById("txtSinh12").value;
+            let su12 = document.getElementById("txtSu12").value;
+            let dia12 = document.getElementById("txtDia12").value;
+
+            if (isNaN(toan12) || toan12 < 1 || toan12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtToan12").focus();
+            }
+            else if (isNaN(van12) || van12 < 1 || van12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtVan12").focus();
+            }
+            else if (isNaN(ly12) || ly12 < 1 || ly12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtLy12").focus();
+            }
+            else if (isNaN(hoa12) || hoa12 < 1 || hoa12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtHoa12").focus();
+            }
+            else if (isNaN(sinh12) || sinh12 < 1 || sinh12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtSinh12").focus();
+            }
+            else if (isNaN(su12) || su12 < 1 || su12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtSu12").focus();
+            }
+            else if (isNaN(dia12) || dia12 < 1 || dia12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtDia12").focus();
+            }
+
+            if (message != '') {
+                document.getElementById("lblMessage").innerHTML = message;
+                return false;
+            }
+        }
+        else if (pa2.checked) {
+            message = "";
+            document.getElementById("lblMessageCN12").innerHTML = '';
+            let toanCN12 = document.getElementById("txtToanCN12").value;
+            let vanCN12 = document.getElementById("txtVanCN12").value;
+            let lyCN12 = document.getElementById("txtLyCN12").value;
+            let hoaCN12 = document.getElementById("txtHoaCN12").value;
+            let sinhCN12 = document.getElementById("txtSinhCN12").value;
+            let suCN12 = document.getElementById("txtSuCN12").value;
+            let diaCN12 = document.getElementById("txtDiaCN12").value;
+
+            if (isNaN(toanCN12) || toanCN12 < 1 || toanCN12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtToanCN12").focus();
+            }
+            else if (isNaN(vanCN12) || vanCN12 < 1 || vanCN12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtVanCN12").focus();
+            }
+            else if (isNaN(lyCN12) || lyCN12 < 1 || lyCN12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtLyCN12").focus();
+            }
+            else if (isNaN(hoaCN12) || hoaCN12 < 1 || hoaCN12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtHoaCN12").focus();
+            }
+            else if (isNaN(sinhCN12) || sinhCN12 < 1 || sinhCN12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtSinhCN12").focus();
+            }
+            else if (isNaN(suCN12) || suCN12 < 1 || suCN12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtSuCN12").focus();
+            }
+            else if (isNaN(diaCN12) || diaCN12 < 1 || diaCN12 > 10) {
+                message = "Điểm các môn học phải từ 0-10. Ví dụ: 7.5";
+                document.getElementById("txtDiaCN12").focus();
+            }
+
+
+            if (message != '') {
+                document.getElementById("lblMessageCN12").innerHTML = message;
+                return false;
+            }
+        }
+
+        return true;
+    }
+</script>
+<!-- BEGIN CONTAINER -->
+
+<div id="UpdatePanel1" class="form-horizontal">
+
+    <div class="page-container">
+        <!-- BEGIN CONTENT -->
+
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <!-- BEGIN PAGE CONTENT BODY -->
+            <div class="page-content">
+                <div class="container">
+                    <!-- BEGIN PAGE CONTENT INNER -->
+                    <div class="page-content-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="text-center font-blue bold">
+                                    <h3 style="color:#c61d23"><strong>ĐĂNG KÝ XÉT TUYỂN 2022</strong></h3>
+                                    <h4 style="color:#2F39B1;font-weight:bold">(Dành cho thí sinh chỉnh sửa hồ sơ THPT Quốc Gia 2022)</h4>
+                                </div>
+                                <div class="portlet light " id="form_wizard_1">
+                                    <div class="portlet-body form">
+
+                                        <div id="myPanel" UpdateMode="Always">
+
+                                            <div class="form-body">
+                                                <form action="/ManageHoSo/SaveTHPT/@Model.ID" method="POST">
+
+                                                    @Html.AntiForgeryToken()
+                                                    <div class="tab-content">
+
+                                                        <div class="tab-pane active" id="tab1">
+
+                                                            <div style="background-color:red;color: white;text-transform:uppercase;padding-left:0.8em;font-size:1.3em">thông tin thí sinh</div>
+                                                            <h5 style="color:blue; border-bottom:solid;border-width:1px;border-color:lightgray; padding-bottom:15px; margin-top:8px">
+                                                                <strong>A. THÔNG TIN CÁ NHÂN</strong>
+                                                            </h5><br />
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Họ và tên<span class="required"> * </span></label>
+                                                                <div class="col-md-5 col-validate">
+                                                                    <input name="HoVaTen" type="text" value="@Model.HoVaTen" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Giới tính<span class="required"> * </span></label>
+                                                                <div class="col-md-4 col-validate">
+                                                                    <div class="radio-list">
+                                                                        <label>
+                                                                            @Html.RadioButtonFor(model => model.GioiTinh, true)
+                                                                            Nam &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                            @Html.RadioButtonFor(model => model.GioiTinh, false)
+                                                                            Nữ
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Ngày sinh<span class="required"> * </span></label>
+                                                                <div class="col-md-8">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <input name="NgaySinh" value="@Model.NgaySinh.Value.ToString("dd/MM/yyyy")" type="text" id="txtNgaySinh" class="form-control" required placeholder="21/08/2000" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" style="width:130px;" />
+                                                                            </td>
+                                                                            <td>Nơi sinh<span style="color:red"> * </span></td>
+                                                                            <td>
+                                                                                @Html.DropDownList("MaNoiSinh", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, new { @class = "form-control", @required = "required" })
+
+                                                                                @*@Html.DropDownList("Noisinh", null, htmlAttributes: new { @class = "form-control", required = "true" })*@
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Dân tộc<span class="required"> * </span></label>
+                                                                <div class="col-md-8">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td>
+                                                                                @Html.DropDownList("MaDanToc", (IEnumerable<SelectListItem>)ViewBag.DanToc, null, new { @class = "form-control", required = "true" })
+                                                                                @*@Html.EditorFor(model => model.TenDanToc, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                                @Html.ValidationMessageFor(model => model.MaDanToc, "", new { @class = "text-danger" })
+                                                                            </td>
+                                                                            <td>Tôn giáo<span style="color:red"> * </span></td>
+                                                                            <td>
+                                                                                @Html.DropDownList("MaTonGiao", (IEnumerable<SelectListItem>)ViewBag.TonGiao, null, new { @class = "form-control", required = "true" })
+                                                                                @*@Html.EditorFor(model => model.TenDanToc, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                                @Html.ValidationMessageFor(model => model.MaTonGiao, "", new { @class = "text-danger" })
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Số CMND/CCCD<span class="required"> * </span></label>
+                                                                <div class="col-md-8">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td><input name="CMND" maxlength="12" id="txtCMND" value="@Model.CMND" required="true" placeholder="9 số hoặc 12 số" type="text" class="form-control" /></td>
+                                                                            <td>Quốc tịch<span style="color:red"> * </span></td>
+                                                                            <td>
+                                                                                @Html.DropDownList("QuocTich", (IEnumerable<SelectListItem>)ViewBag.QuocTich, null, new { @class = "form-control", required = "true" })
+
+                                                                                @* @Html.DropDownList("Quoc Tich", new SelectList(ViewBag.QuocTich, "ID", "TenQT"))*@
+                                                                                @*@Html.DropDownList(model => model.QuocTich, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                                @Html.ValidationMessageFor(model => model.QuocTich, "", new { @class = "text-danger" })
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Hộ khẩu thường trú<span class="required"> * </span></label>
+                                                                <div class="col-md-5">
+                                                                    <input name="HoKhau" id="txtHoKhau" required="true" value="@Model.HoKhau" placeholder="Số nhà/ khu phố, thôn, tên đường, ấp, tổ" type="text" class="form-control" />
+                                                                    <div class="vertical_space"></div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 control-label">Tỉnh/Thành phố <span class="required"> * </span></div>
+                                                                        <div class="col-md-8">
+
+                                                                            @Html.DropDownList("TP_QH_PX", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", required = "true", target = "#ddlHoKhauQuanHuyen" })
+                                                                            @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                            @Html.ValidationMessageFor(model => model.HoKhau_TenTinhTP, "", new { @class = "text-danger" })
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="vertical_space"></div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
+                                                                        <div class="col-md-8">
+                                                                            <select name="ddlHoKhauQuanHuyen" id="ddlHoKhauQuanHuyen" class="form-control district-select" required="true" target="#ddlHoKhau_PhuongXa">
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="vertical_space"></div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 control-label">Phường/Xã <span class="required"> * </span></div>
+                                                                        <div class="col-md-8">
+                                                                            <select name="ddlHoKhau_PhuongXa" id="ddlHoKhau_PhuongXa" class="form-control" required="true">
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Năm tốt nghiệp<span class="required"> * </span></label>
+                                                                <div class="col-md-2">
+                                                                    <input name="NamTotNghiep" value="@Model.NamTotNghiep" id="txtNamTotNghiep" required="true" placeholder="Nhập năm tốt nghiệp" type="number" min="0" max="2022" class="form-control" />
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Học lực lớp 12<span class="required"> * </span></label>
+                                                                <div class="col-md-8">
+                                                                    <div class="radio-list">
+                                                                        <label>
+                                                                            @Html.RadioButtonFor(model => model.HocLucLop12, "Giỏi")
+                                                                            Giỏi &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                            @Html.RadioButtonFor(model => model.HocLucLop12, "Khá")
+                                                                            Khá &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                            @Html.RadioButtonFor(model => model.HocLucLop12, "Trung bình")
+                                                                            Trung bình &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                            @Html.RadioButtonFor(model => model.HocLucLop12, "Yếu")
+                                                                            Yếu  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                            @Html.RadioButtonFor(model => model.HocLucLop12, "Khác")
+                                                                            Khác
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Hạnh kiểm lớp 12<span class="required"> * </span></label>
+                                                                <div class="col-md-8">
+                                                                    <div class="radio-list">
+                                                                        <label>
+                                                                            @Html.RadioButtonFor(model => model.HanhKiemLop12, "Tốt")
+                                                                            Tốt &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                            @Html.RadioButtonFor(model => model.HanhKiemLop12, "Khá")
+                                                                            Khá &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                            @Html.RadioButtonFor(model => model.HanhKiemLop12, "Trung bình")
+                                                                            Trung bình &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                            @Html.RadioButtonFor(model => model.HanhKiemLop12, "Yếu")
+                                                                            Yếu &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                            @Html.RadioButtonFor(model => model.HanhKiemLop12, "Khác")
+                                                                            Khác
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Thí sinh học theo chương trình<span class="required"> * </span></label>
+                                                                <div class="col-md-8 col-validate">
+                                                                    <div class="radio-list">
+                                                                        <div class="radio-list">
+                                                                            <label>
+                                                                                @Html.RadioButtonFor(model => model.LoaiHinhTN, "THPT")
+                                                                                THPT  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                @Html.RadioButtonFor(model => model.LoaiHinhTN, "GDTX")
+                                                                                GDTX
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Trường THPT lớp 12 thuộc Tỉnh/TP <span class="required"> * </span></label>
+                                                                <div class="col-md-5">
+
+                                                                    @Html.DropDownList("THPT", (IEnumerable<SelectListItem>)ViewBag.THPT, null, new { @class = "form-control districtschool-select", required = "true", target = "#ddlQuanHuyenTHPT" })
+                                                                    @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                    @Html.ValidationMessageFor(model => model.TruongTHPT_TenTinhTP, "", new { @class = "text-danger" })
+                                                                    @*<select name="ddlTinhTPTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTinhTPTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTinhTPTruongTHPT" class="form-control" required="true">*@
+                                                                    <div class="vertical_space"></div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
+                                                                        <div class="col-md-8">
+                                                                            <select name="ddlQuanHuyenTHPT" id="ddlQuanHuyenTHPT" class="form-control school-select" required="true" target="#ddlTenTruongTHPT">
+                                                                            </select>
+                                                                            @*<select name="ddlQuanHuyenTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlQuanHuyenTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlQuanHuyenTHPT" class="form-control " required="true">
+                                                                                </select>*@
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="vertical_space"></div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 control-label">Tên trường THPT<span class="required"> * </span></div>
+                                                                        <div class="col-md-8">
+                                                                            <select name="ddlTenTruongTHPT" id="ddlTenTruongTHPT" class="form-control area-select" required="true" target="#ddlKhuVuc"></select>
+                                                                            @*<select name="ddlTenTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTenTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTenTruongTHPT" class="form-control " required="true">
+                                                                                </select>*@
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="vertical_space"></div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 control-label">Tên lớp 12 <span class="required"> * </span></div>
+                                                                        <div class="col-md-8">
+                                                                            <div class="col-md-8">
+                                                                                @Html.EditorFor(model => model.TenLop12, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Tên lớp 12" } })
+                                                                                @Html.ValidationMessageFor(model => model.TenLop12, "", new { @class = "text-danger" })
+                                                                                @*<input name="txtTenLop12" id="txtTenLop12" required="true" placeholder="Tên lớp 12" type="text" class="form-control" />*@
+                                                                                <span class="text-muted">(Ví dụ: lớp 12A1)</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Khu vực</label>
+                                                                    <div class="col-md-8">
+                                                                        <table>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <select name="ddlKhuVuc" id="ddlKhuVuc" class="form-control">
+                                                                                        <option value="1">1</option>
+                                                                                        <option value="2">2</option>
+                                                                                        <option value="2NT">2NT</option>
+                                                                                        <option selected="selected" value="3">3</option>
+
+                                                                                    </select>
+                                                                                </td>
+                                                                                <td>Đối tượng ưu tiên</td>
+                                                                                <td>
+                                                                                    <select name="ddlDoiTuongUT" id="ddlDoiTuongUT" class="form-control">
+                                                                                        <option selected="selected" value="Không có">Kh&#244;ng c&#243;</option>
+                                                                                        <option value="1">1</option>
+                                                                                        <option value="2">2</option>
+                                                                                        <option value="3">3</option>
+                                                                                        <option value="4">4</option>
+                                                                                        <option value="5">5</option>
+                                                                                        <option value="6">6</option>
+                                                                                        <option value="7">7</option>
+
+                                                                                    </select>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="vertical_space"></div>
+
+                                                                <h5 style="color:blue;font-weight:bold"><strong>B. THÔNG TIN LIÊN HỆ</strong></h5>
+                                                                <hr />
+                                                                <div class="form-group">
+                                                                    <div class="col-md-4 text-right">Sử dụng thông tin của Hộ khẩu</div>
+                                                                    <div class="col-md-6">
+                                                                        <input id="chkLayDCHoKhau" type="checkbox" name="chkLayDCHoKhau" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Địa chỉ gửi thư báo kết quả<span class="required"> * </span></label>
+                                                                    <div class="col-md-5 col-validate">
+                                                                        <input name="LienLac_DiaChi" type="text" id="txtDiaChi" value="@Model.LienLac_DiaChi" class="form-control" required="true" placeholder="Số nhà, Tên đường" />
+
+                                                                        <div class="vertical_space"></div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 control-label">Tỉnh/Thành phố <span class="required"> * </span></div>
+                                                                            <div class="col-md-8">
+
+                                                                                @Html.DropDownList("LienHeTP", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", required = "true", target = "#ddlQuanHuyen" })
+                                                                                @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                                @Html.ValidationMessageFor(model => model.LienLac_TenTP, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="vertical_space"></div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
+                                                                            <div class="col-md-8">
+                                                                                <select name="ddlQuanHuyen" id="ddlQuanHuyen" class="form-control district-select" required="true" target="#ddlPhuongXa">
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="vertical_space"></div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 control-label">Phường/Xã <span class="required"> * </span></div>
+                                                                            <div class="col-md-8">
+                                                                                <select name="ddlPhuongXa" id="ddlPhuongXa" class="form-control" required="true">
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Điện thoại di động<span class="required"> * </span></label>
+                                                                    <div class="col-md-5 col-validate">
+                                                                        <input name="DienThoaiDD" type="text" value="@Model.DienThoaiDD" id="txtDienThoaiDiDong" class="form-control" required="true" placeholder="Điện thoại di động" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Email <span class="required"> * </span></label>
+                                                                    <div class="col-md-5 col-validate">
+                                                                        <input name="Email" id="txtEmail" value="@Model.Email" class="form-control" required="true" type="Email" placeholder="Email liên lạc" />
+                                                                        <span class="text-muted">(Nhà trường sẽ gửi Mã hồ sơ qua email này)</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Điện thoại phụ huynh <span class="required"> * </span></label>
+                                                                    <div class="col-md-5 col-validate">
+                                                                        <input name="DienThoaiPhuHuynh" type="text" value="@Model.DienThoaiPhuHuynh" id="txtDienThoaiPhuHuynh" class="form-control" required="true" placeholder="Điện thoại phụ huynh" />
+                                                                        <span class="text-muted">(Trường hợp không liên lạc được với thí sinh, nhà Trường sẽ liên lạc qua số này)</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="vertical_space"></div>
+                                                                <div class="vertical_space"></div>
+                                                                <hr />
+                                                                <div style="background-color:red;color: white;text-transform:uppercase;padding-left:0.8em;font-size:1.3em">THÔNG TIN XÉT TUYỂN</div>
+                                                                <h5 style="color:blue;font-weight:bold"><strong>A. THÍ SINH NHẬP KẾT QUẢ THI THPT QUỐC GIA DƯỚI ĐÂY</strong></h5>
+                                                                <div class="vertical_space"></div>
+                                                                <div class="row">
+                                                                    <div class="radio-list">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="vertical_space"></div>
+
+                                                                <div id="PanelPhuongAn1">
+
+
+
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-1"></div>
+                                                                        <div class="col-md-3 bold"><u>Kết quả thi THPT Quốc Gia</u></div>
+                                                                        <div class="vertical_space"></div>
+                                                                        <table>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <span class="bold">TOÁN</span> <input name="Toan" value="@Model.Toan" type="text" maxlength="5" id="txtToan12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="bold">VĂN</span> <input name="Van" value="@Model.Van" type="text" maxlength="5" id="txtVan12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+
+
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="bold">ANH</span><input name="Anh" value="@Model.Anh" type="text" maxlength="5" id="txtAnh12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="bold">PHÁP</span><input name="Phap" type="text" maxlength="5" id="txtPhap12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="bold">LÝ</span><input name="Ly" type="text" value="@Model.Ly" maxlength="5" id="txtLy12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <span class="bold">HÓA</span><input name="Hoa" type="text" value="@Model.Hoa" maxlength="5" id="txtHoa12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="bold">SINH</span><input name="Sinh" type="text" value="@Model.Sinh" maxlength="5" id="txtSinh12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="bold">SỬ</span><input name="Su" type="text" value="@Model.Su" maxlength="5" id="txtSu12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="bold">ĐỊA</span><input name="Dia" type="text" value="@Model.Dia" maxlength="5" id="txtDia12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="bold">GDCD</span><input name="GDCD" type="text" value="@Model.GDCD" maxlength="5" id="txtGDCD12" class="form-control" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />
+
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="5">
+                                                                                    <span id="lblMessage" style="color:red"></span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+
+                                                                </div>
+
+
+
+                                                                <div class="vertical_space"></div>
+                                                                <div class="vertical_space"></div>
+
+                                                                <div class="row">
+                                                                    <label class="control-label col-md-3">Chứng chỉ ngoại ngữ (<i>nếu có</i>)</label>
+                                                                    <div class="col-md-3">
+                                                                        @Html.DropDownList("CCNN", (IEnumerable<SelectListItem>)ViewBag.CCNN, null, new { @class = "form-control", @style = " width: 255px;    height: 40px; " })
+                                                                        @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                        @Html.ValidationMessageFor(model => model.CCNN, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="vertical_space"></div>
+                                                                <div class="vertical_space"></div>
+                                                                <h5 style="color:blue;font-weight:bold"><strong>B) NGÀNH ĐĂNG KÝ XÉT TUYỂN</strong></h5>
+                                                                <div class="vertical_space"></div>
+                                                                <div class="vertical_space"></div>
+                                                                <div class="row">
+                                                                    <div class="col-md-1"></div>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td style="width:30%">
+                                                                                <strong>Ngành xét tuyển ưu tiên 1</strong>
+                                                                                @Html.DropDownList("Majors1", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors1-select ", target = "#ddlToHopMon1" })
+                                                                                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop1, "", new { @class = "text-danger" })
+                                                                            </td>
+
+                                                                            <td style="width:30%">
+                                                                                <strong>Tổ hợp môn</strong><select name="ddlToHopMon1" id="ddlToHopMon1" class="form-control" required="true">
+                                                                                </select>
+                                                                            </td>
+                                                                            <td>
+                                                                            </td>
+                                                                            <td>
+                                                                                <p></p><strong style="color:red"></strong>
+                                                                            </td>
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <strong>Ngành xét tuyển ưu tiên 2</strong>
+                                                                                @Html.DropDownList("Majors2", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors2-select ", target = "#ddlToHopMon2" })
+                                                                                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop2, "", new { @class = "text-danger" })
+                                                                            </td>
+                                                                            <td>
+                                                                                <strong>Tổ hợp môn</strong><select name="ddlToHopMon2" id="ddlToHopMon2" class="form-control">
+                                                                                </select>
+                                                                            </td>
+                                                                            <td>
+                                                                            </td>
+                                                                            <td>
+                                                                                <p></p><strong></strong>
+                                                                            </td>
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <strong>Ngành xét tuyển ưu tiên 3</strong>
+                                                                                @Html.DropDownList("Majors3", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors3-select ", target = "#ddlToHopMon3" })
+                                                                                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop3, "", new { @class = "text-danger" })
+                                                                            </td>
+                                                                            <td>
+                                                                                <strong>Tổ hợp môn</strong><select name="ddlToHopMon3" id="ddlToHopMon3" class="form-control">
+                                                                                </select>
+                                                                            </td>
+                                                                            <td>
+                                                                            </td>
+                                                                            <td><p></p><strong></strong></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="vertical_space"></div>
+                                                                <div class="vertical_space"></div>
+
+                                                                <!--end id="tab1"-->
+                                                            </div>
+                                                            <div class="form-actions">
+                                                                <div class="row">
+                                                                    <div class="col-md-offset-5 col-md-5">
+                                                                        @*<a href="@Url.Action("SaveTHPT","ManageHoSo")" class="btn green-jungle button-submit">CHỈNH SỬA VÀ NỘP HỒ SƠ"</a>*@
+                                                                        <input type="submit" value="CHỈNH SỬA VÀ NỘP HỒ SƠ" class="btn green-jungle button-submit" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- END CONTENT -->
+
+                    </div><!-- END CONTAINER -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script src="~/Scripts/app.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+    @if (Model.MaNganh_ToHop2 != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $('#Majors2').find('option[value = "@Model.MaNganh_ToHop2.Split('#')[0]"]').attr('selected', true);
+                $('#Majors2').change();
+                localStorage.setItem('is-first-time-majors2-combination-loaded', 'true');
+            })
+        </script>
+    }
+    @if (Model.MaNganh_ToHop3 != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $('#Majors3').find('option[value = "@Model.MaNganh_ToHop3.Split('#')[0]"]').attr('selected', true);
+                $('#Majors3').change();
+                localStorage.setItem('is-first-time-majors3-combination-loaded', 'true');
+            })
+        </script>
+    }
+    <script>
+        $(document).ready(function () {
+            $('#TP_QH_PX').find('option[value = "@Model.HoKhau_MaTinhTP"]').attr('selected', true);
+            $('#THPT').find('option[value = "@Model.TruongTHPT_MaTinhTP"]').attr('selected', true);
+            $('#LienHeTP').find('option[value = "@Model.LienLac_MaTP"]').attr('selected', true);
+            $('#Majors1').find('option[value = "@Model.MaNganh_ToHop1.Split('#')[0]"]').attr('selected', true);
+            localStorage.setItem('household-loaded', 'city');
+            localStorage.setItem('school-loaded', 'city');
+            localStorage.setItem('is-first-time-majors1-combination-loaded', 'true');
+            $('#TP_QH_PX').change();
+            $('#THPT').change();
+            $('#Majors1').change();
+        });
+        $('select.city-select').change(function () {
+            let maTp = $(this).val();
+            let target = $(this).attr('target');
+
+            let chkLayDCHoKhau = $("#chkLayDCHoKhau").is(':checked');
+            if (chkLayDCHoKhau) {
+                $('#TP_QH_PX option').each(function () {
+                    if ($(this).val() == maTp) {
+                        $(this).prop("selected", true);
+                        return;
+                    }
+                });
+                $('#LienHeTP option').each(function () {
+                    if ($(this).val() == maTp) {
+                        $(this).prop("selected", true);
+                        return;
+                    }
+                });
+            }
+
+            if (maTp != '-1') {
+                $.get(`@Url.Action("GetDistrict", "Home")/${maTp}`, data => {
+                    attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
+                    $('#ddlHoKhau_PhuongXa').html('');
+
+                    let householdLoadVariableInLocalStorage = localStorage.getItem('household-loaded');
+                    if (householdLoadVariableInLocalStorage == 'city') {
+                        $('#ddlHoKhauQuanHuyen').find('option[value = "@Model.HoKhau_MaQH"]').attr('selected', true);
+                        $('#ddlHoKhauQuanHuyen').change();
+
+                        attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
+                        $('#ddlQuanHuyen').find('option[value = "@Model.LienLac_MaQH"]').attr('selected', true);
+
+                        localStorage.setItem('household-loaded', 'district');
+                    }
+                    if (chkLayDCHoKhau) {
+                        attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
+                        $('#ddlPhuongXa').html('');
+                    }
+                });
+            } else {
+                attachDistrictOrWard($('#ddlHoKhauQuanHuyen'), [], '-- Chọn quận/huyện --');
+                $('#ddlHoKhau_PhuongXa').html('');
+
+                if (chkLayDCHoKhau) {
+                    attachDistrictOrWard($('#ddlQuanHuyen'), [], '-- Chọn quận/huyện --');
+                    $('#ddlPhuongXa').html('');
+                }
+            }
+        });
+
+        $('select.district-select').change(function () {
+            let maPx = $(this).val();
+            let target = $(this).attr('target');
+
+            let chkLayDCHoKhau = $("#chkLayDCHoKhau").is(':checked');
+            if (chkLayDCHoKhau) {
+                $('#ddlQuanHuyen option').each(function () {
+                    if ($(this).val() == maPx) {
+                        $(this).prop("selected", true);
+                        return;
+                    }
+                });
+            }
+
+            if (maPx != '-1') {
+                $.get(`@Url.Action("GetWard", "Home")/${maPx}`, data => {
+                    attachDistrictOrWard($(target), data, '-- Chọn phường/xã --');
+
+                    let householdLoadVariableInLocalStorage = localStorage.getItem('household-loaded');
+                    if (householdLoadVariableInLocalStorage == 'district') {
+                        $('#ddlHoKhau_PhuongXa').find('option[value = "@Model.HoKhau_MaPhuong"]').attr('selected', true);
+
+                        attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
+                        $('#ddlPhuongXa').find('option[value = "@Model.LienLac_MaPhuongXa"]').attr('selected', true);
+
+                        localStorage.removeItem('household-loaded');
+                    }
+                    if (chkLayDCHoKhau) {
+                        attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
+                    }
+                });
+            } else {
+                attachDistrictOrWard($('#ddlHoKhau_PhuongXa'), [], '-- Chọn phường/xã --');
+                if (chkLayDCHoKhau) {
+                    attachDistrictOrWard($('#ddlPhuongXa'), [], '-- Chọn phường/xã --');
+                }
+            }
+        });
+
+        $('select.districtschool-select').change(function () {
+            let maQHTH = $(this).val();
+            let target = $(this).attr('target');
+            if (maQHTH != '-1') {
+
+                $.get(`@Url.Action("GetDistrictSchool", "Home")/${maQHTH}`, data => {
+                    attachDistrictOrWard($(target), data, '-- Chọn quận/huyện --');
+                    let schoolLoadVariableInLocalStorage = localStorage.getItem('school-loaded');
+                    if (schoolLoadVariableInLocalStorage == 'city') {
+                        $('#ddlQuanHuyenTHPT').find('option[value = "@Model.TruongTHPT_MaQH"]').attr('selected', true);
+                        localStorage.setItem('school-loaded', 'district');
+                        $('#ddlQuanHuyenTHPT').change();
+                    }
+                });
+            }
+        });
+        $('select.school-select').change(function () {
+            let maQHTH = $('select.districtschool-select').val();
+            let maTH = $(this).val();
+            let target = $(this).attr('target');
+            if (maTH != '-1') {
+                let id = maTH + '-' + maQHTH;
+                $.get(`@Url.Action("GetSchool", "Home")/${id}`, data => {
+                    attachDistrictOrWard($(target), data, '-- Chọn trường --');
+
+                    let schoolLoadVariableInLocalStorage = localStorage.getItem('school-loaded');
+                    if (schoolLoadVariableInLocalStorage == 'district') {
+                        $('#ddlTenTruongTHPT').find('option[value = "@Model.MaTruongTHPT.Substring(Model.TruongTHPT_MaTinhTP.Length)"]').attr('selected', true);
+                        localStorage.removeItem('school-loaded');
+                    }
+                });
+            }
+        });
+        $('select.area-select').change(function () {
+            let maKV = $(this).val();
+            let target = $(this).attr('target');
+            if (maKV != '-1') {
+                $.get(`@Url.Action("GetArea", "Home")/${maKV}`, data => {
+                    attachDistrictOrWard($(target), data, "", false);
+                });
+            }
+        });
+        $('#chkLayDCHoKhau').change(function () {
+            if ($("#chkLayDCHoKhau").is(':checked')) {
+                let txtHoKhau = $('#HoKhau').val();
+                $('#LienLac_DiaChi').val(txtHoKhau);
+
+                $('#LienHeTP option').each(function () {
+                    if ($(this).val() == $('select.city-select').val()) {
+                        $(this).prop("selected", true);
+                        let maTp = $(this).val();
+                        if (maTp != -1) {
+                            $.get(`@Url.Action("GetDistrict", "Home")/${maTp}`, data => {
+                                attachDistrictOrWard($('#ddlQuanHuyen'), data, '-- Chọn quận/huyện --');
+                                $('#ddlPhuongXa').html('');
+
+                                $('#ddlQuanHuyen option').each(function () {
+                                    if ($(this).val() == $('#ddlHoKhauQuanHuyen').val()) {
+                                        $(this).prop("selected", true);
+                                        let maPx = $(this).val();
+                                        if (maPx != -1) {
+                                            $.get(`@Url.Action("GetWard", "Home")/${maPx}`, data => {
+                                                attachDistrictOrWard($('#ddlPhuongXa'), data, '-- Chọn phường/xã --');
+
+                                                $('#ddlPhuongXa option').each(function () {
+                                                    if ($(this).val() == $('#ddlHoKhau_PhuongXa').val()) {
+                                                        $(this).prop("selected", true);
+                                                        return;
+                                                    }
+                                                });
+                                            });
+                                        } else {
+                                            attachDistrictOrWard($('#ddlPhuongXa'), [], '-- Chọn phường/xã --');
+                                        }
+                                        return;
+                                    }
+                                });
+                            });
+                        } else {
+                            attachDistrictOrWard($('#ddlQuanHuyen'), [], '-- Chọn quận/huyện --');
+                            $('#ddlPhuongXa').html('');
+                        }
+                        return;
+                    }
+                });
+            }
+        });
+
+        $('#ddlHoKhau_PhuongXa').change(function () {
+            $('#ddlPhuongXa option').each(function () {
+                if ($(this).val() == $('#ddlHoKhau_PhuongXa').val()) {
+                    $(this).prop("selected", true);
+                    return;
+                }
+            });
+        });
+        $('#HoKhau').keyup(function () {
+            if ($("#chkLayDCHoKhau").is(':checked')) {
+                let txtHoKhau = $('#HoKhau').val();
+                $('#LienLac_DiaChi').val(txtHoKhau);
+            }
+        });
+        $('select.majors1-select').change(function () {
+            let maNG = $(this).val();
+            let target = $(this).attr('target');
+            if (maNG != '-1') {
+                $.get(`@Url.Action("GetMajors", "Home")/${maNG}`, data => {
+                    attachDistrictOrWard($(target), data, '--------------Chọn--------------');
+
+                    let isFirstTimeMajorCombinationVariableInLocalStorage = localStorage.getItem('is-first-time-majors1-combination-loaded');
+
+                    if (isFirstTimeMajorCombinationVariableInLocalStorage == 'true') {
+                        $('#ddlToHopMon1').find('option[value = "@Model.MaNganh_ToHop1.Split('#')[1]"]').attr('selected', true);
+                        localStorage.removeItem('is-first-time-majors1-combination-loaded');
+                    }
+                });
+            }
+        });
+        $('select.majors2-select').change(function () {
+            let maNG = $(this).val();
+            let target = $(this).attr('target');
+            if (maNG != '-1') {
+                $.get(`@Url.Action("GetMajors", "Home")/${maNG}`, data => {
+                    attachDistrictOrWard($(target), data, '--------------Chọn--------------');
+
+                    let isFirstTimeMajorCombinationVariableInLocalStorage = localStorage.getItem('is-first-time-majors2-combination-loaded');
+
+                    if (isFirstTimeMajorCombinationVariableInLocalStorage == 'true') {
+                        $('#ddlToHopMon2').find('option[value = "@(Model.MaNganh_ToHop2?.Split('#')[1])"]').attr('selected', true);
+                        localStorage.removeItem('is-first-time-majors2-combination-loaded');
+                    }
+                });
+            }
+        });
+        $('select.majors3-select').change(function () {
+
+            let maNG = $(this).val();
+            let target = $(this).attr('target');
+            if (maNG != '-1') {
+                $.get(`@Url.Action("GetMajors", "Home")/${maNG}`, data => {
+                    attachDistrictOrWard($(target), data, '--------------Chọn--------------');
+
+                    let isFirstTimeMajorCombinationVariableInLocalStorage = localStorage.getItem('is-first-time-majors3-combination-loaded');
+
+                    if (isFirstTimeMajorCombinationVariableInLocalStorage == 'true') {
+                        $('#ddlToHopMon3').find('option[value = "@(Model.MaNganh_ToHop2?.Split('#')[1])"]').attr('selected', true);
+                        localStorage.removeItem('is-first-time-majors3-combination-loaded');
+                    }
+                });
+            }
+        });
+
+        function attachDistrictOrWard(element, data, defaultItem, needFirstItem = true) {
+            let itemsHtml = '';
+            if (needFirstItem) {
+                itemsHtml = `<option value="-1">${defaultItem}</option>`;
+            }
+            for (let item of data) {
+                itemsHtml += `<option value="${item.Id}">${item.Name}</option>`;
+            }
+            element.html(itemsHtml);
+        }
+    </script>
+}

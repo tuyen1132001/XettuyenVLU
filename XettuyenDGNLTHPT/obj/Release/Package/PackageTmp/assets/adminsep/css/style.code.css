@@ -1,0 +1,262 @@
+.page-footer {
+    background: #1736C0;
+    color: #a2abb7;
+    height: 150px;
+    padding: 22px 0;
+   padding-bottom: 0px;
+}
+.page-footer b {
+    font-weight: 700;
+    font-size:17px;
+}
+.page-footer .container {
+    display: flex;
+    justify-content: space-between;
+
+
+}
+.page-footer .container span {
+    font-size: 17px;
+    font-weight: 300;
+  
+}
+#myBtn {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    
+   
+    border: none;
+    outline: none;
+ background: none;
+    color: rgb(222, 218, 218);
+    cursor: pointer;
+  
+ 
+  }
+  .gg-arrow-up-o {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 35px;
+    border: 2px solid;
+    transform: scale(var(--ggs,1));
+    border-radius: 20px
+   }
+   
+   .gg-arrow-up-o::after,
+   .gg-arrow-up-o::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    top: 10px;
+   
+   }
+   
+   .gg-arrow-up-o::after {
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+    transform: rotate(45deg);
+    left: 6px
+   }
+   
+   .gg-arrow-up-o::before {
+    width: 2px;
+    height: 10px;
+    left: 8px;
+  
+    background: currentColor
+   } 
+   .sidebar-item-ad {
+    background-color: #dcdee1;
+
+
+   }
+   .gg-add {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 2px solid;
+    transform: scale(var(--ggs,1));
+    border-radius: 22px
+   }
+   
+   .gg-add::after,
+   .gg-add::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 5px;
+    top: 8px;
+    left: 4px
+   }
+   
+   .gg-add::after {
+    width: 2px;
+    height: 10px;
+    top: 4px;
+    left: 8px
+   } 
+   .gg-close-o {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid;
+    border-radius: 40px
+   }
+   
+   .gg-close-o::after,
+   .gg-close-o::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    top: 8px;
+    left: 3px
+   }
+   
+   .gg-close-o::after {
+    transform: rotate(-45deg)
+   } 
+   .khuvuc {
+       width: 250px;
+       height: 35px;
+      border-radius: 5px; 
+   }
+   .form-xettuyenthoigian {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 12px;
+  
+    
+   }
+   .start-end {
+    height: calc(1.5em + 0.75rem + 2px);
+    border: 1px solid #e9ecef;
+    width: 200px;
+   }
+   .formandata {
+    padding: 20px;
+    margin-left: 250px;
+   }
+   .btn-save {
+    margin-left: 85%;
+   }
+
+   body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Set a style for all buttons */
+.btn-message {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 300px;
+  opacity: 0.9;
+  
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn, .deletebtn {
+   border-radius: 10%;
+    width: 150px;
+    height: 45px;
+     border: none;
+    
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background: rgba(210,44,44,0.98);
+  background: linear-gradient(90deg,rgba(210,44,44,0.98) 0%, #b10d92 80%);
+  background: -webkit-linear-gradient(90deg,rgba(210,44,44,0.98) 0%, #b10d92 80%);
+  background: -moz-linear-gradient(90deg,rgba(210,44,44,0.98) 0%, #b10d92 80%);
+}
+
+/* Add a color to the delete button */
+.deletebtn {
+  background: #0031ff;
+  background: linear-gradient(90deg,#0031ff 0%, #4900ff 80%);
+  background: -webkit-linear-gradient(90deg,#0031ff 0%, #4900ff 80%);
+  background: -moz-linear-gradient(90deg,#0031ff 0%, #4900ff 80%);
+}
+
+/* Add padding and center-align text to the container */
+.btn-container {
+ 
+  text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+ 
+   /* Sit on top */
+ 
+  width: 50%; /* Full width */
+  height: 50%; /* Full height */
+ position: absolute; 
+ left: 20%;
+ 
+ 
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: none;
+  width: 600px; 
+  height: 270px;/* Could be more or less, depending on screen size */
+  border-radius: 10px;
+
+}
+
+/* Style the horizontal ruler */
+
+/* The Modal Close Button (x) */
+
+.clearfix {
+    display: flex;
+   margin-left: 23%;
+   
+}
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.font-btn {
+  color: #fff;
+  font-size: 20px;
+  
+}
+/* Change styles for cancel button and delete button on extra small screens */
+
