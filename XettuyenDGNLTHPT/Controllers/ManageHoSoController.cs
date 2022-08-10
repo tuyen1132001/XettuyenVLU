@@ -21,37 +21,45 @@ namespace XettuyenDGNLTHPT.Controllers
         [HttpPost]
         public ActionResult InHoSo(string DropDownList1, string ddlLoaiXetTuyen, string CMND)
         {
-            var Hoso = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND == CMND);
-            if (Hoso != null)
+            if(ddlLoaiXetTuyen == "THPT")
             {
-
-                return RedirectToAction("DetailTHPT", Hoso);
-            }
-            else
-            {
-                var sdt = model.tblHoSoTHPTs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
-                if (sdt != null)
-                {
-                    return RedirectToAction("DetailTHPT", sdt);
-                }
-                Session["notfound"] = true;
-            }
-            var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim()));
-            if (HosoDGNL != null)
-            {
-                
-                return RedirectToAction("DetailDGNL", HosoDGNL);
-            }
-            else
-            {
-                var sdt = model.tblHoSoDGNLs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
-                if (sdt != null)
+                var Hoso = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND == CMND);
+                if (Hoso != null)
                 {
 
-                    return RedirectToAction("DetailDGNL", sdt);
+                    return RedirectToAction("DetailTHPT", Hoso);
                 }
-                Session["notfound"] = true;
+                else
+                {
+                    var sdt = model.tblHoSoTHPTs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
+                    if (sdt != null)
+                    {
+                        return RedirectToAction("DetailTHPT", sdt);
+                    }
+                    Session["notfound"] = true;
+                }
             }
+            if(ddlLoaiXetTuyen == "DGNL")
+            {
+                var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim()));
+                if (HosoDGNL != null)
+                {
+
+                    return RedirectToAction("DetailDGNL", HosoDGNL);
+                }
+                else
+                {
+                    var sdt = model.tblHoSoDGNLs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
+                    if (sdt != null)
+                    {
+
+                        return RedirectToAction("DetailDGNL", sdt);
+                    }
+                    Session["notfound"] = true;
+                }
+
+            }
+           
             return View();
         }
     
