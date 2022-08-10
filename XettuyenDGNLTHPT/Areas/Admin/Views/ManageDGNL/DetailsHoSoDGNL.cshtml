@@ -31,7 +31,7 @@
     <div class="page-breadcrumb bg-white">
         <div class="row align-items-center">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title" style="line-height: 40px; padding-top: 10px">Hồ Sơ Xét Tuyển THPT Quốc Gia</h4>
+                <h4 class="page-title" style="line-height: 40px; padding-top: 10px">Hồ Sơ Xét Tuyển ĐGNL</h4>
             </div>
 
         </div>
@@ -44,8 +44,7 @@
                 <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="white-box">
                         <div style="display: flex; justify-content: space-between;" class="d-md-flex mb-3">
-                            <h3 style="color: red" class="">THÔNG TIN THÍ SINH: <b>213 - Đợt 1</b></h3>
-                            <h4 style="color: red" class="">Ngày nộp hồ sơ: <b>15/05/2022</b> </h4>
+                            <h3 style="color: red" class="">THÔNG TIN THÍ SINH:</h3>
 
 
 
@@ -65,7 +64,14 @@
                                     <tr>
                                         <td style=" line-height: 35px;">Họ và tên: <b>@Model.HoVaTen</b></td>
                                         <td style=" line-height: 35px;" class="txt-oflo">Ngày sinh: <b>@Model.NgaySinh</b></td>
-                                        <td style=" line-height: 35px;">Giới tính: <b>@Model.GioiTinh</b></td>
+                                        @if (Model.GioiTinh == true)
+                                        {
+                                            <td style=" line-height: 35px;">Giới tính: <b>Nam</b></td>
+                                        }
+                                        else
+                                        {
+                                            <td style=" line-height: 35px;">Giới tính: <b>Nữ</b></td>
+                                        }
                                         <td style=" line-height: 35px;" class="txt-oflo">CCCD/CMND: <b>@Model.CMND</b></td>
                                     </tr>
                                     <tr>
