@@ -8,7 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wexuKKQt0WNRaZSUkWZZwAAAAACAAAAAAAQZgAAAAEAACAAAADaVc71oZFff1dmE1HJ9V4KbguB3azc/D9Ls9xAf/03LwAAAAAOgAAAAAIAACAAAABX55grJJruV+VHux5/1jH9oCmz7BzzTR0ym0SrUzcZXiAAAAAO13+yXCZk7mpZ1cUma+l4Y+7LYu0F3BAwMEr7bP4XWkAAAAC15pzQa8i2AA5dGrZ7O42t3KlHYZhxPjY69VT3UjqR8nS9Q05Z8/P9TwQNZceGNtbIEgve/AE5W5vuXnYKdB7+</EncryptedPassword>
     <_PublishTargetUrl>ftp://cntttest.vanlanguni.edu.vn:18085</_PublishTargetUrl>
-    <History>True|2022-08-10T17:12:07.0025689Z;</History>
+    <History>True|2022-08-10T17:24:05.9942058Z;True|2022-08-11T00:12:07.0025689+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/Admin/Views/Acount/AddAccount.cshtml">
@@ -1911,10 +1911,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/01/2022 12:37:13</publishTime>
     </File>
     <File Include="Views/ManageHoSo/DetailDGNL.cshtml">
-      <publishTime>08/11/2022 00:03:08</publishTime>
+      <publishTime>08/11/2022 00:16:51</publishTime>
     </File>
     <File Include="Views/ManageHoSo/DetailTHPT.cshtml">
-      <publishTime>08/01/2022 12:37:13</publishTime>
+      <publishTime>08/11/2022 00:17:59</publishTime>
     </File>
     <File Include="Views/ManageHoSo/EditDGNL.cshtml">
       <publishTime>08/11/2022 00:03:08</publishTime>
