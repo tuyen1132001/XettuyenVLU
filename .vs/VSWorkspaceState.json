@@ -5,13 +5,12 @@
     "\\XettuyenDGNLTHPT\\Areas",
     "\\XettuyenDGNLTHPT\\Areas\\Admin",
     "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views",
-    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\Acount",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\FormContent",
+    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\ManageImporData",
     "\\XettuyenDGNLTHPT\\Controllers",
     "\\XettuyenDGNLTHPT\\Views",
-    "\\XettuyenDGNLTHPT\\Views\\Home",
-    "\\XettuyenDGNLTHPT\\Views\\Shared",
-    "\\XettuyenDGNLTHPT\\Views\\tracuuketqua"
+    "\\XettuyenDGNLTHPT\\Views\\ManageHoSo"
   ],
-  "SelectedNode": "\\XettuyenDGNLTHPT\\Views\\tracuuketqua\\ketquaTHPT.cshtml",
+  "SelectedNode": "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\ManageImporData\\IndexTHPT.cshtml",
   "PreviewInSolutionExplorer": false
 }
