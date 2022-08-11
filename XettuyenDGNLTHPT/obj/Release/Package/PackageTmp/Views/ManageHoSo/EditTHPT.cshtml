@@ -179,7 +179,7 @@
                                         <div id="myPanel" UpdateMode="Always">
 
                                             <div class="form-body">
-                                                <form action="/ManageHoSo/SaveTHPT/@Model.ID" method="POST">
+                                                <form action="@Url.Action("SaveTHPT","ManageHoSo")" method="POST">
 
                                                     @Html.AntiForgeryToken()
                                                     <div class="tab-content">
@@ -190,12 +190,18 @@
                                                             <h5 style="color:blue; border-bottom:solid;border-width:1px;border-color:lightgray; padding-bottom:15px; margin-top:8px">
                                                                 <strong>A. THÔNG TIN CÁ NHÂN</strong>
                                                             </h5><br />
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-4">Họ và tên<span class="required"> * </span></label>
-                                                                <div class="col-md-5 col-validate">
-                                                                    <input name="HoVaTen" type="text" value="@Model.HoVaTen" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />
-                                                                </div>
-                                                            </div>
+                                                                 <div class="form-group">
+                                                                     <label class="control-label col-md-4">Họ và tên<span class="required"> * </span></label>
+                                                                     <div class="col-md-5 col-validate">
+
+                                                                         <input name="HoVaTen" type="text" value="@Model.HoVaTen" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />
+                                                                     </div>
+                                                                     <div class="col-md-5 col-validate" hidden>
+
+                                                                         <input name="ID" type=”hidden” value="@Model.ID" class="form-control" hidden="hidden" />
+                                                                     </div>
+                                                                    
+                                                                 </div>
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-4">Giới tính<span class="required"> * </span></label>
                                                                 <div class="col-md-4 col-validate">
