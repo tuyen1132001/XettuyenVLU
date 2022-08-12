@@ -64,6 +64,8 @@
           <Property Name="Loai" Type="nvarchar" MaxLength="255" />
           <Property Name="Edit_Open" Type="bit" />
           <Property Name="thongbao" Type="nvarchar(max)" />
+          <Property Name="NgayBatDauEdit" Type="datetime" />
+          <Property Name="NgayKetThucEdit" Type="datetime" />
         </EntityType>
         <EntityType Name="tblHoSoDGNL">
           <Key>
@@ -560,6 +562,8 @@
           <Property Name="Loai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Edit_Open" Type="Boolean" />
           <Property Name="thongbao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NgayBatDauEdit" Type="DateTime" Precision="3" />
+          <Property Name="NgayKetThucEdit" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="DanhMuc">
           <Key>
@@ -835,6 +839,8 @@
           <EntitySetMapping Name="tblFormTuyenSinhs">
             <EntityTypeMapping TypeName="SEP25Team08Model.tblFormTuyenSinh">
               <MappingFragment StoreEntitySet="tblFormTuyenSinh">
+                <ScalarProperty Name="NgayKetThucEdit" ColumnName="NgayKetThucEdit" />
+                <ScalarProperty Name="NgayBatDauEdit" ColumnName="NgayBatDauEdit" />
                 <ScalarProperty Name="thongbao" ColumnName="thongbao" />
                 <ScalarProperty Name="Edit_Open" ColumnName="Edit_Open" />
                 <ScalarProperty Name="Loai" ColumnName="Loai" />

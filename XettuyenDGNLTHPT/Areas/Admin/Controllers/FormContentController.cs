@@ -66,6 +66,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         public ActionResult EditformTHPT()
         {
             var Form = model.tblFormTuyenSinhs.Find(0);
+            
             return View(Form);
         }
         [HttpPost]
@@ -80,8 +81,8 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
 
 
                 Form.Edit_Open = false;
-                Form.NgayBatDau = form.NgayBatDau;
-                Form.NgayKetThuc = form.NgayKetThuc;
+                Form.NgayBatDauEdit = form.NgayBatDauEdit;
+                Form.NgayKetThucEdit = form.NgayKetThucEdit;
                 model.Entry(Form).State = EntityState.Modified;
                 model.SaveChanges();
             }
@@ -89,8 +90,8 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             {
 
                 Form.Edit_Open = true;
-                Form.NgayBatDau = form.NgayBatDau;
-                Form.NgayKetThuc = form.NgayKetThuc;
+                Form.NgayBatDauEdit = form.NgayBatDauEdit;
+                Form.NgayKetThucEdit = form.NgayKetThucEdit;
                 model.Entry(Form).State = EntityState.Modified;
                 model.SaveChanges();
             }
@@ -156,8 +157,8 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
 
 
                 Form.Edit_Open = false;
-                Form.NgayBatDau = form.NgayBatDau;
-                Form.NgayKetThuc = form.NgayKetThuc;
+                Form.NgayBatDauEdit = form.NgayBatDauEdit;
+                Form.NgayKetThucEdit = form.NgayKetThucEdit;
                 model.Entry(Form).State = EntityState.Modified;
                 model.SaveChanges();
             }
@@ -165,8 +166,8 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             {
 
                 Form.Edit_Open = true;
-                Form.NgayBatDau = form.NgayBatDau;
-                Form.NgayKetThuc = form.NgayKetThuc;
+                Form.NgayBatDauEdit = form.NgayBatDauEdit;
+                Form.NgayKetThucEdit = form.NgayKetThucEdit;
                 model.Entry(Form).State = EntityState.Modified;
                 model.SaveChanges();
             }

@@ -28,5 +28,11 @@ namespace XettuyenDGNLTHPT.Models
         public string Loai { get; set; }
         public Nullable<bool> Edit_Open { get; set; }
         public string thongbao { get; set; }
+        [DataType(DataType.Date, ErrorMessage = "Date only")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public Nullable<System.DateTime> NgayBatDauEdit { get; set; }
+        [DataType(DataType.Date, ErrorMessage = "Date only")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public Nullable<System.DateTime> NgayKetThucEdit { get; set; }
     }
 }

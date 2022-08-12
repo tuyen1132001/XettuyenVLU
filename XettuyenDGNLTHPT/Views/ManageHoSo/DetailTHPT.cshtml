@@ -376,7 +376,7 @@
                 <a href="@Url.Action("PrintTHPT","ManageHoSo" ,Model) input  type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning" ">
                     PRINT
                 </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" id="btnUploadHocBa" class="btn btn-warning" value="UPLOAD HỌC BẠ" onclick="parent.open('/myupload');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                @if (Convert.ToBoolean(Session["Form-button"]) == true)
+                @if (Convert.ToBoolean(Session["Form-button"]) == true )
                 {
                     <a href="@Url.Action("EditTHPT","ManageHoSo" ,Model)" type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning"  >
                         ĐIỀU CHỈNH THÔNG TIN

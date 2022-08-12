@@ -67,15 +67,24 @@ namespace XettuyenDGNLTHPT.Controllers
         public ActionResult DetailTHPT(tblHoSoTHPT tHPT)
         {
             var form = model.tblFormTuyenSinhs.Find(0);
-            if (form.Edit_Open == true)
+            
+            if (form.NgayBatDauEdit <= DateTime.Today && DateTime.Today <= form.NgayKetThucEdit)
             {
                 Session["Form-button"] = true;
+                if (form.Edit_Open == true)
+                {
+                    Session["Form-button"] = false;
+                }
+                else
+                {
+                    Session["Form-button"] = true;
+                }
             }
             else
             {
                 Session["Form-button"] = false;
             }
-       
+
             return View(tHPT);
         }
         public ActionResult PrintTHPT(tblHoSoTHPT tHPT)
@@ -86,9 +95,18 @@ namespace XettuyenDGNLTHPT.Controllers
         public ActionResult DetailDGNL(tblHoSoDGNL dGNL)
         {
             var form = model.tblFormTuyenSinhs.Find(1);
-            if (form.Edit_Open == true)
+            
+            if (form.NgayBatDauEdit <= DateTime.Today && DateTime.Today <= form.NgayKetThucEdit)
             {
                 Session["Form-button"] = true;
+                if (form.Edit_Open == true)
+                {
+                    Session["Form-button"] = false;
+                }
+                else
+                {
+                    Session["Form-button"] = true;
+                }
             }
             else
             {
