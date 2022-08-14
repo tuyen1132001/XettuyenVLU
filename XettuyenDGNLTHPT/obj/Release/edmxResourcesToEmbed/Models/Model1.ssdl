@@ -59,6 +59,8 @@
     <Property Name="Loai" Type="nvarchar" MaxLength="255" />
     <Property Name="Edit_Open" Type="bit" />
     <Property Name="thongbao" Type="nvarchar(max)" />
+    <Property Name="NgayBatDauEdit" Type="datetime" />
+    <Property Name="NgayKetThucEdit" Type="datetime" />
   </EntityType>
   <EntityType Name="tblHoSoDGNL">
     <Key>

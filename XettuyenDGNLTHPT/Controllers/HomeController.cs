@@ -19,7 +19,7 @@ namespace XettuyenDGNLTHPT.Controllers
             ViewBag.QuocTich = new SelectList(model.tblQuocTiches, "ID", "TenQT");
             ViewBag.MaDanToc = new SelectList(model.tblDanTocs, "MA_DANTOC", "TEN_DANTOC");
             ViewBag.MaTonGiao = new SelectList(model.tblTonGiaos, "MA_TONGIAO", "TEN_TONGIAO");
-            ViewBag.MaNoiSinh = new SelectList(model.tblTinhTPs, "MA_TINHTP", "TEN_TINHTP"); ;
+            //ViewBag.MaNoiSinh = new SelectList(model.tblTinhTPs, "MA_TINHTP", "TEN_TINHTP"); ;
 
             //ViewBag.CCNN = new SelectList(model.tblChungChiNNs, "ID", "MaNN"+"ChungChi"+"DiemQuiDoi");
             var CCNN = model.tblChungChiNNs.ToList();
@@ -69,11 +69,17 @@ namespace XettuyenDGNLTHPT.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(tblHoSoTHPT tblHoSoTHPT, string TP_QH_PX, string ddlHoKhauQuanHuyen, string ddlHoKhau_PhuongXa, string THPT, string ddlQuanHuyenTHPT, string ddlTenTruongTHPT, string ddlKhuVuc
                                     , string ddlDoiTuongUT, string LienHeTP, string ddlQuanHuyen, string ddlPhuongXa, string Majors1, string Majors2, string Majors3, string ddlToHopMon1, string ddlToHopMon2, string ddlToHopMon3, string CTDT1, string CTDT2, string CTDT3) //Form Dang ky THTP QG
         {
             if (ModelState.IsValid)
             {
+                var checkdata = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND.Equals(tblHoSoTHPT.CMND));
+                if (checkdata != null) {
+                    ModelState.AddModelError("CMND", "CMND đã tồn tại");
+                }
+                else { 
                 var dbNoiSinh = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(tblHoSoTHPT.MaNoiSinh));
                 string NameNoisinh = dbNoiSinh.TenTinhTP;
 
@@ -167,8 +173,37 @@ namespace XettuyenDGNLTHPT.Controllers
                     tblHoSoTHPT.CTDT3 = CTDT3;
                 }
                 return View("Detail", tblHoSoTHPT);
+                }
+                ViewBag.QuocTich = new SelectList(model.tblQuocTiches, "ID", "TenQT");
+                ViewBag.MaDanToc = new SelectList(model.tblDanTocs, "MA_DANTOC", "TEN_DANTOC");
+                ViewBag.MaTonGiao = new SelectList(model.tblTonGiaos, "MA_TONGIAO", "TEN_TONGIAO");
+                //ViewBag.MaNoiSinh = new SelectList(model.tblTinhTPs, "MA_TINHTP", "TEN_TINHTP"); ;
+
+                //ViewBag.CCNN = new SelectList(model.tblChungChiNNs, "ID", "MaNN"+"ChungChi"+"DiemQuiDoi");
+                var CCNN = model.tblChungChiNNs.ToList();
+                List<string> ChungChi = new List<string>();
+                ChungChi.Add("-- Chọn chứng chỉ ngoại ngữ --");
+                foreach (var cc in CCNN)
+                {
+                    ChungChi.Add(cc.MaNN + "-" + cc.ChungChi + "-" + cc.DiemQuiDoi);
+                }
+                ViewBag.CCNN = new SelectList(ChungChi);
+                //
+                var TP_QH_PX1 = model.tblTP_QH_PX.Select(e => new { e.MaTinhTP, e.TenTinhTP }).Distinct().ToList();
+                TP_QH_PX1.Insert(0, new { MaTinhTP = "-1", TenTinhTP = "-- Chọn tỉnh thành phố --" });
+                ViewBag.TP_QH_PX = new SelectList(TP_QH_PX1, "MaTinhTP", "TenTinhTP");
+
+
+
+                var THPT1 = model.tblTruongTHPTs.Select(e => new { e.MA_TINHTP, e.TEN_TINHTP }).Distinct().ToList();
+                THPT1.Insert(0, new { MA_TINHTP = "-1", TEN_TINHTP = "-- Chọn tỉnh thành phố --" });
+                ViewBag.THPT = new SelectList(THPT1, "MA_TINHTP", "TEN_TINHTP");
+
+                var Majors = model.tblNganhs.Select(e => new { e.MA_NGANH, e.TEN_NGANH }).Distinct().ToList();
+                Majors.Insert(0, new { MA_NGANH = "-1", TEN_NGANH = "--------------Chọn-------------- " });
+                ViewBag.NGANH = new SelectList(Majors, "MA_NGANH", "TEN_NGANH");
             }
-            return View();
+            return View(tblHoSoTHPT);
         }
         
         public ActionResult Detail(tblHoSoTHPT thpt)

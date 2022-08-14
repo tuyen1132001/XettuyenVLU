@@ -253,6 +253,8 @@
     <EntitySetMapping Name="tblFormTuyenSinhs">
       <EntityTypeMapping TypeName="SEP25Team08Model.tblFormTuyenSinh">
         <MappingFragment StoreEntitySet="tblFormTuyenSinh">
+          <ScalarProperty Name="NgayKetThucEdit" ColumnName="NgayKetThucEdit" />
+          <ScalarProperty Name="NgayBatDauEdit" ColumnName="NgayBatDauEdit" />
           <ScalarProperty Name="thongbao" ColumnName="thongbao" />
           <ScalarProperty Name="Edit_Open" ColumnName="Edit_Open" />
           <ScalarProperty Name="Loai" ColumnName="Loai" />

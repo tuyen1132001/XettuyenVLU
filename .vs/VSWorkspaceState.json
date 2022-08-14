@@ -8,9 +8,10 @@
     "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views",
     "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\ManageImporData",
     "\\XettuyenDGNLTHPT\\Controllers",
+    "\\XettuyenDGNLTHPT\\Models",
     "\\XettuyenDGNLTHPT\\Views",
     "\\XettuyenDGNLTHPT\\Views\\ManageHoSo"
   ],
-  "SelectedNode": "\\XettuyenDGNLTHPT\\Controllers\\ManageHoSoController.cs",
+  "SelectedNode": "\\XettuyenDGNLTHPT\\Areas\\Admin\\Controllers\\ManageImporDataController.cs",
   "PreviewInSolutionExplorer": false
 }
