@@ -63,8 +63,13 @@
 
         <div class="row" style="background-color: white ">
             <div class="col-md-12 col-lg-12 col-sm-12">
-                <a style="padding: 10px" href="@Url.Action("Index","ManageDGNL")">
-                    <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Hồ sơ ĐGNL</button>
+                <div class="vertical_space">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="vertical_space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <a style="padding: 10px" href="@Url.Action("ExportData","ManageTHPT")">
+                    <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Export Dữ Liệu</button>
                 </a>
                 <div class="container-fluid">
                     <table id="example" class="table table-striped table-bordered" style="width:100%">

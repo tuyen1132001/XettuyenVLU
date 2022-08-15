@@ -5,13 +5,12 @@
     "\\XettuyenDGNLTHPT\\Areas",
     "\\XettuyenDGNLTHPT\\Areas\\Admin",
     "\\XettuyenDGNLTHPT\\Areas\\Admin\\Controllers",
-    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views",
-    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Views\\ManageImporData",
     "\\XettuyenDGNLTHPT\\Controllers",
     "\\XettuyenDGNLTHPT\\Models",
     "\\XettuyenDGNLTHPT\\Views",
+    "\\XettuyenDGNLTHPT\\Views\\Home",
     "\\XettuyenDGNLTHPT\\Views\\ManageHoSo"
   ],
-  "SelectedNode": "\\XettuyenDGNLTHPT\\Areas\\Admin\\Controllers\\ManageImporDataController.cs",
+  "SelectedNode": "\\XettuyenDGNLTHPT\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
