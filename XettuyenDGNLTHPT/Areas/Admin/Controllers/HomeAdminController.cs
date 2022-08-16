@@ -25,6 +25,10 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             var list = model.Accounts.ToList();
             return View(list);
         }
-
+        public ActionResult IndexData()
+        {
+           
+            return View();
+        }
     }
 }
