@@ -63,8 +63,13 @@
 
         <div class="row" style="background-color: white ">
             <div class="col-md-12 col-lg-12 col-sm-12">
-                <a href="@Url.Action("Index","ManageTHPT")">
-                    <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Hồ sơ THPT</button>
+                <div class="vertical_space">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="vertical_space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <a style="padding: 10px" href="@Url.Action("ExportData","ManageDGNL")">
+                    <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Export Dữ Liệu</button>
                 </a>
 
                 <div class="container-fluid">
@@ -83,49 +88,50 @@
                                 }
                                 else
                                 {
-                                <th>Mã hồ sơ</th>
-                                <th>Họ và tên</th>
-                                <th>CMND</th>
-                                <th>Email</th>
-                                <th>SĐT</th>
-                                <th>Địa chỉ</th>
-                                <th>Đã nhận hồ sơ</th>
+                                    <th>Mã hồ sơ</th>
+                                    <th>Họ và tên</th>
+                                    <th>CMND</th>
+                                    <th>Email</th>
+                                    <th>SĐT</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Đã nhận hồ sơ</th>
                                 }
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
-                            <tr>
-                                @if ((string)Session["user-role"] == "1")
-                                {
-                                    <td>
-                                        <a href="@Url.Action("DetailsHoSoDGNL", "ManageDGNL", new { id = item.ID })">@item.ID</a>
-                                    </td>
+                                <tr>
+                                    @if ((string)Session["user-role"] == "1")
+                                    {
+                                        <td>
+                                            <a href="@Url.Action("DetailsHoSoDGNL", "ManageDGNL", new { id = item.ID })">@item.ID</a>
+                                        </td>
 
-                                    <td class="txt-oflo">@item.HoVaTen</td>
-                                    <td class="txt-oflo">@item.CMND</td>
-                                    <td class="txt-oflo">@item.Email</td>
-                                    <td class="txt-oflo">@item.DienThoaiDD</td>
-                                    <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
-                                    <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
+                                        <td class="txt-oflo">@item.HoVaTen</td>
+                                        <td class="txt-oflo">@item.CMND</td>
+                                        <td class="txt-oflo">@item.Email</td>
+                                        <td class="txt-oflo">@item.DienThoaiDD</td>
+                                        <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
+                                        <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
 
-                                }
-                                else
-                                {
-                                    <td class="txt-oflo">@item.ID
-                                    </td>
+                                    }
+                                    else
+                                    {
+                                        <td class="txt-oflo">
+                                            @item.ID
+                                        </td>
 
-                                    <td class="txt-oflo">@item.HoVaTen</td>
-                                    <td class="txt-oflo">@item.CMND</td>
-                                    <td class="txt-oflo">@item.Email</td>
-                                    <td class="txt-oflo">@item.DienThoaiDD</td>
-                                    <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
-                                    <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
+                                        <td class="txt-oflo">@item.HoVaTen</td>
+                                        <td class="txt-oflo">@item.CMND</td>
+                                        <td class="txt-oflo">@item.Email</td>
+                                        <td class="txt-oflo">@item.DienThoaiDD</td>
+                                        <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
+                                        <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
 
-                                }
+                                    }
 
-                            </tr>
+                                </tr>
                             }
                         </tbody>
 

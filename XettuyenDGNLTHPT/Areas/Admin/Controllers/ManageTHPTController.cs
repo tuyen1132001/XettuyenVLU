@@ -117,7 +117,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                 Sheet.Cells[string.Format("B{0}", row)].Value = item.HoVaTen;
                 Sheet.Cells[string.Format("C{0}", row)].Value = item.Email;
                 Sheet.Cells[string.Format("D{0}", row)].Value = item.GioiTinh;
-                Sheet.Cells[string.Format("E{0}", row)].Value = item.NgaySinh;
+                Sheet.Cells[string.Format("E{0}", row)].Value = Convert.ToDateTime(item.NgaySinh).ToString("dd/MM/yyyy");
                 Sheet.Cells[string.Format("F{0}", row)].Value = item.MaNoiSinh;
                 Sheet.Cells[string.Format("G{0}", row)].Value = item.TenNoiSinh;
                 Sheet.Cells[string.Format("H{0}", row)].Value = item.MaDanToc;

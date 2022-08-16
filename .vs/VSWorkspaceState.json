@@ -11,6 +11,6 @@
     "\\XettuyenDGNLTHPT\\Views\\Home",
     "\\XettuyenDGNLTHPT\\Views\\ManageHoSo"
   ],
-  "SelectedNode": "\\XettuyenDGNLTHPT\\Views\\Home\\Index.cshtml",
+  "SelectedNode": "\\XettuyenDGNLTHPT\\Areas\\Admin\\Controllers\\ManageTHPTController.cs",
   "PreviewInSolutionExplorer": false
 }
