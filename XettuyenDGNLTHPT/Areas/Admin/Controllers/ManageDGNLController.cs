@@ -104,7 +104,17 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                 Sheet.Cells[string.Format("A{0}", row)].Value = item.ID;
                 Sheet.Cells[string.Format("B{0}", row)].Value = item.HoVaTen;
                 Sheet.Cells[string.Format("C{0}", row)].Value = item.Email;
-                Sheet.Cells[string.Format("D{0}", row)].Value = item.GioiTinh;
+                if (item.GioiTinh == true)
+                {
+                    Sheet.Cells[string.Format("D{0}", row)].Value = "Nam";
+                } else if (item.GioiTinh == false)
+                {
+                    Sheet.Cells[string.Format("D{0}", row)].Value = "Nữ";
+                }
+                else
+                {
+                    Sheet.Cells[string.Format("D{0}", row)].Value = "";
+                }
                 Sheet.Cells[string.Format("E{0}", row)].Value = Convert.ToDateTime(item.NgaySinh).ToString("dd/MM/yyyy");
                 Sheet.Cells[string.Format("F{0}", row)].Value = item.MaNoiSinh;
                 Sheet.Cells[string.Format("G{0}", row)].Value = item.TenNoiSinh;
@@ -156,8 +166,8 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                 Sheet.Cells[string.Format("BA{0}", row)].Value = item.LienLac_TenQH;
                 Sheet.Cells[string.Format("BB{0}", row)].Value = item.DienThoaiDD;
                 Sheet.Cells[string.Format("BC{0}", row)].Value = item.DienThoaiPhuHuynh;
-                Sheet.Cells[string.Format("BD{0}", row)].Value = item.DateInserted;
-                Sheet.Cells[string.Format("BE{0}", row)].Value = item.DateEdited;
+                Sheet.Cells[string.Format("BD{0}", row)].Value = Convert.ToDateTime(item.DateInserted).ToString("dd/MM/yyyy");
+                Sheet.Cells[string.Format("BE{0}", row)].Value = Convert.ToDateTime(item.DateEdited).ToString("dd/MM/yyyy");
                 Sheet.Cells[string.Format("BF{0}", row)].Value = item.DaNhanHoSo;
                 row++;
             }
