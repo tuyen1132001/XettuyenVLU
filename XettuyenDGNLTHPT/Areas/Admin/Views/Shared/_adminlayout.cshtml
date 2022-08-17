@@ -150,13 +150,7 @@
                         </li>
                         @if ((string)Session["user-role"] == "1")
                         {
-                            <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="AD_ViewList.html"
-                                   aria-expanded="false">
-                             
-                                    <span class="hide-menu">Quản lý thông tin hồ sơ</span>
-                                </a>
-                            </li>
+                            
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="@Url.Action("ManageAcount","HomeAdmin")"
                                    aria-expanded="false">
@@ -193,13 +187,7 @@
                                 <span class="hide-menu">Quản lý nội dung mail</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="QL_Category.html"
-                               aria-expanded="false">
-                                <i class="fa fa-check-square"></i>
-                                <span class="hide-menu">Quản lý danh mục</span>
-                            </a>
-                        </li>
+                        
                         <li class="text-center p-20 upgrade-btn">
                             <a href="@Url.Action("Logout","Acount")"
                                class="btn d-grid btn-danger text-white" onclick="if (!confirm ('Bạn có muốn đăng xuất không')) { return false; }">

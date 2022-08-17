@@ -63,7 +63,7 @@
                                     <!--     -->
                                     <tr>
                                         <td style=" line-height: 35px;">Họ và tên: <b>@Model.HoVaTen</b></td>
-                                        <td style=" line-height: 35px;" class="txt-oflo">Ngày sinh: <b>@Model.NgaySinh</b></td>
+                                        <td style=" line-height: 35px;" class="txt-oflo">Ngày sinh: <b>@Convert.ToDateTime(@Model.NgaySinh).ToString("dd/MM/yyyy")</b></td>
                                         @if (Model.GioiTinh == true)
                                         {
                                             <td style=" line-height: 35px;">Giới tính: <b>Nam</b></td>
@@ -114,16 +114,16 @@
                                 <tbody>
                                     <!--     -->
                                     <tr>
-                                        <td style=" line-height: 35px;">Phương thức xét tuyển: <b>THPT QG</b></td>
+                                        <td style=" line-height: 35px;">Phương thức xét tuyển: <b>DGNL </b></td>
 
                                     </tr>
 
                                     <tr>
                                         <td colspan="" style=" line-height: 35px;" class="txt-oflo">Điểm thi ĐGNL: <b>@Model.DiemDGNL</b></td>
-                                        <td colspan="" style=" line-height: 35px;" class="txt-oflo">Ngày thi ĐGNL: <b>@Model.TGThiDGNL</b></td>
+                                        <td colspan="" style=" line-height: 35px;" class="txt-oflo">Ngày thi ĐGNL: <b>@Convert.ToDateTime(@Model.TGThiDGNL).ToString("dd/MM/yyyy")</b></td>
                                     </tr>
 
-                                    >
+                                    
                                     <tr>
                                         <th colspan="" class="">Nguyện Vọng</th>
                                         <th colspan="" class="border-top-0">Ngành</th>

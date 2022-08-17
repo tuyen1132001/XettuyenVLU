@@ -8,7 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wexuKKQt0WNRaZSUkWZZwAAAAACAAAAAAAQZgAAAAEAACAAAAArc7PfKYpuE0+DV+HT3M5P3f3oVIyllai66Vx7ZBZGqAAAAAAOgAAAAAIAACAAAADe/Zdsv9Foghk3JrbyDpbCMHi5/yjyNL696Vt2WccTlCAAAACZzO1zExuJmZPYIPncCJX7O2bDpjYO6T+PFrD5TbVjL0AAAADWOfDRGwaGZDZkYEQC+VVPRwEMEXQM9B/42isJd4p3A2bMQVFyhIqnsG3v773bk7SkRmzXSQSumQno/PZ9ctZ0</EncryptedPassword>
     <_PublishTargetUrl>ftp://cntttest.vanlanguni.edu.vn:18085</_PublishTargetUrl>
-    <History>True|2022-08-12T09:23:43.8719088Z;True|2022-08-11T21:51:41.8655106+07:00;True|2022-08-11T21:48:17.5376883+07:00;True|2022-08-11T21:26:52.6407080+07:00;True|2022-08-11T21:16:23.7358160+07:00;True|2022-08-11T21:14:19.0612347+07:00;True|2022-08-11T21:03:03.5553423+07:00;True|2022-08-11T00:34:20.5868690+07:00;</History>
+    <History>True|2022-08-16T08:03:18.4272554Z;True|2022-08-12T16:23:43.8719088+07:00;True|2022-08-11T21:51:41.8655106+07:00;True|2022-08-11T21:48:17.5376883+07:00;True|2022-08-11T21:26:52.6407080+07:00;True|2022-08-11T21:16:23.7358160+07:00;True|2022-08-11T21:14:19.0612347+07:00;True|2022-08-11T21:03:03.5553423+07:00;True|2022-08-11T00:34:20.5868690+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/Admin/Views/Acount/AddAccount.cshtml">
@@ -38,6 +38,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/Admin/Views/HomeAdmin/Index.cshtml">
       <publishTime>08/01/2022 13:30:50</publishTime>
     </File>
+    <File Include="Areas/Admin/Views/HomeAdmin/IndexData.cshtml">
+      <publishTime>08/16/2022 14:46:46</publishTime>
+    </File>
     <File Include="Areas/Admin/Views/HomeAdmin/ManageAcount.cshtml">
       <publishTime>08/01/2022 12:37:13</publishTime>
     </File>
@@ -54,7 +57,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/11/2022 00:03:08</publishTime>
     </File>
     <File Include="Areas/Admin/Views/ManageDGNL/Index.cshtml">
-      <publishTime>08/11/2022 00:03:08</publishTime>
+      <publishTime>08/16/2022 14:46:46</publishTime>
     </File>
     <File Include="Areas/Admin/Views/ManageImporData/AddCNN.cshtml">
       <publishTime>08/01/2022 12:37:13</publishTime>
@@ -90,10 +93,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/11/2022 00:03:08</publishTime>
     </File>
     <File Include="Areas/Admin/Views/ManageTHPT/Index.cshtml">
-      <publishTime>08/11/2022 00:03:08</publishTime>
+      <publishTime>08/16/2022 14:46:46</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Shared/_adminlayout.cshtml">
-      <publishTime>08/11/2022 21:21:12</publishTime>
+      <publishTime>08/16/2022 14:46:46</publishTime>
     </File>
     <File Include="Areas/Admin/Views/web.config">
       <publishTime>08/01/2022 12:37:13</publishTime>
@@ -1728,10 +1731,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/01/2022 12:37:15</publishTime>
     </File>
     <File Include="bin/XettuyenDGNLTHPT.dll">
-      <publishTime>08/12/2022 16:23:10</publishTime>
+      <publishTime>08/16/2022 15:02:45</publishTime>
     </File>
     <File Include="bin/XettuyenDGNLTHPT.pdb">
-      <publishTime>08/12/2022 16:23:10</publishTime>
+      <publishTime>08/16/2022 15:02:45</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>08/01/2022 12:37:13</publishTime>
@@ -1869,7 +1872,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/01/2022 12:37:13</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>08/11/2022 00:03:08</publishTime>
+      <publishTime>08/14/2022 14:10:29</publishTime>
     </File>
     <File Include="Views/Home/Save.cshtml">
       <publishTime>08/01/2022 12:37:13</publishTime>
