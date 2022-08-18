@@ -140,7 +140,7 @@
 
                 <td colspan="2"><b>2. Ngày tháng năm sinh</b>:</td>
 
-                <td colspan="6">@Model.NgaySinh</td>
+                <td colspan="6">@Convert.ToDateTime(@Model.NgaySinh).ToString("dd/MM/yyyy")</td>
 
             </tr>
 
@@ -307,12 +307,75 @@
                 <td colspan="6"></td>
             </tr>
 
-            <tr><td><b>Ngành đăng ký xét tuyển 1</b>: </td><td colspan="2">@Model.TenNganh_TenToHop1</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop1</td><td></td><td><b>Mã tổ hợp</b>: A01</td><td></td></tr>
-            <tr><td></td><td colspan="3">Chương trình học: Tiêu chuẩn</td></tr>
-            <tr><td><b>Ngành đăng ký xét tuyển 2</b>: </td><td colspan="2">@Model.TenNganh_TenToHop2</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop2</td><td></td><td><b>Mã tổ hợp</b>: C00</td><td></td></tr>
-            <tr><td></td><td colspan="3">Chương trình học: Tiêu chuẩn</td></tr>
-            <tr><td><b>Ngành đăng ký xét tuyển 3</b>: </td><td colspan="2">@Model.TenNganh_TenToHop3</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop3</td><td></td><td><b>Mã tổ hợp</b>: C04</td><td></td></tr>
-            <tr><td></td><td colspan="3">Chương trình học: Tiêu chuẩn</td></tr>
+
+            <tr><td><b>Ngành đăng ký xét tuyển 1</b>: </td><td colspan="2">@Model.TenNganh_TenToHop1.Split('#')[0]</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop1.Split('#')[0]</td><td></td><td><b>Mã tổ hợp</b>:@Model.MaNganh_ToHop1.Split('#')[1] </td><td></td></tr>
+            @if (Model.CTDT1 == null)
+            {
+                <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+            }
+            else if (Model.CTDT1.Equals("CTTC"))
+            {
+                <tr><td></td><td colspan="3">Chương trình học: Tiêu Chuẩn</td></tr>
+            }
+            else if (Model.CTDT1.Equals("CTĐB"))
+            {
+                <tr><td></td><td colspan="3">Chương trình học: Đặc Biệt</td></tr>
+            }
+            else
+            {
+                <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+            }
+            @if (@Model.TenNganh_TenToHop2 != null)
+            {
+                <tr><td><b>Ngành đăng ký xét tuyển 2/b>: </td><td colspan="2">@Model.TenNganh_TenToHop2.Split('#')[0]</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop2.Split('#')[0]</td><td></td><td><b>Mã tổ hợp</b>: @Model.MaNganh_ToHop2.Split('#')[1]</td><td></td></tr>
+            }
+            else
+            {
+                <tr><td><b>Ngành đăng ký xét tuyển 2</b>: </td><td colspan="2"></td><td></td><td><b>Mã ngành</b>:</td><td></td><td><b>Mã tổ hợp</b>: </td><td></td></tr>
+
+            }
+            @if (Model.CTDT2 == null)
+            {
+                <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+            }
+            else if (Model.CTDT2.Equals("CTTC"))
+            {
+                <tr><td></td><td colspan="3">Chương trình học: Tiêu Chuẩn</td></tr>
+            }
+            else if (Model.CTDT2.Equals("CTĐB"))
+            {
+                <tr><td></td><td colspan="3">Chương trình học: Đặc Biệt</td></tr>
+            }
+            else
+            {
+                <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+            }
+            @if (@Model.TenNganh_TenToHop3 != null)
+            {
+                <tr><td><b>Ngành đăng ký xét tuyển 3</b>: </td><td colspan="2">@Model.TenNganh_TenToHop3.Split('#')[0]</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop3.Split('#')[0]</td><td></td><td><b>Mã tổ hợp</b>: @Model.MaNganh_ToHop3.Split('#')[1]</td><td></td></tr>
+            }
+            else
+            {
+                <tr><td><b>Ngành đăng ký xét tuyển 3</b>: </td><td colspan="2"></td><td></td><td><b>Mã ngành</b>:</td><td></td><td><b>Mã tổ hợp</b>: </td><td></td></tr>
+
+            }
+            @if (Model.CTDT3 == null)
+            {
+                <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+            }
+            else if (Model.CTDT3.Equals("CTTC"))
+            {
+                <tr><td></td><td colspan="3">Chương trình học: Tiêu Chuẩn</td></tr>
+            }
+            else if (Model.CTDT3.Equals("CTĐB"))
+            {
+                <tr><td></td><td colspan="3">Chương trình học: Đặc Biệt</td></tr>
+            }
+            else
+            {
+                <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+            }
+            <tr>
 
             <tr>
                 <td colspan="8"></td>
@@ -328,7 +391,7 @@
             </tr>
             <tr>
                 <td><b>Điện thoại</b>:</td>
-                <td>@Model.DienThoaiDD - <b>Điện thoại phụ huynh</b>: @Model.DienThoaiPhuHuynh</td>
+                <td>@Model.DienThoaiDD - <b>Điện thoại phụ huynh</b>: @Model.DienThoaiPhuHuynh.Split(' ')[0]</td>
                 <td></td>
                 <td><b>Email</b>:</td>
                 <td>@Model.Email</td>
