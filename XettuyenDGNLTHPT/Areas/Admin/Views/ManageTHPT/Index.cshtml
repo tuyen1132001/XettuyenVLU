@@ -7,6 +7,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        input[type=checkbox] {
+            transform: scale(1.8);
+            margin-top: 10px;
+            margin-bottom: 7px;
+        }
+    </style>
     <title>Phân trang ảo với Bootstrap 4 --- dammio.com</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,7 +91,7 @@
                                     <th>Email</th>
                                     <th>SĐT</th>
                                     <th>Địa chỉ</th>
-                                    <th>Đã nhận hồ sơ</th>
+                                    <th>Nhận hồ sơ</th>
                                 }
                                 else
                                 {
@@ -95,7 +102,7 @@
                                     <th>Email</th>
                                     <th>SĐT</th>
                                     <th>Địa chỉ</th>
-                                    <th>Đã nhận hồ sơ</th>
+                                    <th>Nhận hồ sơ</th>
                                 }
                             </tr>
                         </thead>
@@ -115,7 +122,20 @@
                                         <td class="txt-oflo">@item.Email</td>
                                         <td class="txt-oflo">@item.DienThoaiDD</td>
                                         <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
-                                        <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
+                                        if (string.IsNullOrEmpty(item.DaNhanHoSo))
+                                        {
+                                            <td style=" text-align: center; " class="txt-oflo">
+                                                <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
+                                                <input type="checkbox" onclick="checkne()" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()">
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td style=" text-align: center;" class="txt-oflo">
+                                                <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
+                                                <input type="checkbox" onclick="checkne()" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()" checked>
+                                            </td>
+                                        }
                                     }
                                     else
                                     {
@@ -128,12 +148,22 @@
                                         <td class="txt-oflo">@item.Email</td>
                                         <td class="txt-oflo">@item.DienThoaiDD</td>
                                         <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
-                                        <td class="txt-oflo" ,Type="checkbox"> @item.DaNhanHoSo</td>
+                                        if (string.IsNullOrEmpty(item.DaNhanHoSo))
+                                        {
+                                            <td style=" text-align: center;" class="txt-oflo">
+                                                <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
+                                                <input type="checkbox" onclick="checkne()" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()">
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td style=" text-align: center;" class="txt-oflo">
+                                                <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
+                                                <input type="checkbox" onclick="checkne()" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()" checked>
+                                            </td>
+                                        }
                                     }
-
-
                                 </tr>
-
                             }
                         </tbody>
 
@@ -147,6 +177,60 @@
 
     </div>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function checkne() {
+                $("input[type=checkbox][id^=myCheckbox]").on('change', function () {
+                    var isChecked = $(this).is(':checked');
+                    var $hiddenInput = $(this).prev('input[type=hidden]');
+                    let id = "#" + $($hiddenInput).attr('id');
+
+                    if (isChecked) {
+                        if (confirm("Nhận hồ sơ " + $(id).attr("name") + "?")) {
+                            $hiddenInput.val("N");
+                            var valaction = {};
+                            valaction = '@Url.Action("NhanHoSo", "ManageTHPT", new { id = "ID_", vlue = "N" })';
+                            let id = "#" + $($hiddenInput).attr('id');
+                            valaction = valaction.replace("ID_", $(id).attr("name"));
+
+                            valaction.url = valaction;
+                            valaction.type = "POST";
+                            valaction.dataType = "json";
+                            valaction.contentType = "application/json";
+                            $.ajax(valaction);
+                            alert("Đã nhận Hồ sơ " + $(id).attr("name"));
+                        } else {
+                            let id = "#" + $(this).attr('id');
+                            $(id).prop('checked', false);
+                        }
+                    }
+                    else {
+                        if (confirm("Hủy nhận hồ sơ " + $(id).attr("name") + "?")) {
+                            $hiddenInput.val();
+                            var valaction = {};
+                            valaction = '@Url.Action("NhanHoSo", "ManageTHPT", new { id = "ID_", vlue = "" })';
+                                let id = "#" + $($hiddenInput).attr('id');
+                                valaction = valaction.replace("ID_", $(id).attr("name"));
+
+                            valaction.url = valaction;
+                            valaction.type = "POST";
+                            valaction.dataType = "json";
+                            valaction.contentType = "application/json";
+                            $.ajax(valaction);
+                            alert("Đã hủy nhận Hồ sơ " + $(id).attr("name"));
+                        } else {
+                            let id = "#" + $(this).attr('id');
+                            $(id).prop('checked', true);
+                        }
+                    }
+
+                });
+            });
+        });
+    </script>
 
 </body>
+
+
+
 </html>

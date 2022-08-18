@@ -13,7 +13,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
     [LoginVerification]
     public class ManageTHPTController : Controller
     {
-        
+
         // GET: Admin/ManageTHPT
         SEP25Team08Entities model = new SEP25Team08Entities();
         public ActionResult Index()
@@ -29,13 +29,23 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             return View(dthsTHPT);
         }
 
-        public ActionResult NhanHoSo(int id)
+        public JsonResult NhanHoSo(string id, string vlue)
         {
-            var nhanhosoTHPT = model.tblHoSoTHPTs.Where(h => h.ID == id).FirstOrDefault();
-            nhanhosoTHPT.DaNhanHoSo = "N";
-            model.Entry(nhanhosoTHPT).State = EntityState.Modified;
-            model.SaveChanges();
-            return RedirectToAction("DetailsHoSoTHPT", new { id = id });
+            int sid = Int32.Parse(id.Trim());
+            var nhanhosoTHPT = model.tblHoSoTHPTs.Where(h => h.ID == sid).FirstOrDefault();
+            if (string.IsNullOrEmpty(vlue))
+            {
+                nhanhosoTHPT.DaNhanHoSo = null;
+                model.Entry(nhanhosoTHPT).State = EntityState.Modified;
+                model.SaveChanges();
+            }
+            else
+            {
+                nhanhosoTHPT.DaNhanHoSo = "N";
+                model.Entry(nhanhosoTHPT).State = EntityState.Modified;
+                model.SaveChanges();
+            }
+            return Json("Success");
         }
         public ActionResult ExportData()
         {
@@ -116,11 +126,11 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
                 Sheet.Cells[string.Format("A{0}", row)].Value = item.ID;
                 Sheet.Cells[string.Format("B{0}", row)].Value = item.HoVaTen;
                 Sheet.Cells[string.Format("C{0}", row)].Value = item.Email;
-                if(item.GioiTinh == true)
+                if (item.GioiTinh == true)
                 {
                     Sheet.Cells[string.Format("D{0}", row)].Value = "Nam";
                 }
-                else if(item.GioiTinh == false)
+                else if (item.GioiTinh == false)
                 {
                     Sheet.Cells[string.Format("D{0}", row)].Value = "Nữ";
                 }
