@@ -1,16 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\XettuyenDGNLTHPT",
-    "\\XettuyenDGNLTHPT\\Areas",
-    "\\XettuyenDGNLTHPT\\Areas\\Admin",
-    "\\XettuyenDGNLTHPT\\Areas\\Admin\\Controllers",
-    "\\XettuyenDGNLTHPT\\Controllers",
-    "\\XettuyenDGNLTHPT\\Models",
-    "\\XettuyenDGNLTHPT\\Views",
-    "\\XettuyenDGNLTHPT\\Views\\Home",
-    "\\XettuyenDGNLTHPT\\Views\\ManageHoSo"
+    ""
   ],
-  "SelectedNode": "\\XettuyenDGNLTHPT\\Areas\\Admin\\Controllers\\ManageTHPTController.cs",
   "PreviewInSolutionExplorer": false
 }

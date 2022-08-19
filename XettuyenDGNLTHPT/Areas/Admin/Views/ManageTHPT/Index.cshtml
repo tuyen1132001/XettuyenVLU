@@ -126,14 +126,14 @@
                                         {
                                             <td style=" text-align: center; " class="txt-oflo">
                                                 <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
-                                                <input type="checkbox" onclick="checkne()" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()">
+                                                <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()">
                                             </td>
                                         }
                                         else
                                         {
                                             <td style=" text-align: center;" class="txt-oflo">
                                                 <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
-                                                <input type="checkbox" onclick="checkne()" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()" checked>
+                                                <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()" checked>
                                             </td>
                                         }
                                     }
@@ -152,14 +152,14 @@
                                         {
                                             <td style=" text-align: center;" class="txt-oflo">
                                                 <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
-                                                <input type="checkbox" onclick="checkne()" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()">
+                                                <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()">
                                             </td>
                                         }
                                         else
                                         {
                                             <td style=" text-align: center;" class="txt-oflo">
                                                 <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
-                                                <input type="checkbox" onclick="checkne()" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()" checked>
+                                                <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()" checked>
                                             </td>
                                         }
                                     }
@@ -176,57 +176,50 @@
         </div>
 
     </div>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(function checkne() {
-                $("input[type=checkbox][id^=myCheckbox]").on('change', function () {
-                    var isChecked = $(this).is(':checked');
-                    var $hiddenInput = $(this).prev('input[type=hidden]');
+    <script>
+        function checkNhan(data) {
+            var isChecked = $(data).is(':checked');
+            var $hiddenInput = $(data).prev('input[type=hidden]');
+            let id = "#" + $($hiddenInput).attr('id');
+            if (isChecked) {
+                if (confirm("Nhận hồ sơ " + $(id).attr("name") + "?")) {
+                    $hiddenInput.val("N");
+                    var valaction = {};
+                    valaction = '@Url.Action("NhanHoSo", "ManageTHPT", new { id = "ID_", vlue = "N" })';
                     let id = "#" + $($hiddenInput).attr('id');
+                    valaction = valaction.replace("ID_", $(id).attr("name"));
 
-                    if (isChecked) {
-                        if (confirm("Nhận hồ sơ " + $(id).attr("name") + "?")) {
-                            $hiddenInput.val("N");
-                            var valaction = {};
-                            valaction = '@Url.Action("NhanHoSo", "ManageTHPT", new { id = "ID_", vlue = "N" })';
-                            let id = "#" + $($hiddenInput).attr('id');
-                            valaction = valaction.replace("ID_", $(id).attr("name"));
+                    valaction.url = valaction;
+                    valaction.type = "POST";
+                    valaction.dataType = "json";
+                    valaction.contentType = "application/json";
+                    $.ajax(valaction);
+                    alert("Đã nhận Hồ sơ " + $(id).attr("name"));
+                } else {
+                    let id = "#" + $(data).attr('id');
+                    $(id).prop('checked', false);
+                }
+            }
+            else {
+                if (confirm("Hủy nhận hồ sơ " + $(id).attr("name") + "?")) {
+                    $hiddenInput.val();
+                    var valaction = {};
+                    valaction = '@Url.Action("NhanHoSo", "ManageTHPT", new { id = "ID_", vlue = "" })';
+                    let id = "#" + $($hiddenInput).attr('id');
+                    valaction = valaction.replace("ID_", $(id).attr("name"));
 
-                            valaction.url = valaction;
-                            valaction.type = "POST";
-                            valaction.dataType = "json";
-                            valaction.contentType = "application/json";
-                            $.ajax(valaction);
-                            alert("Đã nhận Hồ sơ " + $(id).attr("name"));
-                        } else {
-                            let id = "#" + $(this).attr('id');
-                            $(id).prop('checked', false);
-                        }
-                    }
-                    else {
-                        if (confirm("Hủy nhận hồ sơ " + $(id).attr("name") + "?")) {
-                            $hiddenInput.val();
-                            var valaction = {};
-                            valaction = '@Url.Action("NhanHoSo", "ManageTHPT", new { id = "ID_", vlue = "" })';
-                                let id = "#" + $($hiddenInput).attr('id');
-                                valaction = valaction.replace("ID_", $(id).attr("name"));
-
-                            valaction.url = valaction;
-                            valaction.type = "POST";
-                            valaction.dataType = "json";
-                            valaction.contentType = "application/json";
-                            $.ajax(valaction);
-                            alert("Đã hủy nhận Hồ sơ " + $(id).attr("name"));
-                        } else {
-                            let id = "#" + $(this).attr('id');
-                            $(id).prop('checked', true);
-                        }
-                    }
-
-                });
-            });
-        });
+                    valaction.url = valaction;
+                    valaction.type = "POST";
+                    valaction.dataType = "json";
+                    valaction.contentType = "application/json";
+                    $.ajax(valaction);
+                    alert("Đã hủy nhận Hồ sơ " + $(id).attr("name"));
+                } else {
+                    let id = "#" + $(data).attr('id');
+                    $(id).prop('checked', true);
+                }
+            }
+        }
     </script>
 
 </body>

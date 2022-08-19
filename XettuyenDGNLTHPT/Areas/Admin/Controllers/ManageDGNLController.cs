@@ -27,13 +27,25 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             var dthsDGNL = model.tblHoSoDGNLs.Find(id);
             return View(dthsDGNL);
         }
-        public ActionResult NhanHoSo(int id)
+        public JsonResult NhanHoSo(string id, string vlue)
         {
-            var nhanhosoDGNL = model.tblHoSoDGNLs.Where(h => h.ID == id).FirstOrDefault();
-            nhanhosoDGNL.DaNhanHoSo = "N";
-            model.Entry(nhanhosoDGNL).State = EntityState.Modified;
-            model.SaveChanges();
-            return RedirectToAction("DetailsHoSoDGNL", new { id = id });
+            {
+                int sid = Int32.Parse(id.Trim());
+                var nhanhosoDGNL = model.tblHoSoDGNLs.Where(h => h.ID == sid).FirstOrDefault();
+                if (string.IsNullOrEmpty(vlue))
+                {
+                    nhanhosoDGNL.DaNhanHoSo = null;
+                    model.Entry(nhanhosoDGNL).State = EntityState.Modified;
+                    model.SaveChanges();
+                }
+                else
+                {
+                    nhanhosoDGNL.DaNhanHoSo = "N";
+                    model.Entry(nhanhosoDGNL).State = EntityState.Modified;
+                    model.SaveChanges();
+                }
+                return Json("Success");
+            }
         }
         public ActionResult ExportData()
         {
