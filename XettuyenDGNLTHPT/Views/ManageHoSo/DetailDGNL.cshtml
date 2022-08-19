@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form >
+<form  method="post" action="@Url.Action("DetailDGNL","ManageHoSo")">
     <div class="aspNetHidden">
         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
     </div>
@@ -41,7 +41,7 @@
 
                         </select>
                     </div>
-
+                    
                     <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
                     <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
 

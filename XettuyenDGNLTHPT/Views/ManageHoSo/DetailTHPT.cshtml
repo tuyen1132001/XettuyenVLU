@@ -43,7 +43,8 @@
         window.print();
     }
 </script>
-<form >
+
+<form method="post" action="@Url.Action("DetailTHPT","ManageHoSo")">
     <div class="aspNetHidden">
         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
     </div>
@@ -79,12 +80,11 @@
 
                         </select>
                     </div>
-                    @using (Html.BeginForm("InHoSo", "ManageHoSo", FormMethod.Post))
-                    {
-                        <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
-                        <div class="col-md-2"><a href="@Url.Action("InHoSo", "ManageHoSo")" data-form-method="post" type="button" name="btnTim" class="btn green button-submit">TÌM HỒ SƠ</a></div>
-                        <div class="col-md-2"></div>
-                        }
+                    
+                     <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
+                     <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
+                     <div class="col-md-2"></div>
+                    
                     </div>
 
 
@@ -421,7 +421,6 @@
 
             </tbody>
         </table>
-
         <div class="vertical_space"></div>
     </div>
     <div class="vertical_space"></div>
