@@ -76,91 +76,139 @@ namespace XettuyenDGNLTHPT.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                var dbNoiSinh = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(tblHoSoDGNL.MaNoiSinh));
-                string NameNoisinh = dbNoiSinh.TenTinhTP;
-                tblHoSoDGNL.TenNoiSinh = NameNoisinh;
-                //Dân tộc
-                var dbDanToc = model.tblDanTocs.Find(tblHoSoDGNL.MaDanToc);
-                tblHoSoDGNL.TenDanToc = dbDanToc.TEN_DANTOC + "";
-                //Quốc tịch
-                var dbQuocTich = model.tblQuocTiches.Find(int.Parse(tblHoSoDGNL.QuocTich));
-                string quoctich = dbQuocTich.MaQT + "|" + dbQuocTich.TenQT;
-                tblHoSoDGNL.QuocTich = quoctich;
-                //Tôn giáo
-                var dbTonGiao = model.tblTonGiaos.Find(tblHoSoDGNL.MaTonGiao);
-                string Nametongiao = dbTonGiao.TEN_TONGIAO;
-                tblHoSoDGNL.TenTonGiao = Nametongiao;
-                // Hộ khẩu địa chỉ
-                var dbHoKhauTP = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(TP_QH_PX));
-                string Nametp = dbHoKhauTP.TenTinhTP;
-                tblHoSoDGNL.HoKhau_MaTinhTP = TP_QH_PX;
-                tblHoSoDGNL.HoKhau_TenTinhTP = Nametp;
-                var dbQuanHuyen = model.tblTP_QH_PX.FirstOrDefault(u => u.MaQH.Equals(ddlHoKhauQuanHuyen));
-                string NameQuanHuyen = dbQuanHuyen.TenQH;
-                tblHoSoDGNL.HoKhau_MaQH = ddlHoKhauQuanHuyen;
-                tblHoSoDGNL.HoKhau_TenQH = NameQuanHuyen;
-                var dbPhuongXa = model.tblTP_QH_PX.FirstOrDefault(u => u.MaPX.Equals(ddlHoKhau_PhuongXa));
-                string NamePhuongXa = dbPhuongXa.TenPX;
-                tblHoSoDGNL.HoKhau_MaPhuong = ddlHoKhau_PhuongXa;
-                tblHoSoDGNL.HoKhau_TenPhuong = NamePhuongXa;
-                //Địa chỉ trường THPT
-                var dbDiaChiTrgtp = model.tblTruongTHPTs.FirstOrDefault(u => u.MA_TINHTP.Equals(THPT));
-                string Namediachitrgtp = dbDiaChiTrgtp.TEN_TINHTP;
-                tblHoSoDGNL.TruongTHPT_MaTinhTP = THPT;
-                tblHoSoDGNL.TruongTHPT_TenTinhTP = Namediachitrgtp;
-                var dbTrgQuanHuyen = model.tblTruongTHPTs.FirstOrDefault(u => u.MA_QH.Equals(ddlQuanHuyenTHPT) && u.MA_TINHTP.Equals(THPT));
-                string NameTrgQuanHuyen = dbTrgQuanHuyen.TEN_QH;
-                tblHoSoDGNL.TruongTHPT_MaQH = ddlQuanHuyenTHPT;
-                tblHoSoDGNL.TruongTHPT_TenQH = NameTrgQuanHuyen;
-                var dbTrg = model.tblTruongTHPTs.FirstOrDefault(u => u.MA_TRUONG.Equals(ddlTenTruongTHPT) && u.TEN_QH.Equals(NameTrgQuanHuyen) && u.MA_TINHTP.Equals(THPT));
-                string NameTrg = dbTrg.TEN_TRUONG;
-                tblHoSoDGNL.MaTruongTHPT = THPT + ddlTenTruongTHPT;
-                tblHoSoDGNL.TenTruongTHPT = ddlTenTruongTHPT + " - " + NameTrg;
-                //Thông tin liên hệ
-                var dbLienHeTP = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(tblHoSoDGNL.LienLac_MaTP));
-                string Namelienhetp = dbLienHeTP.TenTinhTP;
-                
-                tblHoSoDGNL.LienLac_TenTP = Namelienhetp;
-                var dbLienHeQuanHuyen = model.tblTP_QH_PX.FirstOrDefault(u => u.MaQH.Equals(ddlQuanHuyen));
-                string NameLienHeQuanHuyen = dbLienHeQuanHuyen.TenQH;
-                tblHoSoDGNL.LienLac_MaQH = ddlQuanHuyen;
-                tblHoSoDGNL.LienLac_TenQH = NameLienHeQuanHuyen;
-                var dbLienHePhuongXa = model.tblTP_QH_PX.FirstOrDefault(u => u.MaPX.Equals(ddlPhuongXa));
-                string NameLienHePhuongXa = dbLienHePhuongXa.TenPX;
-                tblHoSoDGNL.LienLac_MaPhuongXa = ddlPhuongXa;
-                tblHoSoDGNL.LienLac_TenPhuongXa = NameLienHePhuongXa;
-                //Khu vực và đối tượng 
-                tblHoSoDGNL.KhuVuc = ddlKhuVuc;
-                if (ddlDoiTuongUT.Equals("Không có"))
+                var checkdata = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(tblHoSoDGNL.CMND));
+                if (checkdata != null)
                 {
-                    tblHoSoDGNL.DoiTuongUuTien = "0";
+                    ModelState.AddModelError("CMND", "CMND đã tồn tại");
                 }
                 else
                 {
-                    tblHoSoDGNL.DoiTuongUuTien = ddlDoiTuongUT.ToString();
-                }
+                    var dbNoiSinh = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(tblHoSoDGNL.MaNoiSinh));
+                    string NameNoisinh = dbNoiSinh.TenTinhTP;
+                    tblHoSoDGNL.TenNoiSinh = NameNoisinh;
+                    //Dân tộc
+                    var dbDanToc = model.tblDanTocs.Find(tblHoSoDGNL.MaDanToc);
+                    tblHoSoDGNL.TenDanToc = dbDanToc.TEN_DANTOC + "";
+                    //Quốc tịch
+                    var dbQuocTich = model.tblQuocTiches.Find(int.Parse(tblHoSoDGNL.QuocTich));
+                    string quoctich = dbQuocTich.MaQT + "|" + dbQuocTich.TenQT;
+                    tblHoSoDGNL.QuocTich = quoctich;
+                    //Tôn giáo
+                    var dbTonGiao = model.tblTonGiaos.Find(tblHoSoDGNL.MaTonGiao);
+                    string Nametongiao = dbTonGiao.TEN_TONGIAO;
+                    tblHoSoDGNL.TenTonGiao = Nametongiao;
+                    // Hộ khẩu địa chỉ
+                    var dbHoKhauTP = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(TP_QH_PX));
+                    string Nametp = dbHoKhauTP.TenTinhTP;
+                    tblHoSoDGNL.HoKhau_MaTinhTP = TP_QH_PX;
+                    tblHoSoDGNL.HoKhau_TenTinhTP = Nametp;
+                    var dbQuanHuyen = model.tblTP_QH_PX.FirstOrDefault(u => u.MaQH.Equals(ddlHoKhauQuanHuyen));
+                    string NameQuanHuyen = dbQuanHuyen.TenQH;
+                    tblHoSoDGNL.HoKhau_MaQH = ddlHoKhauQuanHuyen;
+                    tblHoSoDGNL.HoKhau_TenQH = NameQuanHuyen;
+                    var dbPhuongXa = model.tblTP_QH_PX.FirstOrDefault(u => u.MaPX.Equals(ddlHoKhau_PhuongXa));
+                    string NamePhuongXa = dbPhuongXa.TenPX;
+                    tblHoSoDGNL.HoKhau_MaPhuong = ddlHoKhau_PhuongXa;
+                    tblHoSoDGNL.HoKhau_TenPhuong = NamePhuongXa;
+                    //Địa chỉ trường THPT
+                    var dbDiaChiTrgtp = model.tblTruongTHPTs.FirstOrDefault(u => u.MA_TINHTP.Equals(THPT));
+                    string Namediachitrgtp = dbDiaChiTrgtp.TEN_TINHTP;
+                    tblHoSoDGNL.TruongTHPT_MaTinhTP = THPT;
+                    tblHoSoDGNL.TruongTHPT_TenTinhTP = Namediachitrgtp;
+                    var dbTrgQuanHuyen = model.tblTruongTHPTs.FirstOrDefault(u => u.MA_QH.Equals(ddlQuanHuyenTHPT) && u.MA_TINHTP.Equals(THPT));
+                    string NameTrgQuanHuyen = dbTrgQuanHuyen.TEN_QH;
+                    tblHoSoDGNL.TruongTHPT_MaQH = ddlQuanHuyenTHPT;
+                    tblHoSoDGNL.TruongTHPT_TenQH = NameTrgQuanHuyen;
+                    var dbTrg = model.tblTruongTHPTs.FirstOrDefault(u => u.MA_TRUONG.Equals(ddlTenTruongTHPT) && u.TEN_QH.Equals(NameTrgQuanHuyen) && u.MA_TINHTP.Equals(THPT));
+                    string NameTrg = dbTrg.TEN_TRUONG;
+                    tblHoSoDGNL.MaTruongTHPT = THPT + ddlTenTruongTHPT;
+                    tblHoSoDGNL.TenTruongTHPT = ddlTenTruongTHPT + " - " + NameTrg;
+                    //Thông tin liên hệ
+                    var dbLienHeTP = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(tblHoSoDGNL.LienLac_MaTP));
+                    string Namelienhetp = dbLienHeTP.TenTinhTP;
 
-                // Nganh va To hop 1/2/3
-                var dbNganhTohop1 = model.tblNganhs.FirstOrDefault(u => u.MA_NGANH.Equals(Majors1));
-                string NameNganh1 = dbNganhTohop1.TEN_NGANH;
-                tblHoSoDGNL.MaNganh_ToHop1 = Majors1; tblHoSoDGNL.TenNganh_TenToHop1 = NameNganh1;
-                tblHoSoDGNL.CTDT1 = CTDT1;
-                if (Majors2 != "-1")
-                {
-                    var dbNganhTohop2 = model.tblNganhs.FirstOrDefault(u => u.MA_NGANH.Equals(Majors2));
-                    string NameNganh2 = dbNganhTohop2.TEN_NGANH;
-                    tblHoSoDGNL.MaNganh_ToHop2 = Majors2; tblHoSoDGNL.TenNganh_TenToHop2 = NameNganh2;
-                    tblHoSoDGNL.CTDT2 = CTDT2;
+                    tblHoSoDGNL.LienLac_TenTP = Namelienhetp;
+                    var dbLienHeQuanHuyen = model.tblTP_QH_PX.FirstOrDefault(u => u.MaQH.Equals(ddlQuanHuyen));
+                    string NameLienHeQuanHuyen = dbLienHeQuanHuyen.TenQH;
+                    tblHoSoDGNL.LienLac_MaQH = ddlQuanHuyen;
+                    tblHoSoDGNL.LienLac_TenQH = NameLienHeQuanHuyen;
+                    var dbLienHePhuongXa = model.tblTP_QH_PX.FirstOrDefault(u => u.MaPX.Equals(ddlPhuongXa));
+                    string NameLienHePhuongXa = dbLienHePhuongXa.TenPX;
+                    tblHoSoDGNL.LienLac_MaPhuongXa = ddlPhuongXa;
+                    tblHoSoDGNL.LienLac_TenPhuongXa = NameLienHePhuongXa;
+                    //Khu vực và đối tượng 
+                    tblHoSoDGNL.KhuVuc = ddlKhuVuc;
+                    if (ddlDoiTuongUT.Equals("Không có"))
+                    {
+                        tblHoSoDGNL.DoiTuongUuTien = "0";
+                    }
+                    else
+                    {
+                        tblHoSoDGNL.DoiTuongUuTien = ddlDoiTuongUT.ToString();
+                    }
+
+                    // Nganh va To hop 1/2/3
+                    var dbNganhTohop1 = model.tblNganhs.FirstOrDefault(u => u.MA_NGANH.Equals(Majors1));
+                    string NameNganh1 = dbNganhTohop1.TEN_NGANH;
+                    tblHoSoDGNL.MaNganh_ToHop1 = Majors1; tblHoSoDGNL.TenNganh_TenToHop1 = NameNganh1;
+                    tblHoSoDGNL.CTDT1 = CTDT1;
+                    if (Majors2 != "-1")
+                    {
+                        var dbNganhTohop2 = model.tblNganhs.FirstOrDefault(u => u.MA_NGANH.Equals(Majors2));
+                        string NameNganh2 = dbNganhTohop2.TEN_NGANH;
+                        tblHoSoDGNL.MaNganh_ToHop2 = Majors2; tblHoSoDGNL.TenNganh_TenToHop2 = NameNganh2;
+                        tblHoSoDGNL.CTDT2 = CTDT2;
+                    }else
+                    {
+                        tblHoSoDGNL.CTDT2 = null;
+                    }
+                    if (Majors3 != "-1")
+                    {
+                        var dbNganhTohop3 = model.tblNganhs.FirstOrDefault(u => u.MA_NGANH.Equals(Majors3));
+                        string NameNganh3 = dbNganhTohop3.TEN_NGANH;
+                        tblHoSoDGNL.MaNganh_ToHop3 = Majors3; tblHoSoDGNL.TenNganh_TenToHop3 = NameNganh3;
+                        tblHoSoDGNL.CTDT3 = CTDT3;
+                    }
+                    else
+                    {
+                        tblHoSoDGNL.CTDT3 = null;
+                    }
+                    tblHoSoDGNL.DateInserted = DateTime.Today;
+                    return View("Details", tblHoSoDGNL);
                 }
-                if (Majors3 != "-1")
+                ViewBag.QuocTich = new SelectList(model.tblQuocTiches, "ID", "TenQT");
+                ViewBag.MaDanToc = new SelectList(model.tblDanTocs, "MA_DANTOC", "TEN_DANTOC");
+                ViewBag.MaTonGiao = new SelectList(model.tblTonGiaos, "MA_TONGIAO", "TEN_TONGIAO");
+                ViewBag.MaNoiSinh = new SelectList(model.tblTinhTPs, "MA_TINHTP", "TEN_TINHTP"); ;
+
+                //ViewBag.CCNN = new SelectList(model.tblChungChiNNs, "ID", "MaNN"+"ChungChi"+"DiemQuiDoi");
+                var CCNN = model.tblChungChiNNs.ToList();
+                List<string> ChungChi = new List<string>();
+                ChungChi.Add("-- Chọn chứng chỉ ngoại ngữ --");
+                foreach (var cc in CCNN)
                 {
-                    var dbNganhTohop3 = model.tblNganhs.FirstOrDefault(u => u.MA_NGANH.Equals(Majors3));
-                    string NameNganh3 = dbNganhTohop3.TEN_NGANH;
-                    tblHoSoDGNL.MaNganh_ToHop3 = Majors3; tblHoSoDGNL.TenNganh_TenToHop3 = NameNganh3;
-                    tblHoSoDGNL.CTDT3 = CTDT3;
+                    ChungChi.Add(cc.MaNN + "-" + cc.ChungChi + "-" + cc.DiemQuiDoi);
                 }
-                return View("Details", tblHoSoDGNL);
+                ViewBag.CCNN = new SelectList(ChungChi);
+                //
+
+                var TP_QH_PX1 = model.tblTP_QH_PX.Select(e => new { e.MaTinhTP, e.TenTinhTP }).Distinct().ToList();
+                TP_QH_PX1.Insert(0, new { MaTinhTP = "-1", TenTinhTP = "-- Chọn tỉnh thành phố --" });
+                ViewBag.TP_QH_PX = new SelectList(TP_QH_PX1, "MaTinhTP", "TenTinhTP");
+
+
+
+
+                //
+                var THPT1 = model.tblTruongTHPTs.Select(e => new { e.MA_TINHTP, e.TEN_TINHTP }).Distinct().ToList();
+                THPT1.Insert(0, new { MA_TINHTP = "-1", TEN_TINHTP = "-- Chọn tỉnh thành phố --" });
+                ViewBag.THPT = new SelectList(THPT1, "MA_TINHTP", "TEN_TINHTP");
+
+
+                //
+                var Majorslist = model.tblNganhs.Select(e => new { e.MA_NGANH, e.TEN_NGANH }).Distinct().ToList();
+                Majorslist.Insert(0, new { MA_NGANH = "-1", TEN_NGANH = "--------------Chọn-------------- " });
+                ViewBag.NGANH = new SelectList(Majorslist, "MA_NGANH", "TEN_NGANH");
             }
             
             return View();

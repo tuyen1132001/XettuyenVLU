@@ -58,7 +58,10 @@
         <!-- BEGIN CONTENT -->
 
         @if (Convert.ToBoolean(Session["notfound"]) == true)
-        {<div style="font-size:1.3em" class="text-center font-blue bold"><br>Không tìm thấy hồ sơ của bạn trên hệ thống!<br>Bạn cần nhập đúng SỐ CMND/CCCD hoặc SỐ ĐIỆN THOẠI đã đăng ký hồ sơ.<br><br>Nếu cần hỗ trợ, bạn có thể liên hệ hotline: (028) 7105 9999</div>}
+        {
+            Session["notfound"] = false;
+            <div style="font-size:1.3em" class="text-center font-blue bold"><br>Không tìm thấy hồ sơ của bạn trên hệ thống!<br>Bạn cần nhập đúng SỐ CMND/CCCD hoặc SỐ ĐIỆN THOẠI đã đăng ký hồ sơ.<br><br>Nếu cần hỗ trợ, bạn có thể liên hệ hotline: (028) 7105 9999</div>
+        }
         <div class="page-content-wrapper">
             <!-- BEGIN CONTENT BODY -->
             <!-- BEGIN PAGE CONTENT BODY -->
@@ -80,12 +83,12 @@
 
                         </select>
                     </div>
-                    
-                     <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
-                     <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
-                     <div class="col-md-2"></div>
-                    
-                    </div>
+
+                    <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
+                    <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
+                    <div class="col-md-2"></div>
+
+                </div>
 
 
             </div>
@@ -367,9 +370,10 @@
                 else if (Model.CTDT2.Equals("CTĐB"))
                 {
                     <tr><td></td><td colspan="3">Chương trình học: Đặc Biệt</td></tr>
-                }else
+                }
+                else
                 {
-                <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+                    <tr><td></td><td colspan="3">Chương trình học: </td></tr>
                 }
                 @if (@Model.TenNganh_TenToHop3 != null)
                 {
@@ -437,20 +441,20 @@
                 <a href="@Url.Action("PrintTHPT","ManageHoSo" ,Model) input  type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning" ">
                     PRINT
                 </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" id="btnUploadHocBa" class="btn btn-warning" value="UPLOAD HỌC BẠ" onclick="parent.open('/myupload');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                @if (Convert.ToBoolean(Session["Form-button"]) == true )
+                @if (Convert.ToBoolean(Session["Form-button"]) == true)
                 {
-                    <a href="@Url.Action("EditTHPT","ManageHoSo" ,Model)" type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning"  >
+                    <a href="@Url.Action("EditTHPT","ManageHoSo" ,Model)" type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning">
                         ĐIỀU CHỈNH THÔNG TIN
                     </a>
 
-                    }
-                    else
-                    {
+                }
+                else
+                {
                     <input type="submit" name="btnDieuChinhNguyenVong" value="ĐIỀU CHỈNH THÔNG TIN" id="btnDieuChinhNguyenVong" disabled="true" class="btn btn-primary">
-                    }
-                    
+                }
 
-              </div>
+
+            </div>
         </div>
 
     </div>

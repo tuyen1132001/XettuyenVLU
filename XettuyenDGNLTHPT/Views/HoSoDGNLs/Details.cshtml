@@ -31,7 +31,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><strong>Họ và tên</strong>: @Model.HoVaTen</td>
-                                                    <td><strong>Ngày sinh</strong>: @Model.NgaySinh</td>
+                                                    <td><strong>Ngày sinh</strong>: @Convert.ToDateTime(@Model.NgaySinh).ToString("dd/MM/yyyy")</td>
                                                     @if (Model.GioiTinh == true)
                                                     {
                                                         <td><strong>Giới tính</strong>: Nam</td>
@@ -73,7 +73,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-3"><strong>Ngày thi ĐGNL</strong>: @Model.TGThiDGNL</div>
+                                            <div class="col-md-3"><strong>Ngày thi ĐGNL</strong>: @Convert.ToDateTime(@Model.TGThiDGNL).ToString("dd/MM/yyyy")</div>
                                             <div class="col-md-9"><strong>Điểm thi ĐGNL</strong>: @Model.DiemDGNL</div>
                                         </div>
                                         <div class="vertical_space"></div>
