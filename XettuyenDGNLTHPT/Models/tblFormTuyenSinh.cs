@@ -34,5 +34,6 @@ namespace XettuyenDGNLTHPT.Models
         [DataType(DataType.Date, ErrorMessage = "Date only")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> NgayKetThucEdit { get; set; }
+        public string Dot { get; set; }
     }
 }

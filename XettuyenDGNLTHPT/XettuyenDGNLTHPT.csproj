@@ -256,6 +256,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageContentMailController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageDGNLController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageDotTuyenSinhDGNLController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageTHPTController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageImporDataController.cs" />
     <Compile Include="Areas\Admin\Middleware\LoginVerification.cs" />
@@ -277,6 +278,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblContentMail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblDotTuyenSinhDGNL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrgTHPT.cs" />
@@ -839,6 +843,9 @@
     <Content Include="Areas\Admin\Views\ManageContentMail\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ManageContentMail\EditMailDGNL.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\IndexData.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageDotTuyenSinhDGNL\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageDotTuyenSinhDGNL\AddDotDGNL.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageDotTuyenSinhDGNL\EditDotDGNL.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

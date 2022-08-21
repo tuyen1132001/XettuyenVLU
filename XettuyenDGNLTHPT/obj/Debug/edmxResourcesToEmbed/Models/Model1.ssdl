@@ -46,6 +46,15 @@
     <Property Name="TEN_DANTOC" Type="nvarchar" MaxLength="255" />
     <Property Name="DIEN_GIAI" Type="nvarchar" MaxLength="255" />
   </EntityType>
+  <EntityType Name="tblDotTuyenSinhDGNL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dot" Type="int" />
+    <Property Name="TenDot" Type="nvarchar" MaxLength="200" />
+    <Property Name="Loai" Type="nvarchar" MaxLength="200" />
+  </EntityType>
   <EntityType Name="tblFormTuyenSinh">
     <Key>
       <PropertyRef Name="ID" />
@@ -61,6 +70,7 @@
     <Property Name="thongbao" Type="nvarchar(max)" />
     <Property Name="NgayBatDauEdit" Type="datetime" />
     <Property Name="NgayKetThucEdit" Type="datetime" />
+    <Property Name="Dot" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="tblHoSoDGNL">
     <Key>
@@ -128,6 +138,7 @@
     <Property Name="DaNhanHoSo" Type="char" MaxLength="1" />
     <Property Name="DiemVeMyThuat" Type="varchar" MaxLength="20" />
     <Property Name="DiemVeNangKhieu" Type="varchar" MaxLength="20" />
+    <Property Name="Dot" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="tblHoSoTHPT">
     <Key>
@@ -276,6 +287,7 @@
     <EntitySet Name="tblChungChiNN" EntityType="Self.tblChungChiNN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblContentMail" EntityType="Self.tblContentMail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblDanToc" EntityType="Self.tblDanToc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDotTuyenSinhDGNL" EntityType="Self.tblDotTuyenSinhDGNL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblFormTuyenSinh" EntityType="Self.tblFormTuyenSinh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblHoSoDGNL" EntityType="Self.tblHoSoDGNL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblHoSoTHPT" EntityType="Self.tblHoSoTHPT" Schema="dbo" store:Type="Tables" />

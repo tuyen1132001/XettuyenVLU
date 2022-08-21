@@ -53,10 +53,13 @@ namespace XettuyenDGNLTHPT.Models
         public string CCNN { get; set; }
         public string MaNganh_ToHop1 { get; set; }
         public string TenNganh_TenToHop1 { get; set; }
+        public string CTDT1 { get; set; }
         public string MaNganh_ToHop2 { get; set; }
         public string TenNganh_TenToHop2 { get; set; }
+        public string CTDT2 { get; set; }
         public string MaNganh_ToHop3 { get; set; }
         public string TenNganh_TenToHop3 { get; set; }
+        public string CTDT3 { get; set; }
         public Nullable<int> CTCT { get; set; }
         public Nullable<int> CTDB { get; set; }
         public string LienLac_DiaChi { get; set; }
@@ -73,8 +76,6 @@ namespace XettuyenDGNLTHPT.Models
         public string DaNhanHoSo { get; set; }
         public string DiemVeMyThuat { get; set; }
         public string DiemVeNangKhieu { get; set; }
-        public string CTDT1 { get; set; }
-        public string CTDT2 { get; set; }
-        public string CTDT3 { get; set; }
+        public string Dot { get; set; }
     }
 }

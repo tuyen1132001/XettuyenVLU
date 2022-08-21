@@ -69,12 +69,8 @@
                 <p></p>
                 <div class="row">
                     <div class="col-md-1"></div>
-                    <div class="col-md-2">
-                        <select name="DropDownList1" id="DropDownList1" class="form-control">
-                            <option value="dot1">Đợt 1</option>
-                            <option value="dot2">Đợt 2</option>
-
-                        </select>
+                    <div class="col-md-2" id="dot">
+                        @Html.DropDownList("Dot", (IEnumerable<SelectListItem>)ViewBag.Dot, null, new { @class = "form-control", @style = " width: 255px;    height: 40px; " })
                     </div>
                     <div class="col-md-2">
                         <select name="ddlLoaiXetTuyen" id="ddlLoaiXetTuyen" class="form-control">
@@ -470,12 +466,12 @@
     <script>
         let data = $("#ddlLoaiXetTuyen :selected").val();
         if (data == 'THPT') {
-            $('#DropDownList1').hide();
+            $('#Dot').hide();
         }
         $('#ddlLoaiXetTuyen').change(function () {
             $('#ddlLoaiXetTuyen option').each(function () {
                 if ($(this).val() == "DGNL") {
-                    $('#DropDownList1').toggle();
+                    $('#Dot').toggle();
                 }
             });
 

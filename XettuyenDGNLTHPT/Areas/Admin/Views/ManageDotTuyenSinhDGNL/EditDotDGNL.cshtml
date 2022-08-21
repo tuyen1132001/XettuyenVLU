@@ -1,0 +1,40 @@
+﻿@model XettuyenDGNLTHPT.Models.tblDotTuyenSinhDGNL
+
+@{
+    ViewBag.Title = "EditDotDGNL";
+    Layout = "~/Areas/Admin/Views/Shared/_adminlayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid" style="padding: 30px">
+
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+                    <h3>Thêm Tài khoản</h3>
+                    <form class="bg-light p-4 m-4">
+                        <div class="form-group">
+                            <label for="yourmail">Đợt:</label>
+                            @Html.EditorFor(model => model.Dot, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập Đợt", required = "true" } })
+                            @Html.ValidationMessageFor(model => model.Dot, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="yourmail">Nhập tên Đợt:</label>
+                            @Html.EditorFor(model => model.TenDot, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập Tên đợt", required = "true" } })
+                            @Html.ValidationMessageFor(model => model.TenDot, "", new { @class = "text-danger" })
+                        </div>
+
+                        <button class="btn-messger btn btn-success btn-save" onclick="document.getElementById('id01').style.display='block'">Tạo Đợt</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}

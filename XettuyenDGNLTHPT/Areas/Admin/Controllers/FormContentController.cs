@@ -22,6 +22,8 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         public ActionResult IndexTHPT()
         {
             var Form = model.tblFormTuyenSinhs.Find(0);
+
+            
             return View(Form);
         }
         [HttpPost, ValidateInput(false)]
@@ -100,11 +102,18 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         public ActionResult IndexDGNL()
         {
             var Form = model.tblFormTuyenSinhs.Find(1);
-
+            var Dot = model.tblDotTuyenSinhDGNLs.ToList();
+            List<string> CacDot = new List<string>();
+            CacDot.Add("---- Chọn Đợt----");
+            foreach (var dot in Dot)
+            {
+                CacDot.Add("Đợt " + dot.Dot);
+            }
+            ViewBag.Dot = new SelectList(CacDot);
             return View(Form);
         }
         [HttpPost, ValidateInput(false)]
-        public ActionResult IndexDGNL(tblFormTuyenSinh form, string flexSwitchCheckDefault) // form xét tuyển DGNL Quốc gia
+        public ActionResult IndexDGNL(tblFormTuyenSinh form, string flexSwitchCheckDefault, string Dot) // form xét tuyển DGNL Quốc gia
         {
             SEP25Team08Entities db = new SEP25Team08Entities();
             var save = db.tblFormTuyenSinhs.Find(1);
@@ -113,25 +122,62 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             {
                 if (demo == null)
                 {
-                    save.Tieu_De = form.Tieu_De;
-                    save.Noi_Dung = form.Noi_Dung;
-                    save.Open_Close = false;
-                    save.NgayBatDau = form.NgayBatDau;
-                    save.NgayKetThuc = form.NgayKetThuc;
-                    save.thongbao = form.thongbao;
-                    model.Entry(save).State = EntityState.Modified;
-                    model.SaveChanges();
-                    return RedirectToAction("Index", "FormContent");
+                    if(Dot.Equals("---- Chọn Đợt----"))
+                    {
+                        ViewBag.ErrorMessageDot = "Chọn đợt";
+                        var Dot1 = model.tblDotTuyenSinhDGNLs.ToList();
+                        List<string> CacDot = new List<string>();
+                        CacDot.Add("---- Chọn Đợt----");
+                        foreach (var dot in Dot1)
+                        {
+                            CacDot.Add("Đợt " + dot.Dot);
+                        }
+                        ViewBag.Dot = new SelectList(CacDot);
+                        return View();
+                    }
+                    else
+                    {
+                        save.Dot = Dot;
+                        save.Tieu_De = form.Tieu_De;
+                        save.Noi_Dung = form.Noi_Dung;
+                        save.Open_Close = false;
+                        save.NgayBatDau = form.NgayBatDau;
+                        save.NgayKetThuc = form.NgayKetThuc;
+                        save.thongbao = form.thongbao;
+                        model.Entry(save).State = EntityState.Modified;
+                        model.SaveChanges();
+                        return RedirectToAction("Index", "FormContent");
+                    }
+                   
                 }
                 else
                 {
-                    save.Open_Close = true;
-                    save.NgayBatDau = form.NgayBatDau;
-                    save.NgayKetThuc = form.NgayKetThuc;
-                    save.thongbao = form.thongbao;
-                    model.Entry(save).State = EntityState.Modified;
-                    model.SaveChanges();
-                    return RedirectToAction("Index", "FormContent");
+                    if (Dot.Equals("---- Chọn Đợt----"))
+                    {
+                        ViewBag.ErrorMessageDot = "Chọn đợt";
+                        var Dot1 = model.tblDotTuyenSinhDGNLs.ToList();
+                        List<string> CacDot = new List<string>();
+                        CacDot.Add("---- Chọn Đợt----");
+                        foreach (var dot in Dot1)
+                        {
+                            CacDot.Add("Đợt " + dot.Dot);
+                        }
+                        ViewBag.Dot = new SelectList(CacDot);
+                        return View();
+                    }
+                    else
+                    {
+                        save.Dot = Dot;
+                        save.Tieu_De = form.Tieu_De;
+                        save.Noi_Dung = form.Noi_Dung;
+                        save.Open_Close = false;
+                        save.NgayBatDau = form.NgayBatDau;
+                        save.NgayKetThuc = form.NgayKetThuc;
+                        save.thongbao = form.thongbao;
+                        model.Entry(save).State = EntityState.Modified;
+                        model.SaveChanges();
+                        return RedirectToAction("Index", "FormContent");
+                    }
                 }
             }
             else

@@ -27,7 +27,6 @@ namespace XettuyenDGNLTHPT.Models
     
         public virtual DbSet<tblChungChiNN> tblChungChiNNs { get; set; }
         public virtual DbSet<tblDanToc> tblDanTocs { get; set; }
-        public virtual DbSet<tblHoSoDGNL> tblHoSoDGNLs { get; set; }
         public virtual DbSet<tblHoSoTHPT> tblHoSoTHPTs { get; set; }
         public virtual DbSet<tblNganh> tblNganhs { get; set; }
         public virtual DbSet<tblQuocTich> tblQuocTiches { get; set; }
@@ -36,8 +35,10 @@ namespace XettuyenDGNLTHPT.Models
         public virtual DbSet<tblTP_QH_PX> tblTP_QH_PX { get; set; }
         public virtual DbSet<tblTruongTHPT> tblTruongTHPTs { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<tblFormTuyenSinh> tblFormTuyenSinhs { get; set; }
         public virtual DbSet<DanhMuc> DanhMucs { get; set; }
         public virtual DbSet<tblContentMail> tblContentMails { get; set; }
+        public virtual DbSet<tblDotTuyenSinhDGNL> tblDotTuyenSinhDGNLs { get; set; }
+        public virtual DbSet<tblFormTuyenSinh> tblFormTuyenSinhs { get; set; }
+        public virtual DbSet<tblHoSoDGNL> tblHoSoDGNLs { get; set; }
     }
 }

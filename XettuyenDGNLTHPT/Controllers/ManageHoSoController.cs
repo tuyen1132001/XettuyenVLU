@@ -15,15 +15,24 @@ namespace XettuyenDGNLTHPT.Controllers
 
         public ActionResult InHoSo()
         {
+            var Dot = model.tblDotTuyenSinhDGNLs.ToList();
+            List<string> CacDot = new List<string>();
+            CacDot.Add("---- Chọn Đợt----");
+            foreach (var dot in Dot)
+            {
+                CacDot.Add("Đợt " + dot.Dot);
+            }
+            ViewBag.Dot = new SelectList(CacDot);
 
             return View();
         }
         [HttpPost]
-        public ActionResult InHoSo(string DropDownList1, string ddlLoaiXetTuyen, string CMND)
+        public ActionResult InHoSo(string Dot, string ddlLoaiXetTuyen, string CMND)
         {
             Session["HoSoDayNe"] = null;
             var form = model.tblFormTuyenSinhs.Find(0);
-
+            var Dot1 = model.tblDotTuyenSinhDGNLs.ToList();
+            List<string> CacDot = new List<string>();
             if (form.NgayBatDauEdit <= DateTime.Today && DateTime.Today <= form.NgayKetThucEdit)
             {
                 Session["Form-button"] = true;
@@ -46,6 +55,13 @@ namespace XettuyenDGNLTHPT.Controllers
                 if (Hoso != null)
                 {
                     Session["HoSoDayNe"] = Hoso;
+
+                    CacDot.Add("---- Chọn Đợt----");
+                    foreach (var dot in Dot1)
+                    {
+                        CacDot.Add("Đợt " + dot.Dot);
+                    }
+                    ViewBag.Dot = new SelectList(CacDot);
                     return View("DetailTHPT", Hoso);
                 }
                 else
@@ -54,6 +70,13 @@ namespace XettuyenDGNLTHPT.Controllers
                     if (sdt != null)
                     {
                         Session["HoSoDayNe"] = sdt;
+
+                        CacDot.Add("---- Chọn Đợt----");
+                        foreach (var dot in Dot1)
+                        {
+                            CacDot.Add("Đợt " + dot.Dot);
+                        }
+                        ViewBag.Dot = new SelectList(CacDot);
                         return View("DetailTHPT", sdt);
                     }
                     Session["notfound"] = true;
@@ -61,24 +84,44 @@ namespace XettuyenDGNLTHPT.Controllers
             }
             if (ddlLoaiXetTuyen == "DGNL")
             {
-                var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim()));
+                var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim())&& u.Dot.Equals(Dot));
                 if (HosoDGNL != null)
                 {
                     Session["HoSoDayNe"] = HosoDGNL;
+
+                    CacDot.Add("---- Chọn Đợt----");
+                    foreach (var dot in Dot1)
+                    {
+                        CacDot.Add("Đợt " + dot.Dot);
+                    }
+                    ViewBag.Dot = new SelectList(CacDot);
                     return View("DetailDGNL", HosoDGNL);
                 }
                 else
                 {
-                    var sdt = model.tblHoSoDGNLs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
+                    var sdt = model.tblHoSoDGNLs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()) && u.Dot.Equals(Dot));
                     if (sdt != null)
                     {
                         Session["HoSoDayNe"] = sdt;
+
+                        CacDot.Add("---- Chọn Đợt----");
+                        foreach (var dot in Dot1)
+                        {
+                            CacDot.Add("Đợt " + dot.Dot);
+                        }
+                        ViewBag.Dot = new SelectList(CacDot);
                         return View("DetailDGNL", sdt);
                     }
                     Session["notfound"] = true;
                 }
             }
-
+           
+            CacDot.Add("---- Chọn Đợt----");
+            foreach (var dot in Dot1)
+            {
+                CacDot.Add("Đợt " + dot.Dot);
+            }
+            ViewBag.Dot = new SelectList(CacDot);
             return View();
         }
 
@@ -103,14 +146,22 @@ namespace XettuyenDGNLTHPT.Controllers
             {
                 Session["Form-button"] = false;
             }
-
+            var Dot = model.tblDotTuyenSinhDGNLs.ToList();
+            List<string> CacDot = new List<string>();
+            CacDot.Add("---- Chọn Đợt----");
+            foreach (var dot in Dot)
+            {
+                CacDot.Add("Đợt " + dot.Dot);
+            }
+            ViewBag.Dot = new SelectList(CacDot);
             return View(tHPT);
         }
         [HttpPost]
-        public ActionResult DetailTHPT(string DropDownList1, string ddlLoaiXetTuyen, string CMND)
+        public ActionResult DetailTHPT(string Dot, string ddlLoaiXetTuyen, string CMND)
         {
             var form = model.tblFormTuyenSinhs.Find(0);
-
+            var Dot1 = model.tblDotTuyenSinhDGNLs.ToList();
+            List<string> CacDot = new List<string>();
             if (form.NgayBatDauEdit <= DateTime.Today && DateTime.Today <= form.NgayKetThucEdit)
             {
                 Session["Form-button"] = true;
@@ -133,6 +184,13 @@ namespace XettuyenDGNLTHPT.Controllers
                 if (Hoso != null)
                 {
                     Session["HoSoDayNe"] = Hoso;
+
+                    CacDot.Add("---- Chọn Đợt----");
+                    foreach (var dot in Dot1)
+                    {
+                        CacDot.Add("Đợt " + dot.Dot);
+                    }
+                    ViewBag.Dot = new SelectList(CacDot);
                     return View("DetailTHPT", Hoso);
                 }
                 else
@@ -141,6 +199,13 @@ namespace XettuyenDGNLTHPT.Controllers
                     if (sdt != null)
                     {
                         Session["HoSoDayNe"] = sdt;
+
+                        CacDot.Add("---- Chọn Đợt----");
+                        foreach (var dot in Dot1)
+                        {
+                            CacDot.Add("Đợt " + dot.Dot);
+                        }
+                        ViewBag.Dot = new SelectList(CacDot);
                         return View("DetailTHPT", sdt);
                     }
                     Session["notfound"] = true;
@@ -148,24 +213,44 @@ namespace XettuyenDGNLTHPT.Controllers
             }
             if (ddlLoaiXetTuyen == "DGNL")
             {
-                var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim()));
+                var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim()) && u.Dot.Equals(Dot));
                 if (HosoDGNL != null)
                 {
                     Session["HoSoDayNe"] = HosoDGNL;
+
+                    CacDot.Add("---- Chọn Đợt----");
+                    foreach (var dot in Dot1)
+                    {
+                        CacDot.Add("Đợt " + dot.Dot);
+                    }
+                    ViewBag.Dot = new SelectList(CacDot);
                     return View("DetailDGNL", HosoDGNL);
                 }
                 else
                 {
-                    var sdt = model.tblHoSoDGNLs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
+                    var sdt = model.tblHoSoDGNLs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()) && u.Dot.Equals(Dot));
                     if (sdt != null)
                     {
                         Session["HoSoDayNe"] = sdt;
+
+                        CacDot.Add("---- Chọn Đợt----");
+                        foreach (var dot in Dot1)
+                        {
+                            CacDot.Add("Đợt " + dot.Dot);
+                        }
+                        ViewBag.Dot = new SelectList(CacDot);
                         return View("DetailDGNL", sdt);
                     }
                     Session["notfound"] = true;
                 }
-
             }
+
+            CacDot.Add("---- Chọn Đợt----");
+            foreach (var dot in Dot1)
+            {
+                CacDot.Add("Đợt " + dot.Dot);
+            }
+            ViewBag.Dot = new SelectList(CacDot);
             tblHoSoTHPT models = Session["HoSoDayNe"] as tblHoSoTHPT;
             if(models != null)
                 return View("DetailTHPT", models);
@@ -197,15 +282,24 @@ namespace XettuyenDGNLTHPT.Controllers
             {
                 Session["Form-button"] = false;
             }
+            var Dot = model.tblDotTuyenSinhDGNLs.ToList();
+            List<string> CacDot = new List<string>();
+            CacDot.Add("---- Chọn Đợt----");
+            foreach (var dot in Dot)
+            {
+                CacDot.Add("Đợt " + dot.Dot);
+            }
+            ViewBag.Dot = new SelectList(CacDot);
             var data = dGNL;
             Session["test"] = data;
             return View(data);
         }
         [HttpPost]
-        public ActionResult DetailDGNL(string DropDownList1, string ddlLoaiXetTuyen, string CMND)
+        public ActionResult DetailDGNL(string Dot, string ddlLoaiXetTuyen, string CMND)
         {
             var form = model.tblFormTuyenSinhs.Find(1);
-
+            var Dot1 = model.tblDotTuyenSinhDGNLs.ToList();
+            List<string> CacDot = new List<string>();
             if (form.NgayBatDauEdit <= DateTime.Today && DateTime.Today <= form.NgayKetThucEdit)
             {
                 Session["Form-button"] = true;
@@ -228,6 +322,13 @@ namespace XettuyenDGNLTHPT.Controllers
                 if (Hoso != null)
                 {
                     Session["HoSoDayNe"] = Hoso;
+
+                    CacDot.Add("---- Chọn Đợt----");
+                    foreach (var dot in Dot1)
+                    {
+                        CacDot.Add("Đợt " + dot.Dot);
+                    }
+                    ViewBag.Dot = new SelectList(CacDot);
                     return View("DetailTHPT", Hoso);
                 }
                 else
@@ -236,6 +337,13 @@ namespace XettuyenDGNLTHPT.Controllers
                     if (sdt != null)
                     {
                         Session["HoSoDayNe"] = sdt;
+
+                        CacDot.Add("---- Chọn Đợt----");
+                        foreach (var dot in Dot1)
+                        {
+                            CacDot.Add("Đợt " + dot.Dot);
+                        }
+                        ViewBag.Dot = new SelectList(CacDot);
                         return View("DetailTHPT", sdt);
                     }
                     Session["notfound"] = true;
@@ -243,24 +351,44 @@ namespace XettuyenDGNLTHPT.Controllers
             }
             if (ddlLoaiXetTuyen == "DGNL")
             {
-                var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim()));
+                var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim()) && u.Dot.Equals(Dot));
                 if (HosoDGNL != null)
                 {
                     Session["HoSoDayNe"] = HosoDGNL;
+
+                    CacDot.Add("---- Chọn Đợt----");
+                    foreach (var dot in Dot1)
+                    {
+                        CacDot.Add("Đợt " + dot.Dot);
+                    }
+                    ViewBag.Dot = new SelectList(CacDot);
                     return View("DetailDGNL", HosoDGNL);
                 }
                 else
                 {
-                    var sdt = model.tblHoSoDGNLs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
+                    var sdt = model.tblHoSoDGNLs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()) && u.Dot.Equals(Dot));
                     if (sdt != null)
                     {
                         Session["HoSoDayNe"] = sdt;
+
+                        CacDot.Add("---- Chọn Đợt----");
+                        foreach (var dot in Dot1)
+                        {
+                            CacDot.Add("Đợt " + dot.Dot);
+                        }
+                        ViewBag.Dot = new SelectList(CacDot);
                         return View("DetailDGNL", sdt);
                     }
                     Session["notfound"] = true;
                 }
-
             }
+
+            CacDot.Add("---- Chọn Đợt----");
+            foreach (var dot in Dot1)
+            {
+                CacDot.Add("Đợt " + dot.Dot);
+            }
+            ViewBag.Dot = new SelectList(CacDot);
             tblHoSoDGNL models = Session["HoSoDayNe"] as tblHoSoDGNL;
             if (models != null)
                 return View("DetailDGNL", models);
