@@ -11,6 +11,7 @@
         display: none
     }
 </style>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139455606-1"></script>
 <script>
@@ -122,13 +123,13 @@
                                                                             <strong>A. THÔNG TIN CÁ NHÂN</strong>
                                                                         </h5><br />
                                                                         <div class="form-group">
-                                                                            <label class="control-label col-md-4">Họ và tên<span class="required, style="color:red">*</span>  </label>
+                                                                            <label class="control-label col-md-4">Họ và tên<span class="required", style="color:red">*</span>  </label>
 
                                                                             <div class="col-md-5 col-validate">
-                                                                                @Html.EditorFor(model => model.HoVaTen, new { htmlAttributes = new { @class = "form-control", placeholder = "NGUYỄN VĂN A", style = "text-transform: uppercase;", @pattern = "[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ ]{1,}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào họ tên của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                @Html.EditorFor(model => model.HoVaTen, new { htmlAttributes = new { @class = "form-control", placeholder = "NGUYỄN VĂN A", style = "text-transform: uppercase;", @pattern = "[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ ]{1,}", required = "true", oninvalid = "this.setCustomValidity('Hãy nhập vào họ tên của bạn')" } })
 
                                                                                 @*<input name="txtTenThiSinh" type="text" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />*@
-                                                                                @Html.ValidationMessageFor(model => model.HoVaTen, "", new { @class = "text-danger" })
+                                                                                @*@Html.ValidationMessageFor(model => model.HoVaTen, "", new { @class = "text-danger" })*@
 
                                                                             </div>
 
@@ -154,12 +155,10 @@
 
                                                                                         <td>
                                                                                             @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào ngày sinh của bạn')", @oninput = "this.setCustomValidity('')" } })
-                                                                                            @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
                                                                                         </td>
                                                                                         <td>Nơi sinh<span style="color:red"> * </span></td>
                                                                                         <td>
                                                                                             @Html.DropDownList("MaNoiSinh", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, new { @class = "form-control", @required = "required", @oninvalid = "this.setCustomValidity('Hãy chọn nơi sinh của bạn')", @oninput = "this.setCustomValidity('')" })
-                                                                                            @Html.ValidationMessageFor(model => model.MaNoiSinh, "", new { @class = "text-danger" })
                                                                                         </td>
                                                                                     </tr>
                                                                                 </table>
@@ -173,7 +172,6 @@
                                                                                         <td>
                                                                                             @Html.DropDownList("MaDanToc", (IEnumerable<SelectListItem>)ViewBag.DanToc, null, new { @class = "form-control", required = "true" })
                                                                                             @*@Html.EditorFor(model => model.TenDanToc, new { htmlAttributes = new { @class = "form-control" } })*@
-                                                                                            @Html.ValidationMessageFor(model => model.MaDanToc, "", new { @class = "text-danger" })
                                                                                         </td>
                                                                                         <td>Tôn giáo<span style="color:red"> * </span></td>
                                                                                         <td>

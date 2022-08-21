@@ -18,7 +18,11 @@
             <!-- BEGIN CONTENT -->
 
             @if (Convert.ToBoolean(Session["notfound"]) == true)
-            {<div style="font-size:1.3em" class="text-center font-blue bold"><br>Không tìm thấy hồ sơ của bạn trên hệ thống!<br>Bạn cần nhập đúng SỐ CMND/CCCD hoặc SỐ ĐIỆN THOẠI đã đăng ký hồ sơ.<br><br>Nếu cần hỗ trợ, bạn có thể liên hệ hotline: (028) 7105 9999</div>}
+            {
+                Session["notfound"] = false;
+                <div style="font-size:1.3em" class="text-center font-blue bold"><br>Không tìm thấy hồ sơ của bạn trên hệ thống!<br>Bạn cần nhập đúng SỐ CMND/CCCD hoặc SỐ ĐIỆN THOẠI đã đăng ký hồ sơ.<br><br>Nếu cần hỗ trợ, bạn có thể liên hệ hotline: (028) 7105 9999
+                    </div>
+            }
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
                 <!-- BEGIN PAGE CONTENT BODY -->

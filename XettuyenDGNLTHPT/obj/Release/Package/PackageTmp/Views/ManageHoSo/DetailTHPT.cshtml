@@ -43,7 +43,8 @@
         window.print();
     }
 </script>
-<form method="post" action="@Url.Action("DetailDGNL","ManageHoSo")">
+
+<form method="post" action="@Url.Action("DetailTHPT","ManageHoSo")">
     <div class="aspNetHidden">
         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
     </div>
@@ -57,7 +58,10 @@
         <!-- BEGIN CONTENT -->
 
         @if (Convert.ToBoolean(Session["notfound"]) == true)
-        {<div style="font-size:1.3em" class="text-center font-blue bold"><br>Không tìm thấy hồ sơ của bạn trên hệ thống!<br>Bạn cần nhập đúng SỐ CMND/CCCD hoặc SỐ ĐIỆN THOẠI đã đăng ký hồ sơ.<br><br>Nếu cần hỗ trợ, bạn có thể liên hệ hotline: (028) 7105 9999</div>}
+        {
+            Session["notfound"] = false;
+            <div style="font-size:1.3em" class="text-center font-blue bold"><br>Không tìm thấy hồ sơ của bạn trên hệ thống!<br>Bạn cần nhập đúng SỐ CMND/CCCD hoặc SỐ ĐIỆN THOẠI đã đăng ký hồ sơ.<br><br>Nếu cần hỗ trợ, bạn có thể liên hệ hotline: (028) 7105 9999</div>
+        }
         <div class="page-content-wrapper">
             <!-- BEGIN CONTENT BODY -->
             <!-- BEGIN PAGE CONTENT BODY -->
@@ -79,9 +83,11 @@
 
                         </select>
                     </div>
+
                     <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
                     <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
                     <div class="col-md-2"></div>
+
                 </div>
 
 
@@ -327,13 +333,73 @@
                     <td colspan="6"></td>
                 </tr>
 
-                <tr><td><b>Ngành đăng ký xét tuyển 1</b>: </td><td colspan="2">@Model.TenNganh_TenToHop1</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop1</td><td></td><td><b>Mã tổ hợp</b>: A01</td><td></td></tr>
-                <tr><td></td><td colspan="3">Chương trình học: Tiêu chuẩn</td></tr>
-                <tr><td><b>Ngành đăng ký xét tuyển 2</b>: </td><td colspan="2">@Model.TenNganh_TenToHop2</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop2</td><td></td><td><b>Mã tổ hợp</b>: C00</td><td></td></tr>
-                <tr><td></td><td colspan="3">Chương trình học: Tiêu chuẩn</td></tr>
-                <tr><td><b>Ngành đăng ký xét tuyển 3</b>: </td><td colspan="2">@Model.TenNganh_TenToHop3</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop3</td><td></td><td><b>Mã tổ hợp</b>: C04</td><td></td></tr>
-                <tr><td></td><td colspan="3">Chương trình học: Tiêu chuẩn</td></tr>
+                <tr><td><b>Ngành đăng ký xét tuyển 1</b>: </td><td colspan="2">@Model.TenNganh_TenToHop1.Split('#')[0]</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop1.Split('#')[0]</td><td></td><td><b>Mã tổ hợp</b>:@Model.MaNganh_ToHop1.Split('#')[1] </td><td></td></tr>
+                @if (Model.CTDT1 == null)
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+                }
+                else if (Model.CTDT1.Equals("CTTC"))
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: Tiêu Chuẩn</td></tr>
+                }
+                else if (Model.CTDT1.Equals("CTĐB"))
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: Đặc Biệt</td></tr>
+                }
+                else
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+                }
+                @if (@Model.TenNganh_TenToHop2 != null)
+                {
+                    <tr><td><b>Ngành đăng ký xét tuyển 2/b>: </td><td colspan="2">@Model.TenNganh_TenToHop2.Split('#')[0]</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop2.Split('#')[0]</td><td></td><td><b>Mã tổ hợp</b>: @Model.MaNganh_ToHop2.Split('#')[1]</td><td></td></tr>
+                }
+                else
+                {
+                    <tr><td><b>Ngành đăng ký xét tuyển 2</b>: </td><td colspan="2"></td><td></td><td><b>Mã ngành</b>:</td><td></td><td><b>Mã tổ hợp</b>: </td><td></td></tr>
 
+                }
+                @if (Model.CTDT2 == null)
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+                }
+                else if (Model.CTDT2.Equals("CTTC"))
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: Tiêu Chuẩn</td></tr>
+                }
+                else if (Model.CTDT2.Equals("CTĐB"))
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: Đặc Biệt</td></tr>
+                }
+                else
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+                }
+                @if (@Model.TenNganh_TenToHop3 != null)
+                {
+                    <tr><td><b>Ngành đăng ký xét tuyển 3</b>: </td><td colspan="2">@Model.TenNganh_TenToHop3.Split('#')[0]</td><td></td><td><b>Mã ngành</b>: @Model.MaNganh_ToHop3.Split('#')[0]</td><td></td><td><b>Mã tổ hợp</b>: @Model.MaNganh_ToHop3.Split('#')[1]</td><td></td></tr>
+                }
+                else
+                {
+                    <tr><td><b>Ngành đăng ký xét tuyển 3</b>: </td><td colspan="2"></td><td></td><td><b>Mã ngành</b>:</td><td></td><td><b>Mã tổ hợp</b>: </td><td></td></tr>
+
+                }
+                @if (Model.CTDT3 == null)
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+                }
+                else if (Model.CTDT3.Equals("CTTC"))
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: Tiêu Chuẩn</td></tr>
+                }
+                else if (Model.CTDT3.Equals("CTĐB"))
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: Đặc Biệt</td></tr>
+                }
+                else
+                {
+                    <tr><td></td><td colspan="3">Chương trình học: </td></tr>
+                }
                 <tr>
                     <td colspan="8"></td>
                 </tr>
@@ -359,7 +425,6 @@
 
             </tbody>
         </table>
-
         <div class="vertical_space"></div>
     </div>
     <div class="vertical_space"></div>
@@ -376,20 +441,20 @@
                 <a href="@Url.Action("PrintTHPT","ManageHoSo" ,Model) input  type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning" ">
                     PRINT
                 </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" id="btnUploadHocBa" class="btn btn-warning" value="UPLOAD HỌC BẠ" onclick="parent.open('/myupload');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                @if (Convert.ToBoolean(Session["Form-button"]) == true )
+                @if (Convert.ToBoolean(Session["Form-button"]) == true)
                 {
-                    <a href="@Url.Action("EditTHPT","ManageHoSo" ,Model)" type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning"  >
+                    <a href="@Url.Action("EditTHPT","ManageHoSo" ,Model)" type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning">
                         ĐIỀU CHỈNH THÔNG TIN
                     </a>
 
-                    }
-                    else
-                    {
+                }
+                else
+                {
                     <input type="submit" name="btnDieuChinhNguyenVong" value="ĐIỀU CHỈNH THÔNG TIN" id="btnDieuChinhNguyenVong" disabled="true" class="btn btn-primary">
-                    }
-                    
+                }
 
-              </div>
+
+            </div>
         </div>
 
     </div>

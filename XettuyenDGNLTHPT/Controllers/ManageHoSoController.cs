@@ -446,7 +446,7 @@ namespace XettuyenDGNLTHPT.Controllers
                 dGNL.TenNganh_TenToHop3 = NameNganh3;
                 dGNL.CTDT3 = CTDT3;
             }
-
+            dGNL.DateEdited = DateTime.Today;
             model.Entry(dGNL).State = EntityState.Modified;
             model.SaveChanges();
             return RedirectToAction("DetailDGNL", dGNL);
@@ -552,6 +552,7 @@ namespace XettuyenDGNLTHPT.Controllers
                 hoSo.MaNganh_ToHop3 = Majors3 + "#" + ddlToHopMon3; hoSo.TenNganh_TenToHop3 = NameNganhTohop3;
                 hoSo.CTDT3 = CTDT3;
             }
+            hoSo.DateEdited = DateTime.Today;
             model.Entry(hoSo).State = EntityState.Modified;
             model.SaveChanges();
             return RedirectToAction("DetailTHPT", hoSo);
