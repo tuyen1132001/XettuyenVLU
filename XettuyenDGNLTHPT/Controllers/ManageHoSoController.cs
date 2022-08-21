@@ -22,6 +22,24 @@ namespace XettuyenDGNLTHPT.Controllers
         public ActionResult InHoSo(string DropDownList1, string ddlLoaiXetTuyen, string CMND)
         {
             Session["HoSoDayNe"] = null;
+            var form = model.tblFormTuyenSinhs.Find(0);
+
+            if (form.NgayBatDauEdit <= DateTime.Today && DateTime.Today <= form.NgayKetThucEdit)
+            {
+                Session["Form-button"] = true;
+                if (form.Edit_Open == true)
+                {
+                    Session["Form-button"] = false;
+                }
+                else
+                {
+                    Session["Form-button"] = true;
+                }
+            }
+            else
+            {
+                Session["Form-button"] = false;
+            }
             if (ddlLoaiXetTuyen == "THPT")
             {
                 var Hoso = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND == CMND);
@@ -60,6 +78,7 @@ namespace XettuyenDGNLTHPT.Controllers
                     Session["notfound"] = true;
                 }
             }
+
             return View();
         }
 

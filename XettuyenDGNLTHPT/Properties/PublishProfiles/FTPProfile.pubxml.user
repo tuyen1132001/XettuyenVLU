@@ -57,7 +57,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2022 15:56:32</publishTime>
     </File>
     <File Include="Areas/Admin/Views/ManageDGNL/Index.cshtml">
-      <publishTime>08/21/2022 15:56:16</publishTime>
+      <publishTime>08/21/2022 16:18:23</publishTime>
     </File>
     <File Include="Areas/Admin/Views/ManageImporData/AddCNN.cshtml">
       <publishTime>08/01/2022 12:37:13</publishTime>
@@ -93,7 +93,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/21/2022 15:56:32</publishTime>
     </File>
     <File Include="Areas/Admin/Views/ManageTHPT/Index.cshtml">
-      <publishTime>08/21/2022 15:56:16</publishTime>
+      <publishTime>08/21/2022 16:18:30</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Shared/_adminlayout.cshtml">
       <publishTime>08/21/2022 15:56:32</publishTime>
@@ -1731,10 +1731,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/01/2022 12:37:15</publishTime>
     </File>
     <File Include="bin/XettuyenDGNLTHPT.dll">
-      <publishTime>08/21/2022 16:03:22</publishTime>
+      <publishTime>08/21/2022 16:26:32</publishTime>
     </File>
     <File Include="bin/XettuyenDGNLTHPT.pdb">
-      <publishTime>08/21/2022 16:03:22</publishTime>
+      <publishTime>08/21/2022 16:26:32</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>08/01/2022 12:37:13</publishTime>

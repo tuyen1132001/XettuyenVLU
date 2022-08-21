@@ -75,103 +75,110 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
                 <div class="vertical_space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                <a style="padding: 10px" href="@Url.Action("ExportData","ManageTHPT")">
-                    <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Export Dữ Liệu</button>
-                </a>
-                <div class="container-fluid">
-                    <table id="example" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                @if ((string)Session["user-role"] == "1")
-                                {
-                                    <th>Mã hồ sơ</th>
-
-                                    <th>Họ và tên</th>
-                                    <th>CMND</th>
-                                    <th>Email</th>
-                                    <th>SĐT</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Nhận hồ sơ</th>
-                                }
-                                else
-                                {
-                                    <th>Mã hồ sơ</th>
-
-                                    <th>Họ và tên</th>
-                                    <th>CMND</th>
-                                    <th>Email</th>
-                                    <th>SĐT</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Nhận hồ sơ</th>
-                                }
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-
+                @if ((string)Session["user-role"] == "1")
+                {
+                    <a style="padding: 10px" href="@Url.Action("ExportData", "ManageTHPT")">
+                        <button class="btn-messger btn btn-success btn-add-accoud" onclick="document.getElementById('id01').style.display='block'"><b></b>Export Dữ Liệu</button>
+                    </a>
+                }
+                else
+                {
+                    <div></div>
+                }
+                    <div class="container-fluid">
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
                                 <tr>
                                     @if ((string)Session["user-role"] == "1")
                                     {
-                                        <td>
-                                            <a href="@Url.Action("DetailsHoSoTHPT", "ManageTHPT", new { id = item.ID })">@item.ID</a>
-                                        </td>
+                                        <th>Mã hồ sơ</th>
 
-                                        <td class="txt-oflo">@item.HoVaTen</td>
-                                        <td class="txt-oflo">@item.CMND</td>
-                                        <td class="txt-oflo">@item.Email</td>
-                                        <td class="txt-oflo">@item.DienThoaiDD</td>
-                                        <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
-                                        if (string.IsNullOrEmpty(item.DaNhanHoSo))
-                                        {
-                                            <td style=" text-align: center; " class="txt-oflo">
-                                                <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
-                                                <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()">
-                                            </td>
-                                        }
-                                        else
-                                        {
-                                            <td style=" text-align: center;" class="txt-oflo">
-                                                <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
-                                                <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()" checked>
-                                            </td>
-                                        }
+                                        <th>Họ và tên</th>
+                                        <th>CMND</th>
+                                        <th>Email</th>
+                                        <th>SĐT</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Nhận hồ sơ</th>
                                     }
                                     else
                                     {
-                                        <td class="txt-oflo">
-                                            @item.ID
-                                        </td>
+                                        <th>Mã hồ sơ</th>
 
-                                        <td class="txt-oflo">@item.HoVaTen</td>
-                                        <td class="txt-oflo">@item.CMND</td>
-                                        <td class="txt-oflo">@item.Email</td>
-                                        <td class="txt-oflo">@item.DienThoaiDD</td>
-                                        <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
-                                        if (string.IsNullOrEmpty(item.DaNhanHoSo))
+                                        <th>Họ và tên</th>
+                                        <th>CMND</th>
+                                        <th>Email</th>
+                                        <th>SĐT</th>
+                                        <th>Địa chỉ</th>
+                                        <th>Nhận hồ sơ</th>
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        @if ((string)Session["user-role"] == "1")
                                         {
-                                            <td style=" text-align: center;" class="txt-oflo">
-                                                <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
-                                                <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()">
+                                            <td>
+                                                <a href="@Url.Action("DetailsHoSoTHPT", "ManageTHPT", new { id = item.ID })">@item.ID</a>
                                             </td>
+
+                                            <td class="txt-oflo">@item.HoVaTen</td>
+                                            <td class="txt-oflo">@item.CMND</td>
+                                            <td class="txt-oflo">@item.Email</td>
+                                            <td class="txt-oflo">@item.DienThoaiDD</td>
+                                            <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
+                                            if (string.IsNullOrEmpty(item.DaNhanHoSo))
+                                            {
+                                                <td style=" text-align: center; " class="txt-oflo">
+                                                    <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
+                                                    <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()">
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td style=" text-align: center;" class="txt-oflo">
+                                                    <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
+                                                    <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()" checked>
+                                                </td>
+                                            }
                                         }
                                         else
                                         {
-                                            <td style=" text-align: center;" class="txt-oflo">
-                                                <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
-                                                <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()" checked>
+                                            <td class="txt-oflo">
+                                                @item.ID
                                             </td>
+
+                                            <td class="txt-oflo">@item.HoVaTen</td>
+                                            <td class="txt-oflo">@item.CMND</td>
+                                            <td class="txt-oflo">@item.Email</td>
+                                            <td class="txt-oflo">@item.DienThoaiDD</td>
+                                            <td class="txt-oflo"> @item.HoKhau, @item.HoKhau_TenPhuong, @item.HoKhau_TenQH, @item.HoKhau_TenTinhTP</td>
+                                            if (string.IsNullOrEmpty(item.DaNhanHoSo))
+                                            {
+                                                <td style=" text-align: center;" class="txt-oflo">
+                                                    <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
+                                                    <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()">
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td style=" text-align: center;" class="txt-oflo">
+                                                    <input type="hidden" value="@item.DaNhanHoSo" name="@item.ID.ToString()" id="hiddenInput_@item.ID.ToString()">
+                                                    <input type="checkbox" onclick="checkNhan(myCheckbox_@item.ID.ToString())" name="@item.ID.ToString()" value="@item.DaNhanHoSo" id="myCheckbox_@item.ID.ToString()" checked>
+                                                </td>
+                                            }
                                         }
-                                    }
-                                </tr>
-                            }
-                        </tbody>
+                                    </tr>
+                                }
+                            </tbody>
 
-                    </table>
-                    <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
+                        </table>
+                        <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
 
+                    </div>
                 </div>
-            </div>
 
         </div>
 

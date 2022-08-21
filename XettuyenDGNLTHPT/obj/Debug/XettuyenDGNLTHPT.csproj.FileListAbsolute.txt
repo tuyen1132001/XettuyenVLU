@@ -2058,3 +2058,4 @@ C:\Users\Admin\Desktop\New folder (6)\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHP
 C:\Users\Admin\Desktop\New folder (6)\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.csproj.CopyComplete
 C:\Users\Admin\Desktop\New folder (6)\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.dll
 C:\Users\Admin\Desktop\New folder (6)\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.pdb
+C:\Users\Tuyen\Source\Repos\VLU\XettuyenDGNLTHPT\obj\Debug\XettuyenDGNLTHPT.csproj.AssemblyReference.cache
