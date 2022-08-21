@@ -26,6 +26,17 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         public ActionResult DetailsHoSoTHPT(int id)
         {
             var dthsTHPT = model.tblHoSoTHPTs.Find(id);
+            if(dthsTHPT.MaNganh_ToHop1 !=null && dthsTHPT.MaNganh_ToHop2 !=null && dthsTHPT.MaNganh_ToHop3 != null)
+            {
+                Session["SonguyenVOng"] = 3;
+            }else if(dthsTHPT.MaNganh_ToHop1 != null && dthsTHPT.MaNganh_ToHop2 != null)
+            {
+                Session["SonguyenVOng"] = 2;
+            }
+            else
+            {
+                Session["SonguyenVOng"] = 1;
+            }
             return View(dthsTHPT);
         }
 

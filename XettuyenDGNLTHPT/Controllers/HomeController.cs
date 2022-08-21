@@ -172,6 +172,7 @@ namespace XettuyenDGNLTHPT.Controllers
                     tblHoSoTHPT.MaNganh_ToHop3 = Majors3 + "#" + ddlToHopMon3; tblHoSoTHPT.TenNganh_TenToHop3 = NameNganhTohop3;
                     tblHoSoTHPT.CTDT3 = CTDT3;
                 }
+                tblHoSoTHPT.DateInserted = DateTime.Today;
                 return View("Detail", tblHoSoTHPT);
                 }
                 ViewBag.QuocTich = new SelectList(model.tblQuocTiches, "ID", "TenQT");

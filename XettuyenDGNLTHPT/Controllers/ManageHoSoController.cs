@@ -21,53 +21,53 @@ namespace XettuyenDGNLTHPT.Controllers
         [HttpPost]
         public ActionResult InHoSo(string DropDownList1, string ddlLoaiXetTuyen, string CMND)
         {
-            if(ddlLoaiXetTuyen == "THPT")
+            Session["HoSoDayNe"] = null;
+            if (ddlLoaiXetTuyen == "THPT")
             {
                 var Hoso = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND == CMND);
                 if (Hoso != null)
                 {
-
-                    return RedirectToAction("DetailTHPT", Hoso);
+                    Session["HoSoDayNe"] = Hoso;
+                    return View("DetailTHPT", Hoso);
                 }
                 else
                 {
                     var sdt = model.tblHoSoTHPTs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
                     if (sdt != null)
                     {
-                        return RedirectToAction("DetailTHPT", sdt);
+                        Session["HoSoDayNe"] = sdt;
+                        return View("DetailTHPT", sdt);
                     }
                     Session["notfound"] = true;
                 }
             }
-            if(ddlLoaiXetTuyen == "DGNL")
+            if (ddlLoaiXetTuyen == "DGNL")
             {
                 var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim()));
                 if (HosoDGNL != null)
                 {
-
-                    return RedirectToAction("DetailDGNL", HosoDGNL);
+                    Session["HoSoDayNe"] = HosoDGNL;
+                    return View("DetailDGNL", HosoDGNL);
                 }
                 else
                 {
                     var sdt = model.tblHoSoDGNLs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
                     if (sdt != null)
                     {
-
-                        return RedirectToAction("DetailDGNL", sdt);
+                        Session["HoSoDayNe"] = sdt;
+                        return View("DetailDGNL", sdt);
                     }
                     Session["notfound"] = true;
                 }
-
             }
-           
             return View();
         }
-    
+
 
         public ActionResult DetailTHPT(tblHoSoTHPT tHPT)
         {
             var form = model.tblFormTuyenSinhs.Find(0);
-            
+
             if (form.NgayBatDauEdit <= DateTime.Today && DateTime.Today <= form.NgayKetThucEdit)
             {
                 Session["Form-button"] = true;
@@ -87,15 +87,81 @@ namespace XettuyenDGNLTHPT.Controllers
 
             return View(tHPT);
         }
+        [HttpPost]
+        public ActionResult DetailTHPT(string DropDownList1, string ddlLoaiXetTuyen, string CMND)
+        {
+            var form = model.tblFormTuyenSinhs.Find(0);
+
+            if (form.NgayBatDauEdit <= DateTime.Today && DateTime.Today <= form.NgayKetThucEdit)
+            {
+                Session["Form-button"] = true;
+                if (form.Edit_Open == true)
+                {
+                    Session["Form-button"] = false;
+                }
+                else
+                {
+                    Session["Form-button"] = true;
+                }
+            }
+            else
+            {
+                Session["Form-button"] = false;
+            }
+            if (ddlLoaiXetTuyen == "THPT")
+            {
+                var Hoso = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND == CMND);
+                if (Hoso != null)
+                {
+                    Session["HoSoDayNe"] = Hoso;
+                    return View("DetailTHPT", Hoso);
+                }
+                else
+                {
+                    var sdt = model.tblHoSoTHPTs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
+                    if (sdt != null)
+                    {
+                        Session["HoSoDayNe"] = sdt;
+                        return View("DetailTHPT", sdt);
+                    }
+                    Session["notfound"] = true;
+                }
+            }
+            if (ddlLoaiXetTuyen == "DGNL")
+            {
+                var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim()));
+                if (HosoDGNL != null)
+                {
+                    Session["HoSoDayNe"] = HosoDGNL;
+                    return View("DetailDGNL", HosoDGNL);
+                }
+                else
+                {
+                    var sdt = model.tblHoSoDGNLs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
+                    if (sdt != null)
+                    {
+                        Session["HoSoDayNe"] = sdt;
+                        return View("DetailDGNL", sdt);
+                    }
+                    Session["notfound"] = true;
+                }
+
+            }
+            tblHoSoTHPT models = Session["HoSoDayNe"] as tblHoSoTHPT;
+            if(models != null)
+                return View("DetailTHPT", models);
+
+            return View();
+        }
         public ActionResult PrintTHPT(tblHoSoTHPT tHPT)
         {
             return View(tHPT);
         }
-        
+
         public ActionResult DetailDGNL(tblHoSoDGNL dGNL)
         {
             var form = model.tblFormTuyenSinhs.Find(1);
-            
+
             if (form.NgayBatDauEdit <= DateTime.Today && DateTime.Today <= form.NgayKetThucEdit)
             {
                 Session["Form-button"] = true;
@@ -113,7 +179,74 @@ namespace XettuyenDGNLTHPT.Controllers
                 Session["Form-button"] = false;
             }
             var data = dGNL;
+            Session["test"] = data;
             return View(data);
+        }
+        [HttpPost]
+        public ActionResult DetailDGNL(string DropDownList1, string ddlLoaiXetTuyen, string CMND)
+        {
+            var form = model.tblFormTuyenSinhs.Find(1);
+
+            if (form.NgayBatDauEdit <= DateTime.Today && DateTime.Today <= form.NgayKetThucEdit)
+            {
+                Session["Form-button"] = true;
+                if (form.Edit_Open == true)
+                {
+                    Session["Form-button"] = false;
+                }
+                else
+                {
+                    Session["Form-button"] = true;
+                }
+            }
+            else
+            {
+                Session["Form-button"] = false;
+            }
+            if (ddlLoaiXetTuyen == "THPT")
+            {
+                var Hoso = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND == CMND);
+                if (Hoso != null)
+                {
+                    Session["HoSoDayNe"] = Hoso;
+                    return View("DetailTHPT", Hoso);
+                }
+                else
+                {
+                    var sdt = model.tblHoSoTHPTs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
+                    if (sdt != null)
+                    {
+                        Session["HoSoDayNe"] = sdt;
+                        return View("DetailTHPT", sdt);
+                    }
+                    Session["notfound"] = true;
+                }
+            }
+            if (ddlLoaiXetTuyen == "DGNL")
+            {
+                var HosoDGNL = model.tblHoSoDGNLs.FirstOrDefault(u => u.CMND.Equals(CMND.Trim()));
+                if (HosoDGNL != null)
+                {
+                    Session["HoSoDayNe"] = HosoDGNL;
+                    return View("DetailDGNL", HosoDGNL);
+                }
+                else
+                {
+                    var sdt = model.tblHoSoDGNLs.FirstOrDefault(u => u.DienThoaiDD.Equals(CMND.Trim()));
+                    if (sdt != null)
+                    {
+                        Session["HoSoDayNe"] = sdt;
+                        return View("DetailDGNL", sdt);
+                    }
+                    Session["notfound"] = true;
+                }
+
+            }
+            tblHoSoDGNL models = Session["HoSoDayNe"] as tblHoSoDGNL;
+            if (models != null)
+                return View("DetailDGNL", models);
+
+            return View();
         }
         public ActionResult PrintDGNL(tblHoSoDGNL dgnl)
         {
@@ -178,16 +311,16 @@ namespace XettuyenDGNLTHPT.Controllers
             }
             ViewBag.CCNN = new SelectList(ChungChi);
             //
-           
+
             var TP_QH_PX = model.tblTP_QH_PX.Select(e => new { e.MaTinhTP, e.TenTinhTP }).Distinct().ToList();
             TP_QH_PX.Insert(0, new { MaTinhTP = "-1", TenTinhTP = "-- Chọn tỉnh thành phố --" });
             ViewBag.TP_QH_PX = new SelectList(TP_QH_PX, "MaTinhTP", "TenTinhTP");
-            
-            var TP_QH = model.tblTP_QH_PX.Where(u =>u.MaTinhTP== dGNL.HoKhau_MaTinhTP).Select(e => new { e.MaQH, e.TenQH }).Distinct().ToList();
+
+            var TP_QH = model.tblTP_QH_PX.Where(u => u.MaTinhTP == dGNL.HoKhau_MaTinhTP).Select(e => new { e.MaQH, e.TenQH }).Distinct().ToList();
             TP_QH.Insert(0, new { MaQH = "-1", TenQH = "-- Chọn Quận Huyện--" });
             ViewBag.TP_QH = new SelectList(TP_QH, "MaQH", "TenQH");
 
-            var PX= model.tblTP_QH_PX.Where(u => u.MaQH == dGNL.HoKhau_MaQH).Select(e => new { e.MaPX, e.TenPX }).Distinct().ToList();
+            var PX = model.tblTP_QH_PX.Where(u => u.MaQH == dGNL.HoKhau_MaQH).Select(e => new { e.MaPX, e.TenPX }).Distinct().ToList();
             PX.Insert(0, new { MaPX = "-1", TenPX = "-- Chọn Phường Xã --" });
             ViewBag.PX = new SelectList(PX, "MaPX", "TenPX");
             //
@@ -224,7 +357,7 @@ namespace XettuyenDGNLTHPT.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveDGNL( tblHoSoDGNL dGNL, string TP_QH_PX, string ddlHoKhauQuanHuyen, string ddlHoKhau_PhuongXa, string THPT, string ddlQuanHuyenTHPT, string ddlTenTruongTHPT, string ddlKhuVuc
+        public ActionResult SaveDGNL(tblHoSoDGNL dGNL, string TP_QH_PX, string ddlHoKhauQuanHuyen, string ddlHoKhau_PhuongXa, string THPT, string ddlQuanHuyenTHPT, string ddlTenTruongTHPT, string ddlKhuVuc
                                      , string ddlDoiTuongUT, string LienHeTP, string ddlQuanHuyen, string ddlPhuongXa, string Majors1, string Majors2, string Majors3, string CTDT1, string CTDT2, string CTDT3)
         {
             var dbNoiSinh = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(dGNL.MaNoiSinh));
@@ -246,15 +379,15 @@ namespace XettuyenDGNLTHPT.Controllers
             // Hộ khẩu địa chỉ
             var dbHoKhauTP = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(dGNL.HoKhau_MaTinhTP));
             string Nametp = dbHoKhauTP.TenTinhTP;
-            
+
             dGNL.HoKhau_TenTinhTP = Nametp;
             var dbQuanHuyen = model.tblTP_QH_PX.FirstOrDefault(u => u.MaQH.Equals(dGNL.HoKhau_MaQH));
             string NameQuanHuyen = dbQuanHuyen.TenQH;
-            
+
             dGNL.HoKhau_TenQH = NameQuanHuyen;
             var dbPhuongXa = model.tblTP_QH_PX.FirstOrDefault(u => u.MaPX.Equals(dGNL.HoKhau_MaPhuong));
             string NamePhuongXa = dbPhuongXa.TenPX;
-            
+
             dGNL.HoKhau_TenPhuong = NamePhuongXa;
             //Địa chỉ trường THPT
             var dbDiaChiTrgtp = model.tblTruongTHPTs.FirstOrDefault(u => u.MA_TINHTP.Equals(THPT));
@@ -272,15 +405,15 @@ namespace XettuyenDGNLTHPT.Controllers
             //Thông tin liên hệ
             var dbLienHeTP = model.tblTP_QH_PX.FirstOrDefault(u => u.MaTinhTP.Equals(dGNL.LienLac_MaTP));
             string Namelienhetp = dbLienHeTP.TenTinhTP;
-            
+
             dGNL.LienLac_TenTP = Namelienhetp;
             var dbLienHeQuanHuyen = model.tblTP_QH_PX.FirstOrDefault(u => u.MaQH.Equals(dGNL.LienLac_MaQH));
             string NameLienHeQuanHuyen = dbLienHeQuanHuyen.TenQH;
-           
+
             dGNL.LienLac_TenQH = NameLienHeQuanHuyen;
             var dbLienHePhuongXa = model.tblTP_QH_PX.FirstOrDefault(u => u.MaPX.Equals(dGNL.LienLac_MaPhuongXa));
             string NameLienHePhuongXa = dbLienHePhuongXa.TenPX;
-            
+
             dGNL.LienLac_TenPhuongXa = NameLienHePhuongXa;
             //Khu vực và đối tượng 
             var dbKhuVuc = model.tblTruongTHPTs.FirstOrDefault(u => u.KHU_VUC.Equals(ddlKhuVuc));
@@ -313,7 +446,7 @@ namespace XettuyenDGNLTHPT.Controllers
                 dGNL.TenNganh_TenToHop3 = NameNganh3;
                 dGNL.CTDT3 = CTDT3;
             }
-           
+
             model.Entry(dGNL).State = EntityState.Modified;
             model.SaveChanges();
             return RedirectToAction("DetailDGNL", dGNL);
@@ -423,7 +556,7 @@ namespace XettuyenDGNLTHPT.Controllers
             model.SaveChanges();
             return RedirectToAction("DetailTHPT", hoSo);
         }
-            
+
 
         public JsonResult GetDistrict(string id) // lấy quận huyện
         {
