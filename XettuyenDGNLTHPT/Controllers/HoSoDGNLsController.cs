@@ -174,6 +174,8 @@ namespace XettuyenDGNLTHPT.Controllers
                         tblHoSoDGNL.CTDT3 = null;
                     }
                     tblHoSoDGNL.DateInserted = DateTime.Today;
+                    var datadot = model.tblFormTuyenSinhs.Find(1);
+                    tblHoSoDGNL.Dot = datadot.Dot;
                     return View("Details", tblHoSoDGNL);
                 }
                 ViewBag.QuocTich = new SelectList(model.tblQuocTiches, "ID", "TenQT");
