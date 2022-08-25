@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using XettuyenDGNLTHPT.Models;
@@ -73,9 +74,74 @@ namespace XettuyenDGNLTHPT.Controllers
         public ActionResult Index(tblHoSoTHPT tblHoSoTHPT, string TP_QH_PX, string ddlHoKhauQuanHuyen, string ddlHoKhau_PhuongXa, string THPT, string ddlQuanHuyenTHPT, string ddlTenTruongTHPT, string ddlKhuVuc
                                     , string ddlDoiTuongUT, string LienHeTP, string ddlQuanHuyen, string ddlPhuongXa, string Majors1, string Majors2, string Majors3, string ddlToHopMon1, string ddlToHopMon2, string ddlToHopMon3, string CTDT1, string CTDT2, string CTDT3) //Form Dang ky THTP QG
         {
+           
             if (ModelState.IsValid)
             {
                 var checkdata = model.tblHoSoTHPTs.FirstOrDefault(u => u.CMND.Equals(tblHoSoTHPT.CMND));
+                if (tblHoSoTHPT.MaNoiSinh.Equals("-1"))
+                {
+                    ModelState.AddModelError("MaNoiSinh", "Cần chọn  dữ liệu này");
+                }
+                if (TP_QH_PX.Equals("-1"))
+                {
+                    Session["ErrorHokhau_TinhTP"] = true;
+                    ViewBag.HKTP = "Cần chọn  dữ liệu này";
+
+                }
+                if (ddlHoKhauQuanHuyen == null || ddlHoKhauQuanHuyen.Equals("-1"))
+                {
+                    Session["ErrorHokhau_QH"] = true;
+                    ViewBag.HKQH = "Cần chọn  dữ liệu này";
+                }
+
+                if (ddlHoKhau_PhuongXa == null || ddlHoKhau_PhuongXa.Equals("-1"))
+                {
+                    Session["ErrorHokhau_PX"] = true;
+                    ViewBag.HKPX = "Cần chọn  dữ liệu này";
+                }
+
+                if (THPT == null || THPT.Equals("-1"))
+                {
+                    Session["ErrorTrg_TinhTP"] = true;
+                    ViewBag.TRGTP = "Cần chọn  dữ liệu này";
+                }
+
+                if (ddlQuanHuyenTHPT == null || ddlQuanHuyenTHPT.Equals("-1"))
+                {
+                    Session["ErrorTrg_QH"] = true;
+                    ViewBag.TRGQH = "Cần chọn  dữ liệu này";
+                }
+                if (ddlTenTruongTHPT == null || ddlTenTruongTHPT.Equals("-1"))
+                {
+                    Session["ErrorTrg_TenTrg"] = true;
+                    ViewBag.TRG = "Cần chọn  dữ liệu này";
+                }
+                if (LienHeTP == null || LienHeTP.Equals("-1"))
+                {
+                    Session["ErrorLienhe_TinhTP"] = true;
+                    ViewBag.LHTP = "Cần chọn  dữ liệu này";
+                }
+                if (ddlQuanHuyen == null || ddlQuanHuyen.Equals("-1"))
+                {
+                    Session["ErrorLienhe_QH"] = true;
+                    ViewBag.LHQH = "Cần chọn  dữ liệu này";
+                }
+                if (ddlPhuongXa == null || ddlPhuongXa.Equals("-1"))
+                {
+                    Session["ErrorLienhe_PX"] = true;
+                    ViewBag.LHPX = "Cần chọn  dữ liệu này";
+                }
+                if (Majors1 == null || Majors1.Equals("-1"))
+                {
+                    Session["Errormajors1"] = true;
+                    ViewBag.majors1 = "Cần chọn  dữ liệu này";
+                }
+                if (ddlToHopMon1 == null || ddlToHopMon1.Equals("-1"))
+                {
+                    Session["ErrorddlToHopMon1"] = true;
+                    ViewBag.ddlToHopMon1 = "Cần chọn  dữ liệu này";
+                }
+                else { 
                 if (checkdata != null) {
                     ModelState.AddModelError("CMND", "CMND đã tồn tại");
                 }
@@ -175,6 +241,7 @@ namespace XettuyenDGNLTHPT.Controllers
                 tblHoSoTHPT.DateInserted = DateTime.Today;
                 return View("Detail", tblHoSoTHPT);
                 }
+                }
                 ViewBag.QuocTich = new SelectList(model.tblQuocTiches, "ID", "TenQT");
                 ViewBag.MaDanToc = new SelectList(model.tblDanTocs, "MA_DANTOC", "TEN_DANTOC");
                 ViewBag.MaTonGiao = new SelectList(model.tblTonGiaos, "MA_TONGIAO", "TEN_TONGIAO");
@@ -206,7 +273,6 @@ namespace XettuyenDGNLTHPT.Controllers
             }
             return View(tblHoSoTHPT);
         }
-        
         public ActionResult Detail(tblHoSoTHPT thpt)
         {
             var hoso = thpt;
@@ -249,7 +315,14 @@ namespace XettuyenDGNLTHPT.Controllers
                 return View(thpt);
             }
         }
-
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                model.Dispose();
+            }
+            base.Dispose(disposing);
+        }
         public JsonResult GetDistrict(string id) // lấy quận huyện
         {
             var data = model.tblTP_QH_PX
