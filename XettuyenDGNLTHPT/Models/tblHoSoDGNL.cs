@@ -43,7 +43,7 @@ namespace XettuyenDGNLTHPT.Models
 
         public string QuocTich { get; set; }
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
-        [RegularExpression(@"^[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ0-9. ]*$",
+        [RegularExpression(@"^[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ0-9/. ]*$",
         ErrorMessage = "Vui lòng nhập đúng địa chỉ")]
         public string HoKhau { get; set; }
         public string HoKhau_MaPhuong { get; set; }
@@ -72,7 +72,7 @@ namespace XettuyenDGNLTHPT.Models
         public string KhuVuc { get; set; }
         [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
-        [Range(100, 1200, ErrorMessage = "Điểm tối đa 1200")]
+        [Range(100, 1200, ErrorMessage = "Điểm từ 100- 1200")]
         public Nullable<int> DiemDGNL { get; set; }
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
         public Nullable<System.DateTime> TGThiDGNL { get; set; }

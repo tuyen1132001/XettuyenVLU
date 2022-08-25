@@ -82,55 +82,55 @@ namespace XettuyenDGNLTHPT.Controllers
                 {
                     ModelState.AddModelError("MaNoiSinh", "Cần chọn  dữ liệu này");
                 }
-                if (TP_QH_PX.Equals("-1"))
+                else if (TP_QH_PX.Equals("-1"))
                 {
                     Session["ErrorDGNLHokhau_TinhTP"] = true;
                     ViewBag.HKTP = "Cần chọn  dữ liệu này";
 
                 }
-                if (ddlHoKhauQuanHuyen == null || ddlHoKhauQuanHuyen.Equals("-1"))
+                else if (ddlHoKhauQuanHuyen == null || ddlHoKhauQuanHuyen.Equals("-1"))
                 {
                     Session["ErrorDGNLHokhau_QH"] = true;
                     ViewBag.HKQH = "Cần chọn  dữ liệu này";
                 }
 
-                if (ddlHoKhau_PhuongXa == null || ddlHoKhau_PhuongXa.Equals("-1"))
+                else if (ddlHoKhau_PhuongXa == null || ddlHoKhau_PhuongXa.Equals("-1"))
                 {
                     Session["ErrorDGNLHokhau_PX"] = true;
                     ViewBag.HKPX = "Cần chọn  dữ liệu này";
                 }
 
-                if (THPT == null || THPT.Equals("-1"))
+                else if(THPT == null || THPT.Equals("-1"))
                 {
                     Session["ErrorDGNLTrg_TinhTP"] = true;
                     ViewBag.TRGTP = "Cần chọn dữ liệu này";
                 }
 
-                if (ddlQuanHuyenTHPT == null || ddlQuanHuyenTHPT.Equals("-1"))
+                else if (ddlQuanHuyenTHPT == null || ddlQuanHuyenTHPT.Equals("-1"))
                 {
                     Session["ErrorDGNLTrg_QH"] = true;
                     ViewBag.TRGQH = "Cần chọn  dữ liệu này";
                 }
-                if (ddlTenTruongTHPT == null || ddlTenTruongTHPT.Equals("-1"))
+                else if (ddlTenTruongTHPT == null || ddlTenTruongTHPT.Equals("-1"))
                 {
                     Session["ErrorDGNLTrg_TenTrg"] = true;
                     ViewBag.TRG = "Cần chọn  dữ liệu này";
                 }
-                if (tblHoSoDGNL.LienLac_MaTP == null || tblHoSoDGNL.LienLac_MaTP.Equals("-1"))
+                else if (tblHoSoDGNL.LienLac_MaTP == null || tblHoSoDGNL.LienLac_MaTP.Equals("-1"))
                 {
                     ModelState.AddModelError("LienLac_MaTP", "Cần chọn  dữ liệu này");
                 }
-                if (ddlQuanHuyen == null || ddlQuanHuyen.Equals("-1"))
+                else if (ddlQuanHuyen == null || ddlQuanHuyen.Equals("-1"))
                 {
                     Session["ErrorDGNLLienhe_QH"] = true;
                     ViewBag.LHQH = "Cần chọn  dữ liệu này";
                 }
-                if (ddlPhuongXa == null || ddlPhuongXa.Equals("-1"))
+                else if (ddlPhuongXa == null || ddlPhuongXa.Equals("-1"))
                 {
                     Session["ErrorDGNLLienhe_PX"] = true;
                     ViewBag.LHPX = "Cần chọn  dữ liệu này";
                 }
-                if (Majors1 == null || Majors1.Equals("-1"))
+                else if (Majors1 == null || Majors1.Equals("-1"))
                 {
                     Session["ErrorDGNLmajors1"] = true;
                     ViewBag.majors1 = "Cần chọn  dữ liệu này";
