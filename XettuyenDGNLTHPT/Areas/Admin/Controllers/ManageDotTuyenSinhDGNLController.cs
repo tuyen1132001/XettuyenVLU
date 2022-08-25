@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -46,7 +47,10 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                dGNL.Loai = "DGNL";
+                model.Entry(dGNL).State = EntityState.Modified;
+                model.SaveChanges();
+                return RedirectToAction("Index", "ManageDotTuyenSinhDGNL");
             }
             return View();
         }
