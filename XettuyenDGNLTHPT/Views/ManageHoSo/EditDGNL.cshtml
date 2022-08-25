@@ -35,31 +35,35 @@
 
                                                 <form action="@Url.Action("SaveDGNL","ManageHoSo")" method="POST">
                                                     @Html.AntiForgeryToken()
-                                                    @*@using (Html.BeginForm("SaveDGNL", "ManageHoSo", Model, FormMethod.Post))*@
-
-
-                                                    @Html.AntiForgeryToken()
 
                                                     <div style="background-color:red;color: white;text-transform:uppercase;padding-left:0.8em;font-size:1.3em">thông tin thí sinh</div>
                                                     <h5 style="color:blue; border-bottom:solid;border-width:1px;border-color:lightgray; padding-bottom:15px; margin-top:8px">
                                                         <strong>A. THÔNG TIN CÁ NHÂN</strong>
                                                     </h5><br />
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-4">Họ và tên<span class="required" , style="color:red">*</span>  </label>
+                                                         <div class="form-group">
+                                                             <div class="col-md-5 col-validate" hidden>
 
-                                                        <div class="col-md-5 col-validate">
-                                                            @Html.EditorFor(model => model.HoVaTen, new { htmlAttributes = new { @class = "form-control", placeholder = "NGUYỄN VĂN A", style = "text-transform: uppercase;", @pattern = "[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ ]{1,}", required = "true", oninvalid = "this.setCustomValidity('Hãy nhập vào họ tên của bạn')" } })
+                                                                 <input name="ID" type=”hidden” value="@Model.ID" class="form-control" hidden="hidden" />
+                                                             </div>
+                                                             <div class="col-md-5 col-validate" hidden>
 
-                                                            @*<input name="txtTenThiSinh" type="text" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />*@
-                                                            @Html.ValidationMessageFor(model => model.HoVaTen, "", new { @class = "text-danger" })
+                                                                 <input name="Dot" type=”hidden” value="@Model.Dot" class="form-control" hidden="hidden" />
+                                                             </div>
+                                                             <div class="col-md-5 col-validate" hidden>
 
-                                                        </div>
-                                                        <div class="col-md-5 col-validate" hidden>
+                                                                 <input name="DateInserted" type=”hidden” value="@Model.DateInserted" class="form-control" hidden="hidden" />
+                                                             </div>
+                                                             <label class="control-label col-md-4">Họ và tên<span class="required" , style="color:red">*</span>  </label>
 
-                                                                         <input name="ID" type=”hidden” value="@Model.ID" class="form-control" hidden="hidden" />
-                                                                     </div>
+                                                             <div class="col-md-5 col-validate">
+                                                                 @Html.EditorFor(model => model.HoVaTen, new { htmlAttributes = new { @class = "form-control", placeholder = "NGUYỄN VĂN A", style = "text-transform: uppercase;", @pattern = "[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ ]{1,}", required = "true", oninvalid = "this.setCustomValidity('Hãy nhập vào họ tên của bạn')" } })
 
-                                                    </div>
+                                                                 @*<input name="txtTenThiSinh" type="text" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />*@
+                                                                 @Html.ValidationMessageFor(model => model.HoVaTen, "", new { @class = "text-danger" })
+
+                                                             </div>
+
+                                                         </div>
                                                     <div class="form-group">
                                                         <label class="control-label col-md-4">Giới tính<span class="required" , style="color:red"> * </span></label>
                                                         <div class="col-md-4 col-validate">
@@ -81,8 +85,7 @@
                                                                 <tr>
 
                                                                     <td>
-                                                                        @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control"} })
-                                                                        @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+                                                                        <input name="NgaySinh" value="@Convert.ToDateTime(@Model.NgaySinh).ToString("dd/MM/yyyy")" type="text" id="txtNgaySinh" class="form-control" required="true" placeholder="21/08/2000" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" style="width:130px;" />
                                                                     </td>
                                                                     <td>Nơi sinh<span style="color:red"> * </span></td>
                                                                     <td>
@@ -148,7 +151,7 @@
                                                             <div class="row">
                                                                 <div class="col-md-4 control-label">Tỉnh/Thành phố <span class="required"> * </span></div>
                                                                 <div class="col-md-8">
-                                                                    @Html.DropDownList("TP_QH_PX", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlHoKhauQuanHuyen" })
+                                                                    @Html.DropDownList("HoKhau_MaTinhTP", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlHoKhauQuanHuyen" })
                                                                     @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
                                                                     @Html.ValidationMessageFor(model => model.HoKhau_TenTinhTP, "", new { @class = "text-danger" })
                                                                     @if (Convert.ToBoolean(Session["ErrorDGNLHokhau_TinhTP"]) == true)
@@ -163,9 +166,9 @@
                                                             <div class="row">
                                                                 <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
                                                                 <div class="col-md-8">
-                                                                    @*@Html.DropDownList("HoKhau_MaQH", (IEnumerable<SelectListItem>)ViewBag.TP_QH, null, new { @class = "form-control district-select", target = "#ddlHoKhau_PhuongXa", name = "ddlHoKhauQuanHuyen", id = "ddlHoKhauQuanHuyen" })*@
-                                                                    <select name="ddlHoKhauQuanHuyen" id="ddlHoKhauQuanHuyen" class="form-control district-select" target="#ddlHoKhau_PhuongXa">
-                                                                    </select>
+                                                                    @Html.DropDownList("HoKhau_MaQH", (IEnumerable<SelectListItem>)ViewBag.TP_QH, null, new { @class = "form-control district-select", target = "#ddlHoKhau_PhuongXa", name = "ddlHoKhauQuanHuyen", id = "ddlHoKhauQuanHuyen" })
+                                                                    @*<select name="ddlHoKhauQuanHuyen" id="ddlHoKhauQuanHuyen" class="form-control district-select" required="true" target="#ddlHoKhau_PhuongXa">
+        </select>*@
                                                                     @if (Convert.ToBoolean(Session["ErrorDGNLHokhau_QH"]) == true)
                                                                     {
 
@@ -178,9 +181,9 @@
                                                             <div class="row">
                                                                 <div class="col-md-4 control-label">Phường/Xã <span class="required"> * </span></div>
                                                                 <div class="col-md-8">
-                                                                    @*@Html.DropDownList("HoKhau_MaPhuong", (IEnumerable<SelectListItem>)ViewBag.PX, null, new { @class = "form-control ", name = "ddlHoKhau_PhuongXa", id = "ddlHoKhau_PhuongXa", required = "true" })*@
-                                                                    <select name="ddlHoKhau_PhuongXa" id="ddlHoKhau_PhuongXa" class="form-control">
-                                                                    </select>
+                                                                    @Html.DropDownList("HoKhau_MaPhuong", (IEnumerable<SelectListItem>)ViewBag.PX, null, new { @class = "form-control ", name = "ddlHoKhau_PhuongXa", id = "ddlHoKhau_PhuongXa", required = "true" })
+                                                                    @*<select name="ddlHoKhau_PhuongXa" id="ddlHoKhau_PhuongXa" class="form-control" required="true">
+        </select>*@
                                                                     @if (Convert.ToBoolean(Session["ErrorDGNLHokhau_PX"]) == true)
                                                                     {
 
@@ -262,277 +265,247 @@
                                                         <div class="col-md-5">
                                                             @Html.DropDownList("THPT", (IEnumerable<SelectListItem>)ViewBag.THPT, null, new { @class = "form-control districtschool-select", target = "#ddlQuanHuyenTHPT" })
                                                             @Html.ValidationMessageFor(model => model.TruongTHPT_TenTinhTP, "", new { @class = "text-danger" })
-                                                            @if (Convert.ToBoolean(Session["ErrorDGNLTrg_TinhTP"]) == true)
-                                                            {
-
-                                                                <p class="text-danger">@ViewBag.TRGTP</p>
-                                                            }
-
                                                             <div class="vertical_space"></div>
                                                             <div class="row">
                                                                 <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
                                                                 <div class="col-md-8">
-                                                                    <select name="ddlQuanHuyenTHPT" id="ddlQuanHuyenTHPT" class="form-control school-select" target="#ddlTenTruongTHPT">
+                                                                    <select name="ddlQuanHuyenTHPT" id="ddlQuanHuyenTHPT" class="form-control school-select" required="true" target="#ddlTenTruongTHPT">
+                                                                        <option value="@Model.TruongTHPT_MaQH">@Model.TruongTHPT_TenQH</option>
                                                                     </select>
-                                                                    @*<select name="ddlQuanHuyenTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlQuanHuyenTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlQuanHuyenTHPT" class="form-control " required="true">
-                        </select>*@                                                                     @if (Convert.ToBoolean(Session["ErrorDGNLTrg_QH"]) == true)
-                                                                    {
-
-                                                                        <p class="text-danger">@ViewBag.TRGQH</p>
-                                                                    }
-
-                                                </div>
-                                                </div>
-                                                <div class="vertical_space"></div>
-                                                <div class="row">
-                                                    <div class="col-md-4 control-label">Tên trường THPT<span class="required"> * </span></div>
-                                                    <div class="col-md-8">
-                                                        <select name="ddlTenTruongTHPT" id="ddlTenTruongTHPT" class="form-control area-select" target="#ddlKhuVuc"></select>
-                                                        @*<select name="ddlTenTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTenTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTenTruongTHPT" class="form-control " required="true">
-            </select>*@
-                                                        @if (Convert.ToBoolean(Session["ErrorDGNLTrg_TenTrg"]) == true)
-                                                        {
-
-                                                            <p class="text-danger">@ViewBag.TRG</p>
-                                                        }
-
-                                                    </div>
-                                                </div>
-                                                <div class="vertical_space"></div>
-                                                <div class="row">
-                                                    <div class="col-md-4 control-label">Tên lớp 12 <span class="required"> * </span></div>
-                                                    <div class="col-md-8">
-                                                        @Html.EditorFor(model => model.TenLop12, new { htmlAttributes = new { @class = "form-control", placeholder = "Tên lớp 12", @pattern = ".{3,}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào tên lớp 12 của bạn')", @oninput = "this.setCustomValidity('')" } })
-                                                        @Html.ValidationMessageFor(model => model.TenLop12, "", new { @class = "text-danger" })
-                                                        <span class="text-muted">(Ví dụ: lớp 12A1)</span>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-4">Khu vực</label>
-                                                    <div class="col-md-8">
-                                                        <table>
-                                                            <tr>
-                                                                <td>
-                                                                    <select name="ddlKhuVuc" id="ddlKhuVuc" class="form-control">
-                                                                    </select>
-                                                                </td>
-                                                                <td>Đối tượng ưu tiên</td>
-                                                                <td>
-                                                                    <select name="ddlDoiTuongUT" id="ddlDoiTuongUT" class="form-control">
-                                                                        <option selected="selected" value="Không có">Kh&#244;ng c&#243;</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-
-                                                                    </select>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-4">Kết quả kỳ thi ĐGNL ngày<span class="required"> * </span></label>
-                                                    <div class="col-md-8">
-                                                        <table>
-                                                            <tr>
-                                                                <td>
-                                                                    @Html.EditorFor(model => model.TGThiDGNL, new { htmlAttributes = new { @class = "form-control", placeholder = "18/03/2022", Type = "Date", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào ngày thi của bạn')", @oninput = "this.setCustomValidity('')" } })
-                                                                    @Html.ValidationMessageFor(model => model.TGThiDGNL, "", new { @class = "text-danger" })
-                                                                </td>
-                                                                <td>Điểm thi<span style="color:red"> * </span></td>
-                                                                <td>
-                                                                    @Html.EditorFor(model => model.DiemDGNL, new { htmlAttributes = new { @class = "form-control", placeholder = "750", Type = "number", @required = "required" } })
-                                                                    @Html.ValidationMessageFor(model => model.DiemDGNL, "", new { @class = "text-danger" })
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </div>
-
-                                                <div class="vertical_space"></div>
-
-                                                <h5 style="color:blue;font-weight:bold"><strong>B. THÔNG TIN LIÊN HỆ</strong></h5>
-                                                <hr />
-                                                <div class="form-group">
-                                                    <div class="col-md-4 text-right">Sử dụng thông tin của Hộ khẩu</div>
-                                                    <div class="col-md-6">
-                                                        <input id="chkLayDCHoKhau" type="checkbox" name="chkLayDCHoKhau" />
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-4">Địa chỉ gửi thư báo kết quả<span class="required"> * </span></label>
-                                                    <div class="col-md-5 col-validate">
-                                                        @Html.EditorFor(model => model.LienLac_DiaChi, new { htmlAttributes = new { @class = "form-control", placeholder = "Số nhà, Tên đường", @pattern = ".{1,}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào địa chỉ liên lạc của bạn')", @oninput = "this.setCustomValidity('')" } })
-                                                        @Html.ValidationMessageFor(model => model.LienLac_DiaChi, "", new { @class = "text-danger" })
-                                                        <div class="vertical_space"></div>
-                                                        <div class="row">
-                                                            <div class="col-md-4 control-label">Tỉnh/Thành phố <span class="required"> * </span></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="vertical_space"></div>
+                                                            <div class="row">
+                                                                <div class="col-md-4 control-label">Tên trường THPT<span class="required"> * </span></div>
+                                                                <div class="col-md-8">
+                                                                    <select name="ddlTenTruongTHPT" id="ddlTenTruongTHPT" class="form-control area-select" required="true" target="#ddlKhuVuc"></select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="vertical_space"></div>
+                                                            <div class="row">
+                                                                <div class="col-md-4 control-label">Tên lớp 12 <span class="required"> * </span></div>
+                                                                <div class="col-md-8">
+                                                                    <div class="col-md-8">
+                                                                        @Html.EditorFor(model => model.TenLop12, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Tên lớp 12" } })
+                                                                        @Html.ValidationMessageFor(model => model.TenLop12, "", new { @class = "text-danger" })
+                                                                        @*<input name="txtTenLop12" id="txtTenLop12" required="true" placeholder="Tên lớp 12" type="text" class="form-control" />*@
+                                                                        <span class="text-muted">(Ví dụ: lớp 12A1)</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-4">Khu vực</label>
                                                             <div class="col-md-8">
-                                                                @Html.DropDownList("LienLac_MaTP", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlQuanHuyen" })
-                                                                @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
-                                                                @Html.ValidationMessageFor(model => model.LienLac_MaTP, "", new { @class = "text-danger" })
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <select name="ddlKhuVuc" id="ddlKhuVuc" class="form-control">
+                                                                                <option value="1">1</option>
+                                                                                <option value="2">2</option>
+                                                                                <option value="2NT">2NT</option>
+                                                                                <option selected="selected" value="3">3</option>
 
+                                                                            </select>
+                                                                        </td>
+                                                                        <td>Đối tượng ưu tiên</td>
+                                                                        <td>
+                                                                            <select name="ddlDoiTuongUT" id="ddlDoiTuongUT" class="form-control">
+                                                                                <option selected="selected" value="Không có">Kh&#244;ng c&#243;</option>
+                                                                                <option value="1">1</option>
+                                                                                <option value="2">2</option>
+                                                                                <option value="3">3</option>
+                                                                                <option value="4">4</option>
+                                                                                <option value="5">5</option>
+                                                                                <option value="6">6</option>
+                                                                                <option value="7">7</option>
+
+                                                                            </select>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-4">Kết quả kỳ thi ĐGNL ngày<span class="required"> * </span></label>
+                                                            <div class="col-md-8">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input name="TGThiDGNL" type="text" value="@Convert.ToDateTime(@Model.TGThiDGNL).ToString("dd/MM/yyyy")" id="txtNgayThiDGNL" class="form-control" required="true" placeholder="18/03/2022" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" style="width:130px;" />
+                                                                        </td>
+                                                                        <td>Điểm thi<span style="color:red"> * </span></td>
+                                                                        <td>
+                                                                            @Html.EditorFor(model => model.DiemDGNL, new { htmlAttributes = new { @class = "form-control", placeholder = "750", Type = "number", @required = "required" } })
+                                                                            @Html.ValidationMessageFor(model => model.DiemDGNL, "", new { @class = "text-danger" })
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="vertical_space"></div>
+
+                                                        <h5 style="color:blue;font-weight:bold"><strong>B. THÔNG TIN LIÊN HỆ</strong></h5>
+                                                        <hr />
+                                                        <div class="form-group">
+                                                            <div class="col-md-4 text-right">Sử dụng thông tin của Hộ khẩu</div>
+                                                            <div class="col-md-6">
+                                                                <input id="chkLayDCHoKhau" type="checkbox" name="chkLayDCHoKhau" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-4">Địa chỉ gửi thư báo kết quả<span class="required"> * </span></label>
+                                                            <div class="col-md-5 col-validate">
+                                                                @Html.EditorFor(model => model.LienLac_DiaChi, new { htmlAttributes = new { @class = "form-control", required = "true", placeholder = "Số nhà, Tên đường" } })
+                                                                @Html.ValidationMessageFor(model => model.LienLac_DiaChi, "", new { @class = "text-danger" })
+                                                                <div class="vertical_space"></div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4 control-label">Tỉnh/Thành phố <span class="required"> * </span></div>
+                                                                    <div class="col-md-8">
+                                                                        @Html.DropDownList("LienLac_MaTP", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlQuanHuyen" })
+                                                                        @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                                        @Html.ValidationMessageFor(model => model.LienLac_TenTP, "", new { @class = "text-danger" })
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="vertical_space"></div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
+                                                                    <div class="col-md-8">
+                                                                        @Html.DropDownList("LienLac_MaQH", (IEnumerable<SelectListItem>)ViewBag.TP_QH, null, new { @class = "form-control district-select", required = "true", target = "#ddlPhuongXa", name = "ddlQuanHuyen", id = "ddlQuanHuyen" })
+                                                                        @*<select name="ddlQuanHuyen" id="ddlQuanHuyen" class="form-control district-select" required="true" target="#ddlPhuongXa">
+                            <option value="@Model.LienLac_TenQH"></option>
+                        </select>*@
+                                                                    </div>
+                                                                </div>
+                                                                <div class="vertical_space"></div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4 control-label">Phường/Xã <span class="required"> * </span></div>
+                                                                    <div class="col-md-8">
+                                                                        @Html.DropDownList("LienLac_MaPhuongXa", (IEnumerable<SelectListItem>)ViewBag.PX, null, new { @class = "form-control ", name = "ddlPhuongXa", id = "ddlPhuongXa", required = "true" })
+                                                                        @*<select name="ddlPhuongXa" id="ddlPhuongXa" class="form-control" required="true">
+                        </select>*@
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-4">Điện thoại di động<span class="required"> * </span></label>
+                                                            <div class="col-md-5 col-validate">
+                                                                @Html.EditorFor(model => model.DienThoaiDD, new { htmlAttributes = new { @class = "form-control", placeholder = "Điện thoại di động", @pattern = "[0-9]{10}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào số điện thoại của bạn')", @oninput = "this.setCustomValidity('')" } })
+
+                                                                @Html.ValidationMessageFor(model => model.DienThoaiDD, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-4">Email <span class="required"> * </span></label>
+                                                            <div class="col-md-5 col-validate">
+                                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email liên lạc", Type = "Email", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào email của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                                                <span class="text-muted">(Nhà trường sẽ gửi Mã hồ sơ qua email này)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-4">Điện thoại phụ huynh <span class="required"> * </span></label>
+                                                            <div class="col-md-5 col-validate">
+                                                                @Html.EditorFor(model => model.DienThoaiPhuHuynh, new { htmlAttributes = new { @class = "form-control", placeholder = "Điện thoại phụ huynh", @pattern = "[0-9]{10}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào số điện thoại của phụ huynh')", @oninput = "this.setCustomValidity('')" } })
+                                                                @Html.ValidationMessageFor(model => model.DienThoaiPhuHuynh, "", new { @class = "text-danger" })
+                                                                <span class="text-muted">(Trường hợp không liên lạc được với thí sinh, nhà Trường sẽ liên lạc qua số này)</span>
                                                             </div>
                                                         </div>
                                                         <div class="vertical_space"></div>
-                                                        <div class="row">
-                                                            <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
-                                                            <div class="col-md-8">
-                                                                <select name="ddlQuanHuyen" id="ddlQuanHuyen" class="form-control district-select" target="#ddlPhuongXa">
-                                                                </select>
-                                                                @if (Convert.ToBoolean(Session["ErrorDGNLLienhe_QH"]) == true)
-                                                                {
-
-                                                                    <p class="text-danger">@ViewBag.LHQH</p>
-                                                                }
-
-                                                            </div>
-                                                        </div>
+                                                        <div class="vertical_space"></div>
+                                                        <hr />
+                                                        <div style="background-color:red;color: white;text-transform:uppercase;padding-left:0.8em;font-size:1.3em">THÔNG TIN XÉT TUYỂN</div>
+                                                        <div class="vertical_space"></div>
                                                         <div class="vertical_space"></div>
                                                         <div class="row">
-                                                            <div class="col-md-4 control-label">Phường/Xã <span class="required"> * </span></div>
-                                                            <div class="col-md-8">
-                                                                <select name="ddlPhuongXa" id="ddlPhuongXa" class="form-control">
-                                                                </select>
-                                                                @if (Convert.ToBoolean(Session["ErrorDGNLLienhe_PX"]) == true)
-                                                                {
+                                                            <div class="col-md-1"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <td style="width:30%">
+                                                                        <strong>Ngành xét tuyển ưu tiên 1</strong>
+                                                                        @Html.DropDownList("MaNganh_ToHop1", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon1", order = "1" })
+                                                                        @Html.ValidationMessageFor(model => model.TenNganh_TenToHop1, "", new { @class = "text-danger" })
+                                                                    </td>
+                                                                    <td style="width:30%">
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="d-none">
+                                                                            <strong>Chương trình đào tạo</strong>
+                                                                            <div class="radio-list" style="margin-left: 20px">
+                                                                                <label>
+                                                                                    <input type="radio" name="CTDT1" value="CTTC" checked />
+                                                                                    CTTC
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p></p><strong style="color:red"></strong>
+                                                                    </td>
 
-                                                                    <p class="text-danger">@ViewBag.LHPX</p>
-                                                                }
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <strong>Ngành xét tuyển ưu tiên 2</strong>
+                                                                        @Html.DropDownList("MaNganh_ToHop2", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon2", order = "2" })
+                                                                        @Html.ValidationMessageFor(model => model.TenNganh_TenToHop2, "", new { @class = "text-danger" })
+                                                                    </td>
+                                                                    <td>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="d-none">
+                                                                            <strong>Chương trình đào tạo</strong>
+                                                                            <div class="radio-list" style="margin-left: 20px">
+                                                                                <label>
+                                                                                    <input type="radio" name="CTDT2" value="CTTC" checked />
+                                                                                    CTTC
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p></p><strong></strong>
+                                                                    </td>
 
-                                                            </div>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <strong>Ngành xét tuyển ưu tiên 3</strong>
+                                                                        @Html.DropDownList("MaNganh_ToHop3", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon3", order = "3" })
+                                                                        @Html.ValidationMessageFor(model => model.TenNganh_TenToHop3, "", new { @class = "text-danger" })
+                                                                    </td>
+                                                                    <td>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="d-none">
+                                                                            <strong>Chương trình đào tạo</strong>
+                                                                            <div class="radio-list" style="margin-left: 20px">
+                                                                                <label>
+                                                                                    <input type="radio" name="CTDT3" value="CTTC" checked />
+                                                                                    CTTC
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td><p></p><strong></strong></td>
+                                                                </tr>
+                                                            </table>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-4">Điện thoại di động<span class="required"> * </span></label>
-                                                    <div class="col-md-5 col-validate">
-                                                        @Html.EditorFor(model => model.DienThoaiDD, new { htmlAttributes = new { @class = "form-control", placeholder = "Điện thoại di động", @pattern = "[0-9]{10}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào số điện thoại của bạn')", @oninput = "this.setCustomValidity('')" } })
-
-                                                        @Html.ValidationMessageFor(model => model.DienThoaiDD, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-4">Email <span class="required"> * </span></label>
-                                                    <div class="col-md-5 col-validate">
-                                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email liên lạc", Type = "Email", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào email của bạn')", @oninput = "this.setCustomValidity('')" } })
-                                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                                                        <span class="text-muted">(Nhà trường sẽ gửi Mã hồ sơ qua email này)</span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-4">Điện thoại phụ huynh <span class="required"> * </span></label>
-                                                    <div class="col-md-5 col-validate">
-                                                        @Html.EditorFor(model => model.DienThoaiPhuHuynh, new { htmlAttributes = new { @class = "form-control", placeholder = "Điện thoại phụ huynh", @pattern = "[0-9]{10}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào số điện thoại của phụ huynh')", @oninput = "this.setCustomValidity('')" } })
-                                                        @Html.ValidationMessageFor(model => model.DienThoaiPhuHuynh, "", new { @class = "text-danger" })
-                                                        <span class="text-muted">(Trường hợp không liên lạc được với thí sinh, nhà Trường sẽ liên lạc qua số này)</span>
-                                                    </div>
-                                                </div>
-                                                <div class="vertical_space"></div>
-                                                <div class="vertical_space"></div>
-                                                <hr />
-                                                <div style="background-color:red;color: white;text-transform:uppercase;padding-left:0.8em;font-size:1.3em">THÔNG TIN XÉT TUYỂN</div>
-                                                <div class="vertical_space"></div>
-                                                <div class="vertical_space"></div>
-                                                <div class="row">
-                                                    <div class="col-md-1"></div>
-                                                    <table>
-                                                        <tr>
-                                                            <td style="width:30%">
-                                                                <strong>Ngành xét tuyển ưu tiên 1</strong>
-                                                                @Html.DropDownList("Majors1", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon1", order = "1" })
-                                                                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop1, "", new { @class = "text-danger" })
-                                                                @if (Convert.ToBoolean(Session["ErrorDGNLmajors1"]) == true)
-                                                                {
-
-                                                                    <p class="text-danger">@ViewBag.majors1</p>
-                                                                }
-
-                                                            </td>
-                                                            <td style="width:30%">
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-none">
-                                                                    <strong>Chương trình đào tạo</strong>
-                                                                    <div class="radio-list" style="margin-left: 20px">
-                                                                        <label>
-                                                                            <input type="radio" name="CTDT1" value="CTTC" checked />
-                                                                            CTTC
-                                                                        </label>
-                                                                    </div>
+                                                        <div class="vertical_space"></div>
+                                                        <div class="vertical_space"></div>
+                                                        <DIV class="form-actions">
+                                                            <DIV class="row">
+                                                                <div class="col-md-offset-5 col-md-5">
+                                                                    <input role="button" type="submit" class="btn green-jungle button-submit" value="CHỈNH SỬA VÀ NỘP HỒ SƠ">
+                                                                    @*<input type="submit" name="btnFinish" value="ĐỒNG Ý VÀ NỘP HỒ SƠ" id="btnFinish" class="btn green-jungle button-submit" formmethod="post" />*@
                                                                 </div>
-                                                            </td>
-                                                            <td>
-                                                                <p></p><strong style="color:red"></strong>
-                                                            </td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <strong>Ngành xét tuyển ưu tiên 2</strong>
-                                                                @Html.DropDownList("Majors2", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon2", order = "2" })
-                                                                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop2, "", new { @class = "text-danger" })
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-none">
-                                                                    <strong>Chương trình đào tạo</strong>
-                                                                    <div class="radio-list" style="margin-left: 20px">
-                                                                        <label>
-                                                                            <input type="radio" name="CTDT2" value="CTTC" checked />
-                                                                            CTTC
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <p></p><strong></strong>
-                                                            </td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <strong>Ngành xét tuyển ưu tiên 3</strong>
-                                                                @Html.DropDownList("Majors3", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon3", order = "3" })
-                                                                @Html.ValidationMessageFor(model => model.TenNganh_TenToHop3, "", new { @class = "text-danger" })
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-none">
-                                                                    <strong>Chương trình đào tạo</strong>
-                                                                    <div class="radio-list" style="margin-left: 20px">
-                                                                        <label>
-                                                                            <input type="radio" name="CTDT3" value="CTTC" checked />
-                                                                            CTTC
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td><p></p><strong></strong></td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div class="vertical_space"></div>
-                                                <div class="vertical_space"></div>
-
-                                                <!--end id="tab1"-->
-
-                                                <DIV class="form-actions">
-                                                    <DIV class="row">
-                                                        <div class="col-md-offset-5 col-md-5">
-                                                            <input type="submit" name="btnXemTruocHoSo" value="XEM TRƯỚC HỒ SƠ" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnXemTruocHoSo&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="btnXemTruocHoSo" class="btn green button-submit" />
-                                                        </div>
-                                                    </DIV>
-                                                </DIV>
+                                                            </DIV>
+                                                        </DIV>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>

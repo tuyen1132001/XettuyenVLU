@@ -26,8 +26,7 @@ namespace XettuyenDGNLTHPT.Models
         public string Email { get; set; }
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
         public Nullable<bool> GioiTinh { get; set; }
-        [DataType(DataType.Date, ErrorMessage = "Date only")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
         
         public Nullable<System.DateTime> NgaySinh { get; set; }
@@ -77,8 +76,7 @@ namespace XettuyenDGNLTHPT.Models
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
         [Range(100, 1200, ErrorMessage = "Điểm từ 100- 1200")]
         public Nullable<int> DiemDGNL { get; set; }
-        [DataType(DataType.Date, ErrorMessage = "Date only")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+       
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
 
         public Nullable<System.DateTime> TGThiDGNL { get; set; }
