@@ -72,8 +72,7 @@ namespace XettuyenDGNLTHPT.Models
         public string KhuVuc { get; set; }
         [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
-        [MaxLength(1200, ErrorMessage = "Điểm tối đa 1200")]
-        [MinLength(100, ErrorMessage = "Điểm tối thiểu 100")]
+        [Range(100, 1200, ErrorMessage = "Điểm tối đa 1200")]
         public Nullable<int> DiemDGNL { get; set; }
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
         public Nullable<System.DateTime> TGThiDGNL { get; set; }
