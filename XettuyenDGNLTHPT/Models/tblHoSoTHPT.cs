@@ -27,6 +27,9 @@ namespace XettuyenDGNLTHPT.Models
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
         public Nullable<bool> GioiTinh { get; set; }
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        
         public Nullable<System.DateTime> NgaySinh { get; set; }
        
         public string MaNoiSinh { get; set; }
@@ -110,7 +113,7 @@ namespace XettuyenDGNLTHPT.Models
         public string MaNganh_ToHop3 { get; set; }
         public string TenNganh_TenToHop3 { get; set; }
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
-        [RegularExpression(@"^[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ0-9. ]*$",
+        [RegularExpression(@"^[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ0-9/. ]*$",
         ErrorMessage = "Vui lòng nhập đúng địa chỉ")]
         public string LienLac_DiaChi { get; set; }
         public string LienLac_MaPhuongXa { get; set; }

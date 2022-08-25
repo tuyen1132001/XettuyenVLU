@@ -26,7 +26,10 @@ namespace XettuyenDGNLTHPT.Models
         public string Email { get; set; }
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
         public Nullable<bool> GioiTinh { get; set; }
+        [DataType(DataType.Date, ErrorMessage = "Date only")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
+        
         public Nullable<System.DateTime> NgaySinh { get; set; }
         public string MaNoiSinh { get; set; }
         public string TenNoiSinh { get; set; }
@@ -74,7 +77,10 @@ namespace XettuyenDGNLTHPT.Models
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
         [Range(100, 1200, ErrorMessage = "Điểm từ 100- 1200")]
         public Nullable<int> DiemDGNL { get; set; }
+        [DataType(DataType.Date, ErrorMessage = "Date only")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
+
         public Nullable<System.DateTime> TGThiDGNL { get; set; }
         public string DoiTuongUuTien { get; set; }
         public string CCNN { get; set; }
@@ -89,6 +95,9 @@ namespace XettuyenDGNLTHPT.Models
         public string CTDT3 { get; set; }
         public Nullable<int> CTCT { get; set; }
         public Nullable<int> CTDB { get; set; }
+        [Required(ErrorMessage = "Cần nhập vào dữ liệu này")]
+        [RegularExpression(@"^[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ0-9/. ]*$",
+        ErrorMessage = "Vui lòng nhập đúng địa chỉ")]
         public string LienLac_DiaChi { get; set; }
         public string LienLac_MaPhuongXa { get; set; }
         public string LienLac_TenPhuongXa { get; set; }

@@ -129,7 +129,7 @@
                                                                                 @Html.EditorFor(model => model.HoVaTen, new { htmlAttributes = new { @class = "form-control", placeholder = "NGUYỄN VĂN A", style = "text-transform: uppercase;", @pattern = "[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ ]{1,}", required = "true", oninvalid = "this.setCustomValidity('Hãy nhập vào họ tên của bạn')" } })
 
                                                                                 @*<input name="txtTenThiSinh" type="text" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />*@
-                                                                                @*@Html.ValidationMessageFor(model => model.HoVaTen, "", new { @class = "text-danger" })*@
+                                                                                @Html.ValidationMessageFor(model => model.HoVaTen, "", new { @class = "text-danger" })
 
                                                                             </div>
 
@@ -144,6 +144,7 @@
                                                                                         @Html.RadioButtonFor(model => model.GioiTinh, false)
                                                                                         Nữ
                                                                                     </label>
+                                                                                    @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -154,12 +155,15 @@
                                                                                     <tr>
 
                                                                                         <td>
-                                                                                            @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào ngày sinh của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                            @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", placeholder = "10/02/2001", Type = "Date" } })
+                                                                                            @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
                                                                                         </td>
                                                                                         <td>Nơi sinh<span style="color:red"> * </span></td>
                                                                                         <td>
-                                                                                            @Html.DropDownList("MaNoiSinh", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, new { @class = "form-control", @required = "required", @oninvalid = "this.setCustomValidity('Hãy chọn nơi sinh của bạn')", @oninput = "this.setCustomValidity('')" })
+                                                                                            @Html.DropDownList("MaNoiSinh", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, new { @class = "form-control" })
+                                                                                            @Html.ValidationMessageFor(model => model.MaNoiSinh, "", new { @class = "text-danger" })
                                                                                         </td>
+
                                                                                     </tr>
                                                                                 </table>
                                                                             </div>
@@ -221,6 +225,11 @@
                                                                                         @Html.DropDownList("TP_QH_PX", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlHoKhauQuanHuyen" })
                                                                                         @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
                                                                                         @Html.ValidationMessageFor(model => model.HoKhau_TenTinhTP, "", new { @class = "text-danger" })
+                                                                                        @if (Convert.ToBoolean(Session["ErrorDGNLHokhau_TinhTP"]) == true)
+                                                                                        {
+                                                                                            Session["ErrorDGNLHokhau_TinhTP"] = false;
+                                                                                            <p class="text-danger">@ViewBag.HKTP</p>
+                                                                                        }
 
                                                                                     </div>
                                                                                 </div>
@@ -229,8 +238,14 @@
                                                                                     <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
                                                                                         @*@Html.DropDownList("HoKhau_MaQH", (IEnumerable<SelectListItem>)ViewBag.TP_QH, null, new { @class = "form-control district-select", target = "#ddlHoKhau_PhuongXa", name = "ddlHoKhauQuanHuyen", id = "ddlHoKhauQuanHuyen" })*@
-                                                                                        <select name="ddlHoKhauQuanHuyen" id="ddlHoKhauQuanHuyen" class="form-control district-select" required="true" target="#ddlHoKhau_PhuongXa">
+                                                                                        <select name="ddlHoKhauQuanHuyen" id="ddlHoKhauQuanHuyen" class="form-control district-select" target="#ddlHoKhau_PhuongXa">
                                                                                         </select>
+                                                                                        @if (Convert.ToBoolean(Session["ErrorDGNLHokhau_QH"]) == true)
+                                                                                        {
+
+                                                                                            <p class="text-danger">@ViewBag.HKQH</p>
+                                                                                        }
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="vertical_space"></div>
@@ -238,8 +253,14 @@
                                                                                     <div class="col-md-4 control-label">Phường/Xã <span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
                                                                                         @*@Html.DropDownList("HoKhau_MaPhuong", (IEnumerable<SelectListItem>)ViewBag.PX, null, new { @class = "form-control ", name = "ddlHoKhau_PhuongXa", id = "ddlHoKhau_PhuongXa", required = "true" })*@
-                                                                                        <select name="ddlHoKhau_PhuongXa" id="ddlHoKhau_PhuongXa" class="form-control" required="true">
+                                                                                        <select name="ddlHoKhau_PhuongXa" id="ddlHoKhau_PhuongXa" class="form-control" >
                                                                                         </select>
+                                                                                        @if (Convert.ToBoolean(Session["ErrorDGNLHokhau_PX"]) == true)
+                                                                                        {
+
+                                                                                            <p class="text-danger">@ViewBag.HKPX</p>
+                                                                                        }
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -269,6 +290,7 @@
                                                                                         @Html.RadioButtonFor(model => model.HocLucLop12, "Khác")
                                                                                         Khác
                                                                                     </label>
+                                                                                    @Html.ValidationMessageFor(model => model.HocLucLop12, "", new { @class = "text-danger" })
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -289,6 +311,7 @@
                                                                                         @Html.RadioButtonFor(model => model.HanhKiemLop12, "Khác")
                                                                                         Khác
                                                                                     </label>
+                                                                                    @Html.ValidationMessageFor(model => model.HanhKiemLop12, "", new { @class = "text-danger" })
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -303,6 +326,7 @@
                                                                                             @Html.RadioButtonFor(model => model.LoaiHinhTN, "GDTX")
                                                                                             GDTX
                                                                                         </label>
+                                                                                        @Html.ValidationMessageFor(model => model.LoaiHinhTN, "", new { @class = "text-danger" })
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -312,23 +336,40 @@
                                                                             <div class="col-md-5">
                                                                                 @Html.DropDownList("THPT", (IEnumerable<SelectListItem>)ViewBag.THPT, null, new { @class = "form-control districtschool-select", target = "#ddlQuanHuyenTHPT" })
                                                                                 @Html.ValidationMessageFor(model => model.TruongTHPT_TenTinhTP, "", new { @class = "text-danger" })
+                                                                                @if (Convert.ToBoolean(Session["ErrorDGNLTrg_TinhTP"]) == true)
+                                                                                {
+
+                                                                                    <p class="text-danger">@ViewBag.TRGTP</p>
+                                                                                }
+
                                                                                 <div class="vertical_space"></div>
                                                                                 <div class="row">
                                                                                     <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
-                                                                                        <select name="ddlQuanHuyenTHPT" id="ddlQuanHuyenTHPT" class="form-control school-select" required="true" target="#ddlTenTruongTHPT">
+                                                                                        <select name="ddlQuanHuyenTHPT" id="ddlQuanHuyenTHPT" class="form-control school-select" target="#ddlTenTruongTHPT">
                                                                                         </select>
                                                                                         @*<select name="ddlQuanHuyenTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlQuanHuyenTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlQuanHuyenTHPT" class="form-control " required="true">
-                                                                                            </select>*@
+        </select>*@                                                                     @if (Convert.ToBoolean(Session["ErrorDGNLTrg_QH"]) == true)
+                                                                                        {
+
+                                                                                            <p class="text-danger">@ViewBag.TRGQH</p>
+                                                                                        }
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="vertical_space"></div>
                                                                                 <div class="row">
                                                                                     <div class="col-md-4 control-label">Tên trường THPT<span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
-                                                                                        <select name="ddlTenTruongTHPT" id="ddlTenTruongTHPT" class="form-control area-select" required="true" target="#ddlKhuVuc"></select>
+                                                                                        <select name="ddlTenTruongTHPT" id="ddlTenTruongTHPT" class="form-control area-select"  target="#ddlKhuVuc"></select>
                                                                                         @*<select name="ddlTenTruongTHPT" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlTenTruongTHPT\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlTenTruongTHPT" class="form-control " required="true">
-                                                                                            </select>*@
+        </select>*@
+                                                                                        @if (Convert.ToBoolean(Session["ErrorDGNLTrg_TenTrg"]) == true)
+                                                                                        {
+
+                                                                                            <p class="text-danger">@ViewBag.TRG</p>
+                                                                                        }
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="vertical_space"></div>
@@ -348,7 +389,7 @@
                                                                                 <table>
                                                                                     <tr>
                                                                                         <td>
-                                                                                            <select name="ddlKhuVuc" id="ddlKhuVuc" class="form-control" required="true">
+                                                                                            <select name="ddlKhuVuc" id="ddlKhuVuc" class="form-control" >
                                                                                             </select>
                                                                                         </td>
                                                                                         <td>Đối tượng ưu tiên</td>
@@ -381,7 +422,7 @@
                                                                                         </td>
                                                                                         <td>Điểm thi<span style="color:red"> * </span></td>
                                                                                         <td>
-                                                                                            @Html.EditorFor(model => model.DiemDGNL, new { htmlAttributes = new { @class = "form-control", placeholder = "750", Type = "number", min = "100", max = "1200", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào điểm thi của bạn')", @oninput = "this.setCustomValidity('')" } })
+                                                                                            @Html.EditorFor(model => model.DiemDGNL, new { htmlAttributes = new { @class = "form-control", placeholder = "750", Type = "number", @required = "required"} })
                                                                                             @Html.ValidationMessageFor(model => model.DiemDGNL, "", new { @class = "text-danger" })
                                                                                         </td>
                                                                                     </tr>
@@ -410,7 +451,7 @@
                                                                                     <div class="col-md-8">
                                                                                         @Html.DropDownList("LienLac_MaTP", (IEnumerable<SelectListItem>)ViewBag.TP_QH_PX, null, new { @class = "form-control city-select", target = "#ddlQuanHuyen" })
                                                                                         @*@Html.EditorFor(model => model.CCNN, new { htmlAttributes = new { @class = "form-control" } })*@
-                                                                                        @Html.ValidationMessageFor(model => model.HoKhau_TenTinhTP, "", new { @class = "text-danger" })
+                                                                                        @Html.ValidationMessageFor(model => model.LienLac_MaTP, "", new { @class = "text-danger" })
 
                                                                                     </div>
                                                                                 </div>
@@ -418,16 +459,28 @@
                                                                                 <div class="row">
                                                                                     <div class="col-md-4 control-label">Quận/Huyện <span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
-                                                                                        <select name="ddlQuanHuyen" id="ddlQuanHuyen" class="form-control district-select" required="true" target="#ddlPhuongXa">
+                                                                                        <select name="ddlQuanHuyen" id="ddlQuanHuyen" class="form-control district-select" target="#ddlPhuongXa">
                                                                                         </select>
+                                                                                        @if (Convert.ToBoolean(Session["ErrorDGNLLienhe_QH"]) == true)
+                                                                                        {
+
+                                                                                            <p class="text-danger">@ViewBag.LHQH</p>
+                                                                                        }
+
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="vertical_space"></div>
                                                                                 <div class="row">
                                                                                     <div class="col-md-4 control-label">Phường/Xã <span class="required"> * </span></div>
                                                                                     <div class="col-md-8">
-                                                                                        <select name="ddlPhuongXa" id="ddlPhuongXa" class="form-control" required="true">
+                                                                                        <select name="ddlPhuongXa" id="ddlPhuongXa" class="form-control">
                                                                                         </select>
+                                                                                        @if (Convert.ToBoolean(Session["ErrorDGNLLienhe_PX"]) == true)
+                                                                                        {
+
+                                                                                            <p class="text-danger">@ViewBag.LHPX</p>
+                                                                                        }
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -470,6 +523,12 @@
                                                                                         <strong>Ngành xét tuyển ưu tiên 1</strong>
                                                                                         @Html.DropDownList("Majors1", (IEnumerable<SelectListItem>)ViewBag.NGANH, null, new { @class = "form-control majors-select ", target = "#ddlToHopMon1", order = "1" })
                                                                                         @Html.ValidationMessageFor(model => model.TenNganh_TenToHop1, "", new { @class = "text-danger" })
+                                                                                        @if (Convert.ToBoolean(Session["ErrorDGNLmajors1"]) == true)
+                                                                                        {
+
+                                                                                            <p class="text-danger">@ViewBag.majors1</p>
+                                                                                        }
+
                                                                                     </td>
                                                                                     <td style="width:30%">
                                                                                     </td>
@@ -565,6 +624,9 @@
                     </DIV>
 
                 </div>
+                </div>
+            </div>
+        </div>
 
 
                 <script type="text/javascript">
