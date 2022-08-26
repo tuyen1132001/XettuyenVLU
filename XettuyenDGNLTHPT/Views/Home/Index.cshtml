@@ -6,11 +6,6 @@
 }
 
 
-<style>
-    .d-none {
-        display: none
-    }
-</style>
 
 
 
@@ -202,7 +197,7 @@
                                                                                             <!--<input name="txtCMND"--> @*maxlength="12" id="txtCMND" required="true" placeholder="9 số hoặc 12 số" type="text" class="form-control*@<!--" />-->
                                                                                             @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control", placeholder = "9 số hoặc 12 số", @pattern = "[0-9]{9,12}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào CMND của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                             @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
-                                                                                            
+
                                                                                         </td>
                                                                                         <td>Quốc tịch<span style="color:red"> * </span></td>
                                                                                         <td>
@@ -768,17 +763,43 @@
             </div>
         </div>
 
-      </div>
-            <script type="text/javascript">
-                //<![CDATA[
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
 
-                theForm.oldSubmit = theForm.submit;
-                theForm.submit = WebForm_SaveScrollPositionSubmit;
+        theForm.oldSubmit = theForm.submit;
+        theForm.submit = WebForm_SaveScrollPositionSubmit;
 
-                theForm.oldOnSubmit = theForm.onsubmit;
-                theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
-                WebForm_AutoFocus('HoVaTen');//]]>
-            </script>
+        theForm.oldOnSubmit = theForm.onsubmit;
+        theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+        WebForm_AutoFocus('HoVaTen');//]]>
+    </script>
+    <button onclick="topFunction()" id="myBtn" title="Click vào để quay lại đầu trang nhé !"></button>
+
+
+
+
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 </form>
 <!-- BEGIN FOOTER -->
 <!-- BEGIN INNER FOOTER -->

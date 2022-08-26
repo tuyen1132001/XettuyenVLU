@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @using (Html.BeginForm("InHoSo", "ManageHoSo", FormMethod.Post))
 {
     <form>
@@ -20,8 +21,9 @@
             @if (Convert.ToBoolean(Session["notfound"]) == true)
             {
                 Session["notfound"] = false;
-                <div style="font-size:1.3em" class="text-center font-blue bold"><br>Không tìm thấy hồ sơ của bạn trên hệ thống!<br>Bạn cần nhập đúng SỐ CMND/CCCD hoặc SỐ ĐIỆN THOẠI đã đăng ký hồ sơ.<br><br>Nếu cần hỗ trợ, bạn có thể liên hệ hotline: (028) 7105 9999
-                    </div>
+                <div style="font-size:1.3em" class="text-center font-blue bold">
+                    <br>Không tìm thấy hồ sơ của bạn trên hệ thống!<br>Bạn cần nhập đúng SỐ CMND/CCCD hoặc SỐ ĐIỆN THOẠI đã đăng ký hồ sơ.<br><br>Nếu cần hỗ trợ, bạn có thể liên hệ hotline: (028) 7105 9999
+                </div>
             }
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
@@ -63,9 +65,35 @@
 
 
 }
+<button onclick="topFunction()" id="myBtn" title="Click vào để quay lại đầu trang nhé !"></button>
+
+
+
+
+<script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
 @section Scripts {
     <script src="~/Scripts/app.js"></script>
-    
+
     @Scripts.Render("~/bundles/jqueryval")
     <script>
         let data = $("#ddlLoaiXetTuyen :selected").val();
@@ -78,7 +106,7 @@
                     $('#Dot').toggle();
                 }
             });
-            
+
         });
     </script>
 }
