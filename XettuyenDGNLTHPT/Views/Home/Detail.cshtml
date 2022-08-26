@@ -60,7 +60,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><strong>Họ và tên</strong>: @Model.HoVaTen</td>
-                                                    <td><strong>Ngày sinh</strong>: @Model.NgaySinh</td>
+                                                    <td><strong>Ngày sinh</strong>:  @Convert.ToDateTime(@Model.NgaySinh).ToString("dd/MM/yyyy")</td>
                                                     @if (Model.GioiTinh == true)
                                                     {
                                                         <td><strong>Giới tính</strong>: Nam</td>

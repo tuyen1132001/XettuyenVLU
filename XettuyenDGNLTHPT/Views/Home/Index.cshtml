@@ -508,7 +508,7 @@
                                                                                         </select>
                                                                                         @if (Convert.ToBoolean(Session["ErrorLienhe_PX"]) == true)
                                                                                         {
-
+                                                                                            Session["ErrorLienhe_PX"] = false;
                                                                                             <p class="text-danger">@ViewBag.LHPX</p>
                                                                                         }
                                                                                     </div>
@@ -690,20 +690,12 @@
                                                                                         </select>
                                                                                         @if (Convert.ToBoolean(Session["ErrorddlToHopMon1"]) == true)
                                                                                         {
-
+                                                                                            Session["ErrorddlToHopMon1"] = false;
                                                                                             <p class="text-danger">@ViewBag.ddlToHopMon1</p>
                                                                                         }
                                                                                     </td>
                                                                                     <td>
-                                                                                        <div class="d-none">
-                                                                                            <strong>Chương trình đào tạo</strong>
-                                                                                            <div class="radio-list" style="margin-left: 20px">
-                                                                                                <label>
-                                                                                                    <input type="radio" name="CTDT1" value="CTTC" checked />
-                                                                                                    CTTC
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
+                                                                                       
                                                                                     </td>
                                                                                     <td>
                                                                                         <p></p><strong style="color:red"></strong>
@@ -721,15 +713,7 @@
                                                                                         </select>
                                                                                     </td>
                                                                                     <td>
-                                                                                        <div class="d-none">
-                                                                                            <strong>Chương trình đào tạo</strong>
-                                                                                            <div class="radio-list" style="margin-left: 20px">
-                                                                                                <label>
-                                                                                                    <input type="radio" name="CTDT2" value="CTTC" checked />
-                                                                                                    CTTC
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
+                                                                                       
                                                                                     </td>
                                                                                     <td>
                                                                                         <p></p><strong></strong>
@@ -747,15 +731,7 @@
                                                                                         </select>
                                                                                     </td>
                                                                                     <td>
-                                                                                        <div class="d-none">
-                                                                                            <strong>Chương trình đào tạo</strong>
-                                                                                            <div class="radio-list" style="margin-left: 20px">
-                                                                                                <label>
-                                                                                                    <input type="radio" name="CTDT3" value="CTTC" checked />
-                                                                                                    CTTC
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
+                                                                                       
                                                                                     </td>
                                                                                     <td><p></p><strong></strong></td>
                                                                                 </tr>
