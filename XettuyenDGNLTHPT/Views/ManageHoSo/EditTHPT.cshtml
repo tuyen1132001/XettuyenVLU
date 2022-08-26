@@ -154,7 +154,36 @@
     }
 </script>
 <!-- BEGIN CONTAINER -->
+<div style="background-color: #c61d23" class="page-header-menu sss">
+    <div class="container">
+        <div class="hor-menu">
+            <ul class="nav navbar-nav">
+                <li><a target="_blank" class="amenu" href="http://tuyensinh.vanlanguni.edu.vn/">TUYỂN SINH 2022</a></li>
+                @if (Convert.ToBoolean(Session["Form-bodyTHPT"]) == true)
+                {
 
+                }
+                else
+                {
+                    <li><a class="amenu" href="@Url.Action("index", "Home")"> XÉT ĐIỂM THI THPT QG</a></li>
+                }
+                @if (Convert.ToBoolean(Session["Form-bodyDGNL"]) == true)
+                {
+
+                }
+                else
+                {
+                    <li><a class="amenu" href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
+                }
+
+
+                <li style="background-color: #4e5966"> <a class="amenu" href="@Url.Action("InHoSo", "ManageHoSo")">HỒ SƠ CỦA TÔI</a></li>
+                <li><a class="amenu" href="@Url.Action("index", "tracuuketqua")">GIẤY BÁO ĐỦ ĐIỀU KIỆN</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
 <div id="UpdatePanel1" class="form-horizontal">
 
     <div class="page-container">
@@ -190,18 +219,18 @@
                                                             <h5 style="color:blue; border-bottom:solid;border-width:1px;border-color:lightgray; padding-bottom:15px; margin-top:8px">
                                                                 <strong>A. THÔNG TIN CÁ NHÂN</strong>
                                                             </h5><br />
-                                                                 <div class="form-group">
-                                                                     <label class="control-label col-md-4">Họ và tên<span class="required"> * </span></label>
-                                                                     <div class="col-md-5 col-validate">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4">Họ và tên<span class="required"> * </span></label>
+                                                                <div class="col-md-5 col-validate">
 
-                                                                         <input name="HoVaTen" type="text" value="@Model.HoVaTen" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />
-                                                                     </div>
-                                                                     <div class="col-md-5 col-validate" hidden>
+                                                                    <input name="HoVaTen" type="text" value="@Model.HoVaTen" id="txtTenThiSinh" class="form-control" placeholder="NGUYỄN VĂN A" required="true" style="text-transform: uppercase;" />
+                                                                </div>
+                                                                <div class="col-md-5 col-validate" hidden>
 
-                                                                         <input name="ID" type=”hidden” value="@Model.ID" class="form-control" hidden="hidden" />
-                                                                     </div>
-                                                                    
-                                                                 </div>
+                                                                    <input name="ID" type=”hidden” value="@Model.ID" class="form-control" hidden="hidden" />
+                                                                </div>
+
+                                                            </div>
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-4">Giới tính<span class="required"> * </span></label>
                                                                 <div class="col-md-4 col-validate">

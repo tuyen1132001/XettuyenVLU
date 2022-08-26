@@ -10,6 +10,10 @@
     .d-none {
         display: none
     }
+
+    .amenu:hover {
+        background-color: black;
+    }
 </style>
 
 <script>
@@ -162,7 +166,36 @@
 
     gtag('config', 'UA-139455606-1');
 </script>
+<div style="background-color: #c61d23" class="page-header-menu sss">
+    <div class="container">
+        <div class="hor-menu">
+            <ul class="nav navbar-nav">
+                <li><a target="_blank" class="amenu" href="http://tuyensinh.vanlanguni.edu.vn/">TUYỂN SINH 2022</a></li>
+                @if (Convert.ToBoolean(Session["Form-bodyTHPT"]) == true)
+                {
 
+                }
+                else
+                {
+                    <li style="background-color: #4e5966" class="active"><a class="amenu" href="@Url.Action("index", "Home")"> XÉT ĐIỂM THI THPT QG</a></li>
+                }
+                @if (Convert.ToBoolean(Session["Form-bodyDGNL"]) == true)
+                {
+
+                }
+                else
+                {
+                    <li><a class="amenu" href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
+                }
+
+
+                <li> <a class="amenu" href="@Url.Action("InHoSo", "ManageHoSo")">HỒ SƠ CỦA TÔI</a></li>
+                <li><a class="amenu" href="@Url.Action("index", "tracuuketqua")">GIẤY BÁO ĐỦ ĐIỀU KIỆN</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
 <form method="post" id="form_dang_ky" class="form-horizontal">
     <div class="aspNetHidden">
         <input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
@@ -338,7 +371,7 @@
                                                                                             <!--<input name="txtCMND"--> @*maxlength="12" id="txtCMND" required="true" placeholder="9 số hoặc 12 số" type="text" class="form-control*@<!--" />-->
                                                                                             @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control", placeholder = "9 số hoặc 12 số", @pattern = "[0-9]{9,12}", @required = "required", @oninvalid = "this.setCustomValidity('Hãy nhập vào CMND của bạn')", @oninput = "this.setCustomValidity('')" } })
                                                                                             @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
-                                                                                            
+
                                                                                         </td>
                                                                                         <td>Quốc tịch<span style="color:red"> * </span></td>
                                                                                         <td>
@@ -672,7 +705,7 @@
                                                                                         </td>
                                                                                         <td>
                                                                                             Sinh
-                                                                                            @Html.EditorFor(model => model.Sinh, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; ", type = "number", min = "0", max = "10",  @oninput = "this.setCustomValidity('')" } })
+                                                                                            @Html.EditorFor(model => model.Sinh, new { htmlAttributes = new { placeholder = "Điểm", @class = "form-control", @style = " width: 60px;    height: 40px; ", type = "number", min = "0", max = "10", @oninput = "this.setCustomValidity('')" } })
                                                                                             @Html.ValidationMessageFor(model => model.Sinh, "", new { @class = "text-danger" })
                                                                                             @*<span class="bold">SINH</span><input name="txtSinh12" type="text" maxlength="5" id="txtSinh12" class="form-control" required="true" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Điểm" style="width:65px;" />*@
 
@@ -840,17 +873,17 @@
             </div>
         </div>
 
-      </div>
-            <script type="text/javascript">
-                //<![CDATA[
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
 
-                theForm.oldSubmit = theForm.submit;
-                theForm.submit = WebForm_SaveScrollPositionSubmit;
+        theForm.oldSubmit = theForm.submit;
+        theForm.submit = WebForm_SaveScrollPositionSubmit;
 
-                theForm.oldOnSubmit = theForm.onsubmit;
-                theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
-                WebForm_AutoFocus('HoVaTen');//]]>
-            </script>
+        theForm.oldOnSubmit = theForm.onsubmit;
+        theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+        WebForm_AutoFocus('HoVaTen');//]]>
+    </script>
 </form>
 <!-- BEGIN FOOTER -->
 <!-- BEGIN INNER FOOTER -->
