@@ -43,7 +43,36 @@
         window.print();
     }
 </script>
+<div style="background-color: #c61d23" class="page-header-menu sss">
+    <div class="container">
+        <div class="hor-menu">
+            <ul class="nav navbar-nav">
+                <li><a target="_blank" class="amenu" href="http://tuyensinh.vanlanguni.edu.vn/">TUYỂN SINH 2022</a></li>
+                @if (Convert.ToBoolean(Session["Form-bodyTHPT"]) == true)
+                {
 
+                }
+                else
+                {
+                    <li><a class="amenu" href="@Url.Action("index", "Home")"> XÉT ĐIỂM THI THPT QG</a></li>
+                }
+                @if (Convert.ToBoolean(Session["Form-bodyDGNL"]) == true)
+                {
+
+                }
+                else
+                {
+                    <li><a class="amenu" href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
+                }
+
+
+                <li style="background-color: #4e5966"> <a class="amenu" href="@Url.Action("InHoSo", "ManageHoSo")">HỒ SƠ CỦA TÔI</a></li>
+                <li><a class="amenu" href="@Url.Action("index", "tracuuketqua")">GIẤY BÁO ĐỦ ĐIỀU KIỆN</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
 <form method="post" action="@Url.Action("DetailTHPT","ManageHoSo")">
     <div class="aspNetHidden">
         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
@@ -457,7 +486,32 @@
 
     <div class="vertical_space"></div>
     <div class="vertical_space"></div>
+    <button onclick="topFunction()" id="myBtn" title="Click vào để quay lại đầu trang nhé !"></button>
 
+
+
+
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 </form>
 @section Scripts {
     <script src="~/Scripts/app.js"></script>

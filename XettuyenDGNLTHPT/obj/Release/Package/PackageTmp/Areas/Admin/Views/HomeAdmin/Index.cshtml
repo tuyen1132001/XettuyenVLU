@@ -25,74 +25,96 @@
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
-    <div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <div class="page-breadcrumb bg-white">
-            <div class="row align-items-center">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Trang Quản Trị Website</h4>
-                </div>
-
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title" style="line-height: 40px; padding-top: 10px">Trang Quản Trị Website</h4>
             </div>
-            <!-- /.col-lg-12 -->
+
         </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
 
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-        <div class="container-fluid">
-            <!-- ============================================================== -->
-            <!-- Three charts -->
-            <!-- ============================================================== -->
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-12">
-
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-12">
+                <div class="white-box analytics-info">
+                    <h3 class="box-title">Số Lượng Hồ Sơ ĐGNL</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        <i style="color: blue" class="fa fa-user"></i>
+                        <li class="ms-auto"><span class="counter text-purple"> @Session["hsdgnl"].ToString()</span></li>
+                    </ul>
                 </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="white-box analytics-info">
-                        <h3 class="box-title">Số lượng Hồ Sơ Đợt 1</h3>
-                        <ul class="list-inline two-part d-flex align-items-center mb-0">
-                            <li>
-                                <div id="sparklinedash2">
-                                    <canvas width="67" height="30"
-                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="white-box analytics-info">
 
-                                </div>
-                            </li>
-                            <li class="ms-auto"><span class="counter text-purple">@Session["slhs"].ToString()</span></li>
-                        </ul>
-                    </div>
+                    <h3 class="box-title">Số Lượng Hồ Sơ THPT Quốc Gia</h3>
+
+
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash">
+                                <canvas width="67" height="30"
+                                        style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                            </div>
+                        </li>
+                        <i style="color: red" class="fa fa-user"></i>
+                        <li class="ms-auto"><span class="counter text-purple"> @Session["hsthpt"].ToString()</span></li>
+                    </ul>
                 </div>
-
             </div>
-
-            <!-- ============================================================== -->
-            <!-- Recent Comments -->
-            <!-- ============================================================== -->
-            <div class="row">
-                <!-- .col -->
-
-
-            </div>
+        </div> <br /><br /><br /><br />
+        <div>
+            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         </div>
-        <!-- /.col -->
     </div>
 
     <!-- ============================================================== -->
-    <!-- End Container fluid  -->
-    <!-- ============================================================== -->
-    <!-- ===========================================>=================== -->
-    <!-- footer -->
+    <!-- Recent Comments -->
     <!-- ============================================================== -->
 
 
     <div><button onclick="topFunction()" id="myBtn" title="Go to top"><i class="gg-arrow-up-o"></i></button></div>
 
 </body>
+<script type="text/javascript">
+    window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            theme: "light1", // "light2", "dark1", "dark2"
+            animationEnabled: false, // change to true
+            title: {
+                text: "Hồ Sơ"
+            },
+            data: [
+                {
+                    type: "column",
+                    dataPoints: [
+                        { label: "Hồ Sơ Đánh Giá Năng Lực", y: @Session["hsdgnl"].ToString() },
+                        { label: "Hồ Sơ THPT Quốc Gia", y:  @Session["hsthpt"].ToString() },
+                        { label: "Tổng Số Lượng Hồ Sơ", y: @Session["slhs"].ToString() },
+
+                    ]
+                }
+            ]
+        });
+        chart.render();
+
+    }
+</script>
 
 </html>-

@@ -255,9 +255,7 @@
                                                             <table>
                                                                 <tr>
                                                                     <td>
-                                                                        @*<input name="txtNgaySinh" type="text" id="txtNgaySinh" class="form-control" required="true" placeholder="21/08/2000" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" style="width:130px;" />*@
-                                                                        @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", placeholder = "21/08/2000" } })
-                                                                        @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+                                                                        <input name="NgaySinh" value="@Convert.ToDateTime(@Model.NgaySinh).ToString("dd/MM/yyyy")" type="text" id="txtNgaySinh" class="form-control" required="true" placeholder="21/08/2000" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" style="width:130px;" />
                                                                     </td>
                                                                     <td>Nơi sinh<span style="color:red"> * </span></td>
                                                                     <td>

@@ -8,7 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9wexuKKQt0WNRaZSUkWZZwAAAAACAAAAAAAQZgAAAAEAACAAAAArc7PfKYpuE0+DV+HT3M5P3f3oVIyllai66Vx7ZBZGqAAAAAAOgAAAAAIAACAAAADe/Zdsv9Foghk3JrbyDpbCMHi5/yjyNL696Vt2WccTlCAAAACZzO1zExuJmZPYIPncCJX7O2bDpjYO6T+PFrD5TbVjL0AAAADWOfDRGwaGZDZkYEQC+VVPRwEMEXQM9B/42isJd4p3A2bMQVFyhIqnsG3v773bk7SkRmzXSQSumQno/PZ9ctZ0</EncryptedPassword>
     <_PublishTargetUrl>ftp://cntttest.vanlanguni.edu.vn:18085</_PublishTargetUrl>
-    <History>True|2022-08-25T09:12:33.8297260Z;True|2022-08-22T09:27:48.9922994+07:00;True|2022-08-21T16:03:57.1488234+07:00;True|2022-08-16T15:03:18.4272554+07:00;True|2022-08-12T16:23:43.8719088+07:00;True|2022-08-11T21:51:41.8655106+07:00;True|2022-08-11T21:48:17.5376883+07:00;True|2022-08-11T21:26:52.6407080+07:00;True|2022-08-11T21:16:23.7358160+07:00;True|2022-08-11T21:14:19.0612347+07:00;True|2022-08-11T21:03:03.5553423+07:00;True|2022-08-11T00:34:20.5868690+07:00;</History>
+    <History>True|2022-08-26T13:49:09.0771889Z;True|2022-08-25T16:12:33.8297260+07:00;True|2022-08-22T09:27:48.9922994+07:00;True|2022-08-21T16:03:57.1488234+07:00;True|2022-08-16T15:03:18.4272554+07:00;True|2022-08-12T16:23:43.8719088+07:00;True|2022-08-11T21:51:41.8655106+07:00;True|2022-08-11T21:48:17.5376883+07:00;True|2022-08-11T21:26:52.6407080+07:00;True|2022-08-11T21:16:23.7358160+07:00;True|2022-08-11T21:14:19.0612347+07:00;True|2022-08-11T21:03:03.5553423+07:00;True|2022-08-11T00:34:20.5868690+07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/Admin/Views/Acount/AddAccount.cshtml">
@@ -36,7 +36,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2022 20:26:19</publishTime>
     </File>
     <File Include="Areas/Admin/Views/HomeAdmin/Index.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:17:39</publishTime>
     </File>
     <File Include="Areas/Admin/Views/HomeAdmin/IndexData.cshtml">
       <publishTime>08/25/2022 20:26:19</publishTime>
@@ -60,10 +60,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2022 20:26:19</publishTime>
     </File>
     <File Include="Areas/Admin/Views/ManageDotTuyenSinhDGNL/AddDotDGNL.cshtml">
-      <publishTime>08/25/2022 20:33:10</publishTime>
+      <publishTime>08/26/2022 20:17:40</publishTime>
     </File>
     <File Include="Areas/Admin/Views/ManageDotTuyenSinhDGNL/EditDotDGNL.cshtml">
-      <publishTime>08/25/2022 20:33:10</publishTime>
+      <publishTime>08/26/2022 20:17:40</publishTime>
     </File>
     <File Include="Areas/Admin/Views/ManageDotTuyenSinhDGNL/Index.cshtml">
       <publishTime>08/25/2022 20:26:19</publishTime>
@@ -105,7 +105,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2022 20:26:19</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Shared/_adminlayout.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:17:39</publishTime>
     </File>
     <File Include="Areas/Admin/Views/web.config">
       <publishTime>08/25/2022 20:26:19</publishTime>
@@ -1740,10 +1740,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2022 20:26:20</publishTime>
     </File>
     <File Include="bin/XettuyenDGNLTHPT.dll">
-      <publishTime>08/25/2022 21:46:50</publishTime>
+      <publishTime>08/26/2022 20:48:32</publishTime>
     </File>
     <File Include="bin/XettuyenDGNLTHPT.pdb">
-      <publishTime>08/25/2022 21:46:50</publishTime>
+      <publishTime>08/26/2022 20:48:32</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>08/25/2022 20:26:19</publishTime>
@@ -1878,13 +1878,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2022 20:26:19</publishTime>
     </File>
     <File Include="Views/Home/Detail.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:39:15</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>08/25/2022 20:33:10</publishTime>
+      <publishTime>08/26/2022 20:34:58</publishTime>
     </File>
     <File Include="Views/Home/Save.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:21:56</publishTime>
     </File>
     <File Include="Views/HoSoDGNLs/Create.cshtml">
       <publishTime>08/25/2022 20:26:19</publishTime>
@@ -1893,16 +1893,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2022 20:26:19</publishTime>
     </File>
     <File Include="Views/HoSoDGNLs/Details.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:22:13</publishTime>
     </File>
     <File Include="Views/HoSoDGNLs/Edit.cshtml">
       <publishTime>08/25/2022 20:26:19</publishTime>
     </File>
     <File Include="Views/HoSoDGNLs/Index.cshtml">
-      <publishTime>08/25/2022 20:33:10</publishTime>
+      <publishTime>08/26/2022 20:22:43</publishTime>
     </File>
     <File Include="Views/HoSoDGNLs/Save.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:23:00</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>08/25/2022 20:26:19</publishTime>
@@ -1923,31 +1923,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2022 20:26:19</publishTime>
     </File>
     <File Include="Views/ManageHoSo/DetailDGNL.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:23:20</publishTime>
     </File>
     <File Include="Views/ManageHoSo/DetailTHPT.cshtml">
-      <publishTime>08/22/2022 02:13:19</publishTime>
+      <publishTime>08/26/2022 20:17:47</publishTime>
     </File>
     <File Include="Views/ManageHoSo/EditDGNL.cshtml">
-      <publishTime>08/25/2022 21:32:02</publishTime>
+      <publishTime>08/26/2022 20:24:19</publishTime>
     </File>
     <File Include="Views/ManageHoSo/EditTHPT.cshtml">
-      <publishTime>08/25/2022 21:23:10</publishTime>
+      <publishTime>08/26/2022 20:25:44</publishTime>
     </File>
     <File Include="Views/ManageHoSo/InHoSo.cshtml">
-      <publishTime>08/22/2022 01:46:19</publishTime>
+      <publishTime>08/26/2022 20:26:16</publishTime>
     </File>
     <File Include="Views/ManageHoSo/PrintDGNL.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:17:47</publishTime>
     </File>
     <File Include="Views/ManageHoSo/PrintTHPT.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:17:47</publishTime>
     </File>
     <File Include="Views/ManageHoSo/SaveDGNL.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:26:25</publishTime>
     </File>
     <File Include="Views/ManageHoSo/SaveTHPT.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:26:34</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>08/25/2022 20:26:19</publishTime>
@@ -1956,19 +1956,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2022 20:26:19</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:26:48</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>08/25/2022 20:26:19</publishTime>
     </File>
     <File Include="Views/tracuuketqua/index.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:27:06</publishTime>
     </File>
     <File Include="Views/tracuuketqua/ketquaDGNL.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:17:47</publishTime>
     </File>
     <File Include="Views/tracuuketqua/ketquaTHPT.cshtml">
-      <publishTime>08/25/2022 20:26:19</publishTime>
+      <publishTime>08/26/2022 20:17:47</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>08/25/2022 20:26:19</publishTime>

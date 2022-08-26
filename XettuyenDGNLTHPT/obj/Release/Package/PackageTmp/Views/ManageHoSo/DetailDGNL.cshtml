@@ -3,8 +3,37 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div style="background-color: #c61d23" class="page-header-menu sss">
+    <div class="container">
+        <div class="hor-menu">
+            <ul class="nav navbar-nav">
+                <li><a target="_blank" class="amenu" href="http://tuyensinh.vanlanguni.edu.vn/">TUYỂN SINH 2022</a></li>
+                @if (Convert.ToBoolean(Session["Form-bodyTHPT"]) == true)
+                {
 
-<form  method="post" action="@Url.Action("DetailDGNL","ManageHoSo")">
+                }
+                else
+                {
+                    <li><a class="amenu" href="@Url.Action("index", "Home")"> XÉT ĐIỂM THI THPT QG</a></li>
+                }
+                @if (Convert.ToBoolean(Session["Form-bodyDGNL"]) == true)
+                {
+
+                }
+                else
+                {
+                    <li><a class="amenu" href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
+                }
+
+
+                <li style="background-color: #4e5966"> <a class="amenu" href="@Url.Action("InHoSo", "ManageHoSo")">HỒ SƠ CỦA TÔI</a></li>
+                <li><a class="amenu" href="@Url.Action("index", "tracuuketqua")">GIẤY BÁO ĐỦ ĐIỀU KIỆN</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<form method="post" action="@Url.Action("DetailDGNL","ManageHoSo")">
     <div class="aspNetHidden">
         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
     </div>
@@ -39,7 +68,7 @@
 
                         </select>
                     </div>
-                    
+
                     <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
                     <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
 
@@ -365,7 +394,7 @@
         <div class="vertical_space"></div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <a href="@Url.Action("PrintDGNL","ManageHoSo" ,Model)   type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning" >
+                <a href="@Url.Action("PrintDGNL","ManageHoSo" ,Model) type=" button" id="btnPrint" name="btnPrint" class="btn btn-warning">
                     PRINT
                 </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" id="btnUploadHocBa" class="btn btn-warning" value="UPLOAD HỌC BẠ" onclick="parent.open('/myupload');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 @if (Convert.ToBoolean(Session["Form-button"]) == true)

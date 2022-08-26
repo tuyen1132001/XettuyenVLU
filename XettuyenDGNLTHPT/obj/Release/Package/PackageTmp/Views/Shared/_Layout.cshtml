@@ -47,6 +47,10 @@
         .vertical_space {
             height: 10px;
         }
+
+        .amenu {
+            color: white;
+        }
     </style>
     <script>
         $(document).ready(Function() {
@@ -83,37 +87,8 @@
             </DIV>
         </DIV><!-- END HEADER TOP -->
         <!-- BEGIN HEADER MENU -->
-        <div class="page-header-menu">
-            <div class="container">
-                <div class="hor-menu">
-                    <ul class="nav navbar-nav">
-                        <li><a target="_blank" href="http://tuyensinh.vanlanguni.edu.vn/">TUYỂN SINH 2022</a></li>
-                        @if (Convert.ToBoolean(Session["Form-bodyTHPT"]) == true)
-                        {
-
-                        }
-                        else
-                        {
-                            <li><a href="@Url.Action("index", "Home")"> XÉT ĐIỂM THI THPT QG</a></li>
-                        }
-                        @if (Convert.ToBoolean(Session["Form-bodyDGNL"]) == true)
-                        {
-
-                        }
-                        else
-                        {
-                            <li><a href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
-                        }
 
 
-                        <li> <a href="@Url.Action("InHoSo", "ManageHoSo")">HỒ SƠ CỦA TÔI</a></li>
-                        <li><a href="@Url.Action("index", "tracuuketqua")">GIẤY BÁO NHẬP HỌC</a></li>
-
-                    </ul>
-                </div>
-                <!-- END MEGA MENU -->
-            </div>
-        </div><!-- END HEADER MENU -->
     </DIV><!-- END HEADER -->
     <!-- BEGIN CONTAINER -->
     @RenderBody();
@@ -173,7 +148,7 @@
                 Layout.init(); // init layout
             });
         </script>*@
-     @*END JAVASCRIPTS*@ 
+    @*END JAVASCRIPTS*@
 
     @RenderSection("scripts", required: false)
 
