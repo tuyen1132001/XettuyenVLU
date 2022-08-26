@@ -586,12 +586,22 @@ namespace XettuyenDGNLTHPT.Controllers
                 dGNL.TenNganh_TenToHop2 = NameNganh2;
                 dGNL.CTDT2 = CTDT2;
             }
+            else
+            {
+                dGNL.MaNganh_ToHop2 = null;
+                dGNL.CTDT2 = null;
+            }
             if (dGNL.MaNganh_ToHop3 != "-1")
             {
                 var dbNganhTohop3 = model.tblNganhs.FirstOrDefault(u => u.MA_NGANH.Equals(dGNL.MaNganh_ToHop3));
                 string NameNganh3 = dbNganhTohop3.TEN_NGANH;
                 dGNL.TenNganh_TenToHop3 = NameNganh3;
                 dGNL.CTDT3 = CTDT3;
+            }
+            else
+            {
+                dGNL.MaNganh_ToHop3 = null;
+                dGNL.CTDT3 = null;
             }
             dGNL.DateEdited = DateTime.Today;
             
