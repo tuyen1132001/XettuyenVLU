@@ -48,33 +48,9 @@
             height: 10px;
         }
 
-     
-        .d-none {
-            display: none
+        .amenu {
+            color: white;
         }
-
-        #myBtn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            color: black;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 4px;
-            transform: rotate(45deg);
-            -webkit-transform: rotate(45deg);
-            -moz-transform: rotate(45deg);
-            background: #5800ff;
-            background: linear-gradient(350deg,#5800ff 0%, #df174d 80%);
-            background: -webkit-linear-gradient(350deg,#5800ff 0%, #df174d 80%);
-            background: -moz-linear-gradient(350deg,#5800ff 0%, #df174d 80%);
-        }
-
     </style>
     <script>
         $(document).ready(Function() {
@@ -111,37 +87,8 @@
             </DIV>
         </DIV><!-- END HEADER TOP -->
         <!-- BEGIN HEADER MENU -->
-        <div class="page-header-menu">
-            <div class="container">
-                <div class="hor-menu">
-                    <ul class="nav navbar-nav">
-                        <li><a target="_blank" href="http://tuyensinh.vanlanguni.edu.vn/">TUYỂN SINH 2022</a></li>
-                        @if (Convert.ToBoolean(Session["Form-bodyTHPT"]) == true)
-                        {
-
-                        }
-                        else
-                        {
-                            <li><a href="@Url.Action("index", "Home")"> XÉT ĐIỂM THI THPT QG</a></li>
-                        }
-                        @if (Convert.ToBoolean(Session["Form-bodyDGNL"]) == true)
-                        {
-
-                        }
-                        else
-                        {
-                            <li><a href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
-                        }
 
 
-                        <li> <a href="@Url.Action("InHoSo", "ManageHoSo")">HỒ SƠ CỦA TÔI</a></li>
-                        <li><a href="@Url.Action("index", "tracuuketqua")">GIẤY BÁO ĐỦ ĐIỀU KIỆN</a></li>
-
-                    </ul>
-                </div>
-                <!-- END MEGA MENU -->
-            </div>
-        </div><!-- END HEADER MENU -->
     </DIV><!-- END HEADER -->
     <!-- BEGIN CONTAINER -->
     @RenderBody();
@@ -201,7 +148,7 @@
                 Layout.init(); // init layout
             });
         </script>*@
-     @*END JAVASCRIPTS*@ 
+    @*END JAVASCRIPTS*@
 
     @RenderSection("scripts", required: false)
 

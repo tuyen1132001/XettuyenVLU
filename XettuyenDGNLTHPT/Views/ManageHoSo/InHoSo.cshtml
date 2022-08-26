@@ -1,22 +1,53 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div style="background-color: #c61d23" class="page-header-menu sss">
+    <div class="container">
+        <div class="hor-menu">
+            <ul class="nav navbar-nav">
+                <li><a target="_blank" class="amenu" href="http://tuyensinh.vanlanguni.edu.vn/">TUYỂN SINH 2022</a></li>
+                @if (Convert.ToBoolean(Session["Form-bodyTHPT"]) == true)
+                {
 
-@using (Html.BeginForm("InHoSo", "ManageHoSo", FormMethod.Post))
-{
-    <form>
+                }
+                else
+                {
+                    <li class="active"><a class="amenu" href="@Url.Action("index", "Home")"> XÉT ĐIỂM THI THPT QG</a></li>
+                }
+                @if (Convert.ToBoolean(Session["Form-bodyDGNL"]) == true)
+                {
 
-        <div class="aspNetHidden">
-            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
+                }
+                else
+                {
+                    <li><a class="amenu" href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
+                }
+
+
+                <li style="background-color: #4e5966"> <a class="amenu" href="@Url.Action("InHoSo", "ManageHoSo")">HỒ SƠ CỦA TÔI</a></li>
+                <li><a class="amenu" href="@Url.Action("index", "tracuuketqua")">GIẤY BÁO ĐỦ ĐIỀU KIỆN</a></li>
+
+            </ul>
         </div>
+    </div>
+</div>
+<div id="UpdatePanel1">
 
-        <div class="aspNetHidden">
+    @using (Html.BeginForm("InHoSo", "ManageHoSo", FormMethod.Post))
+    {
+        <form>
 
-            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9D10CFA7" />
-            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="ACPVZjx4teabP4d658ST999oEjDO/a6aGtJJC4dkGPvG5OFVSemQywijrq2b56pYqVJYVd0aHufGxdAX5A6sri5+zQhUS+fcDiEzX/YxJI9DLd/PJFA+KbvgjgEg2twwreoIkFkqpiWSojykIistPKZvq35Msxitl7ve4ciMan7Ypu+NV5oZWppH1ba6+VNtqh3/oD/z6NDnLM28Db4gWiT9J/dx/Y3KJ2bV8HEKQ8A=" />
-        </div>
-        <div class="page-container">
-            <!-- BEGIN CONTENT -->
+            <div class="aspNetHidden">
+                <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="pc1UmHZMJaISToRTaZ0PDCnlkb0+P0dHHV2FnTCSjsI61w3H3O2oVeD4DqErAGdOYrMfIn8sPU02WwG71lBcpra08zfuOWBIb4pST6pxGWz55FKrDkOwBNA142F6r9KW" />
+            </div>
+
+            <div class="aspNetHidden">
+
+                <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9D10CFA7" />
+                <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="ACPVZjx4teabP4d658ST999oEjDO/a6aGtJJC4dkGPvG5OFVSemQywijrq2b56pYqVJYVd0aHufGxdAX5A6sri5+zQhUS+fcDiEzX/YxJI9DLd/PJFA+KbvgjgEg2twwreoIkFkqpiWSojykIistPKZvq35Msxitl7ve4ciMan7Ypu+NV5oZWppH1ba6+VNtqh3/oD/z6NDnLM28Db4gWiT9J/dx/Y3KJ2bV8HEKQ8A=" />
+            </div>
+            <div class="page-container">
+                <!-- BEGIN CONTENT -->
 
             @if (Convert.ToBoolean(Session["notfound"]) == true)
             {
@@ -40,57 +71,32 @@
                                 <option value="THPT">THPT QG</option>
                                 <option value="DGNL">Đ&#225;nh gi&#225; năng lực</option>
 
-                            </select>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
+                            <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
+
+                            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                            <div class="col-md-2"></div>
                         </div>
 
-                        <div class="col-md-4"><input name="CMND" id="CMND" placeholder="NHẬP CMND/CCCD HOẶC SỐ ĐIỆN THOẠI" type="text" class="form-control" /></div>
-                        <div class="col-md-2"><input type="submit" name="btnTim" value="TÌM HỒ SƠ" class="btn green button-submit" /></div>
 
-
-                        <div class="col-md-2"></div>
                     </div>
 
-
+                    <div class="vertical_space"></div>
+                    <div class="vertical_space"></div>
+                    <div class="vertical_space"></div>
+                    <div class="vertical_space"></div>
+                    <div class="vertical_space"></div>
                 </div>
 
-                <div class="vertical_space"></div>
-                <div class="vertical_space"></div>
-                <div class="vertical_space"></div>
-                <div class="vertical_space"></div>
-                <div class="vertical_space"></div>
             </div>
-            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-        </div>
-    </form>
+        </form>
 
 
-}
-<button onclick="topFunction()" id="myBtn" title="Click vào để quay lại đầu trang nhé !"></button>
-
-
-
-
-<script>
-    //Get the button
-    var mybutton = document.getElementById("myBtn");
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
     }
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-</script>
+</div>
 @section Scripts {
     <script src="~/Scripts/app.js"></script>
 

@@ -3,41 +3,42 @@
     ViewBag.Title = "Save";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<style>
-    .d-none {
-        display: none
-    }
+<div style="background-color: #c61d23" class="page-header-menu sss">
+    <div class="container">
+        <div class="hor-menu">
+            <ul class="nav navbar-nav">
+                <li><a target="_blank" class="amenu" href="http://tuyensinh.vanlanguni.edu.vn/">TUYỂN SINH 2022</a></li>
+                @if (Convert.ToBoolean(Session["Form-bodyTHPT"]) == true)
+                {
 
-    #myBtn {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        right: 30px;
-        z-index: 99;
-        font-size: 18px;
-        border: none;
-        outline: none;
-        color: black;
-        cursor: pointer;
-        padding: 15px;
-        border-radius: 4px;
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        background: #5800ff;
-        background: linear-gradient(350deg,#5800ff 0%, #df174d 80%);
-        background: -webkit-linear-gradient(350deg,#5800ff 0%, #df174d 80%);
-        background: -moz-linear-gradient(350deg,#5800ff 0%, #df174d 80%);
-    }
-</style>
-<div id="UpdatePanel1">
+                }
+                else
+                {
+                    <li style="background-color: #4e5966" class="active"><a class="amenu" href="@Url.Action("index", "Home")"> XÉT ĐIỂM THI THPT QG</a></li>
+                }
+                @if (Convert.ToBoolean(Session["Form-bodyDGNL"]) == true)
+                {
 
-    <DIV class="page-container">
-        <!-- BEGIN CONTENT -->
-        <br><H3><div class='text-center font-red bold'>Chúc mừng! Bạn đã đăng ký xét tuyển thành công.</div></H3><div class='text-center'><h4>Mã hồ sơ của bạn là: <b>DVL_@Model.ID</b><p><br>Nhà Trường đã gửi thông báo đến email (bạn đã đăng ký). Hãy kiểm tra email để nắm thông tin và làm theo hướng dẫn nhé.</h4></div><p>
-            <br><H3><div class='text-center font-blue bold'>Chúc bạn đạt kết quả như ý và gia nhập thế hệ sinh viên của Văn Lang!</div></H3>
+                }
+                else
+                {
+                    <li><a class="amenu" href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
+                }
+
+
+                <li> <a class="amenu" href="@Url.Action("InHoSo", "ManageHoSo")">HỒ SƠ CỦA TÔI</a></li>
+                <li><a class="amenu" href="@Url.Action("index", "tracuuketqua")">GIẤY BÁO ĐỦ ĐIỀU KIỆN</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<DIV class="page-container">
+    <!-- BEGIN CONTENT -->
+    <br><H3><div class='text-center font-red bold'>Chúc mừng! Bạn đã đăng ký xét tuyển thành công.</div></H3><div class='text-center'><h4>Mã hồ sơ của bạn là: <b>DVL_@Model.ID</b><p><br>Nhà Trường đã gửi thông báo đến email (bạn đã đăng ký). Hãy kiểm tra email để nắm thông tin và làm theo hướng dẫn nhé.</h4></div><p>
+        <br><H3><div class='text-center font-blue bold'>Chúc bạn đạt kết quả như ý và gia nhập thế hệ sinh viên của Văn Lang!</div></H3>
             <DIV class="page-content-wrapper">
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
                 <!-- BEGIN CONTENT BODY -->
                 <!-- BEGIN PAGE CONTENT BODY -->
                 <DIV class="page-content">
@@ -49,31 +50,5 @@
                     </DIV>
                 </DIV>
             </DIV>
-    </DIV>
-    <div/>
-    <button onclick="topFunction()" id="myBtn" title="Click vào để quay lại đầu trang nhé !"></button>
+</DIV>
 
-
-
-
-    <script>
-        //Get the button
-        var mybutton = document.getElementById("myBtn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () { scrollFunction() };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>

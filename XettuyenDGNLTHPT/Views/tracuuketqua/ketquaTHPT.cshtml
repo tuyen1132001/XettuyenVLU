@@ -60,7 +60,36 @@
         font-size: 2.0rem;
     }
 </style>
+<div style="background-color: #c61d23" class="page-header-menu sss">
+    <div class="container">
+        <div class="hor-menu">
+            <ul class="nav navbar-nav">
+                <li><a target="_blank" class="amenu" href="http://tuyensinh.vanlanguni.edu.vn/">TUYỂN SINH 2022</a></li>
+                @if (Convert.ToBoolean(Session["Form-bodyTHPT"]) == true)
+                {
 
+                }
+                else
+                {
+                    <li><a class="amenu" href="@Url.Action("index", "Home")"> XÉT ĐIỂM THI THPT QG</a></li>
+                }
+                @if (Convert.ToBoolean(Session["Form-bodyDGNL"]) == true)
+                {
+
+                }
+                else
+                {
+                    <li><a class="amenu" href="@Url.Action("index", "HoSoDGNLs")">XÉT ĐIỂM ĐGNL</a></li>
+                }
+
+
+                <li> <a class="amenu" href="@Url.Action("InHoSo", "ManageHoSo")">HỒ SƠ CỦA TÔI</a></li>
+                <li style="background-color: #4e5966"><a class="amenu" href="@Url.Action("index", "tracuuketqua")">GIẤY BÁO NHẬP HỌC</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
 <DIV class="page-container">
     <!-- BEGIN CONTENT -->
     <DIV class="page-content-wrapper">
