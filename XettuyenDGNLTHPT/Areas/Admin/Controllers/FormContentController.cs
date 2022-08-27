@@ -183,9 +183,18 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             }
             else
             {
+                var dott = model.tblDotTuyenSinhDGNLs.ToList();
+                List<string> CacDot = new List<string>();
+                CacDot.Add("---- Chọn Đợt----");
+                foreach (var dot in dott)
+                {
+                    CacDot.Add("Đợt " + dot.Dot);
+                }
+                ViewBag.Dot = new SelectList(CacDot);
                 ViewBag.ErrorMessage = "Nhập ngày không hợp lệ";
             }
-            ViewBag.Dot = new SelectList(model.tblFormTuyenSinhs,"TenDot");
+            
+
             return View();
         }
         public ActionResult EditformDGNL()
