@@ -116,6 +116,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
         public ActionResult IndexDGNL(tblFormTuyenSinh form, string flexSwitchCheckDefault, string Dot) // form xét tuyển DGNL Quốc gia
         {
             SEP25Team08Entities db = new SEP25Team08Entities();
+            
             var save = db.tblFormTuyenSinhs.Find(1);
             string demo = flexSwitchCheckDefault;
             if (form.NgayBatDau <= form.NgayKetThuc)
@@ -184,6 +185,7 @@ namespace XettuyenDGNLTHPT.Areas.Admin.Controllers
             {
                 ViewBag.ErrorMessage = "Nhập ngày không hợp lệ";
             }
+            ViewBag.Dot = new SelectList(model.tblFormTuyenSinhs,"TenDot");
             return View();
         }
         public ActionResult EditformDGNL()
